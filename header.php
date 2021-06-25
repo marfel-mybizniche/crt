@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- <link rel="icon" type="image/png" href="<?php echo MBN_ASSETS_URI ?>/img/favicon.png"> -->
+    <link rel="stylesheet" href="https://use.typekit.net/arq8hcm.css">
     <!-- <title><?php bloginfo('title') ?></title> -->
 
     <?php wp_head() ?>

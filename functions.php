@@ -80,7 +80,7 @@ function mbn_enqueue_scripts(){
     
 
     // Foundation JS
-    wp_enqueue_script('foundation', MBN_ASSETS_URI.'/vendor/foundation/dist/js/foundation.min.js', [], $wp_version);
+    wp_enqueue_script('foundation', MBN_ASSETS_URI.'/vendor/foundation/js/foundation.min.js', [], $wp_version);
 
     // slick
     wp_enqueue_style('slick', MBN_ASSETS_URI.'/vendor/slick/slick.css', [], $wp_version);
@@ -97,7 +97,12 @@ function mbn_enqueue_scripts(){
     // App
     wp_enqueue_style('app', MBN_ASSETS_URI.'/css/app.css', [], $wp_version);
     wp_enqueue_script('app', MBN_ASSETS_URI.'/js/app.js', [], $wp_version, true);
+
+    // Main
+    wp_enqueue_style('main', MBN_ASSETS_URI.'/css/main.css', [], $wp_version);
     
+    // Blocks
+    wp_enqueue_style('blocks', MBN_ASSETS_URI.'/css/blocks.css', [], $wp_version);
 
     // localize objects
     wp_localize_script('app', 'main_obj', array(
@@ -151,3 +156,8 @@ require MBN_DIR_PATH.'/includes/shortcodes.php';
 require MBN_DIR_PATH.'/includes/public-hooks.php';
 require MBN_DIR_PATH.'/includes/admin-hooks.php';
 
+
+add_filter( 'gform_submit_button', 'form_submit_button', 10, 2 );
+function form_submit_button( $button, $form ) {
+    return "<button class='button gform_button' id='gform_submit_button_{$form['id']}'>Get My Cash Offer</button>";
+}
