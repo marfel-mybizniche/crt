@@ -19,18 +19,18 @@ $color-light: #eff2f5;
 $color-lblue: #00c2d5;
 $color-dblue: #00c2d5;
 
-$body-font-family: 'Roboto', sans-serif;
-$body-font-size: 16px;
+$body-font-family: 'proxima-nova', sans-serif;
+$body-font-size: 18px;
 
-$heading-font-family: 'Roboto', serif; 
+$heading-font-family: 'kepler-std', serif; 
 $button-font-family: $body-font-family;
 
 $font-family-oswald: 'Oswald', sans-serif; 
 
 
 // FOUNDATION VARIABLES 
-$grid-container: 1470px;
-$grid-container-padding: 60px;
+$grid-container: 1490px;
+$grid-container-padding: 0px;
 
 $foundation-palette: (
   primary: $color-primary,
