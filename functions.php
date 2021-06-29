@@ -164,3 +164,8 @@ add_filter( 'gform_submit_button', 'form_submit_button', 10, 2 );
 function form_submit_button( $button, $form ) {
     return "<button class='button gform_button' id='gform_submit_button_{$form['id']}'>{$form['button']['text']}</button>";
 }
+
+function ct_custom_new_menu() {
+    register_nav_menu('secondary',__( 'Secondary Menu' ));
+  }
+  add_action( 'init', 'ct_custom_new_menu' );

@@ -390,10 +390,11 @@
 
 .about_template { 
 
-
-    @include media(min-width,1024px) {
-        display: none;
-    }  
+    .sec_title {
+        @include media(min-width,1024px) {
+            display: none;
+        }  
+    }
 }
 
 .sec_form {

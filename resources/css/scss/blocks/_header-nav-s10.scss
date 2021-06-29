@@ -17,12 +17,23 @@ header {
 			&.is-stuck {
 				background: darken($color-white, 2%);
 				box-shadow: 0 3px 6px 0 rgba($color-black, 0.16);
+				
+				.navbar {
+
+					.logo {
+						display: none;
+					}
+					.logo2 {
+						display: block;
+					}
+				}
+
 			}
 		}
 	}
 	.hsnav-s10 {
-		background: darken($color-white, 2%);
-		box-shadow: 0 3px 6px 0 rgba($color-black, 0.16);
+		background: #000;
+		box-shadow: none;
 		max-width: none !important;
 		
 		&.sticky {
@@ -30,24 +41,214 @@ header {
 			position: fixed;
 			left: 0;
 			right: 0;
-			top: 0;
+			top: 28px !important;
 		}
+		
+			
+		&.is-at-top {
+
+			&:not(.is-stuck){
+				
+				
+				.navmenu {
+
+					.menu {
+
+						> li {
+	
+							&.menu-item {
+								a {									
+									color: lighten($color-white, 0%);	
+								}
+							}
+						}
+					}
+				}
+			}
+			
+			&.is-stuck {
+				
+				.navbar {
+
+					.logo {
+						display: none;
+					}
+					.logo2 {
+						display: block;
+					}
+				}
+				
+				.navmenu {
+
+					.menu {
+
+						> li {
+	
+							&.menu-item {
+								a {									
+									color: lighten($color-black, 0%);	
+								}
+							}
+						}
+					}
+				}
+
+			}
+
+			.navbar {
+
+				.logo {
+					display: block;
+				}
+				
+				.logo2 {
+					display: none;
+				}
+
+				.navmenu {
+
+					.menu {
+
+						> li {
+	
+							&.menu_report {
+	
+								position: relative;
+	
+								a {
+									
+									display: flex;
+									flex-direction: column;
+									align-items: center;
+									justify-content: center;
+									font-size: 10px;	
+									padding-left: 40px;
+									padding-right: 25px;						
+	
+									&::before {
+										content: url('../../resources/img/menu-report2.png'); 
+										width: 21px; 
+										height: 21px; 
+										padding-bottom: 25px;
+									}
+
+									&:after {
+										content:"";
+										background-color: #d0d2d1;
+										width: 1px;
+										height: 80%;
+										position: absolute;
+										right: 0;
+									}
+									
+								}	
+							}
+	
+							&.menu_podcast {
+	
+								position: relative;
+	
+								a {
+									
+									display: flex;
+									flex-direction: column;
+									align-items: center;
+									justify-content: center;
+									font-size: 10px;
+									padding-left: 25px;
+	
+									&::before {
+										content: url('../../resources/img/menu-podcast2.png'); 
+										width: 28px; 
+										height: 18px; 
+										padding-bottom: 25px;
+									}
+								}
+	
+							}
+						}
+	
+					} 
+				
+				}
+			}
+
+		}
+
 		&.is-stuck {
 			position: fixed;
-			background: darken($color-white, 2%);
+			background: darken($color-white, 0%);
 			box-shadow: 0 3px 6px 0 rgba($color-black, 0.16);
+			
+			.navbar {
+
+				.navmenu {
+
+					.menu {
+
+						> li {
+							
+							&.menu_report {
+	
+								position: relative;
+	
+								a {
+									
+									display: flex;
+									flex-direction: column;
+									align-items: center;
+									justify-content: center;
+									font-size: 10px;
+	
+									&::before {
+										content: url('../../resources/img/menu-report.png'); 
+										width: 21px; 
+										height: 21px; 
+										padding-bottom: 25px;
+									}
+								}
+	
+							}
+	
+							&.menu_podcast {
+	
+								position: relative;
+	
+								a {
+									
+									display: flex;
+									flex-direction: column;
+									align-items: center;
+									justify-content: center;
+									font-size: 10px;
+	
+									&::before {
+										content: url('../../resources/img/menu-podcast.png'); 
+										width: 28px; 
+										height: 18px; 
+										padding-bottom: 25px;
+									}
+								}
+	
+							}
+						}
+	
+					} 
+				
+				}
+			}
 		}
 
 		.navbar {
 			position: relative;
 			padding: 0 100px;
-			min-height: 80px;
+			min-height: 120px;
 
 			.navbrand {
 				position: relative;
-				width: 160px;
+				width: 678px;
 				float: left;
-				margin-top: 35px;
+				margin-top: 18px;
 			}
 
 			.navutil {
@@ -139,19 +340,25 @@ header {
 			.navmenu {
 				float: right;
 				margin-top: 15px;
-				width: calc(100% - 180px);
+				width: calc(100% - 678px);
+				
 				a {
-					font-size: 16px;
-					font-weight: bold;
+					font-size: 12px;
+					font-weight: 600;
 					text-transform: uppercase;
-					padding: 20px 25px;
+					padding: 0px 14px;
 					line-height: 1;
-					color: lighten($color-black, 13.5%);
 
 					&:hover {
 						color: $color-primary;
 					}
 				}
+
+				.secondary-menu {
+					display: flex;
+					flex-direction: row;
+					flex-wrap: nowrap;
+					justify-content: flex-end;}
 
 				.is-dropdown-submenu-parent {
 					> a {
@@ -167,6 +374,16 @@ header {
 							right: 20px;
 							margin-top: -6px;
 						}
+					}
+				}
+
+				.menu {
+					li {
+						justify-content: center;
+						flex-direction: row;
+						flex-wrap: nowrap;
+						align-content: center;
+						align-items: center;						
 					}
 				}
 
@@ -311,7 +528,7 @@ header {
 					margin: 0;
 					text-align: center;
 
-					.logo {
+					.logo, .logo2 {
 						display: inline-block;
 						width: 160px;
 
@@ -399,5 +616,12 @@ header {
 			}
 		}
 
+	}
+}
+body{
+	&.admin-bar {
+		#wrapper{
+			margin-top: 145px;
+		}	
 	}
 }

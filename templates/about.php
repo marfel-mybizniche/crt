@@ -17,7 +17,7 @@
                         <p>Fast forward 10 years. Carol had become an established realtor and was joined by her daughter, Vikki Royse Middlebrook, and son-in-law, Eric Middlebrook. She hired a few administrative assistants, and The Carol Royse Team was born!</p>
                         <p>In 2001, Carol’s son, Tim Evans, joined the team, thus making it a true “family business”. The Carol Royse Team thrived and expanded over the years, through great markets, and a Great Recession. Today there are 25 members on The Carol Royse Team, and we’ve helped serve over 7,000 families. Our team’s mission, “To Elevate Others to Prosper”, has been a leading cause to our success.</p>
                         <p>The Carol Royse Team has become one of the top teams across the United States of America. The team currently has 8 family members, all licensed and serving the team in various departments, along with 17 additional agents and admin. Each day, The Carol Royse Team strives to elevate our clients with an exceptional experience. Exceeding their expectations is our team’s daily commitment.</p>
-                        <?= do_shortcode('[video mp4=' . $video_file . ' poster = ' . get_template_directory_uri() . '/images/album_cover.jpg]'); ?>
+                        <?= do_shortcode('[video mp4=' . "https://www.youtube.com/watch?v=eRkvJ71O2yc" . ' poster = "https://img.youtube.com/vi/eRkvJ71O2yc/default.jpg"]'); ?>
                     </div>
                     
                 </div>
