@@ -38,7 +38,7 @@
                                 'menu'         => '',
                                 'container'    => 'ul',
                                 'items_wrap' => '<ul class="menu align-right dropdown" data-dropdown-menu>%3$s</ul>' ,
-                                'menu_class'   => '',
+                                'menu_class'   => 'menu align-right dropdown',
                             ));
                         ?> 
                         <div class="secondary-menu">
@@ -48,7 +48,7 @@
                                     'menu'       => '',
                                     'container'  => 'ul',
                                     'items_wrap' => '<ul class="menu align-right dropdown" data-multi-open="false" data-accordion-menu data-submenu-toggle="true">%3$s</ul>',
-                                    'menu_class'   => '',
+                                    'menu_class'   => 'menu align-right dropdown',
                                 ));
                             ?>                        
 
