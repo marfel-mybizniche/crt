@@ -36,7 +36,7 @@
                             wp_nav_menu( array( 
                                 'theme_location' => 'main-menu',
                                 'menu'         => '',
-                                'container'    => '',
+                                'container'    => 'ul',
                                 'items_wrap' => '<ul class="menu align-right dropdown" data-dropdown-menu>%3$s</ul>' ,
                                 'menu_class'   => '',
                             ));
@@ -46,7 +46,7 @@
                                 wp_nav_menu( array( 
                                     'theme_location' => 'secondary',
                                     'menu'       => '',
-                                    'container'  => '',
+                                    'container'  => 'ul',
                                     'items_wrap' => '<ul class="menu align-right dropdown" data-multi-open="false" data-accordion-menu data-submenu-toggle="true">%3$s</ul>',
                                     'menu_class'   => '',
                                 ));
