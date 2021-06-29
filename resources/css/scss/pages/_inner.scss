@@ -44,6 +44,10 @@
         font-size: 48px;
         color: #161F1E;
     }
+
+    .required {
+        color: $color-warning;
+    }
     
     @include media(max-width, 768px) {
         .col-item {
@@ -182,166 +186,6 @@
 
     }
 
-    .sec_form {
-
-        background: #161F1E;
-        opacity: 0.9;
-        padding: 35px 40px 30px;        
-        font-family: $body-font-family;
-        
-        h4 {
-            font-style: normal;
-            font-weight: bold;
-            font-size: 22px;
-            font-family: $body-font-family;
-            text-align: center;
-            color: #FFFFFF;
-        }
-
-        p.small {
-            font-family: $body-font-family;
-            font-style: normal;
-            font-weight: 400;
-            font-size: 13px;
-            line-height: 1.4;
-            letter-spacing: 0.03em;
-            color: rgba(255, 255, 255, 0.8);
-
-            @include media(max-width,375px) {
-                line-height: 1.4;
-                font-size: 11px;
-            }
-        }
-
-        .gform_button {
-
-            &.button {
-                width: 100% !important;
-                background: rgba(0,0,0,0);
-                font-family: $body-font-family;
-                font-size: 16px;
-                text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
-                font-weight: 800;
-                text-align: center;
-                margin: 0 !important; 
-
-                &:after {
-                    
-                    content: "\f344";
-                    display: inline-block;
-                    color: #fff;
-                    -webkit-font-smoothing: antialiased;
-                    font: normal 14px/1 'dashicons';
-                    z-index: 100; 
-                    margin-left: 10px;
-                }
-                
-            }
-        }
-        
-        .gform_footer {
-            padding: 16px;
-            border-radius:0;
-            border: 2px solid #DB323F;       
-            transition: all 0.3s ease;     
-
-            &:hover {
-                background-color:  #DB323F;
-            }
-            
-        }
-
-        @include media(max-width, 480px) {
-            .gform_footer {
-                padding: 0;
-                
-            }
-        }
-
-        .ct_field {
-
-            padding-right: 0!important;
-            
-            .ginput_container {              
-                           
-                input, select {
-                    color: #858689;                    
-                    margin-top: 12px !important;
-                    margin-bottom: 0px !important;
-                    padding: 15px 20px !important;
-                    background-color: #fff;
-                    font-size: 20px!important;           
-                    font-weight: 400;
-                    font-family: $body-font-family!important;    
-                    line-height: 1.2;
-
-                    &::placeholder{
-                        color: #858689;
-
-                    }
-                    
-                    @include media(max-width, 375px) {
-                        font-size: 14px!important;           
-                    }
-                }
-    
-                &.ginput_complex.ginput_container_address {
-    
-                    .ginput_address_zip {
-                        margin-right: 0 !important;
-                        padding-right: 0 !important;
-                    }
-    
-                    .ginput_left, .ginput_right {
-                        width: 33.33%;
-                        margin-right: 0 ;
-                    }
-                    
-                    @include media(max-width, 480px) {
-                        .ginput_left, .ginput_right {
-                            float: left;
-                            width: 50%;
-                        }
-
-                        .ginput_left {
-                            &.ginput_address_city {
-                                margin-right: 8px;
-                                padding-right: 2px;                                
-                            }
-                        }
-                        
-                        
-                        .ginput_right {
-                            
-                            &.ginput_address_state{
-                                margin-right: -8px;
-                                padding-right: 8px;  
-                            }                         
-                        }
-                    }
-                }    
-            }
-        }
-    }
-
-    &.column_template_{
-
-        @include media(max-width, 1023px){
-            width: 100%;
-            
-            .column_left {
-                order: 2;
-            }
-
-            .column_right {
-                order: 1;
-            }
-        }
-
-    }
-
-    
-
     &.column_template_2{
 
         h5 {
@@ -416,6 +260,7 @@
 
                 @include media(max-width, 1024px){
                     padding-left: 0px !important;
+                    margin-right: 0 !important;
                 }
 
                 @include media(max-width, 375px) {
@@ -447,16 +292,19 @@
         border-radius: 8px;
         border: 1px solid #DB323F;
         color: #161F1E;
-        padding: 15% 11%;
+        padding: 15% 8%;
         text-transform: uppercase;
+        display: block;
         cursor: pointer;
 
         &:hover {
-            background: 1px solid #DB323F;
-            color :#fff;
+            background: #161F1E;
+            color: #DB323F;
         }
 
         .icon_wrapper {
+            margin-bottom: 7px;
+
             img {
                 width: 40px;
                 margin-bottom: 5px;
@@ -468,24 +316,225 @@
         }
 
         .address {
-            font-size: 12px;
+            font-size: 26px;
             font-weight: 700;
             line-height: 13px;
+            line-height: 1.2;
 
+            @include media(max-width,375px){
+                font-size: 12px !important;
+            }
+
+            @include media(max-width,480px){
+                font-size: 16px;
+            }
         }
 
         .phone {
-            font-size: 20px;
+            font-size: 30px;
             font-weight: 600;
-            line-height: 24px;
+            line-height: 1.2;
+            @include media(max-width,375px){
+                font-size: 18px !important;
+            }
 
+            @include media(max-width,480px){
+                font-size: 22px;
+            }
         }
         
     }
 
-    @include media(min-width,1024px) {
-        display: none;
+    .grid-container {
+        .grid-margin-x {
+
+            > .cell {
+                padding-left: 45px !important;                
+
+                @include media(max-width, 1024px){
+                    padding-left: 0px !important;
+                }
+
+                @include media(max-width, 375px) {
+                    margin-right: 0;
+                }
+
+            }
+        }
+
+
     }
 
+    @include media(min-width,1024px) {
+        display: none;
+    }       
 
+    &.column_template_{
+
+        @include media(max-width, 1023px){
+            width: 100%;
+            
+            .column_left {
+                order: 2;
+            }
+
+            .column_right {
+                order: 1;
+            }
+        }
+
+    }   
+
+}
+
+
+.about_template { 
+
+
+    @include media(min-width,1024px) {
+        display: none;
+    }  
+}
+
+.sec_form {
+
+    background: #161F1E;
+    opacity: 0.9;
+    padding: 35px 40px 30px;        
+    font-family: $body-font-family;
+    
+    h4 {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 22px;
+        font-family: $body-font-family;
+        text-align: center;
+        color: #FFFFFF;
+    }
+
+    p.small {
+        font-family: $body-font-family;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 1.4;
+        letter-spacing: 0.03em;
+        color: rgba(255, 255, 255, 0.8);
+
+        @include media(max-width,375px) {
+            line-height: 1.4;
+            font-size: 11px;
+        }
+    }
+
+    .gform_button {
+
+        &.button {
+            width: 100% !important;
+            min-width: 100% !important;
+            background: rgba(0,0,0,0);
+            font-family: $body-font-family;
+            font-size: 16px;
+            text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
+            font-weight: 800;
+            text-align: center;
+            margin: 0 !important; 
+
+            &:after {
+                
+                content: "\f344";
+                display: inline-block;
+                color: #fff;
+                -webkit-font-smoothing: antialiased;
+                font: normal 14px/1 'dashicons';
+                z-index: 100; 
+                margin-left: 10px;
+            }
+            
+        }
+    }
+    
+    .gform_footer {
+        padding: 16px;
+        border-radius:0;
+        border: 2px solid #DB323F;       
+        transition: all 0.3s ease;     
+
+        &:hover {
+            background-color:  #DB323F;
+        }
+        
+    }
+
+    @include media(max-width, 480px) {
+        .gform_footer {
+            padding: 0;
+            
+        }
+    }
+
+    .ct_field {
+
+        padding-right: 0!important;
+        
+        .ginput_container {              
+                       
+            input, select {
+                color: #858689;                    
+                margin-top: 12px !important;
+                margin-bottom: 0px !important;
+                padding: 15px 20px !important;
+                background-color: #fff;
+                font-size: 20px!important;           
+                font-weight: 400;
+                font-family: $body-font-family!important;    
+                line-height: 1.2;
+
+                &::placeholder{
+                    color: #858689;
+
+                }
+                
+                @include media(max-width, 375px) {
+                    font-size: 14px!important;           
+                }
+            }
+
+            &.ginput_complex.ginput_container_address {
+
+                .ginput_address_zip {
+                    margin-right: 0 !important;
+                    padding-right: 0 !important;
+                }
+
+                .ginput_left, .ginput_right {
+                    width: 33.33%;
+                    margin-right: 0 ;
+                }
+                
+                @include media(max-width, 480px) {
+                    .ginput_left, .ginput_right {
+                        float: left;
+                        width: 50%;
+                    }
+
+                    .ginput_left {
+                        &.ginput_address_city {
+                            margin-right: 8px;
+                            padding-right: 2px;                                
+                        }
+                    }
+                    
+                    
+                    .ginput_right {
+                        
+                        &.ginput_address_state{
+                            margin-right: -8px;
+                            padding-right: 8px;  
+                        }                         
+                    }
+                }
+            }    
+        }
+    }
 }

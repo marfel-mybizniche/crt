@@ -18,7 +18,7 @@
                             <p>You don’t have to wait for a buyer to submit an offer. You choose when you want to sale and when you want to close.</p>
                         </div>
                     </div>                
-                    <div class="text_wrap  media-flex">
+                    <div class="text_wrap media_flex">
                         <div class="media_left"><figure class="icon_wrapper"><img src="<?php echo MBN_ASSETS_URI ?>/img/dollar-icon.png" alt=""></figure></div>
                         <div class="media_body">
                             <h3>No Home Prepping For Sale</h3>
@@ -33,7 +33,7 @@
                         </div>
                     </div>
                     <div class="text_wrap">
-                        <p class="small">Some terms and conditions may apply.*</p>
+                        <p class="small">Some terms and conditions may apply.<span class="required">*</span</p>
                     </div>
                 </div>
             </div>

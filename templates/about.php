@@ -1,21 +1,29 @@
 <?php 
-    /* Template Name: Join the Carol Royse Team template */
+    /* Template Name: About template */
     get_header();
 ?>
-<section class="sec_column_item column_template_2">
+<section class="sec_column_item column_template_2 about_template">
     <div class="grid-container">
         <div class="grid-x grid-margin-x cols2-s2 ">
             <div class="cell medium-12 large-6 column_left">
                 <div class="sec_body">
                     <div class="text_header">
                         <div class="sec_title">
-                            <div class="subtitle">Change Your Life Now!</div>
-                            <h2 class="title">The Carol Royse Team would be glad to have you join our team</h2>
-                            <p>You will net $100,000 over the next 12 months or we’ll pay you the difference!*</p>
+                            <div class="subtitle">Learn Why We Love What We Do</div>
+                            <h2 class="title">About The Carol Royse Team</h2>
+                            <p>“There is a higher calling to serving people.”</p>
                         </div>
-                        <p>We are always looking for talented team members to join our growing team! Are you an agent who wants to just focus on the things that you love – YOUR clients? We have a unique system that allows for our agents to focus on buyers and sellers. We provide appointments for our agents, as well as the BEST support team in the industry!</p>
-                        <p>We are a group of people that have come together and share the same core values, always put our clients first, and want to accomplish BIG things together! We are fun, supportive, and hardworking!</p>
+                        <p>In 1985, Carol was a PTA President, a mother of two. Following the death of her husband, she needed a source of income to provide for her family. Her friend suggested she become a realtor, and she enrolled in real estate school. A month later, she was licensed and ready.</p>
+                        <p>Fast forward 10 years. Carol had become an established realtor and was joined by her daughter, Vikki Royse Middlebrook, and son-in-law, Eric Middlebrook. She hired a few administrative assistants, and The Carol Royse Team was born!</p>
+                        <p>In 2001, Carol’s son, Tim Evans, joined the team, thus making it a true “family business”. The Carol Royse Team thrived and expanded over the years, through great markets, and a Great Recession. Today there are 25 members on The Carol Royse Team, and we’ve helped serve over 7,000 families. Our team’s mission, “To Elevate Others to Prosper”, has been a leading cause to our success.</p>
+                        <p>The Carol Royse Team has become one of the top teams across the United States of America. The team currently has 8 family members, all licensed and serving the team in various departments, along with 17 additional agents and admin. Each day, The Carol Royse Team strives to elevate our clients with an exceptional experience. Exceeding their expectations is our team’s daily commitment.</p>
+                        <?= do_shortcode('[video mp4=' . $video_file . ' poster = ' . get_template_directory_uri() . '/images/album_cover.jpg]'); ?>
                     </div>
+                    
+                </div>
+            </div>
+            <div class="cell medium-12 large-6 col-item column_right">
+                <div class="sec_body">
                     <div class="text_wrap media_flex">
                         <div class="media_body">
                             <figure class="icon_wrapper"><img src="<?php echo MBN_ASSETS_URI ?>/img/bullseye.png" alt=""></figure>
@@ -35,13 +43,6 @@
                             </ul>
                         </div>
                     </div>  
-                </div>
-            </div>
-            <div class="cell medium-12 large-6 col-item column_right">
-                <div class="sec_form">
-                    <h4>Fill the form below and we will contact you.</h4>
-                    <?= do_shortcode('[gravityform id="2" title="false" description="false" ajax="false"]'); ?>
-                    <p class="small">Carol Royse Team is committed to protecting and respecting your privacy. By clicking Schedule a Call Now, you agree that we may store and process the personal information submitted above.</p>
                 </div>
             </div>
         </div>
