@@ -167,5 +167,9 @@ function form_submit_button( $button, $form ) {
 
 function ct_custom_new_menu() {
     register_nav_menu('secondary',__( 'Secondary Menu' ));
+    register_nav_menu('footer-menu',__( 'Footer Menu' ));
+    register_nav_menu('sell-menu',__( 'Sell Your Home Menu' ));
+    register_nav_menu('buy-menu',__( 'Buy A Home Menu' ));
+    register_nav_menu('additional-menu',__( 'Additional Links' ));
   }
   add_action( 'init', 'ct_custom_new_menu' );

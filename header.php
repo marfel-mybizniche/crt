@@ -29,7 +29,6 @@
 
                         <span class="navsearch hide-for-large" data-toggle="search">search</span>  
                     </div>
-
                     <nav class="navmenu show-for-large">
                         
                         <?php
@@ -52,8 +51,7 @@
                                 ));
                             ?>                        
 
-                            <div class="navutil">
-                                
+                            <div class="navutil">                                
                                 <div class="toll-free">
                                     <span>Call Carol Today</span> 
                                     <a href="tel:4807765231">
@@ -74,9 +72,56 @@
                             ));
                         ?> 
                     </nav>
-
+                </div>      
             </div>   
-        </div>    
-        
+        </div>  
     </header>
+    <div id="banner" class="banner">
+        <div class="hero_wrap">
+           <div class="grid-container">
+                <div class="banner_columns">
+                    <div class="banner_col banner_col_1">
+                        <h3 class="banner_subtitle">CAROL HAS THE BUYERS!</h3>
+                        <h1 class="banner_title">Your Home Sold Guaranteed or Carol Will Buy It</h1>
+                        <p class="banner_text">Fill out the form below to get your home price now.</p>                              
+                        <div class="banner_form_wrap">                         
+                            <?= do_shortcode('[gravityform id="3" title="false" description="false" ajax="false"]'); ?>
+                        </div>         
+                    
+                        <div class="divider_double_line"></div>
+                        <div class="banner_checklist">
+                            <div class="text_wrap media_flex">
+                                <div class="media_left"><figure class="icon_wrapper"><img src="<?php echo MBN_ASSETS_URI ?>/img/check-icon.png" alt=""></figure></div>
+                                <div class="media_body">
+                                    <h3>Your Home Sold Guaranteed or Carol Will Buy It*</h3>
+                                </div>
+                            </div>
+                            <div class="text_wrap media_flex">
+                                <div class="media_left"><figure class="icon_wrapper"><img src="<?php echo MBN_ASSETS_URI ?>/img/check-icon.png" alt=""></figure></div>
+                                <div class="media_body">
+                                    <h3>100% of your asking Price Guaranteed</h3>
+                                </div>
+                            </div>     
+                            <div class="text_wrap media_flex">
+                                <div class="media_left"><figure class="icon_wrapper"><img src="<?php echo MBN_ASSETS_URI ?>/img/check-icon.png" alt=""></figure></div>
+                                <div class="media_body">
+                                    <h3>Client Satisfaction Guaranteed</h3>
+                                </div>
+                            </div>
+                            <div class="text_wrap media_flex">
+                                <div class="media_left"><figure class="icon_wrapper"><img src="<?php echo MBN_ASSETS_URI ?>/img/check-icon.png" alt=""></figure></div>
+                                <div class="media_body">
+                                    <h3>Moving Truck for Free</h3>
+                                </div>
+                            </div>
+                        </div>               
+                    </div>
+                    <div class="banner_col banner_col_2">
+                        <figure class="icon_wrapper"><img src="<?php echo MBN_ASSETS_URI ?>/img/img_vikki-carol-tim.png" alt=""></figure>
+                            
+                    </div>
+                </div>
+           </div>
+        </div>
+    </div>
     <main id="content" class="content"> 
