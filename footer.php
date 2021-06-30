@@ -22,7 +22,7 @@
                 <div class="footer_4_cols footer_col_1">                        
                     <?php
                         wp_nav_menu( array( 
-                            'theme_location' => 'footer-menu',
+                            'theme_location' => 'main-menu',
                             'menu'         => '',
                             'container'    => 'ul',
                             'items_wrap' => '<ul class="footer_menu">%3$s</ul>' ,
