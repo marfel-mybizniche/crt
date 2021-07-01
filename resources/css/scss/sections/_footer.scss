@@ -25,6 +25,7 @@
     .foottop {
         padding-top: 60px;
         margin-bottom: 60px;
+        padding-left: 30px;
         border-bottom: 1px solid lighten($color-black, 19.6%);
         display: flex;
 
@@ -43,6 +44,10 @@
                 margin:0 0 40px 30px;
                 font-weight: 400;
                 max-width: 390px;
+            }
+
+            .logo_mobile {
+                display: none;
             }
         }
 
@@ -155,16 +160,18 @@
         }
     }
 
-    .footer_wrap {
-        display: flex;
+    .footer_wrap {        
         margin-bottom: 80px;
+        text-align: left;
 
         .footer_4_cols {
             width: 25%;
             padding-left: 50px;
         }
 
-        .footer_menu {
+        ul.footer_menu {
+
+            margin-left: 0;
 
             li {
                 list-style: none;
@@ -207,6 +214,12 @@
                 }
             }
         }
+        @include media(max-width, 480px) { 
+            text-align: left;
+        }
+        @include media(max-width, 375px) { 
+            padding: 0 30px;
+        }
     }
 
     .footer_bottom {
@@ -231,17 +244,118 @@
             padding-right: 5px;
         }
 
+        &_top,
+        &_left,
+        &_right {
+            display: flex;
+        }
+
+        &_top {
+
+            justify-content: space-between;
+            align-content: center;
+            align-items: center;
+            flex-wrap: nowrap;
+            margin: 10px 20px;
+
+            a {
+                color: lighten($color-black, 52.8%);
+
+            }
+            @include media (max-width, 375px){
+
+                margin: 10px 30px;
+
+                a{ 
+                    font-size: 12px;
+                }
+            }
+        }
+
+        &_left{
+            margin-right: 50px;
+            @include media (max-width, 375px){
+                font-size: 11px;
+            }
+        }
+
+        &_right a{
+            margin-left: 50px;
+            color: lighten($color-black, 52.8%);
+            @include media (max-width, 375px){
+                font-size: 12px;
+            }
+        }
+
+        @include media (max-width, 375px){
+            padding: 10px 0;
+            margin: 0 30px;
+        }
+        
     }
 
-	@include media(max-width, 767px) {   
+	@include media(max-width, 1023px) { 
+
+        .foottop {
+            border-bottom: 0 !important;
+        }
+
+
+        .foot_contact {
+            display: none !important;
+        }  
         
-    }   
+        .foottop {
+            
+            justify-content: center;
+            align-content: flex-end;
+            padding-left:0 !important;
+        }
+        .foot_logo {
+            
+            a{
+
+                &.logo_mobile {
+                    display: block !important;
+                }
     
-	@include media(max-width, 767px) {   
-        text-align: center;
+                &.logo {
+                    display: none !important;
+                }
+            }
+
+
+        }
+    }   
+
+    .footer_mobile {
+        display: none;
+
+        @include media(max-width, 768px) {   
+            display: block;
+        }
+    }
+
+    .footer_desktop {
+        
+        @include media(max-width, 768px) {   
+            display: none;
+        }
+    }
+    
+	@include media(max-width, 768px) {  
+
+        .footer_bottom_right {
+            display: none;
+        }
+
+        .footer_bottom_left {
+            margin-right: 0;
+        }
 
         .foottop {
             padding-bottom: 0;
+            margin-bottom: 0;
         }
 
         .foot_logo {

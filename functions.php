@@ -99,6 +99,7 @@ function mbn_enqueue_scripts(){
     wp_enqueue_script('app', MBN_ASSETS_URI.'/js/app.js', [], $wp_version, true);
 
     // Main
+    wp_enqueue_script('main', MBN_ASSETS_URI.'/js/main.js', [], $wp_version, true);
     wp_enqueue_style('main', MBN_ASSETS_URI.'/css/main.css', [], $wp_version);
     
     // Blocks
@@ -171,5 +172,6 @@ function ct_custom_new_menu() {
     register_nav_menu('sell-menu',__( 'Sell Your Home Menu' ));
     register_nav_menu('buy-menu',__( 'Buy A Home Menu' ));
     register_nav_menu('additional-menu',__( 'Additional Links' ));
+    register_nav_menu('footer-mobile-menu',__( 'Footer Mobile Menu' ));
   }
   add_action( 'init', 'ct_custom_new_menu' );

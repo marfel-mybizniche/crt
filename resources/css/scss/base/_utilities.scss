@@ -21,7 +21,27 @@
     font-weight: 700;
 }
 
+//margin-0
+.ct_margin_both_0 {
+	margin: 0;
+}
 
+//padding-0
+.ct_padding_both_0 {
+	padding: 0;
+}
+
+.ct_twoline_text {
+	line-height: 1;
+
+	&:not(:last-child){
+		margin-bottom: 0;
+	}
+
+	&:last-child {
+		margin-bottom: 15px;
+	}
+}
 
 //Custom foundation 
 @include media(min-width, 1600px) {

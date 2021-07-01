@@ -118,6 +118,12 @@ p{
     &.small {
         font-size: 14px;
     }
+    &.tiny{
+        line-height: 1.2 !important;
+        text-transform: uppercase;
+        font-size: 8px !important;
+        letter-spacing: 1px;
+    }
 
     @include media(max-width, 767px) {   
         &.large {

@@ -35,6 +35,10 @@ header {
 	.hsnav-s10 {
 		box-shadow: none;
 		max-width: none !important;
+
+		.logo_mobile_wrap {
+			display: none;
+		}
 		
 		&.sticky {
 			position: absolute;
@@ -46,7 +50,7 @@ header {
 			
 		&.is-at-top {
 
-			&:not(.is-stuck){				
+			&.is-anchored {				
 				
 				background: transparent;
 
@@ -62,6 +66,18 @@ header {
 								}
 							}
 						}
+					}								
+
+				}
+
+				
+				@include media(max-width, 1023px) {
+
+					.logo_mobile_1 {
+						display: block;
+					}
+					.logo_mobile_2 {
+						display: none;
 					}
 				}
 			}
@@ -76,6 +92,27 @@ header {
 					}
 					.logo2 {
 						display: block;
+					}
+
+					.navicon {
+						span {
+							color: $color-dark;  
+						}
+						
+						&::before,					
+						&::after {						
+							border-top: 2px solid #DB323F;  
+						}
+					}
+	
+					
+					.navphone {
+						span {
+							color: $color-dark;  
+						}
+						&::before {						
+							content: url(../img/icn-phone.svg);
+						}					
 					}
 				}
 				
@@ -112,6 +149,16 @@ header {
 								}
 							}
 						}
+					}	
+				}				
+				
+				@include media(max-width, 1023px) {
+
+					.logo_mobile_1 {
+						display: none;
+					}
+					.logo_mobile_2 {
+						display: block;
 					}
 				}
 
@@ -237,11 +284,16 @@ header {
 				width: 678px;
 				float: left;
 				margin-top: 18px;
+
+				@include media(max-width, 1440px){
+					width: 40%;
+				}
 			}
 
 			.navutil {
 				float: right;
 			}
+
 			.navutil > * {
 				margin-left: 18px;
 				display: inline-block;
@@ -312,6 +364,17 @@ header {
 					.icn-phone:before {
 						background-size: auto 27px;
 					}
+
+						
+					@include media(min-width,1023px){
+						font-size: 30px !important;
+					}
+				}
+				@include media(max-width,1280px){
+					flex-direction: column;
+					span {
+						width: auto;
+					}
 				}
 			}
 
@@ -348,6 +411,10 @@ header {
 					&:hover {
 						color: darken($color-primary, 0.16);
 					}
+
+					@include media (max-width,1280px) {
+						padding: 0px 10px;
+					}
 				}
 
 				.secondary-menu {
@@ -356,6 +423,20 @@ header {
 					flex-wrap: nowrap;
 					justify-content: flex-end;
 					margin-top: 12px;	
+
+					@include media(max-width,1359px){
+						.menu {
+							flex-wrap: nowrap;
+						}
+					}
+
+					
+					@include media (max-width, 1440px){
+						li{ 
+							margin-left: 20px !important;
+						}
+					}
+
 				}
 
 				.is-dropdown-submenu-parent {
@@ -404,7 +485,8 @@ header {
 								text-align: center;
 
 								&:hover {
-									background: darken($color-primary, 0.16);
+									background: #8b0d17;
+									color: $color-white !important;
 								}
 							}
 						}						
@@ -437,6 +519,28 @@ header {
 								padding-left: 25px;		
 								padding-right: 20px;
 							}
+							
+							@include media (max-width, 1280px){
+								a {								
+									padding-left: 10px;		
+									padding-right: 10px;
+									&:after {
+										display: none;
+									}
+								}
+							}
+						}
+
+						@include media (max-width, 1440px){
+							
+							margin-left: 0px;
+								
+							&.menu_report {
+								a {								
+									padding-left: 25px;		
+									padding-right: 20px;
+								}
+							}
 						}
 					}
 				}
@@ -458,6 +562,11 @@ header {
 						font-weight: bold;
 					}
 				}
+
+				@include media (max-width, 1440px) {
+					
+					width: calc(100% - 40%);
+				}
 			}
 			
 			.navicon {
@@ -468,27 +577,55 @@ header {
 				top: 14px; 
 				font-size: 0; 
 				cursor: pointer; 
-				display: block;
+
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				justify-content: flex-end;
+				align-content: flex-start;
 
 				&:before {
 					content: ""; 
 					position: absolute; 
-					border-top: 3px solid $color-primary; 
-					border-bottom: 3px solid $color-primary; 
+					border-top: 2px solid $color-white; 
 					left: 14px; 
 					top: 16px; 
-					width: 22px; 
+					width: 24px; 
 					height: 19px; 
 					transition: all 0.5s ease;
+					
+					@include media(max-width, 480px){
+						width: 20px; 
+					}
 				}
+
 				&:after {
 					content: ""; 
 					position: absolute; 
-					border-top: 3px solid $color-primary; 
+					border-top: 2px solid $color-white; 
 					left: 14px; 
 					top: 24px; 
-					width: 22px; 
+					width: 20px; 
 					transition: all 0.5s ease;
+					
+					@include media(max-width, 480px){
+						width: 15px; 
+					}
+					
+				}
+				
+				span {
+					position: absolute; 
+					left: 14px; 
+					top: 36px; 
+					font-size: 14px;
+					text-transform: uppercase;
+					color: $color-white;
+
+					@include media(max-width, 1023px){
+						font-size: 10px;
+					}
+
 				}
 				@at-root header.show-menu .hsnav-s10 .navicon {
 					&:before {
@@ -521,7 +658,40 @@ header {
 				cursor: pointer;
 			}
 
-			@include media(max-width, 1440px) {
+			
+
+			.navphone{
+					
+				position: absolute;
+				right: 15px;
+				top: 15px;
+				width: 50px;
+				height: 50px;
+				border:0;
+				font-size: 12px;
+				cursor: pointer;
+				color: $color-white;				
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: flex-end;
+
+				&::before {
+					content: url(../img/icn-phone-light.svg);
+					position: absolute;
+					top: 5px;
+				}
+
+				span {
+					font-size: 10px;
+					text-transform: uppercase;
+				}
+
+
+			}
+
+
+			@include media(max-width, 1600px) {
 				padding: 0 30px;
 			}
 
@@ -538,6 +708,8 @@ header {
 			@include media(max-width, 1023px) {
 
 				padding:0;
+
+				min-height: 100%;
 
 				.navutil {
 					width: 100%;
@@ -583,18 +755,30 @@ header {
 				
 				.navbrand {
 					width: 100%;
-					padding:10px 30px;
+					padding: 20px 30px;
 					margin: 0;
 					text-align: center;
 
 					.logo, .logo2 {
-						display: inline-block;
-						width: 160px;
+						display: none;
 
 						img {
 							max-height: 60px;
 						}
 					}
+					
+					.logo_desktop {
+						display: none;
+					}
+
+					.logo_mobile_wrap {
+						display: inline-block;
+
+						img {
+							max-height: 60px;
+						}
+					}
+
 				}
 
 				.mobmenu {
@@ -684,6 +868,14 @@ body{
 			.hsnav-s10 {
 				
 				top: 28px !important;
+
+				@include media(max-width, 782px){
+					top: 46px !important;
+				}
+
+				&.is-stuck{
+					top: 0px!important;
+				}
 			}
 		}	
 	}

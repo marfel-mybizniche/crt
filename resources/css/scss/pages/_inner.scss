@@ -339,6 +339,7 @@
         .grid-margin-x {
 
             > .cell {
+                position: relative;
                 padding-left: 45px !important;                
 
                 @include media(max-width, 1024px){
@@ -521,6 +522,11 @@
     
     .media_body {
         width: auto;
+        
+        h3 {
+            font-size: 13px !important; 
+            font-weight: 300 !important;
+        }
     }
 }
 
