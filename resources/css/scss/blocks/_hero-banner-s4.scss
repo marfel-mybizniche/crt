@@ -162,7 +162,7 @@
 
 
 	.hero-caption {
-		padding-top: 150px;
+		padding-top: 300px;
 		padding-bottom: 35px;
 		position: relative;
 		color:$color-white;
@@ -283,7 +283,6 @@
 
 		.hero-caption {
 			height: auto;
-			padding-top: 500px;
     		padding-bottom: 0;
 		}
 	}
@@ -475,9 +474,18 @@
 	}
 
 	
+	@include media (max-width, 1023px){
+		
+		width: 60%;		
+		&:before {
+			width: 100%;
+		}
+	}
+	
 	@include media (max-width, 480px){
 		
 		text-align: center;
+		width: 100%;
 
 		&:before{
 			font-size: 18px;

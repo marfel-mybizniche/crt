@@ -9,7 +9,7 @@
         <figure class="bg"><img src="<?php echo MBN_ASSETS_URI ?>/img/carol-got-the-offer.jpg" alt=""></figure>
         <div class="grid-container"> 
             <div class="grid-x hero-caption">
-                <div class="cell large-6 medium-4 xlarge-4 hero-caption">
+                <div class="cell large-6 medium-4 xlarge-4">
                     <h3 class="banner_subtitle">Carol Has The Cash Offer!</h3>
                     <div class="banner_subtitle_body"><h1>Get a cash offer on your home!</h1></div>
                 </div>                
