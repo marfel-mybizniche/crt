@@ -72,12 +72,15 @@ header {
 
 				
 				@include media(max-width, 1023px) {
+					
+					.logo_mobile_wrap {
 
-					.logo_mobile_1 {
-						display: block;
-					}
-					.logo_mobile_2 {
-						display: none;
+						.logo_mobile_1 {
+							display: block;
+						}
+						.logo_mobile_2 {
+							display: none;
+						}
 					}
 				}
 			}
@@ -152,14 +155,18 @@ header {
 					}	
 				}				
 				
-				@include media(max-width, 1023px) {
+				@include media(max-width, 1023px) {					
+					
+					.logo_mobile_wrap {
 
-					.logo_mobile_1 {
-						display: none;
+						.logo_mobile_1 {
+							display: none;
+						}
+						.logo_mobile_2 {
+							display: block;
+						}
 					}
-					.logo_mobile_2 {
-						display: block;
-					}
+
 				}
 
 			}
@@ -783,14 +790,15 @@ header {
 
 				.mobmenu {
 					position: fixed;
-					top: -100vh;
-					height: calc(100vh - 120px);
+					top: 78px;
+					height: calc(100vh - 78px);
 					left: 0;
 					right: 0;
 					background: $color-primary;
 					transition:all 0.5s ease;
 					overflow: auto;
 					background: $color-white;
+					width: 0;
 
 					ul {
 						display: block;
@@ -852,7 +860,7 @@ header {
 					
 					@at-root header.show-menu .hsnav-s10 .mobmenu {
 						display: block;
-						top:120px;
+						width: 100%;
 					}
 
 				}
@@ -878,5 +886,85 @@ body{
 				}
 			}
 		}	
+	}
+
+	&:not(.home){
+
+		@include media (max-width, 1023px){
+			
+			background: $color-white;
+			
+			.navbar {
+
+				.navicon {
+
+					span {
+						color: $color-dark;  
+					}
+					
+					&::before,					
+					&::after {						
+						border-top: 2px solid #DB323F;  
+					}
+				}
+
+				
+				.navphone {
+					span {
+						color: $color-dark;  
+					}
+					&::before {						
+						content: url(../img/icn-phone.svg);
+					}					
+				}
+			}
+			
+			.navmenu {
+
+				.menu {
+
+					> li {
+
+						&.menu-item {
+							a {									
+								color: $color-dark;	
+							}
+						}
+
+						&.menu_button {
+							a {									
+								color: $color-white;	
+							}
+						}
+					}
+				}
+
+				.navutil {
+					.toll-free {
+
+						span, a {								
+							color: $color-dark;
+						}
+						a{							
+					
+							&:hover { 
+								color: darken($color-primary, 0.16);
+							}
+						}
+					}
+				}	
+			}				
+			
+			.logo_mobile_wrap {
+
+				.logo_mobile_1 {
+					display: none!important;
+				}
+				.logo_mobile_2 {
+					display: block !important;
+				}
+			}
+
+		}
 	}
 }

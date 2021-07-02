@@ -135,13 +135,31 @@
 			}
 
 		}
-		
+
 		@include media (max-width,1600px){			
 			padding: 0 30px;
+		}	
+
+	
+	}
+
+	@include media(max-width,1023px){
+
+		&.hero_for_pages {
+	
+			margin-top: 0;
+			
+			.hero-block_mobile {
+	
+				.hero-block {
+					padding: 0;
+				}
+	
+			}
 		}
-		
 
 	}
+
 
 	.hero-caption {
 		padding-top: 150px;
@@ -307,12 +325,26 @@
 	@include media(max-width, 782px){
 		
 		margin-top: -120px;
+
+		&.hero_for_pages{
+			margin-top: 0;
+		}
 	}
 
 	@include media(min-width, 782px){
 		
 		margin-top: -180px;
+
 	}
+	
+
+	.sec_body {
+		display: flex;
+		flex-direction: column;
+		align-content: center;
+		justify-content: center;
+	}
+	
 
 }
 
@@ -392,20 +424,20 @@
 }
 
 .banner_subtitle {
-	width: 370px;
+	width: 80%;
 	font-family: "proxima-nova";
-	font-size: 24px;
+	font-size: 0;
 	font-style: normal;
-	font-weight: 700;
-	line-height: 29px;
-	letter-spacing: 0em;
 	color: $color-white;
 	position: relative;
-    padding: 12px 34px;
+    padding: 26px 34px;
     z-index: 1;
+	text-transform: uppercase;
 
 	&:before {
-		content: "";
+		content: attr(data-subtitle);
+		font-family: "proxima-nova";
+		font-size: 24px;
 		background-color:rgba(26, 23, 78, 0.8);
 		width:100%;
 		height: 100%;
@@ -413,7 +445,14 @@
 		top: 0;
 		left: 0;
 		z-index: -1;
-
+		font-weight: 700;
+		line-height: 29px;
+		
+		display: flex;
+		align-content: center;
+		justify-content: center;
+		flex-direction: column;
+		align-items: center;
 	}
 	&:after {
 		content: url('../../resources/img/polygon-img.png');
@@ -435,16 +474,29 @@
 		}
 	}
 
+	@include media (max-width,1023px){
+		
+		width: 60%;
+		
+	}
+	
 	@include media (max-width, 480px){
 		
 		text-align: center;
 		width: 100%;
+
+		&:before{
+			font-size: 18px;
+		}
+		
 	}
 
 	@include media (max-width, 375px){
-		
-		font-size: 16px;
-		padding: 3px;
+		padding: 16px 34px;
+
+		&:before{
+			font-size: 16px;
+		}
 		
 		&:after {
 			content: url('../../resources/img/polygon-small.png');

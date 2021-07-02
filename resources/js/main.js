@@ -23,7 +23,11 @@
 
             }
         });
-
+        
+        $('.banner_subtitle').each(function(i,val){
+            $(this).attr('data-subtitle' , $(this).text());  
+        })
+        
 
     });
 

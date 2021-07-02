@@ -111,13 +111,14 @@
             margin-left: 10px;
 
             h3{                    
-                font-size: 32px;
-                font-weight: 400;
+                font-size: 32px !important;
+                font-weight: 400 !important;
+                font-family: $heading-font-family;
                 
 
                 @include media(max-width, 375px) { 
-                    font-size: 16px;
-                    line-height: 1.5;
+                    font-size: 16px !important;
+                    line-height: 1.5 !important;
                 }
             }
                         
@@ -198,18 +199,25 @@
                 .media_body {
 
                     h3 {
+                        font-size: 32px !important;
                         margin-bottom: 18px;
+                        font-family: $heading-font-family;
 
                         @include media(max-width, 375px){
-                            font-size: 24px;
-                            line-height: 1.5;
+                            font-size: 24px !important;
+                            line-height: 1.5 !important;
                         }
                     }
 
                     .icon_wrapper {
                         width: 65px;
                         margin-bottom: 20px;
-
+                        border: 0;
+                        
+                        img {                            
+                            width: 65px;
+                            margin: 0;
+                        }
                     }
                 }
                     
@@ -262,6 +270,28 @@
 
 
     }
+
+    @include media(max-width, 1023px){
+        padding: 0 20px 0px;
+         
+    }
+          
+
+    &.column_template_1{
+
+        @include media(max-width, 1023px){
+            width: 100%;
+            
+            .column_left {
+                order: 2;
+            }
+
+            .column_right {
+                order: 1;
+            }
+        }
+
+    }   
 
 }
     
@@ -358,23 +388,7 @@
 
     @include media(min-width,1024px) {
         display: none;
-    }       
-
-    &.column_template_{
-
-        @include media(max-width, 1023px){
-            width: 100%;
-            
-            .column_left {
-                order: 2;
-            }
-
-            .column_right {
-                order: 1;
-            }
-        }
-
-    }   
+    } 
 
 }
 

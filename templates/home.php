@@ -11,12 +11,13 @@
                 <div class="grid-x hero-caption">
                     <div class="cell large-7 hero-caption">
                         <h3 class="banner_subtitle">CAROL HAS THE BUYERS!</h3>
-                        <h1>Your Home Sold Guaranteed or Carol Will Buy It</h1>
-                        <p>Fill out the form below to get your home price now.</p>                              
-                        <div class="banner_form_wrap">                         
-                            <?= do_shortcode('[gravityform id="3" title="false" description="false" ajax="false"]'); ?>
-                        </div>         
-                    
+                        <div class="banner_subtitle_body">
+                            <h1>Your Home Sold Guaranteed or Carol Will Buy It</h1>
+                            <p>Fill out the form below to get your home price now.</p>                              
+                            <div class="banner_form_wrap">                         
+                                <?= do_shortcode('[gravityform id="3" title="false" description="false" ajax="false"]'); ?>
+                            </div>         
+                        </div>
                         <div class="divider_double_line"></div>  
                                               
                         <div class="banner_checklist">
