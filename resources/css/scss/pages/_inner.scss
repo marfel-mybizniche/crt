@@ -4,10 +4,6 @@
 
 /** sell your home template **/
 
-.content{
-    padding: 60px 0;
-}
-
 .sec_column_item {
     padding: 0 20px 90px;
 
@@ -190,6 +186,8 @@
 
     &.column_template_2{
 
+        padding-top: 60px;
+        
         h5 {
             font-size: 20px;
         }
