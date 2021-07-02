@@ -47,7 +47,11 @@
 
 			.small {
 				font-size:14px;
-				color: #777777;
+				color: rgba(255,255,255,0.8);
+			}
+
+			.text-quote {
+				color: #999;
 			}
 
 			.text-italic {
@@ -56,8 +60,10 @@
 
 			@include media(max-width,1023px){
 					
-				.small {
+				.small,
+				.text-quote {
 					font-size:18px;
+					color: #777777;
 				}
 				.text-italic {
 					font-style: normal;
@@ -533,8 +539,7 @@
 	height: 100%;
 }
 
-.banner_title {
-	
+.banner_title {	
 	font-family: $heading-font-family;
 	font-size: 60px;
 	font-weight: 600;
@@ -544,7 +549,6 @@
 	@include media (max-width, 1023px){
 		font-size: 24px;
 	}
-
 }
 
 .banner_columns {
