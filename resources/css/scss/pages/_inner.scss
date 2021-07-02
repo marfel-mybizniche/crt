@@ -244,9 +244,76 @@
 
             @include media(max-width,1023px){
                 padding: 30px;
-            }           
-            
+            }  
+        }
+        .hero-block_desktop {            
 
+            .text_header{        
+                padding-bottom: 40px;
+
+                .sec_title {
+                    
+                    h2.title {
+                        text-align: left;
+                        font-size: 24px;
+                        line-height: 32px;
+                        margin-bottom: 30px;                        
+
+                        @include media(min-width, 376px ){
+                            font-size: 30px;
+                        }
+
+                    }
+
+                    .subtitle {
+                        font-size: 12px;
+                        font-weight: 600;
+                        line-height: 14px;
+                        letter-spacing: 0.3em;
+                        text-align: left;     
+                        text-transform: uppercase;   
+                        color: #777777;
+                        margin-bottom: 5px;
+                        
+                        @include media(min-width, 376px){
+                            font-size: 14px;
+                        }
+
+                    }
+
+                    @include media(min-width, 1024px){
+                        display: none;
+                    }
+                    
+                }          
+
+                @include media(max-width, 768px) {
+                    padding-bottom: 20px;
+                }
+            }
+
+            .text_wrap{
+
+                margin-top:10px;
+                margin-bottom: 20px;
+                margin-left: 10px;
+
+                h3{                    
+                    font-size: 32px !important;
+                    font-weight: 400 !important;
+                    font-family: $heading-font-family;
+                    
+
+                    @include media(max-width, 375px) { 
+                        font-size: 16px !important;
+                        line-height: 1.5 !important;
+                    }
+                }
+                            
+                @include media(max-width, 768px) {
+                    margin-bottom: 10px;
+                }
+            }  
         }
     }
 
