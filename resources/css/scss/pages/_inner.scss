@@ -4,6 +4,10 @@
 
 /** sell your home template **/
 
+.content{
+    padding: 60px 0;
+}
+
 .sec_column_item {
     padding: 0 20px 90px;
 
@@ -52,6 +56,13 @@
     @include media(max-width, 768px) {
         .col-item {
             padding: 0;
+        }
+    }
+
+    .cols2-s2{
+
+        @include media (max-width, 1023px){
+            padding: 0 !important
         }
     }
     
