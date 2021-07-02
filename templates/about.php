@@ -136,7 +136,6 @@
                     <div class="address">Metro</div>
                     <div class="address">Phoenix</div>
                     <div class="phone">480-776-5231</div>
-
                 </a>
             </div>  
             <div class="cell small-6 medium-6 large-6 col-item">

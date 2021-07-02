@@ -1,9 +1,189 @@
 
 
+
+.hero_banner_wrap {
+
+	margin-top: -180px;
+	position: relative;
+
+	.hero_banner {
+		
+		padding: 0 30px;
+
+		figure {
+			&.bg {
+		
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 30px;
+				bottom: 0;
+				z-index: -1;
+				
+				@include media (max-width,1023px) {							
+					position: relative;
+					left: 0;
+					right: 0;
+					top: 0;
+				}
+
+				img {
+					height: 100%;
+					width: 100%;
+					-o-object-fit: cover;
+					object-fit: cover;
+				}
+			
+			}
+		}
+		.banner_wrap {
+			padding-bottom: 60px;
+			color: #fff;
+			height: 780px;
+			display: flex;
+			align-items: flex-end;
+			flex-direction: row;
+			justify-content: flex-end;
+
+			.small {
+				font-size:14px;
+				color: #777777;
+			}
+
+			.text-italic {
+				font-style: italic;
+			}
+
+			@include media(max-width,1023px){
+					
+				.small {
+					font-size:18px;
+				}
+				.text-italic {
+					font-style: normal;
+				}
+			}
+
+			.banner_left,
+			.banner_right {
+				position: relative;
+			}
+			.banner_left{
+				width: 60%;
+				padding-right: 8em;
+
+				@include media(max-width,1023px){
+					padding-right: 0;					
+				}
+				
+			}
+
+			.banner_right {
+				
+				width: 40%;
+
+				figure {
+					padding-bottom: 0;
+					position: relative;
+					bottom: -80px;
+
+					&.bg {
+				
+						position: absolute;
+						left: 0;
+						right: 0;
+						top: auto;
+						bottom: -80px;
+						z-index: -1;						
+					}
+					
+				}
+				h5 {
+					font-family: $body-font-family;
+					font-size: 22px;
+					font-weight: 700;
+					line-height: 27px;
+					text-align: center;
+					margin-bottom: 30px;
+
+				}
+			}
+			
+			@include media (max-width,1023px) {						
+				color: $color-dark;
+				height: auto;
+				padding: 30px 20px 0;
+
+				.banner_right {
+					display: none;
+				}
+				.banner_left {
+					width: 100%;
+				}
+			}
+		}
+		
+		@include media (max-width, 1023px) {
+			padding: 0 !important;
+		}
+		
+	}
+
+	
+	@include media (max-width,1023px) {		
+		margin-top: 0
+	}
+	
+}
+
+.banner_contact {
+	display: flex;
+	flex-direction: row;
+	.info_box {				
+		color: $color-white;
+		padding: 6% 8%;
+		cursor: pointer;
+		.icon_wrapper {
+			bottom: auto !important;
+
+			img {
+				width: 31px;
+			}
+			
+			&::before {						
+				content: url(../img/icn-phone-darkred.svg);
+			}	
+		}
+
+		.address {
+			font-family: $body-font-family;
+			font-size: 11px;
+			font-weight: 700;
+			line-height: 13px;
+		}
+		&:hover {
+			background: $color-primary;
+			
+			.icon_wrapper {
+				
+				&::before {						
+					content: url(../img/icn-phone-white-large.svg);
+				}	
+			}
+		}
+	}
+}
+
+
+
 /* HERO STYLE 4 */
 .hero-s4 {
 	position: relative;
 	margin-top: -110px;
+
+	.hero_wrap {
+		min-height: 780px;
+	}
 
 	.hero-block {
 		position: relative;	
@@ -162,7 +342,7 @@
 
 
 	.hero-caption {
-		padding-top: 200px;
+		padding-top: 300px;
 		padding-bottom: 35px;
 		position: relative;
 		color:$color-white;
@@ -359,8 +539,7 @@
 	font-size: 60px;
 	font-weight: 600;
 	line-height: 60px;
-	
-		
+	text-transform: capitalize;		
 }
 
 .banner_columns {
@@ -421,7 +600,8 @@
 
 }
 
-.banner_subtitle {
+
+.banner_subtitle_1 {
 	text-transform: capitalize;
 	font-family: "proxima-nova";
 	font-size: 0;
@@ -464,7 +644,7 @@
 		left:0;
 	}
 
-	&_body {
+	.banner_subtitle_body {
 		padding-left:40px;		
 
 		@include media (max-width, 375px){
@@ -476,7 +656,8 @@
 	
 	@include media (max-width, 1023px){
 		
-		width: 60%;		
+		width: 60%;	
+
 		&:before {
 			width: 100%;
 		}
@@ -504,5 +685,18 @@
 			content: url('../../resources/img/polygon-small.png');
 			left: -6px;
 		}
+	}
+}
+
+.banner_subtitle_2 {
+	font-family: $body-font-family;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 17px;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	
+	@include media (max-width, 1023px){
+		color: #777;
 	}
 }

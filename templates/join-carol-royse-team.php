@@ -7,8 +7,8 @@
     <!-- Hero Desktop -->
     <div class="hero-block hero-block_desktop">
         <figure class="bg"><img src="<?php echo MBN_ASSETS_URI ?>/img/join-the-team-hero.jpg" alt=""></figure>
-        <div class="grid-container"> 
-            <div class="grid-x hero-caption">
+        <div class="grid-container hero-caption"> 
+            <div class="grid-x">
                 <div class="cell large-7">
                     <div class="text_header">
                         <div class="sec_title">

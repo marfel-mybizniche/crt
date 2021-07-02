@@ -37,7 +37,7 @@ function mbn_theme_setup(){
     // ));
 
     // add_theme_support('customize-selective-refresh-widgets');
-    // add_theme_support('wp-block-styles');
+    add_theme_support('wp-block-styles');
     
 
     register_nav_menus(array(
@@ -59,8 +59,9 @@ function mbn_enqueue_scripts(){
     wp_enqueue_style('mbn-style', get_stylesheet_uri());
 
     // unneccessary scripts
-    wp_deregister_script('wp-embed');
-    wp_deregister_style('wp-block-library');
+    //wp_deregister_script('wp-embed');
+
+    wp_enqueue_script('wp-block-library');
 
 
     // dummy handler - for using inline-css
@@ -142,7 +143,7 @@ function mbn_register_sidebars(){
         ));
     }
 }
-//add_action('widgets_init', 'mbn_register_sidebars');
+add_action('widgets_init', 'mbn_register_sidebars');
 
 
 /**
@@ -175,3 +176,48 @@ function ct_custom_new_menu() {
     register_nav_menu('footer-mobile-menu',__( 'Footer Mobile Menu' ));
   }
   add_action( 'init', 'ct_custom_new_menu' );
+
+
+  /* toll free buttons */
+  function ct_toll_free_buttons() {
+				
+    $banner_right_text = get_field('banner_right_text');
+    $banner_right = get_field('has_banner_right');
+    $add_image = get_field('has_image');
+    $add_buttons = get_field('has_call_to_action');
+    
+    if( $banner_right ):
+          
+        $returnhtml .= '<div class="grid-container">';
+        $returnhtml .= '<div class="grid-x grid-margin-x cols2-s2">';
+        
+         if ($add_buttons): 
+            // Check rows exists.
+            if( have_rows('call_to_action_btns') ):
+
+                // Loop through rows.
+                while( have_rows('call_to_action_btns') ) : the_row();
+
+                    // Load sub field value.
+                    $sub_text = explode(" ", get_sub_field('sub_text'));							
+                    $main_text = get_sub_field('main_text');
+                            
+                    $returnhtml .= '<div class="cell small-6 medium-6 large-6 col-item">';
+                    $returnhtml .= '<a class="info_box" href="tel:'.$main_text.'">';
+                    $returnhtml .= '<figure class="icon_wrapper"><img src="'.MBN_ASSETS_URI.'/img/phone.png" alt=""></figure>';
+                    for( $i=0; $i <= count($sub_text); $i++ ){
+                        $returnhtml .= '<div class="address">'. $sub_text[$i] . '</div>';
+                    }
+                    $returnhtml .= '<div class="phone">'.$main_text.'</div>';
+                    $returnhtml .= '</a>';
+                    $returnhtml .= '</div>';
+
+                        // End loop.
+                        endwhile;
+                    endif;					
+                endif; 
+                $returnhtml .= '</div></div>';
+            endif; 
+        return $returnhtml;
+  }
+  add_shortcode('ct_contact_button', 'ct_toll_free_buttons');    

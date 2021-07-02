@@ -7,10 +7,10 @@
         <!-- Hero Desktop -->
         <div class="hero-block hero-block_desktop">
             <figure class="bg"><img src="<?php echo MBN_ASSETS_URI ?>/img/img_hero-bg.jpg" alt=""></figure>
-            <div class="grid-container"> 
-                <div class="grid-x hero-caption">
-                    <div class="cell large-7 hero-caption">
-                        <h3 class="banner_subtitle">CAROL HAS THE BUYERS!</h3>
+            <div class="grid-container hero-caption"> 
+                <div class="grid-x">
+                    <div class="cell large-7">
+                        <h3 class="banner_subtitle_1">CAROL HAS THE BUYERS!</h3>
                         <div class="banner_subtitle_body">
                             <h1>Your Home Sold Guaranteed or Carol Will Buy It</h1>
                             <p>Fill out the form below to get your home price now.</p>                              
