@@ -540,6 +540,11 @@
 	font-weight: 600;
 	line-height: 60px;
 	text-transform: capitalize;		
+	
+	@include media (max-width, 1023px){
+		font-size: 24px;
+	}
+
 }
 
 .banner_columns {
@@ -698,5 +703,7 @@
 	
 	@include media (max-width, 1023px){
 		color: #777;
+		font-size: 12px;
+    	margin-bottom: 5px;
 	}
 }

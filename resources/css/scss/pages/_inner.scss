@@ -713,6 +713,15 @@ h1.page_title {
         }
         
     }
+    
+    @include media(min-width, 1024px){
+        width: 60% !important;
+        margin: 0 auto !important;
+        a {
+            padding: 20px 0;
+        }
+    }
+    
 }
 
 .wp-block-embed__wrapper {
