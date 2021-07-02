@@ -538,7 +538,7 @@
 	font-family: $heading-font-family;
 	font-size: 60px;
 	font-weight: 600;
-	line-height: 60px;
+	line-height: 1;
 	text-transform: capitalize;		
 	
 	@include media (max-width, 1023px){
