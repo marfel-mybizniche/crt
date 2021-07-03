@@ -739,6 +739,12 @@ h1.page_title {
     }
 }
 
+.ct_margin_bottom_40 {
+    figure {
+        margin-bottom: 3em !important;
+    }
+}
+
 @include media (min-width, 1024px){
     .wp-block-column:not(:first-child) {
         margin-left: 6em !important;
@@ -747,8 +753,22 @@ h1.page_title {
 }
 
 @include media (max-width, 1023px){
+    .wp-block-column {
+        margin-top: 30px;
+    }
     .wp-block-column:not(:first-child) {
         margin-left: 0 !important;
     }
 
+}
+
+@include media(max-width, 1023px){
+    
+    .column_invert_left {
+        order: 2;
+    }
+
+    .column_invert_right {
+        order: 1;
+    }
 }

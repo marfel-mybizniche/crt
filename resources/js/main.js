@@ -24,7 +24,7 @@
             }
         });
         
-        $('.banner_subtitle_1').each(function(i,val){
+        $('.banner_subtitle_text').each(function(i,val){
             $(this).attr('data-subtitle' , $(this).text());  
         })
         

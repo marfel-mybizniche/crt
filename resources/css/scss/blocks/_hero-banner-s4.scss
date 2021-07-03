@@ -609,103 +609,111 @@
 
 }
 
-
-.banner_subtitle_1 {
-	text-transform: capitalize;
-	font-family: "proxima-nova";
-	font-size: 0;
-	font-style: normal;
-	color: $color-white;
-	position: relative;
-    padding: 26px 34px;
-    z-index: 1;
-	text-transform: uppercase;
-
-	&:before {
-		content: attr(data-subtitle);
-		font-family: "proxima-nova";
-		font-size: 24px;
-		background-color:rgba(26, 23, 78, 0.8);
-		padding-right: 30px;
-		padding-left: 30px;
-		height: 100%;
-		position: absolute;
-		top: 0;
-		left: 0;
-		z-index: -1;
-		font-weight: 700;
-		line-height: 29px;
-		
-		display: flex;
-		align-content: center;
-		justify-content: center;
-		flex-direction: column;
-		align-items: center;
-	}
-	&:after {
-		content: url('../../resources/img/polygon-img.png');
-		height: 80px;
-		width: 35px;
-		border-radius: 0px;	
-		z-index: -2;
-		position: absolute;
-		top:0;
-		left:0;
-	}
+.banner_style_1 {
 	
-	@include media (max-width, 1023px){
-		
-		width: 60%;	
+	.banner_subtitle_text {
+		text-transform: capitalize;
+		font-family: "proxima-nova";
+		font-size: 0;
+		font-style: normal;
+		color: $color-white;
+		position: relative;
+		padding: 26px 34px;
+		z-index: 1;
+		text-transform: uppercase;
 
 		&:before {
-			width: 100%;
+			content: attr(data-subtitle);
+			font-family: "proxima-nova";
+			font-size: 24px;
+			background-color:rgba(26, 23, 78, 0.8);
+			padding-right: 30px;
+			padding-left: 30px;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: -1;
+			font-weight: 700;
+			line-height: 29px;
+			
+			display: flex;
+			align-content: center;
+			justify-content: center;
+			flex-direction: column;
+			align-items: center;
 		}
-	}
-	
-	@include media (max-width, 480px){
-		
-		text-align: center;
-		width: 100%;
-
-		&:before{
-			font-size: 18px;
-		}
-		
-	}
-
-	@include media (max-width, 375px){
-		padding: 16px 34px;
-
-		&:before{
-			font-size: 16px;
-		}
-		
 		&:after {
-			content: url('../../resources/img/polygon-small.png');
-			left: -6px;
+			content: url('../../resources/img/polygon-img.png');
+			height: 80px;
+			width: 35px;
+			border-radius: 0px;	
+			z-index: -2;
+			position: absolute;
+			top:0;
+			left:0;
+		}
+		
+		@include media (max-width, 1023px){
+			
+			width: 60%;	
+
+			&:before {
+				width: 100%;
+			}
+		}
+		
+		@include media (max-width, 480px){
+			
+			text-align: center;
+			width: 100%;
+
+			&:before{
+				font-size: 18px;
+			}
+			
+		}
+
+		@include media (max-width, 375px){
+			padding: 16px 34px;
+
+			&:before{
+				font-size: 16px;
+			}
+			
+			&:after {
+				content: url('../../resources/img/polygon-small.png');
+				left: -6px;
+			}
 		}
 	}
+
+	.banner_subtitle_body {
+		padding-left:40px;		
+
+		@include media (max-width, 375px){
+			
+			padding-left: 25px;
+		}
+	}
+
 }
 
-.banner_subtitle_body {
-	padding-left:40px;		
+.banner_style_2 {
 
-	@include media (max-width, 375px){
+	.banner_subtitle_text {
+		font-family: $body-font-family;
+		font-size: 14px;
+		font-weight: 600;
+		line-height: 17px;
+		letter-spacing: 0.2em;
+		text-transform: uppercase;
 		
-		padding-left: 25px;
+		@include media (max-width, 1023px){
+			color: #777;
+			font-size: 12px;
+			margin-bottom: 5px;
+		}
 	}
-}
-.banner_subtitle_2 {
-	font-family: $body-font-family;
-	font-size: 14px;
-	font-weight: 600;
-	line-height: 17px;
-	letter-spacing: 0.2em;
-	text-transform: uppercase;
-	
-	@include media (max-width, 1023px){
-		color: #777;
-		font-size: 12px;
-    	margin-bottom: 5px;
-	}
+
 }

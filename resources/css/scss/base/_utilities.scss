@@ -21,9 +21,18 @@
     font-weight: 700;
 }
 
+.clearfix {
+	clear:both;
+}
+
 //margin-0
 .ct_margin_both_0 {
 	margin: 0;
+}
+
+//margin-bottom-40
+.ct_margin_bottom_40 {
+	margin-bottom: 40px;
 }
 
 //padding-0

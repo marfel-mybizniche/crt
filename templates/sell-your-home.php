@@ -9,8 +9,8 @@
         <figure class="bg"><img src="<?php echo MBN_ASSETS_URI ?>/img/carol-got-the-offer.jpg" alt=""></figure>
         <div class="grid-container hero-caption"> 
             <div class="grid-x">
-                <div class="cell large-6 medium-4 xlarge-4">
-                    <h3 class="banner_subtitle_1">Carol Has The Cash Offer!</h3>
+                <div class="cell large-6 medium-4 xlarge-4 banner_subtitle_2">
+                    <h3 class="banner_subtitle_text">Carol Has The Cash Offer!</h3>
                     <div class="banner_subtitle_body"><h1>Get a cash offer on your home!</h1></div>
                 </div>                
             </div>
@@ -23,8 +23,8 @@
         </div>        
         <div class="hero_mobile_bottom">
             <div class="grid-container">
-                <div class="sec_body align-middle">
-                    <h3 class="banner_subtitle_1" data-subtitle="" >Carol Has The Cash Offer!</h3>                    
+                <div class="sec_body align-middle banner_subtitle_2">
+                    <h3 class="banner_subtitle_text" data-subtitle="" >Carol Has The Cash Offer!</h3>                    
                     <div class="banner_subtitle_body"><h1>Get a cash offer on your home!</h1><div>
                 </div>
             </div>
