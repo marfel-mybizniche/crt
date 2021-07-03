@@ -16,8 +16,7 @@
             </div>
         </div>
     </div>        
-    <!-- Hero Mobile -->
-    
+    <!-- Hero Mobile -->    
     <div class="hero-block_mobile">
         <div class="hero_mobile_top">
             <figure class="hero_img"><img src="<?php echo MBN_ASSETS_URI ?>/img/carol-got-the-offer.jpg" alt=""></figure>
