@@ -43,7 +43,7 @@
 			display: flex;
 			align-items: flex-end;
 			flex-direction: row;
-			justify-content: flex-end;
+			justify-content: flex-start;
 
 			.small {
 				font-size:14px;
@@ -652,16 +652,6 @@
 		top:0;
 		left:0;
 	}
-
-	.banner_subtitle_body {
-		padding-left:40px;		
-
-		@include media (max-width, 375px){
-			
-			padding-left: 25px;
-		}
-	}
-
 	
 	@include media (max-width, 1023px){
 		
@@ -697,6 +687,14 @@
 	}
 }
 
+.banner_subtitle_body {
+	padding-left:40px;		
+
+	@include media (max-width, 375px){
+		
+		padding-left: 25px;
+	}
+}
 .banner_subtitle_2 {
 	font-family: $body-font-family;
 	font-size: 14px;
