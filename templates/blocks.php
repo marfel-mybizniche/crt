@@ -21,37 +21,14 @@
                             $form_shortcode = get_field('form_shortcode');
                             echo do_shortcode($form_shortcode); ?>
                         </div>   
-                            <?php 
+						<?php 
 
-                            $show_checklists = get_field('show_checklists');
-                            
-                            if ($show_checklists): ?>
-                            <div class="divider_double_line"></div>                                                
-                            <div class="banner_checklist">  
-                                <?php
-                                    // Check rows exists.
-                                    if( have_rows('add_checklists') ):
-
-                                        // Loop through rows.
-                                        while( have_rows('add_checklists') ) : the_row();
-
-                                            // Load sub field value.							
-                                            $checklist_text = get_sub_field('checklist_text'); ?>									
-                                                <div class="text_wrap media_flex">
-                                                    <div class="media_left">
-                                                        <figure class="icon_wrapper"><img src="<?php echo MBN_ASSETS_URI ?>/img/check-icon.png" alt=""></figure>
-                                                    </div>
-                                                    <div class="media_body">
-                                                        <h3><?php echo $checklist_text; ?></h3>
-                                                    </div>
-                                                </div>
-                                            <?php
-
-                                        // End loop.
-                                        endwhile;
-                                    endif;?>
-                            </div>    
-                            <?php endif; ?>   
+						$show_checklists = get_field('show_checklists');
+						
+						if ($show_checklists): ?>
+							<div class="divider_double_line"></div>                                                
+							<?= do_shortcode('[banner_checklist]'); ?>
+						<?php endif; ?>   
 					</div>
 				</div>
 				<?php 
@@ -114,13 +91,13 @@
 	?>
 </section>
 <?php 
-$add_call_to_action_bottom = get_field('add_call_to_action_bottom');
+/*$add_call_to_action_bottom = get_field('add_call_to_action_bottom');
 
 if($add_call_to_action_bottom):?>
     <section class="sec_info_wrap">
         <?php echo do_shortcode('[ct_contact_button]'); ?>
     </section>
-<?php  endif; ?>
+<?php  endif; */ ?>
 
 
 

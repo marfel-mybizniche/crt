@@ -7,12 +7,12 @@ h1.page_title {
 }
 
 .page-content {
-    /* padding: 80px 30px; */
+    /* padding: 80px 30px; 
 
     @include media(max-width,1023px){
         padding: 0 20px 80px;
     }
-
+        */  
 }
 
 .wp-block-columns {
@@ -30,8 +30,7 @@ h1.page_title {
     margin-right: auto;
 
     @include media(min-width,1024px){
-        padding-right: 30px;
-        padding-left: 30px;
+        padding: 30px !important;
     }
 
     @include media(max-width,1023px){
@@ -591,7 +590,7 @@ h1.page_title {
             }
         }
         @include media(max-width, 1023px){
-            padding: 20px;
+            padding: 0;
         }
 
     }
@@ -836,9 +835,36 @@ h1.page_title {
     
 }
 
+
+.desktop_only {
+    display: block;
+    
+    @include media (max-width, 1023px){
+        display: none;
+        &.sec_info_wrap {
+            padding-top: 0 !important;
+        }
+    }
+}
+
+
+.mobile_only {
+    display: none;
+    
+    @include media (max-width, 1023px){
+        display: block;
+        &.sec_info_wrap {
+            padding-top: 0 !important;
+        }
+    }
+}
+
 @include media (min-width, 1024px){
     .wp-block-column:not(:first-child) {
-        margin-left: 6em !important;
+        /* margin-left: 6em !important; */
+    }
+    .address_boxes .wp-block-column:not(:first-child) {
+        margin-left: 0 !important;
     }
 
 }

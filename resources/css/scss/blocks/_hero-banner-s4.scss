@@ -62,7 +62,6 @@
 					
 				.small,
 				.text-quote {
-					font-size:18px;
 					color: #777777;
 				}
 				.text-italic {
@@ -80,7 +79,7 @@
 					padding-right: 0;	
 					
 					&.banner_style_2 {
-						padding-right: 8em;
+						/*padding-right: 8em;*/
 		
 					}
 				}
@@ -121,7 +120,7 @@
 			@include media (max-width,1023px) {						
 				color: $color-dark;
 				height: auto;
-				padding: 30px 20px 0;
+				padding: 30px 30px 0;
 
 				.banner_right {
 					display: none;
