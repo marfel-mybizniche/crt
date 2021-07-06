@@ -76,10 +76,13 @@
 			}
 			.banner_left{
 				width: 60%;
-				padding-right: 8em;
-
 				@include media(max-width,1023px){
-					padding-right: 0;					
+					padding-right: 0;	
+					
+					&.banner_style_2 {
+						padding-right: 8em;
+		
+					}
 				}
 				
 			}
@@ -91,7 +94,7 @@
 				figure {
 					padding-bottom: 0;
 					position: relative;
-					bottom: -80px;
+					bottom: -60px;
 
 					&.bg {
 				

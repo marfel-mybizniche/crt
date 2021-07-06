@@ -13,7 +13,45 @@
 					<h3 class="banner_subtitle_text"><?php echo get_field('page_header_subtitle'); ?></h3>
 					<div class="banner_subtitle_body">
 						<h1 class="banner_subtitle_title"><?php echo get_field('page_header_title'); ?></h1>
-						<div class="banner_paragraph"><?php echo get_field('page_header_body'); ?></div>
+						<div class="banner_paragraph">
+                            <?php echo get_field('page_header_body'); ?>   
+                        </div>                                           
+                        <div class="banner_form_wrap">                         
+                            <?php 
+                            $form_shortcode = get_field('form_shortcode');
+                            echo do_shortcode($form_shortcode); ?>
+                        </div>   
+                            <?php 
+
+                            $show_checklists = get_field('show_checklists');
+                            
+                            if ($show_checklists): ?>
+                            <div class="divider_double_line"></div>                                                
+                            <div class="banner_checklist">  
+                                <?php
+                                    // Check rows exists.
+                                    if( have_rows('add_checklists') ):
+
+                                        // Loop through rows.
+                                        while( have_rows('add_checklists') ) : the_row();
+
+                                            // Load sub field value.							
+                                            $checklist_text = get_sub_field('checklist_text'); ?>									
+                                                <div class="text_wrap media_flex">
+                                                    <div class="media_left">
+                                                        <figure class="icon_wrapper"><img src="<?php echo MBN_ASSETS_URI ?>/img/check-icon.png" alt=""></figure>
+                                                    </div>
+                                                    <div class="media_body">
+                                                        <h3><?php echo $checklist_text; ?></h3>
+                                                    </div>
+                                                </div>
+                                            <?php
+
+                                        // End loop.
+                                        endwhile;
+                                    endif;?>
+                            </div>    
+                            <?php endif; ?>   
 					</div>
 				</div>
 				<?php 
@@ -40,9 +78,7 @@
 
                                         // Load sub field value.
                                         $sub_text = explode(" ", get_sub_field('sub_text'));							
-                                        $main_text = get_sub_field('main_text');
-                            ?>
-										
+                                        $main_text = get_sub_field('main_text');?>										
 											<div class="cell small-6 medium-6 large-6 col-item">
 												<a class="info_box" href="tel:<?php echo $main_text; ?>">
                     								<figure class="icon_wrapper"></figure>
@@ -68,16 +104,14 @@
         </div>
 	</div>
 </section>
-<section class="page-content">
-	<div class="grid-container">		
-		<?php
-			while ( have_posts() ) : the_post();
-				?><h1 class="page_title"> <?php the_title(); ?> </h1><?php
-			the_content();
+<section class="page-content">	
+	<?php
+		while ( have_posts() ) : the_post();
+			?><h1 class="page_title"> <?php the_title(); ?> </h1><?php
+		the_content();
 
-		endwhile; // End of the loop.
-		?>
-	</div>
+	endwhile; // End of the loop.
+	?>
 </section>
 <?php 
 $add_call_to_action_bottom = get_field('add_call_to_action_bottom');

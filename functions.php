@@ -180,44 +180,90 @@ function ct_custom_new_menu() {
 
   /* toll free buttons */
   function ct_toll_free_buttons() {
-				
-    $banner_right_text = get_field('banner_right_text');
-    $banner_right = get_field('has_banner_right');
-    $add_image = get_field('has_image');
-    $add_buttons = get_field('has_call_to_action');
-    
-    if( $banner_right ):
           
-        $returnhtml .= '<div class="grid-container">';
-        $returnhtml .= '<div class="grid-x grid-margin-x cols2-s2">';
-        
-         if ($add_buttons): 
-            // Check rows exists.
-            if( have_rows('call_to_action_btns') ):
+        $returnhtml .= '<div class="grid-x grid-margin-x cols2-s2 info_boxes">';
+        // Check rows exists.
+        if( have_rows('call_to_action_btns') ):
 
-                // Loop through rows.
-                while( have_rows('call_to_action_btns') ) : the_row();
+            // Loop through rows.
+            while( have_rows('call_to_action_btns') ) : the_row();
 
-                    // Load sub field value.
-                    $sub_text = explode(" ", get_sub_field('sub_text'));							
-                    $main_text = get_sub_field('main_text');
-                            
-                    $returnhtml .= '<div class="cell small-6 medium-6 large-6 col-item">';
-                    $returnhtml .= '<a class="info_box" href="tel:'.$main_text.'">';
-                    $returnhtml .= '<figure class="icon_wrapper"><img src="'.MBN_ASSETS_URI.'/img/phone.png" alt=""></figure>';
-                    for( $i=0; $i <= count($sub_text); $i++ ){
-                        $returnhtml .= '<div class="address">'. $sub_text[$i] . '</div>';
-                    }
-                    $returnhtml .= '<div class="phone">'.$main_text.'</div>';
-                    $returnhtml .= '</a>';
-                    $returnhtml .= '</div>';
+                // Load sub field value.
+                $sub_text = explode(" ", get_sub_field('sub_text'));							
+                $main_text = get_sub_field('main_text');
+                        
+                $returnhtml .= '<div class="cell small-6 medium-6 large-6 col-item">';
+                $returnhtml .= '<a class="info_box" href="tel:'.$main_text.'">';
+                $returnhtml .= '<figure class="icon_wrapper"><img src="'.MBN_ASSETS_URI.'/img/phone.png" alt=""></figure>';
+                for( $i=0; $i <= count($sub_text); $i++ ){
+                    $returnhtml .= '<div class="address">'. $sub_text[$i] . '</div>';
+                }
+                $returnhtml .= '<div class="phone">'.$main_text.'</div>';
+                $returnhtml .= '</a>';
+                $returnhtml .= '</div>';
 
-                        // End loop.
-                        endwhile;
-                    endif;					
-                endif; 
-                $returnhtml .= '</div></div>';
-            endif; 
+                // End loop.
+                endwhile;
+            endif;		
+        $returnhtml .= '</div></div>';
         return $returnhtml;
   }
   add_shortcode('ct_contact_button', 'ct_toll_free_buttons');    
+
+  add_shortcode('ct_map', 'ct_snazzy_map');
+  function ct_snazzy_map(){
+      ?>
+      
+      <style type="text/css">
+            /* Set a size for our map container, the Google Map will take up 100% of this container */
+            #map {
+                width: 750px;
+                height: 500px;
+            }
+        </style>
+        
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+        
+        <script type="text/javascript">
+            google.maps.event.addDomListener(window, 'load', init);
+        
+            function init() {
+                var mapOptions = {
+                    zoom: 11,
+
+                    center: new google.maps.LatLng(40.6700, -73.9400), // New York
+                    styles: [
+                            {
+                                "featureType": "administrative.country",
+                                "elementType": "geometry",
+                                "stylers": [
+                                    {
+                                        "visibility": "simplified"
+                                    },
+                                    {
+                                        "hue": "#ff0000"
+                                    }
+                                ]
+                            }
+                        ]
+                };
+
+                // Get the HTML DOM element that will contain your map 
+                // We are using a div with id="map" seen below in the <body>
+                var mapElement = document.getElementById('map');
+
+                // Create the Google Map using our element and options defined above
+                var map = new google.maps.Map(mapElement, mapOptions);
+
+                // Let's also add a marker while we're at it
+                var marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(40.6700, -73.9400),
+                    map: map,
+                    title: 'Snazzy!'
+                });
+            }
+        </script>
+        <div id="map"></div>
+
+      <?php
+  }

@@ -15,7 +15,7 @@
                             <h1>Your Home Sold Guaranteed or Carol Will Buy It</h1>
                             <p>Fill out the form below to get your home price now.</p>                              
                             <div class="banner_form_wrap">                         
-                                <?= do_shortcode('[gravityform id="3" title="false" description="false" ajax="false"]'); ?>
+                                <?= do_shortcode('[gravityform id="3" title="false" description="false" ajax="false"]'); ?>form_shortcode
                             </div>         
                         </div>
                         <div class="divider_double_line"></div>  
