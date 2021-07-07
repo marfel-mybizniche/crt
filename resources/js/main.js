@@ -198,7 +198,8 @@ function clickLocation( $marker, map ){
 
         $('.branch_list').append('<hr/>');
 
-        $('.branch_lists').slick({                        
+        $('.branch_lists').slick({      
+            arrows: true,                  
             dots: false,
             infinite: true,
             speed: 300,
