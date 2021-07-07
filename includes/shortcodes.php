@@ -137,7 +137,9 @@ function mbn_acf_gmap_shortcode( ){
 
 
 $query = array(
-    'post_type'      => 'branch_locator',
+    'post_type'  => 'branch_locator',
+    'orderby'    => '',
+    'order'      => 'asc'   
 );
 
 $branches = new WP_Query( $query );
@@ -147,13 +149,14 @@ $returnhtml .= '<div id="googleMap" class="acf-map" data-zoom="16">';
 
 while ( $branches->have_posts() ) : $branches->the_post();
 
-    $title = get_field('branch_title', $branch);    
+    $title = get_the_title();    
     $location = get_field('branch_address', $branch);
     $lat = $location['lat'];
     $lng = $location['lng'];
 
     if( $location ): 
         $returnhtml .= '<div class="marker" data-lat="'. esc_attr($lat) .'" data-lng="'. esc_attr($lng) .'" data-location="'. esc_html( $title ) .'">';
+        $returnhtml .= '<figure class="branch_img"><img src="'. get_the_post_thumbnail_url().'" width="300" /></figure>';
         $returnhtml .= '<h3>'. esc_html( $title ). '</h3><p><em>'. esc_html( $location['address'] ) .'</em></p></div>';
 
     endif;
@@ -166,7 +169,8 @@ wp_reset_postdata();
 
 $returnhtml .= '</div>';
 
-$returnhtml .= '<div class="grid-x grid-margin-x cols4-s2">';
+$returnhtml .= '<div class="grid-container">';
+$returnhtml .= '<div class="grid-x grid-margin-x cols4-s2 ">';
 
 while ( $branches->have_posts() ) : $branches->the_post();
 
@@ -175,18 +179,19 @@ while ( $branches->have_posts() ) : $branches->the_post();
     $location = get_field('branch_address', $branch);
     $lat = $location['lat'];
     $lng = $location['lng'];
-    
-    $returnhtml .= '<div class="cell large-6 xlarge-3 col-item">';
-    $returnhtml .= '<a class="branch_link" data-lat="'. esc_attr($lat) .'" data-lng="'. esc_attr($lng) .'" data-location="'.esc_attr($title).'">';
-    $returnhtml .= '<h class="branch_title">'. $title .'</h2>';
-    $returnhtml .= '<p class="branch_address">' . $location .'</p>';
+
+    $returnhtml .= '<div class="cell large-6 xlarge-3 col-item branch_wrap">';
+    $returnhtml .= '<div class="branch_link" data-lat="'. esc_attr($lat) .'" data-lng="'. esc_attr($lng) .'" data-location="'.esc_attr($title).'">';
+    $returnhtml .= '<h2 class="branch_title">'. $title .'</h2>';
+    $returnhtml .= '<p class="branch_address">' . $location['address'] .'</p>';
     $returnhtml .= '<p class="branch_phone">' . $phone .'</p>';
-    $returnhtml .= '</a></div>';
+    $returnhtml .= '</div></div>';
     
 
 endwhile;
 
 wp_reset_postdata();
+$returnhtml .= '</div></div>';
 
 return $returnhtml;
 }

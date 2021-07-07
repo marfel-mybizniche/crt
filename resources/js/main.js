@@ -29,14 +29,14 @@ function initMap( $el ) {
     map.markers = [];
     $markers.each(function(){
         initMarker( $(this), map );
+        //
+        clickLocation( $(this),map )
     });
 
 
     // Center map based on markers.
     centerMap( map );
 
-    //
-    clickLocation( map )
 
     // Return map instance.
     return map;
@@ -125,11 +125,12 @@ function centerMap( map ) {
     }
 }
 
-function clickLocation( map ){
+function clickLocation( $marker, map ){
     
     var location =  $('.branch_link');
 
     location.each(function(){
+
         $(this).click(function(){
             
             // Get position from marker.
@@ -140,11 +141,19 @@ function clickLocation( map ){
                 lat: parseFloat( lat ),
                 lng: parseFloat( lng )
             };
-            map.setCenter(new google.maps.LatLng(lat,lng));
-            
-        })
-    })
 
+            map.setCenter(new google.maps.LatLng(lat,lng));
+
+            if($(this).hasClass('is-active')) {
+                $(this).removeClass('is-active');
+            }
+            else {
+                $(this).addClass('is-active');
+            }           
+
+        });       
+
+    });
 
 }
 
