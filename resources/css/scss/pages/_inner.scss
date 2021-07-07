@@ -64,6 +64,10 @@ h1.page_title {
     line-height: 17px;
     letter-spacing: 0.2em; 
     text-transform: uppercase;
+
+    @include media (max-width,768px){
+        font-size: 12px;
+    }
 }
 
 .sec_column_item {
@@ -1179,26 +1183,70 @@ ul.star-rating li i {
     margin-bottom: 0  !important;
     padding-bottom: 0  !important;
 
-    @include media (max-width, 768px){
+    @include media (max-width, 1023px){
         .wp-block-columns {
             display: flex;
             flex-direction: row;
             flex-wrap: nowrap;
         }
-        .carll_carol {
-            font-size: 12px;
-        }
     }
-    figure.img {
-
+    .img {
+        margin-bottom:0px !important;
         position: relative;
         img {                
             z-index: 1;
             position: absolute;
-            bottom: -19px;
+            bottom: -2px;
+            right: 1%;
             @include media (max-width, 1023px){
                 position: relative;
             }
+        }
+    }
+
+    .cta_block {
+        @include media (max-width, 768px){
+
+            .call_carol_col {
+                flex-basis: 20% !important;
+            }
+
+            .call_carol {
+                font-size: 16px;
+            }
+
+            .call_carol_num {
+                            
+                flex-basis: 85% !important;
+                margin-left: 12px !important;
+                p{
+                    font-size: 4em;
+                }
+            }
+            
+        }
+        @include media (max-width, 1023px){
+
+            .call_carol_col {
+                flex-basis: 20% !important;
+            }
+
+        }
+        @include media (max-width, 480px){
+
+            .call_carol_col {
+                flex-basis: 23% !important;
+            }
+
+            .call_carol_num{
+                            
+                flex-basis: 85% !important;
+                margin-left: 12px !important;
+                p{
+                    font-size: 2em;
+                }
+            }
+            
         }
     }
 }
@@ -1209,6 +1257,9 @@ ul.star-rating li i {
     .block_checklists {
         @include media(max-width,1023px){
             padding:0 30px !important;
+        }
+        .icon_wrapper {
+            border: 2px solid $color-black !important;
         }
 
     }
