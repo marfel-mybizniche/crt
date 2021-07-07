@@ -29,6 +29,8 @@ function initMap( $el ) {
     map.markers = [];
     $markers.each(function(){
         initMarker( $(this), map );
+
+        $(this).append('<a href="#">link</a>');
         //
         clickLocation( $(this),map )
     });
@@ -78,9 +80,11 @@ function initMarker( $marker, map ) {
 
         // Create info window.
         var infowindow = new google.maps.InfoWindow({
-            content: $marker.html()
+            content: $marker.html(),
         });        
 
+
+        infowindow.close();
 
         // Show info window when marker is clicked.
         google.maps.event.addListener(marker, 'click', function() {
@@ -127,12 +131,20 @@ function centerMap( map ) {
 
 function clickLocation( $marker, map ){
     
-    var location =  $('.branch_link');
+    var location =  $('.branch_wrap');
+    
+    $('.branch_wrap:first-child').addClass('is-active');
+
 
     location.each(function(){
 
+
         $(this).click(function(){
             
+            if( !( $(this).hasClass('is-active') ) ) {
+                $(this).addClass('is-active').siblings().removeClass("is-active");   
+            }
+                        
             // Get position from marker.
             var lat = $(this).data('lat');
             var lng = $(this).data('lng');
@@ -143,13 +155,6 @@ function clickLocation( $marker, map ){
             };
 
             map.setCenter(new google.maps.LatLng(lat,lng));
-
-            if($(this).hasClass('is-active')) {
-                $(this).removeClass('is-active');
-            }
-            else {
-                $(this).addClass('is-active');
-            }           
 
         });       
 
@@ -191,9 +196,41 @@ function clickLocation( $marker, map ){
             var map = initMap( $(this) );
         });
 
+        $('.branch_list').append('<hr/>');
+
+        $('.branch_lists').slick({                        
+            dots: false,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 4,
+            slidesToScroll: 1,                    
+            prevArrow: '<button class="arrow_prev">prev</button>',
+            nextArrow: '<button class="arrow_next">next</button>',
+            responsive: [
+              {
+                breakpoint: 1024,
+                settings: {
+                  slidesToShow: 3,
+                  slidesToScroll: 1,
+                }
+              },
+              {
+                breakpoint: 769,
+                settings: {
+                  slidesToShow: 2,
+                  slidesToScroll: 1
+                }
+              },
+              {
+                breakpoint: 480,
+                settings: {
+                  slidesToShow: 1,
+                  slidesToScroll: 1
+                }
+              }
+            ]
+        });
+
     });
-
-    
-
     
 })(jQuery);
