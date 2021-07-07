@@ -194,6 +194,6 @@ function ct_custom_new_menu() {
   add_action( 'init', 'ct_custom_new_menu' );
 
 function mbn_insert_headers(){
-    ?><link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick-theme.css"/><?php
+    ?><link rel="stylesheet" type="text/css" href="https://kenwheeler.github.io/slick/slick/slick-theme.css"/><?php
 }
 add_action('wp_head', 'mbn_insert_headers');
