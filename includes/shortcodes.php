@@ -151,8 +151,8 @@ $returnhtml .= '<div id="googleMap" class="acf-map" data-zoom="16">';
 while ( $branches->have_posts() ) : $branches->the_post();
 
     $title = get_the_title();    
-    $location = get_field('branch_address', $branch);
-    $phone = get_field('branch_phone_num', $branch);
+    $location = get_field('branch_address');
+    $phone = get_field('branch_phone_num');
     $thumb = get_the_post_thumbnail_url();
 
     $lat = $location['lat'];
@@ -177,9 +177,9 @@ $returnhtml .= '<div class="grid-x cols4-s2 branch_lists">';
 
 while ( $branches->have_posts() ) : $branches->the_post();
 
-    $title = get_field('branch_title', $branch);    
-    $phone = get_field('branch_phone_num', $branch);
-    $location = get_field('branch_address', $branch);
+    $title = get_field('branch_title');    
+    $phone = get_field('branch_phone_num');
+    $location = get_field('branch_address');
     $lat = $location['lat'];
     $lng = $location['lng'];
 
@@ -204,3 +204,50 @@ return $returnhtml;
 }
 add_shortcode('mbn_branch_locator', 'mbn_acf_gmap_shortcode');
 
+
+add_shortcode('mbn_testimonials', 'mbn_testimonials_shortcode');
+function mbn_testimonials_shortcode(){
+
+    $query = array(
+        'post_type'  => 'client_testimonials',
+        'orderby'    => '',
+        'order'      => 'asc'   
+    );
+    
+    $testimonials = new WP_Query( $query );
+
+       
+    $returnhtml .= '<section class="sec-3cols testimonial_block_wrap">';
+    $returnhtml .= '<div class="grid-container">';
+    $returnhtml .= '<div class="grid-x grid-margin-x cols3-s3 testimonial_block">';
+
+    while ( $testimonials->have_posts() ) : $testimonials->the_post();
+
+        $testimonial_name           = get_field('testimonial_name'); 
+        $testimonial_img            = get_the_post_thumbnail_url();
+        $testimonial_role_position  = get_field('testimonial_role_position'); 
+        $testimonial_company        = get_field('testimonial_company'); 
+        $testimonial_rating         = get_field('testimonial_rating'); 
+        $testimonial_video          = get_field('testimonial_video'); 
+        $short_excerpt          = get_field('short_excerpt'); 
+
+        $returnhtml .= '<div class="testimonial_item">';
+        
+        $returnhtml .= '<div class="testimonial_blockitem">';
+        $returnhtml .= ($testimonial_img) ? '<figure class="col-image"><img src="'. $testimonial_img .'" alt=""></figure>' : '<img src="https://via.placeholder.com/1200x500"/>';
+        $returnhtml .= '<div class="testimonial_body">';    
+        $returnhtml .= '<div class="testimonial_vbtn"><figure><img src="'. MBN_ASSETS_URI .'/img/icn-play-w.svg" alt=""></figure><span>PLAY VIDEO</span></div>';
+        $returnhtml .= '<div class="testimonial_info">'. $testimonial_rating;
+        $returnhtml .= ( $short_excerpt ) ? '<h3>'. $short_excerpt .'</h3>': '';
+        $returnhtml .= ( $testimonial_name ) ? '<p class="testimonial_name">'. $testimonial_name .'</p>': '';
+        $returnhtml .= ( $testimonial_role_position ) ? '<p>'. $testimonial_role_position .' | '. $testimonial_company .'</p>' : '';
+        $returnhtml .= '</div></div></div>';
+        //$returnhtml .= $testimonial_name .' '. $testimonial_role_position . $testimonial_company;
+        $returnhtml .= '</div>';
+
+    endwhile;
+    $returnhtml .= '</section></div></div>';
+    wp_reset_postdata();
+    return $returnhtml;
+
+}

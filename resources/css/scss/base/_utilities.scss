@@ -183,7 +183,15 @@
 
 		&.slick-active {
 			button {
-				background: $color-primary;
+				background: $color-white;
+				border: 1px solid #C4C4C4;
+			}
+			
+			&:hover {
+			
+				&:before {
+					color: $color-primary;
+				}
 			}
 		}
 	}
