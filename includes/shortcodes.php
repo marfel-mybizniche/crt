@@ -33,7 +33,7 @@ function ct_toll_free_buttons() {
             // End loop.
             endwhile;
         endif;		
-    $returnhtml .= '</div></div>';
+    $returnhtml .= '</div>';
     return $returnhtml;
 }
 add_shortcode('ct_contact_button', 'ct_toll_free_buttons');    
@@ -68,142 +68,6 @@ function mbn_banner_checklist(){
 add_shortcode('banner_checklist', 'mbn_banner_checklist');
 
     
-
-add_shortcode('ct_map', 'ct_snazzy_map');
-function ct_snazzy_map(){
-  ?>
-  
-  <style type="text/css">
-        /* Set a size for our map container, the Google Map will take up 100% of this container */
-        #map {
-            width: 750px;
-            height: 500px;
-        }
-    </style>
-    
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
-    
-    <script type="text/javascript">
-        google.maps.event.addDomListener(window, 'load', init);
-    
-        function init() {
-            var mapOptions = {
-                zoom: 11,
-
-                center: new google.maps.LatLng(40.6700, -73.9400), // New York
-                styles: [
-                        {
-                            "featureType": "administrative.country",
-                            "elementType": "geometry",
-                            "stylers": [
-                                {
-                                    "visibility": "simplified"
-                                },
-                                {
-                                    "hue": "#ff0000"
-                                }
-                            ]
-                        }
-                    ]
-            };
-
-            // Get the HTML DOM element that will contain your map 
-            // We are using a div with id="map" seen below in the <body>
-            var mapElement = document.getElementById('map');
-
-            // Create the Google Map using our element and options defined above
-            var map = new google.maps.Map(mapElement, mapOptions);
-
-            // Let's also add a marker while we're at it
-            var marker = new google.maps.Marker({
-                position: new google.maps.LatLng(40.6700, -73.9400),
-                map: map,
-                title: ''
-            });
-        }
-
-        
-    </script>
-    <div id="map"></div>
-
-  <?php
-}
-
-
-
-//gmaps helper
-
-function mbn_acf_gmap_shortcode( ){
-
-
-$query = array(
-    'post_type'  => 'branch_locator',
-    'orderby'    => '',
-    'order'      => 'asc'   
-);
-
-$branches = new WP_Query( $query );
-
-$returnhtml .= '<div class="gMap_wrap" >';
-$returnhtml .= '<div id="googleMap" class="acf-map" data-zoom="16">';
-
-
-while ( $branches->have_posts() ) : $branches->the_post();
-
-    $title = get_the_title();    
-    $location = get_field('branch_address');
-    $phone = get_field('branch_phone_num');
-    $thumb = get_the_post_thumbnail_url();
-
-    $lat = $location['lat'];
-    $lng = $location['lng'];
-
-    if( $location ): 
-        $returnhtml .= '<div class="marker" data-lat="'. esc_attr($lat) .'" data-lng="'. esc_attr($lng) .'" data-location="'. esc_html( $title ) .'">';
-        $returnhtml .= ($thumb)? '<figure class="branch_img"><img src="'. $thumb.'" width="300" /></figure>' : '';
-        $returnhtml .= '<div class="branch_caption"><h3>'. esc_html( $title ). '</h3><p class="address">'. $location['address'] .'</p><p class="phone">'. $phone .'</p></div></div>';
-
-    endif;
-
-
-endwhile;
-
-wp_reset_postdata();
-
-$returnhtml .= '</div>';// acf-map
-
-$returnhtml .= '<div class="grid-container">';
-$returnhtml .= '<div class="grid-x cols4-s2 branch_lists">';
-
-while ( $branches->have_posts() ) : $branches->the_post();
-
-    $title = get_field('branch_title');    
-    $phone = get_field('branch_phone_num');
-    $location = get_field('branch_address');
-    $lat = $location['lat'];
-    $lng = $location['lng'];
-
-    $returnhtml .= '<div class="cell large-6 xlarge-3 col-item branch_wrap" data-lat="'. esc_attr($lat) .'" data-lng="'. esc_attr($lng) .'" data-location="'.esc_attr($title).'">';
-    $returnhtml .= '<div class="branch_link" >';
-    $returnhtml .= '<h2 class="branch_title">'. $title .'</h2>';
-    $returnhtml .= '<p class="branch_address">' . $location['address'] .'</p>';
-    $returnhtml .= '<p class="branch_phone">' . $phone .'</p>';
-    $returnhtml .= '</div></div>';
-    
-
-endwhile;
-
-wp_reset_postdata();
-$returnhtml .= '</div>';// grid-x branch_lists
-$returnhtml .= '<hr/>';
-$returnhtml .= '</div>';//grid-container 
-
-$returnhtml .='</div>'; // gMap_wrap
-
-return $returnhtml;
-}
-add_shortcode('mbn_branch_locator', 'mbn_acf_gmap_shortcode');
-
 
 add_shortcode('mbn_testimonials', 'mbn_testimonials_shortcode');
 function mbn_testimonials_shortcode(){
@@ -246,8 +110,161 @@ function mbn_testimonials_shortcode(){
         $returnhtml .= '</div>';
 
     endwhile;
-    $returnhtml .= '</section></div></div>';
+    $returnhtml .= '</div></div></section>';
     wp_reset_postdata();
     return $returnhtml;
 
 }
+
+
+
+function build_contact_us_map(){
+
+    $query = array(
+        'post_type'  => 'offices',
+        'orderby'    => '',
+        'order'      => 'asc'   
+    );
+    $branches = new WP_Query( $query );
+    
+    $returnhtml .='<div class="office_locator">'; // office_locator
+    $returnhtml .= '<div class="gmap_wrap">'. do_shortcode('[display_map]') .'<div id="map"></div></div>';
+    $returnhtml .= '<div class="grid-container">';
+    $returnhtml .= '<div class="grid-x cols4-s2 branch_lists">';
+    
+    while ( $branches->have_posts() ) : $branches->the_post();
+    
+        $title = get_the_title();    
+        $phone = get_field('location_phone');
+        $loc_map = get_field('location_map');
+        $lat = $loc_map['lat'];
+        $lng = $loc_map['lng'];
+    
+
+        $returnhtml .= '<div class="cell large-6 xlarge-3 col-item branch_wrap" data-lat="'. esc_attr($lat) .'" data-lng="'. esc_attr($lng) .'" data-location="'.esc_attr($title).'">';
+        $returnhtml .= '<div class="branch_link" >';
+        $returnhtml .= '<h2 class="branch_title">'. $title .'</h2>';
+        $returnhtml .= '<p class="branch_address">' . $loc_map['address'] .'</p>';
+        $returnhtml .= '<p class="branch_phone">' . $phone .'</p>';
+        $returnhtml .= '</div></div>'; //branch_wrap
+        
+    
+    endwhile;
+    
+    wp_reset_postdata();
+    $returnhtml .= '</div>';// grid-x branch_lists
+    $returnhtml .= '<hr/>';
+    $returnhtml .= '</div>';//grid-container     
+    $returnhtml .='</div>'; // office_locator
+    
+    return $returnhtml;
+}
+add_shortcode('office_locator','build_contact_us_map');
+
+function build_find_office_map(){ 
+    //wp_reset_query();
+    $office_args = array(  
+        'post_type' => 'offices',
+        'posts_per_page' => -1, 
+        'post_status' => 'publish',
+        'orderby' => 'title',
+        'order' => 'ASC',
+    );
+    
+    $office_loop = new WP_Query( $office_args );
+    ?>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDac2mOtJr_IktjUhiLZYRL_xHzxRbodRE&callback=initMap&libraries=&v=weekly" defer></script>
+    <script>
+    function initMap() {
+     
+        const myLatlng = { lat: 34.750713, lng: -111.263263 };
+    
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 8,
+            center: myLatlng,
+        });
+    
+    
+        var bounds = new google.maps.LatLngBounds();
+        var infowindow = new google.maps.InfoWindow();  
+        
+        var markers_array = new Array();
+        var locations = [];
+        var array_holder;
+        var loc_content = "";
+        var loc_ctr = 0;
+        var emp_phones = "";
+    
+        <?php while ( $office_loop->have_posts() ) : $office_loop->the_post(); ?>
+            <?php if(!empty(get_field('location_map'))): ?>
+                <?php //var_dump( get_field('map') ); ?>
+            var loc_title = '<?php the_title(); ?>';
+            var office_lat = <?php echo get_field('location_map')['lat']; ?>; 
+            var office_lng = <?php echo get_field('location_map')['lng']; ?>;
+    
+            loc_content = '<div id="mapInfo'+loc_ctr+'" class="map_grid grid-container">';
+            loc_content += '<div class="grid-x align-top">';
+    
+            loc_content += '<div class="cell medium-12">';
+            loc_content += '<figure class="loc_img"><img src="<?php the_post_thumbnail_url() ?>"/></figure>';
+            loc_content += '<div class="loc_body">';
+            loc_content += '<h2 class="office_map_title">'+ loc_title +'</h2>';
+            loc_content += '<p class="office_address"><?php echo esc_html(get_field('location_map')['address']); ?></p>';
+            loc_content += '<p class="office_phone"><?php echo esc_html(get_field('location_phone')); ?></p>';
+            loc_content += '</div></div>';        
+    
+            loc_content += '</div></div>';
+    
+            array_holder = [loc_title, office_lat, office_lng, loc_content];
+            locations.push(array_holder);
+            loc_ctr = loc_ctr+1;
+            <?php endif; ?>
+            <?php endwhile; wp_reset_postdata(); ?>
+        
+        
+        for (var i = 0; i < locations.length; i++) {
+          
+          var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+            map: map
+          });
+    
+           bounds.extend(marker.position);
+    
+    
+          google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+              infowindow.setContent(locations[i][3]);
+              infowindow.open(map, marker);
+              map.setCenter(this.getPosition());
+            }
+          })(marker, i));
+    
+          markers_array.push(marker);
+        }
+    
+        //now fit the map to the newly inclusive bounds
+        map.fitBounds(bounds);
+      
+    
+        //(optional) restore the zoom level after the map is done scaling
+        var listener = google.maps.event.addListener(map, "idle", function () {
+            map.setZoom(8);
+            google.maps.event.removeListener(listener);
+        });
+    
+        
+        $('.branch_wrap').each(function(i){
+            $(this).on('click', function(e){
+                google.maps.event.trigger(markers_array[i], 'click');
+                e.preventDefault();
+            });
+        });
+    
+    
+    }</script>
+    
+    <?php 
+    }
+    add_shortcode('display_map', 'build_find_office_map');

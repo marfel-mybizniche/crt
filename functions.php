@@ -125,19 +125,19 @@ function mbn_enqueue_scripts(){
 
 
     // google maps
-    $api_key = apply_filters( 'mbn-google-api-key', MBN_MAP_API_KEY );
-    wp_enqueue_script(
-        'google-maps-api-v3',
-        'https://maps.googleapis.com/maps/api/js?' . http_build_query( array(
-            'v'         => '3',
-            'libraries' => 'places',
-            'language'  => substr( get_locale(), 0, 2 ),
-            'key'       => $api_key,
-        ) ),
-        array(),
-        '3',
-        false
-    );
+    // $api_key = apply_filters( 'mbn-google-api-key', MBN_MAP_API_KEY );
+    // wp_enqueue_script(
+    //     'google-maps-api-v3',
+    //     'https://maps.googleapis.com/maps/api/js?' . http_build_query( array(
+    //         'v'         => '3',
+    //         'libraries' => 'places',
+    //         'language'  => substr( get_locale(), 0, 2 ),
+    //         'key'       => $api_key,
+    //     ) ),
+    //     array(),
+    //     '3',
+    //     false
+    // );
 
 }
 add_action('wp_enqueue_scripts', 'mbn_enqueue_scripts', 20);
@@ -204,3 +204,90 @@ function mbn_insert_headers(){
     ?><link rel="stylesheet" type="text/css" href="https://kenwheeler.github.io/slick/slick/slick-theme.css"/><?php
 }
 add_action('wp_head', 'mbn_insert_headers');
+
+add_filter( 'wpsl_info_window_template', 'custom_info_window_template' );
+
+function custom_info_window_template() {
+
+    global $wpsl_settings, $wpsl;
+ 
+    $info_window_template = '<div data-store-id="<%= id %>" class="wpsl-info-window">' . "\r\n";
+    $info_window_template .= "\t\t\t" . '<%= thumb %>' . "\r\n";
+    $info_window_template .= "\t\t" . '<div class="location_info">' . "\r\n";
+    $info_window_template .= "\t\t\t" . '<h3>' . wpsl_store_header_template() . '</h3>' . "\r\n";  // Check which header format we use
+    $info_window_template .= "\t\t\t" . '<p><span><%= address %> ' . "\r\n";
+    $info_window_template .= "\t\t\t" . '<% if ( address2 ) { %>' . "\r\n";
+    $info_window_template .= "\t\t\t" . '<%= address2 %>' . "\r\n";
+    $info_window_template .= "\t\t\t" . '<% } %>' . "\r\n";
+    $info_window_template .= "\t\t\t" . '</span><span>' . wpsl_address_format_placeholders() . '</span>' . "\r\n"; // Use the correct address format
+    $info_window_template .= "\t\t" . '</p>' . "\r\n";
+    $info_window_template .= "\t\t" . '<% if ( phone ) { %>' . "\r\n";
+    $info_window_template .= "\t\t" . '<span><strong><%= formatPhoneNumber( phone ) %></strong></span>' . "\r\n";
+    $info_window_template .= "\t\t" . '<% } %>' . "\r\n";
+    $info_window_template .= "\t\t" . '<% if ( fax ) { %>' . "\r\n";
+    $info_window_template .= "\t\t" . '<span><%= fax %></span>' . "\r\n";
+    $info_window_template .= "\t\t" . '<% } %>' . "\r\n";
+    $info_window_template .= "\t\t" . '<% if ( email ) { %>' . "\r\n";
+    $info_window_template .= "\t\t" . '<span><%= formatEmail( email ) %></span>' . "\r\n";
+    $info_window_template .= "\t\t" . '</div>' . "\r\n";
+    $info_window_template .= "\t\t" . '<% } %>' . "\r\n";
+    $info_window_template .= "\t" . '</div>';
+    
+    return $info_window_template;
+}
+
+//remove thumbnail and directions in listings
+add_filter( 'wpsl_listing_template', 'custom_listing_template' );
+
+function custom_listing_template() {
+
+    global $wpsl_settings;
+    
+    $listing_template = '<li class="loc_item" data-store-id="<%= id %>">' . "\r\n";
+    $listing_template .= "\t\t" . '<div class="loc_inner">' . "\r\n";
+    $listing_template .= "\t\t\t\t" . wpsl_store_header_template( 'listing' ) . "\r\n"; // Check which header format we use
+    $listing_template .= "\t\t\t\t" . '<span class="wpsl-street"><%= address %></span>' . "\r\n";
+    $listing_template .= "\t\t\t\t" . '<% if ( address2 ) { %>' . "\r\n";
+    $listing_template .= "\t\t\t\t" . '<span class="wpsl-street"><%= address2 %></span>' . "\r\n";
+    $listing_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
+    $listing_template .= "\t\t\t\t" . '<span>' . wpsl_address_format_placeholders() . '</span>' . "\r\n"; // Use the correct address format
+    $listing_template .= "\t\t\t\t" . '<span class="wpsl-country"><%= country %></span>' . "\r\n";
+    $listing_template .= "\t\t\t" . '</p>' . "\r\n";
+    $listing_template .= "\t\t\t" . wpsl_more_info_template() . "\r\n"; // Check if we need to show the 'More Info' link and info
+    $listing_template .= "\t\t" . '</div>' . "\r\n";
+
+    if ( !$wpsl_settings['hide_distance'] ) {
+        $listing_template .= "\t\t" . '<%= distance %> ' . esc_html( $wpsl_settings['distance_unit'] ) . '' . "\r\n";
+    }
+    $listing_template .= "\t" . '</li>';
+
+    return $listing_template;
+}
+
+add_filter( 'wpsl_thumb_size', 'custom_thumb_size' );
+
+function custom_thumb_size() {
+    
+    $size = 'full';
+    
+    return $size;
+}
+
+add_filter( 'wpsl_templates', 'custom_templates' );
+
+function custom_templates( $templates ) {
+
+    /**
+     * The 'id' is for internal use and must be unique ( since 2.0 ).
+     * The 'name' is used in the template dropdown on the settings page.
+     * The 'path' points to the location of the custom template,
+     * in this case the folder of your active theme.
+     */
+    $templates[] = array (
+        'id'   => 'slick_below',
+        'name' => 'Store list below map with slick',
+        'path' => MBN_DIR_URI . '/wpsl-templates/custom_slick.php',
+    );
+
+    return $templates;
+}
