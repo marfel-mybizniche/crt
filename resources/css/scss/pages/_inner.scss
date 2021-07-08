@@ -600,14 +600,17 @@ h1.page_title {
 
                 &:after {
                     color: $color-dark;
+                    background-image: url(../img/icn-arrow-r.svg);
                 }
 
                 &:hover {
                     color: $color-white;
                     &:after {
                         color: $color-white;
+                        background-image: url(../img/icn-arrow-rw.svg);
                     }
                 }
+                
             }
         }
         @include media(max-width, 1023px){
@@ -759,15 +762,22 @@ h1.page_title {
         border-radius: 0;
 
         &:after {            
-            content: "\f344";
+            /*content: "\f344";
             display: inline-block;
             color: #fff;
             -webkit-font-smoothing: antialiased;
-            font: normal 14px/1 'dashicons';
+            font: normal 14px/1 'FontAwesome';
             z-index: 100; 
+            margin-left: 10px;*/
+            content: "";
+            background-size: 20px 10px;
+            width: 20px;
+            height: 10px;
+            background-repeat: no-repeat;
+            background-image: url(../img/icn-arrow-rw.svg);
+            display: inline-block;
             margin-left: 10px;
         }
-        
     }
 }
 
@@ -780,6 +790,7 @@ h1.page_title {
 
         &:after {            
             color: $color-dark;
+            background-image: url(../img/icn-arrow-r.svg);
         }
 
         &:hover {
@@ -788,6 +799,7 @@ h1.page_title {
 
             &:after {            
                 color: $color-white;
+                background-image: url(../img/icn-arrow-rw.svg);
             }
     
         }
