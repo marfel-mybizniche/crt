@@ -201,14 +201,15 @@
                         font-size: 14px;
                         color: $color-grey;
                         
-                        &:before {                            
-                            content: "\f344";
+                        &:before {                   
+                            content: "";
+                            background-size: 20px 10px;
+                            width: 20px;
+                            height: 10px;
+                            background-repeat: no-repeat;
+                            background-image: url(../img/icn-arrow-rr.svg);
                             display: inline-block;
-                            color: $color-secondary;
-                            -webkit-font-smoothing: antialiased;
-                            font: normal 14px/1 'dashicons';
-                            z-index: 100;
-                            margin-right: 10px;
+                            margin-left: 10px;
                         }
                     }
                 }
