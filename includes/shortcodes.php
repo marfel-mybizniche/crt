@@ -178,7 +178,7 @@ function build_find_office_map(){
     <script>
     function initMap() {
      
-        const myLatlng = { lat: 34.750713, lng: -111.263263 };
+        const myLatlng = { lat: 33.3344657, lng: -111.8984525 };
     
         const map = new google.maps.Map(document.getElementById("map"), {
             zoom: 8,
@@ -250,7 +250,7 @@ function build_find_office_map(){
     
         //(optional) restore the zoom level after the map is done scaling
         var listener = google.maps.event.addListener(map, "idle", function () {
-            map.setZoom(8);
+            map.setZoom(10);
             google.maps.event.removeListener(listener);
         });
     

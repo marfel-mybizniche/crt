@@ -993,14 +993,14 @@ h1.page_title {
         background:$color-white;        
     }
     
-    &:hover {
+    &:hover,
+    &.slick-current {
         background: #f1f1f1;
         border-bottom: 3px solid #f1f1f1;
     }
 
     &:active,
-    &.is-active,
-    &.slick-current {
+    &.is-active {
         background: #2C3837;
         border-bottom: 3px solid $color-primary;
         color: $color-white;
