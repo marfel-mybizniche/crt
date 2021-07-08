@@ -196,6 +196,7 @@
             }
 
             .sub-menu {
+                margin-left: 0 !important;
                 li {
                     a{
                         font-size: 14px;
@@ -209,7 +210,7 @@
                             background-repeat: no-repeat;
                             background-image: url(../img/icn-arrow-rdr.svg);
                             display: inline-block;
-                            margin-left: 10px;
+                            margin-right: 10px;
                         }
                     }
                 }
@@ -270,6 +271,9 @@
                 a{ 
                     font-size: 12px;
                 }
+            }
+            @include media (min-width, 1024px){
+                display: none;
             }
         }
 

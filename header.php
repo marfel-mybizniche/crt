@@ -74,7 +74,7 @@
                     <nav class="mobmenu hide-for-large">
                         <?php
                             wp_nav_menu( array( 
-                                'theme_location' => 'main-menu',
+                                'theme_location' => 'footer-mobile-menu',
                                 'menu'       => '',
                                 'container'  => '',
                                 'items_wrap' => '<ul class="menu accordion-menu" data-multi-open="false" data-accordion-menu data-submenu-toggle="true">%3$s</ul>' 
