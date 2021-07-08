@@ -492,9 +492,15 @@ h1.page_title {
     cursor: pointer;
 
     &:hover {
-        background: #161F1E;
-        color: #DB323F;
-    }
+        background: $color-primary;
+        color: $color-white;
+        .icon_wrapper {            
+                
+            &::before {						
+                content: url(../img/icn-phone-white-large.svg);
+            }	
+        }
+    }   
 
     .icon_wrapper {
         margin-bottom: 7px;
@@ -503,10 +509,18 @@ h1.page_title {
             width: 40px;
             margin-bottom: 5px;
             
+			img {
+				width: 31px;
+			}
+
             @include media(max-width,480px) {
                 width: 20px;
             }
         }
+			
+        &::before {						
+            content: url(../img/icn-phone-darkred.svg);
+        }	
     }
 
     .address {

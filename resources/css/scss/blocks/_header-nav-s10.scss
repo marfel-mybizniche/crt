@@ -884,11 +884,12 @@ body{
 
 				@include media(max-width, 782px){
 					top: 46px !important;
+					&.is-stuck{
+						top: 0px!important;
+					}
 				}
 
-				&.is-stuck{
-					top: 0px!important;
-				}
+				
 			}
 		}	
 	}
