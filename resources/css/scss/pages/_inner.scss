@@ -870,6 +870,11 @@ h1.page_title {
 .ct_margin_bottom_40 {
     figure {
         margin-bottom: 3em !important;
+        
+        @include media(max-width,375px){
+            
+            margin-bottom: 5em !important;
+        }
     }
 }
 
