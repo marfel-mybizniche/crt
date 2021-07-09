@@ -1,70 +1,26 @@
-// youtube img placeholder
-figure{
-    &.video {
-        
-        button.video__button {
+figure {
+    width: 100%;
+    height: auto;
+
+    &.wp-block-embed {
+        position: relative;
+        &:after {
+            content: '';
             background: url(../img/icn-play-circle-wr.svg) no-repeat top center;
             width: 70px;
             height: 70px;
-            z-index: 2;
             position: absolute;
             background-size: cover;
-            top: 50%;
-            left: 50%;
+            top: 40%;
+            left: 45%;
             display: block;
             transition: all 0.3s ease-in-out;
-            transform: translateX(-50%) translateY(-50%);
-        
-            &:hover {
-                cursor: pointer;              
-                border: solid 1px #fff;
-                background-color: #fff;
-                box-shadow: 0 0 10px 5px rgba(255,255,255,0.6);
-                -moz-box-shadow: 0 0 10px 5px rgba(255,255,255,0.6);
-                -webkit-box-shadow: 0 0 10px 5px rgba(255,255,255,0.6);
-                -o-box-shadow: 0 0 10px 5px rgba(255,255,255,0.6);
-                border-radius:100px;
-            }
-            &.is-playing {
-                display: none;
-            }
         }
-        
-        .video__placeholder {
-            object-fit: cover;
-            height: 100%;
-        
-        }
-
-        &.img_feat_contact_us {        
-            .video__placeholder {
-                background: url(../img/img-feat-contact-us.jpg) no-repeat top center!important; 
-                background-size: cover !important;            
+        &.is_played {
+            &:after {
+                display: none !important;
             }
-
         }
     }
 }
 
-
-//video
-$video-height: 40vh;
-
-.video {
-    width: 100%;
-    height: $video-height;
-    margin-bottom: 1.5em;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-}
-.video__placeholder { min-width: 100%; display: block; }
-
-#video-player {
-width: 100%;
-height: $video-height;
-top: 0;
-left: 0;
-position: absolute;
-display: block;
-}

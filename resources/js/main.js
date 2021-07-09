@@ -131,26 +131,34 @@
               ]
           });
             
-            $('figure.wp-block-embed').click(function(){
-                if( !$(this).hasClass('.clicked') ){
-                    $(this).toggleClass('clicked');
-                    $('.wp-block-embed__wrapper iframe').show();
-                    
-                }
+          $('.is-type-video iframe').each(function(){
+            
+                
+            var $this = $(this); // get each video
+
+            var vid_src = $this.attr('src'); // get video src
+
+            vid_src += '?title=0&byline=0&portrait=0&sidedock=0&showinfo=0&controls=0&modestbranding=1&autohide=1'; //remove controls
+
+            $this.attr('src', vid_src);
+
+
+            $('.is-type-video').click(function(){
+
+              vid_src += vid_src +'?title=1&byline=1&portrait=1&sidedock=1&showinfo=1&controls=1&autoplay=1';
+
+
+              $(this).find('.wp-block-embed__wrapper iframe').attr('src', vid_src);
+
+              $(this).addClass('is_played');
 
             });
 
-            $('.video__placeholder, .video__button').on('click', function() {
-              if ( !$('#video-player').length ) {
-                var video = '<iframe id="video-player" src="' + $('.video__placeholder').attr('data-video') + '" frameborder="0" allowfullscreen wmode="opaque"></iframe>';
-                $(video).insertAfter( $('.video__placeholder') );
-                $('.video__button').addClass('is-playing');
-              } else {
-                $('.video__button').removeClass('is-playing');
-                $('#video-player').remove();
-              }
-            });
- 
+            
+
+          })
+
+
     });
     
 })(jQuery);

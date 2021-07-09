@@ -271,19 +271,3 @@ function build_find_office_map(){
         return $returnhtml;
     }
     add_shortcode('display_map', 'build_find_office_map');
-
-    function mbn_custom_video_shortcode($atts){
-
-        $class = $atts['class'];
-        $vid = $atts['video'];
-        preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+(?=\?)|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $vid, $matches);
-        //var_dump($matches);
-        $vid = $matches[0]; 
-        $returnhtml .= '<figure class="video '. $class .'">';
-        $returnhtml .= '<div data-video="https://www.youtube.com/embed/'. $vid .'?autoplay=1" class="video__placeholder" /></div>';
-        $returnhtml .= '<button class="video__button"></button></figure>';
-
-        return $returnhtml;
-    
-    }
-    add_shortcode('mbn_custom_video','mbn_custom_video_shortcode');
