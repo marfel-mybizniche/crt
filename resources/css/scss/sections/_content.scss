@@ -1,8 +1,8 @@
 figure {
+
+    &.is-type-video {
     width: 100%;
     height: auto;
-
-    &.wp-block-embed {
         position: relative;
         &:after {
             content: '';
@@ -19,6 +19,19 @@ figure {
         &.is_played {
             &:after {
                 display: none !important;
+            }
+
+            &:hover {
+                &:after{                    
+                    cursor: pointer;              
+                    border: solid 1px #fff;
+                    background-color: #fff;
+                    box-shadow: 0 0 10px 5px rgba(255,255,255,0.6);
+                    -moz-box-shadow: 0 0 10px 5px rgba(255,255,255,0.6);
+                    -webkit-box-shadow: 0 0 10px 5px rgba(255,255,255,0.6);
+                    -o-box-shadow: 0 0 10px 5px rgba(255,255,255,0.6);
+                    border-radius:100px;
+                }
             }
         }
     }
