@@ -776,36 +776,76 @@ h1.page_title {
 
 .primary_button {
 
-    a {
-        text-shadow: none;
-        border: 2px solid $color-primary !important;
-        padding: 30px 0;
+    &.is-style-outline {
+                
+        a {
 
-        &:after {            
-            color: $color-dark;
-            background-image: url(../img/icn-arrow-r.svg);
-        }
+            text-shadow: none;
+            border: 2px solid $color-primary !important;
+            padding: 30px 0;            
 
-        &:hover {
+            &:after {            
+                color: $color-dark;
+                background-image: url(../img/icn-arrow-r.svg);
+            }
+
+            &:hover {
+                background-color: $color-primary !important;
+                color: $color-white;
+
+                &:after {            
+                    color: $color-white;
+                    background-image: url(../img/icn-arrow-rw.svg);
+                }
+        
+            }
+                
+        }          
+        
+    }
+
+    &.is-style-fill {
+        
+        a {
+
+            text-shadow: none;
             background-color: $color-primary !important;
-            color: $color-white;
 
             &:after {            
                 color: $color-white;
                 background-image: url(../img/icn-arrow-rw.svg);
             }
-    
-        }
+
+            &:hover {
+                color: $color-black;
+                border: 2px solid $color-primary !important;
+                background-color: transparent !important;
+
+                &:after {            
+                    color: $color-primary;
+                    background-image: url(../img/icn-arrow-r.svg);
+                }
         
+            }
+                
+        }          
+        
+    }
+
+    &.find_more {        
+        padding: 30px 0;            
     }
     
     @include media(min-width, 1024px){
-        width: 60% !important;
+        &.find_more {
+            width: 60% !important;
+        }
         margin: 0 auto !important;
         a {
             padding: 20px 0;
         }
     }
+
     
 }
 
