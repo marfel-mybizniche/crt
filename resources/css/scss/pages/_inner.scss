@@ -1352,6 +1352,11 @@ img.wpsl-store-thumb.wp-post-image {
     }
 }
 
+.wp-block-video,
+.wp-block-embed { 
+
+}
+
 @include media (min-width, 1024px){
     .wp-block-column:not(:first-child) {
         /* margin-left: 6em !important; */

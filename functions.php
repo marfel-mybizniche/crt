@@ -125,6 +125,7 @@ function mbn_enqueue_scripts(){
 
 
     // google maps
+    //
     // $api_key = apply_filters( 'mbn-google-api-key', MBN_MAP_API_KEY );
     // wp_enqueue_script(
     //     'google-maps-api-v3',

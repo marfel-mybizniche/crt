@@ -98,7 +98,7 @@ function mbn_testimonials_shortcode(){
         $returnhtml .= '<div class="testimonial_item">';
         
         $returnhtml .= '<div class="testimonial_blockitem">';
-        $returnhtml .= ($testimonial_img) ? '<figure class="col-image"><img src="'. $testimonial_img .'" alt=""></figure>' : '<img src="https://via.placeholder.com/1200x500"/>';
+        $returnhtml .= ($testimonial_img) ? '<figure class="col-image"><img src="'. $testimonial_img .'" alt=""></figure>' : '<figure><img src="https://via.placeholder.com/1200x500"/></figure>';
         $returnhtml .= '<div class="testimonial_body">';    
         $returnhtml .= '<div class="testimonial_vbtn"><figure><img src="'. MBN_ASSETS_URI .'/img/icn-play-w.svg" alt=""></figure><span>PLAY VIDEO</span></div>';
         $returnhtml .= '<div class="testimonial_info">'. $testimonial_rating;
@@ -149,9 +149,9 @@ function build_contact_us_map(){
         $returnhtml .= '</div></div>'; //branch_wrap
         
     
-    endwhile;
-    
+    endwhile;    
     wp_reset_postdata();
+    
     $returnhtml .= '</div>';// grid-x branch_lists
     $returnhtml .= '<hr/>';
     $returnhtml .= '</div>';//grid-container     
@@ -172,11 +172,11 @@ function build_find_office_map(){
     );
     
     $office_loop = new WP_Query( $office_args );
+   
+    $returnhtml .= '<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>';
+    $returnhtml .= '<script src="https://maps.googleapis.com/maps/api/js?key='. MBN_MAP_API_KEY .'&callback=initMap&libraries=&v=weekly" defer></script>';
     ?>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDac2mOtJr_IktjUhiLZYRL_xHzxRbodRE&callback=initMap&libraries=&v=weekly" defer></script>
-    <script>
-    function initMap() {
+    <script>function initMap() {
      
         const myLatlng = { lat: 33.3344657, lng: -111.8984525 };
     
@@ -199,26 +199,28 @@ function build_find_office_map(){
         <?php while ( $office_loop->have_posts() ) : $office_loop->the_post(); ?>
             <?php if(!empty(get_field('location_map'))): ?>
                 <?php //var_dump( get_field('map') ); ?>
-            var loc_title = '<?php the_title(); ?>';
-            var office_lat = <?php echo get_field('location_map')['lat']; ?>; 
-            var office_lng = <?php echo get_field('location_map')['lng']; ?>;
-    
-            loc_content = '<div id="mapInfo'+loc_ctr+'" class="map_grid grid-container">';
-            loc_content += '<div class="grid-x align-top">';
-    
-            loc_content += '<div class="cell medium-12">';
-            loc_content += '<figure class="loc_img"><img src="<?php the_post_thumbnail_url() ?>"/></figure>';
-            loc_content += '<div class="loc_body">';
-            loc_content += '<h2 class="office_map_title">'+ loc_title +'</h2>';
-            loc_content += '<p class="office_address"><?php echo esc_html(get_field('location_map')['address']); ?></p>';
-            loc_content += '<p class="office_phone"><?php echo esc_html(get_field('location_phone')); ?></p>';
-            loc_content += '</div></div>';        
-    
-            loc_content += '</div></div>';
-    
-            array_holder = [loc_title, office_lat, office_lng, loc_content];
-            locations.push(array_holder);
-            loc_ctr = loc_ctr+1;
+                var loc_title = '<?php the_title(); ?>';
+                var office_lat = <?php echo get_field('location_map')['lat']; ?>; 
+                var office_lng = <?php echo get_field('location_map')['lng']; ?>;
+        
+                loc_content = '<div id="mapInfo'+loc_ctr+'" class="map_grid grid-container">';
+                loc_content += '<div class="grid-x align-top">';
+        
+                loc_content += '<div class="cell medium-12">';       
+                <?php if( !empty(get_the_post_thumbnail_url()) ) :?>
+                loc_content += '<figure class="loc_img"><img src="<?php echo esc_html( get_the_post_thumbnail_url() );?>"/></figure>';
+                <?php endif; ?>
+                loc_content += '<div class="loc_body">';
+                loc_content += '<h2 class="office_map_title">'+ loc_title +'</h2>';
+                loc_content += '<p class="office_address"><?php echo esc_html(get_field('location_map')['address']); ?></p>';
+                loc_content += '<p class="office_phone"><?php echo esc_html(get_field('location_phone')); ?></p>';
+                loc_content += '</div></div>';        
+        
+                loc_content += '</div></div>';
+        
+                array_holder = [loc_title, office_lat, office_lng, loc_content];
+                locations.push(array_holder);
+                loc_ctr = loc_ctr+1;
             <?php endif; ?>
             <?php endwhile; wp_reset_postdata(); ?>
         
@@ -266,5 +268,22 @@ function build_find_office_map(){
     }</script>
     
     <?php 
+        return $returnhtml;
     }
     add_shortcode('display_map', 'build_find_office_map');
+
+    function mbn_custom_video_shortcode($atts){
+
+        $class = $atts['class'];
+        $vid = $atts['video'];
+        preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+(?=\?)|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $vid, $matches);
+        //var_dump($matches);
+        $vid = $matches[0]; 
+        $returnhtml .= '<figure class="video '. $class .'">';
+        $returnhtml .= '<div data-video="https://www.youtube.com/embed/'. $vid .'?autoplay=1" class="video__placeholder" /></div>';
+        $returnhtml .= '<button class="video__button"></button></figure>';
+
+        return $returnhtml;
+    
+    }
+    add_shortcode('mbn_custom_video','mbn_custom_video_shortcode');
