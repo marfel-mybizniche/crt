@@ -356,6 +356,8 @@
 
         .footer_bottom_left {
             margin-right: 0;
+            flex-direction: row;
+            justify-content: flex-start;
         }
 
         .foottop {
@@ -394,6 +396,12 @@
 
         .designby {
             text-align: center;
+        }
+    }
+    @include media(max-width, 375px){
+        
+        .footer_bottom_left {
+            font-size: 10px;
         }
     }
 }
