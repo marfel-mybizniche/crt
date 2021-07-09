@@ -10,7 +10,7 @@
 		<div class="grid-container"> 
 			<div class="banner_wrap">
 				<div class="banner_left <?php echo get_field('banner_subtitle_style');?>">
-					<h3 class="banner_subtitle_text"><?php echo get_field('page_header_subtitle'); ?></h3>
+					<h3 class="banner_subtitle_text"><?php echo get_field('page_header_subtitle'); ?><span><?php echo get_field('page_header_subtitle_2'); ?></span></h3>
 					<div class="banner_subtitle_body">
 						<h1 class="banner_subtitle_title"><?php echo get_field('page_header_title'); ?></h1>
 						<div class="banner_paragraph">
