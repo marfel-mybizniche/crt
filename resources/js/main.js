@@ -26,7 +26,7 @@
         });
         
         $('.banner_subtitle_text').each(function(){
-            $(this).attr('data-subtitle' , $(this).text());  
+          $(this).attr('data-subtitle' , $(this).text());  
         })
 
         // map slick

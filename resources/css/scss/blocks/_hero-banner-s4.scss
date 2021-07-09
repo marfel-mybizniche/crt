@@ -628,7 +628,7 @@
 		z-index: 1;
 		text-transform: uppercase;
 
-		span {
+		span.banner_subtitle_text_2 {
 			font-size: 12px;
 			letter-spacing: 3;
 		}
@@ -661,7 +661,7 @@
 			border-radius: 0px;	
 			z-index: -2;
 			position: absolute;
-			top:0;
+			top:20px;
 			left:0;
 		}
 		
