@@ -778,7 +778,7 @@ h1.page_title {
 
 .primary_button {
     padding: 20px 0;
-    
+
     &.is-style-outline {
                 
         a {
@@ -1121,6 +1121,10 @@ ul.star-rating li i {
 .testimonial_block_wrap {
 
     padding: 30px 0;
+
+    .testimonial_block {
+        width: 100%;
+    }
     .slick-dots{
         position:relative !important;
     }
