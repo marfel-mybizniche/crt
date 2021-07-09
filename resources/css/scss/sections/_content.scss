@@ -37,3 +37,44 @@ figure {
     }
 }
 
+.page-content {
+    .banner_checklist {
+            
+        .media_flex {
+            .icon_wrapper {
+                
+                border: 2px solid $color-black;
+            }
+
+            .media_body {
+                h3 {
+                            
+                    font-size: 14px !important;
+                    font-weight: 600 !important;
+                }
+            }
+
+        }
+    }
+}
+.column_top {
+    .mobile_only {
+    
+        @include media (max-width, 1023px){
+            .column_bottom {    
+                display: flex;
+                justify-content: center;
+            }
+        }
+    
+        @include media (max-width, 375px) {
+            .call_carol_col p{
+                font-size: 10px !important;
+            }
+            .call_carol_num p{
+                font-size: 36px !important;
+            }
+        }
+    }
+
+}

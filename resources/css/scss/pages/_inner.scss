@@ -716,6 +716,8 @@ h1.page_title {
 .media_flex {
 
     display: flex;            
+    align-content: flex-start;
+    align-items: flex-start;
 
     .media_left {
         padding-right: 10px;        
@@ -775,7 +777,8 @@ h1.page_title {
 }
 
 .primary_button {
-
+    padding: 20px 0;
+    
     &.is-style-outline {
                 
         a {

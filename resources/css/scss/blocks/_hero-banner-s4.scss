@@ -573,6 +573,7 @@
 
 .banner_checklist {
 	display:flex; //check-icon
+	text-transform: capitalize;
 
 	.text_wrap{
 		h3 {
@@ -586,7 +587,6 @@
 	}
 
 	.media_flex {
-		padding-right: 45px;
 		.icon_wrapper {
 			
 			width: 25px;
@@ -603,6 +603,10 @@
 				margin: 0 auto;
 			}
 			
+		}
+		@include media (min-width, 1024px){
+			
+			padding-right: 45px;
 		}
 	}
 	@include media(max-width, 1023px){
