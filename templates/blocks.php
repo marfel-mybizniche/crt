@@ -1,14 +1,25 @@
 <?php 
     /* Template Name: Blocks template */
     get_header();
+
+
+//acf fields
+$banner_height = get_field('page_header_banner_height');				
+$banner_right_text = get_field('banner_right_text');
+$banner_right = get_field('has_banner_right');
+$add_image = get_field('right_image');
+$add_buttons = get_field('has_call_to_action');
+
 ?>
 
 
-<section class="hero_banner_wrap ">
+<section class="hero_banner_wrap" data-height="<?php echo ( $banner_height == "full_height" ) ? '110vh' : '780px';?>">
 	<div class="hero_banner">
-		<figure class="bg"><img src="<?php echo get_field('page_header_image'); ?>"></figure>
+		<figure class="bg">
+			<img src="<?php echo get_field('page_header_image'); ?>" />
+		</figure>
 		<div class="grid-container"> 
-			<div class="banner_wrap">
+			<div class="banner_wrap" data-height="<?php echo ( $banner_height == "full_height" ) ? '110vh' : '780px';?>">
 				<div class="banner_left <?php echo get_field('banner_subtitle_style');?>">
 					<h3 class="banner_subtitle_text"><?php echo get_field('page_header_subtitle'); ?></h3>
 					<div class="banner_subtitle_body">
@@ -31,18 +42,13 @@
 						<?php endif; ?>   
 					</div>
 				</div>
+				<div class="banner_right">					
 				<?php 
-				
-				$banner_right_text = get_field('banner_right_text');
-				$banner_right = get_field('has_banner_right');
-				$add_image = get_field('has_image');
-				$add_buttons = get_field('has_call_to_action');
 				
 				if( $banner_right ):
 				?>
-				<div class="banner_right">
-					<?php if ($banner_right_text): ?><h5><?php echo get_field('banner_right_text');?></h5><?php endif; ?>
-					<?php if ($add_image): ?><figure class=""><img src="<?php echo get_field('right_image');?>"></figure> <?php endif; ?>
+					<?php if ($banner_right_text): ?><h5><?php echo esc_attr($banner_right_text);?></h5><?php endif; ?>
+					<?php if ($add_image): ?><figure class=""><img src="<?php echo esc_attr($add_image);?>"></figure> <?php endif; ?>
 						
 					<div class="grid-container">
 						<div class="grid-x grid-margin-x banner_contact">
@@ -75,8 +81,8 @@
 							endif; ?>
 						</div>
 					</div>
-				</div>
 				<?php endif; ?>
+				</div>
 			</div>
         </div>
 	</div>
