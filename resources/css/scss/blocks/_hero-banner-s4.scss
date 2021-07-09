@@ -628,6 +628,11 @@
 		z-index: 1;
 		text-transform: uppercase;
 
+		span {
+			font-size: 12px;
+			letter-spacing: 3;
+		}
+
 		&:before {
 			content: attr(data-subtitle);
 			font-family: "proxima-nova";
