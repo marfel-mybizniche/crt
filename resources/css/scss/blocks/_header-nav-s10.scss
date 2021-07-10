@@ -1,5 +1,6 @@
 
 /* Header Sticky Nav Style 10 */
+
 header {
 	position: relative;
 	z-index: 9999;
@@ -799,10 +800,9 @@ header {
 					height: calc(100vh - 78px);
 					left: 0;
 					right: 0;
-					background: $color-primary;
 					transition:all 0.5s ease;
 					overflow: auto;
-					background: $color-white;
+					background: $color-dark;
 					width: 0;
 
 					ul {
@@ -815,13 +815,12 @@ header {
 							text-align: left;
 							display: block;
 							margin: 0;
-							border-top: 1px solid lighten($color-black, 90%);
 
 							a {
 								font-size: 14px; 
 								line-height: 1.1; 
 								font-weight: bold; 
-								color:lighten($color-black, 44%); 
+								color:$color-white; 
 								text-transform: uppercase; 
 								padding:16px 35px; 
 								position: relative;
@@ -836,11 +835,10 @@ header {
 							ul {
 								margin: 0;
 								padding: 0;
-								background:$color-white;
 								li {
 									a {
 										padding-left: 45px;
-										text-transform: none; 
+										text-transform: uppercase; 
 										text-align: left; 
 										color: lighten($color-black, 44%); 
 									}
@@ -894,7 +892,7 @@ body{
 		}	
 	}
 
-	&:not(.home){
+	&:not(.home) {
 
 		@include media (max-width, 1023px){
 			
@@ -973,4 +971,152 @@ body{
 
 		}
 	}
+
+	&.full_height {
+
+		@include media (max-width, 1023px){
+			
+			background: $color-white;
+			
+			.navbar {
+
+				.navicon {
+
+					span {
+						color: $color-white;  
+					}
+					
+					&::before,					
+					&::after {						
+						border-top: 2px solid $color-white;  
+					}
+				}
+
+				
+				.navphone {
+					span {
+						color: $color-white;  
+					}
+					&::before {						
+						content: url(../img/icn-phone-light.svg);
+					}					
+				}
+			}
+			
+
+			.is-anchored {
+				.logo_mobile_wrap {
+
+					.logo_mobile_1 {
+						display: block!important;
+					}
+					.logo_mobile_2 {
+						display: none !important;
+					}
+				}
+			}
+
+			.is-stuck {
+
+				.logo_mobile_wrap {
+
+					.logo_mobile_1 {
+						display: none!important;
+					}
+					.logo_mobile_2 {
+						display: block !important;
+					}
+				}
+				
+			}
+
+		}
+	}
+
+	&:not(.home),
+	&.full_height{
+
+		header.show-menu {
+			.hsnav-s10,
+			.is-stuck	{
+				background: $color-dark !important;
+				.navicon {
+					span {
+						color: $color-white !important
+					}
+					&:before,
+					&:after {
+						border-top: 2px solid $color-white !important;
+					}
+					&:before{
+						top: 12px;
+						transform: rotate(-45deg);
+						width: 12px;
+					}
+					&:after{
+						top: 20px;
+						transform: rotate(45deg);
+						width: 12px;
+					}
+				}
+				
+				.navphone {
+					span {
+						color: $color-white !important;
+					}
+				}
+				.logo_mobile_wrap {
+
+					.logo_mobile_1 {
+						display: block!important;
+					}
+					.logo_mobile_2 {
+						display: none !important;
+					}
+				}
+				.mobmenu {
+					ul {
+						li{
+							border-top:0;
+						}
+						a{
+							color: $color-white;
+							font-weight: 400;
+						}
+
+					} 
+					.submenu-toggle {
+						background: $color-dark url(../img/icn-chev-down-r.svg) no-repeat 17px center/15px;
+
+						&[aria-expanded="true"]{
+							background: $color-dark url(../img/icn-close-w.svg) no-repeat 17px center/15px;
+
+						}
+					}
+					.sub-menu {
+						li{
+							a{
+								padding-left: 55px !important;
+
+								&:before {
+									content: "";
+									background-size: 20px 10px;
+									width: 20px;
+									height: 10px;
+									background-repeat: no-repeat;
+									background-image: url(../img/icn-arrow-rdr.svg);
+									display: inline-block;
+									margin-right: 10px;
+									left: 32px;
+									top: 85%;
+								}
+							}
+						}
+					}
+				}
+
+			}
+		}
+	}
+
 }

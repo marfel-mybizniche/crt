@@ -309,14 +309,15 @@ function mbn_video_list_shortcode() {
                 $video_url = get_field('video_link');
 
                 $video_thumb = get_video_thumb($video_url);
+                $video_type = videoType($video_url);
                 $video_id = get_video_id($video_url);
                 $postID = get_the_ID();
 				$terms = wp_get_post_terms( $postID, 'category' );
                 
-                $returnhtml .= '<a href="#" data-url="'.esc_url($video_url) .'" data-reveal-id="video_popup">';
+                $returnhtml .= '<a href="#" data-video-id="'.esc_attr($video_id) .'" class="modal-toggle" data-video-type="'.esc_attr($video_type).'">';
                 $returnhtml .= '<div class="video_item media_flex">';
                 $returnhtml .= '<div class="media_left">';
-                $returnhtml .= '<figure class="video_thumb"><img src="'. esc_url($video_thumb) .'" width="100" height="60"/></figure></div>';
+                $returnhtml .= '<figure class="video_thumb is-type-video"><img src="'. esc_url($video_thumb) .'" width="100" height="60"/></figure></div>';
                 $returnhtml .= '<div class="media_body">';
 
                 if ( $terms || !is_wp_error( $terms ) ):
@@ -341,12 +342,20 @@ function mbn_video_list_shortcode() {
 
     $returnhtml .= '';
 
-    $returnhtml .= '<div id="video_popup" class="reveal-modal large" data-reveal aria-labelledby="videoModalTitle" aria-hidden="true" role="dialog">';
-    $returnhtml .= '<h2 id="videoModalTitle">This modal has video</h2>';
-    $returnhtml .= '<div class="flex-video widescreen vimeo">';
-    $returnhtml .= '<iframe width="1280" height="720"  src="//www.youtube-nocookie.com/embed/wnXCopXXblE?rel=0"frameborder="0" allowfullscreen></iframe></div>';
-    $returnhtml .= '<a class="close-reveal-modal" aria-label="Close">&#215;</a>';
-    $returnhtml .= '</div>'; // video_popup
+
+    $returnhtml .= '<div class="modal">';
+    $returnhtml .= '<div class="modal-overlay modal-toggle"></div>';
+    $returnhtml .= '<div class="modal-wrapper modal-transition">';
+    $returnhtml .= '<div class="modal-header">';
+    $returnhtml .= '<a class="modal-close modal-toggle" data-toggle="header" aria-expanded="true" aria-controls="header"><span>Menu</span></a>';
+    $returnhtml .= '</div>';      
+    $returnhtml .= '<div class="modal-body">';
+    $returnhtml .= '<div class="modal-content">';
+    $returnhtml .= '<iframe width="1280" height="720"  src="" frameborder="0" allow="autoplay" allowfullscreen></iframe></div>';
+    $returnhtml .= '</div>';
+    $returnhtml .= '</div>';
+    $returnhtml .= '</div>';
+    $returnhtml .= '</div>';
 
     return $returnhtml;
 }

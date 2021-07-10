@@ -29,8 +29,8 @@ set_height = function () {
 
           }
           else if(device_width <= 1023) {
-
-              that.css('min-height', 0); 
+            
+              that.css('min-height', ( parseInt(height, 10) - 20 ) + 'vh'); 
 
           }
 
@@ -44,6 +44,8 @@ set_height = function () {
 
     /* Height */
     set_height();
+    var bodyClass = $('.hero_banner_wrap').data('body-class');
+    $('body').addClass(bodyClass);
 
     var stickyTop = $('.sticky').offset().top;
 
@@ -195,6 +197,35 @@ set_height = function () {
 
     container.toggleClass('show_tab');
 
+  });
+  
+  if(device_width <= 1023) {
+    if( !container.hasClass('show_tab') ){
+      container.addClass('show_tab');
+    }
+  }
+
+  // Quick & dirty toggle to demonstrate modal toggle behavior
+  $('.modal-toggle').click(function(e) {
+
+    e.preventDefault();
+
+    var modal = $('.modal');
+
+    $('body, .modal').toggleClass('is-visible');
+
+    var vid_id = $(this).data('video-id');
+    var vid_type = $(this).data('video-type');
+
+    var yt_url = 'https://www.youtube.com/embed/';
+    var vim_url = 'https://player.vimeo.com/video/';
+
+    if( vid_type == 'youtube' ) {
+      modal.find('iframe').attr('src', yt_url + vid_id + '/?autoplay=1&loop=1&rel=0&loop=1');
+    }
+    else {
+      modal.find('iframe').attr('src', vim_url + vid_id +'/?autoplay=1&loop=1&rel=0&loop=1');
+    }
   });
     
 })(jQuery);

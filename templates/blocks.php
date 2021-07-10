@@ -13,13 +13,13 @@ $add_buttons = get_field('has_call_to_action');
 ?>
 
 
-<section class="hero_banner_wrap" data-height="<?php echo ( $banner_height == "full_height" ) ? '110vh' : '780px';?>">
+<section class="hero_banner_wrap <?php echo $banner_height; ?>" data-body-class="<?php echo $banner_height; ?>" data-height="<?php echo ( $banner_height == "full_height" ) ? '100vh' : '780px';?>">
 	<div class="hero_banner">
 		<figure class="bg">
 			<img src="<?php echo get_field('page_header_image'); ?>" />
 		</figure>
 		<div class="grid-container"> 
-			<div class="banner_wrap" data-height="<?php echo ( $banner_height == "full_height" ) ? '110vh' : '780px';?>">
+			<div class="banner_wrap " data-height="<?php echo ( $banner_height == "full_height" ) ? '100vh' : '780px';?>">
 				<div class="banner_left <?php echo get_field('banner_subtitle_style');?>">
 					<h3 class="banner_subtitle_text"><?php echo get_field('page_header_subtitle'); ?></h3>
 					<div class="banner_subtitle_body">
