@@ -7,23 +7,37 @@ device_width = window.innerWidth > 0 ? window.innerWidth : screen.width;
 device_height = window.innerHeight > 0 ? window.innerHeight : screen.height;
 
 
-
 set_height = function () {
   if (jQuery('[data-height]').length > 0) {
+    
       return jQuery('[data-height]').each(function () {
+
           var height, that;
           that = jQuery(this);
-          height = that.attr('data-height');
-          console.log(height.indexOf('%') );
+          height = that.attr('data-height');   
 
-          if (height.indexOf('%') > -1) {
-              that.css('min-height', device_height * parseInt(height, 10) / 100);
-          } else {
-              that.css('min-height', height);
+          if (device_width >= 1024){
+
+              if (height.indexOf('%') > -1) {
+
+                  that.css('min-height', device_height * parseInt(height, 10) / 100);
+
+              } else {
+
+                  that.css('min-height', height);
+              }
+
           }
+          else if(device_width <= 1023) {
+
+              that.css('min-height', 0); 
+
+          }
+
       });
   }
 };
+
 
   $(document).ready(function(){
       
@@ -167,6 +181,19 @@ set_height = function () {
           $(this).addClass('is_played');
         });  
       })
+
+  });
+
+
+  // video list slide up
+
+  var container = $('#video_container');
+
+  $('.video_toggle').click(function(e){
+    // Prevent the default event.
+    e.preventDefault();    
+
+    container.toggleClass('show_tab');
 
   });
     

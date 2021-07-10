@@ -8,6 +8,7 @@ h1.page_title {
 }
 
 .page-content {
+    position: relative;
     /* padding: 80px 30px; 
 
     @include media(max-width,1023px){
@@ -15,7 +16,9 @@ h1.page_title {
     }
         */  
 }
-
+.grid-container{
+    position: relative;
+}
 .wp-block-columns {
     padding: 80px 30px;
     width: 100%;
@@ -870,7 +873,7 @@ h1.page_title {
 .ct_margin_bottom_40 {
     figure {
         margin-bottom: 3em !important;
-        
+
         @include media(max-width,375px){
             
             margin-bottom: 5em !important;

@@ -287,8 +287,8 @@
         &_right a{
             margin-left: 50px;
             color: lighten($color-black, 52.8%);
-            @include media (max-width, 375px){
-                font-size: 12px;
+            @include media (max-width, 1023px){
+                display: none;        
             }
         }
 
@@ -349,10 +349,6 @@
     }
     
 	@include media(max-width, 768px) {  
-
-        .footer_bottom_right {
-            display: none;
-        }
 
         .footer_bottom_left {
             margin-right: 0;

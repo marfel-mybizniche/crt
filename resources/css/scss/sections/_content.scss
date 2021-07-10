@@ -1,3 +1,5 @@
+
+
 figure {
 
     &.is-type-video {
@@ -78,3 +80,144 @@ figure {
     }
 
 }
+
+
+//seller tips video slide up
+
+.video_container {
+    color: $color-white;
+    width: 490px;
+    height: 165px;
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    background-color: rgba(0,0,0,0.8);
+    overflow: hidden;
+    transform: translate(-44%, 0%);
+    bottom: 0;
+    transition: all 250ms cubic-bezier(0.55, 0, 0.1, 1);
+    padding: 15px 15px;
+
+    .video_header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        text-transform: uppercase;
+        padding: 10px 10px 20px;
+
+        .video_header_title {
+            font-size: 14px;
+            font-weight: 600;
+            
+            &:not(span){                
+                letter-spacing: 4px;
+            }
+        }
+
+        .video_header_toggle {
+            font-size: 11px;
+            font-weight: 800;
+            
+            a {
+                color: $color-white;
+                span {
+                    font-size: 14px;
+                    padding-left: 10px;
+                    color: $color-primary;
+                }
+
+                .video_toggle_open {
+                    display: block;
+                }
+                        
+                .video_toggle_close {
+                    display: none;
+                }
+            }
+
+        }
+    }
+    
+    .video_body {
+
+        max-height: 730px;
+        overflow-y: scroll;    
+
+        &::-webkit-scrollbar {
+            width: 3px;
+        }
+        
+        &::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        }
+        
+        &::-webkit-scrollbar-thumb {
+            border-radius: 3px;
+            background-color: rgba(134, 134, 134, 1);
+        }
+
+        .video_lists_wrap {     
+            height: 100%;
+            a {
+                color: $color-white;
+            }
+        }
+        
+        .video_item{
+            cursor: pointer;
+            padding: 10px 20px;
+            border-bottom: 1px solid rgba(219, 50, 63, 0.1);
+
+            &.media_flex {
+                
+                align-items: center;
+            }
+
+            .media_left {
+                padding-right: 10px;
+                border-right: 3px solid $color-primary;
+                margin-right: 20px;
+            }
+
+            .media_body {
+                span {
+                    display: block;
+                    font-weight: 400;
+
+                    &.video_cat {
+                        text-transform: uppercase;
+                        font-size: 11px;
+                    }
+                    &.video_title {
+                        text-transform: capitalize;
+                        font-family: $heading-font-family;
+                        font-size: 20px;
+                    }
+
+                }
+            }
+            &:hover {                
+                background-color: rgba(0,0,0,0.3);
+            }
+
+        }
+
+    }
+    
+
+    &.show_tab {
+        height: auto;
+        overflow: visible;
+
+        .video_toggle_open {
+            display: none!important;
+        }
+        .video_toggle_close {
+            display: block!important;
+        }
+    }
+
+
+
+}    
+

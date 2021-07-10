@@ -82,6 +82,8 @@ function mbn_enqueue_scripts(){
 
     // Foundation JS
     wp_enqueue_script('foundation', MBN_ASSETS_URI.'/vendor/foundation/js/foundation.min.js', [], $wp_version);
+    // Foundation Style
+    wp_enqueue_style('foundation', 'https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css', [], $wp_version);
 
     // slick
     wp_enqueue_style('slick', MBN_ASSETS_URI.'/vendor/slick/slick.css', [], $wp_version);
@@ -206,89 +208,94 @@ function mbn_insert_headers(){
 }
 add_action('wp_head', 'mbn_insert_headers');
 
-add_filter( 'wpsl_info_window_template', 'custom_info_window_template' );
 
-function custom_info_window_template() {
-
-    global $wpsl_settings, $wpsl;
- 
-    $info_window_template = '<div data-store-id="<%= id %>" class="wpsl-info-window">' . "\r\n";
-    $info_window_template .= "\t\t\t" . '<%= thumb %>' . "\r\n";
-    $info_window_template .= "\t\t" . '<div class="location_info">' . "\r\n";
-    $info_window_template .= "\t\t\t" . '<h3>' . wpsl_store_header_template() . '</h3>' . "\r\n";  // Check which header format we use
-    $info_window_template .= "\t\t\t" . '<p><span><%= address %> ' . "\r\n";
-    $info_window_template .= "\t\t\t" . '<% if ( address2 ) { %>' . "\r\n";
-    $info_window_template .= "\t\t\t" . '<%= address2 %>' . "\r\n";
-    $info_window_template .= "\t\t\t" . '<% } %>' . "\r\n";
-    $info_window_template .= "\t\t\t" . '</span><span>' . wpsl_address_format_placeholders() . '</span>' . "\r\n"; // Use the correct address format
-    $info_window_template .= "\t\t" . '</p>' . "\r\n";
-    $info_window_template .= "\t\t" . '<% if ( phone ) { %>' . "\r\n";
-    $info_window_template .= "\t\t" . '<span><strong><%= formatPhoneNumber( phone ) %></strong></span>' . "\r\n";
-    $info_window_template .= "\t\t" . '<% } %>' . "\r\n";
-    $info_window_template .= "\t\t" . '<% if ( fax ) { %>' . "\r\n";
-    $info_window_template .= "\t\t" . '<span><%= fax %></span>' . "\r\n";
-    $info_window_template .= "\t\t" . '<% } %>' . "\r\n";
-    $info_window_template .= "\t\t" . '<% if ( email ) { %>' . "\r\n";
-    $info_window_template .= "\t\t" . '<span><%= formatEmail( email ) %></span>' . "\r\n";
-    $info_window_template .= "\t\t" . '</div>' . "\r\n";
-    $info_window_template .= "\t\t" . '<% } %>' . "\r\n";
-    $info_window_template .= "\t" . '</div>';
-    
-    return $info_window_template;
-}
-
-//remove thumbnail and directions in listings
-add_filter( 'wpsl_listing_template', 'custom_listing_template' );
-
-function custom_listing_template() {
-
-    global $wpsl_settings;
-    
-    $listing_template = '<li class="loc_item" data-store-id="<%= id %>">' . "\r\n";
-    $listing_template .= "\t\t" . '<div class="loc_inner">' . "\r\n";
-    $listing_template .= "\t\t\t\t" . wpsl_store_header_template( 'listing' ) . "\r\n"; // Check which header format we use
-    $listing_template .= "\t\t\t\t" . '<span class="wpsl-street"><%= address %></span>' . "\r\n";
-    $listing_template .= "\t\t\t\t" . '<% if ( address2 ) { %>' . "\r\n";
-    $listing_template .= "\t\t\t\t" . '<span class="wpsl-street"><%= address2 %></span>' . "\r\n";
-    $listing_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
-    $listing_template .= "\t\t\t\t" . '<span>' . wpsl_address_format_placeholders() . '</span>' . "\r\n"; // Use the correct address format
-    $listing_template .= "\t\t\t\t" . '<span class="wpsl-country"><%= country %></span>' . "\r\n";
-    $listing_template .= "\t\t\t" . '</p>' . "\r\n";
-    $listing_template .= "\t\t\t" . wpsl_more_info_template() . "\r\n"; // Check if we need to show the 'More Info' link and info
-    $listing_template .= "\t\t" . '</div>' . "\r\n";
-
-    if ( !$wpsl_settings['hide_distance'] ) {
-        $listing_template .= "\t\t" . '<%= distance %> ' . esc_html( $wpsl_settings['distance_unit'] ) . '' . "\r\n";
+//check video type if vimeo or youtube
+function videoType($url) {
+    if (strpos($url, 'youtu') > 0) {
+        return 'youtube';
+    } elseif (strpos($url, 'vimeo') > 0) {
+        return 'vimeo';
+    } else {
+        return 'unknown';
     }
-    $listing_template .= "\t" . '</li>';
-
-    return $listing_template;
 }
 
-add_filter( 'wpsl_thumb_size', 'custom_thumb_size' );
-
-function custom_thumb_size() {
-    
-    $size = 'full';
-    
-    return $size;
-}
-
-add_filter( 'wpsl_templates', 'custom_templates' );
-
-function custom_templates( $templates ) {
-
-    /**
-     * The 'id' is for internal use and must be unique ( since 2.0 ).
-     * The 'name' is used in the template dropdown on the settings page.
-     * The 'path' points to the location of the custom template,
-     * in this case the folder of your active theme.
+  /**
+     * Gets the thumbnail url for a vimeo video using the video id. This only works for public videos.
+     *
+     * @param string $id        The video id.
+     * @param string $thumbType Thumbnail image size. supported sizes: small, medium (default) and large.
+     *
+     * @return string|bool
      */
-    $templates[] = array (
-        'id'   => 'slick_below',
-        'name' => 'Store list below map with slick',
-        'path' => MBN_DIR_URI . '/wpsl-templates/custom_slick.php',
-    );
 
-    return $templates;
+function getVimeoVideoThumbnailByVideoId( $id = '', $thumbType = 'medium' ) {
+
+    $id = trim($id);
+
+    if ( $id == '' ) {
+        return FALSE;
+    }
+
+    $apiData = unserialize( file_get_contents( "http://vimeo.com/api/v2/video/$id.php" ) );
+
+    if ( is_array( $apiData ) && count( $apiData ) > 0 ) {
+
+        $videoInfo = $apiData[ 0 ];
+
+        switch ( $thumbType ) {
+            case 'small':
+                return $videoInfo[ 'thumbnail_small' ];
+                break;
+            case 'large':
+                return $videoInfo[ 'thumbnail_large' ];
+                break;
+            case 'medium':
+                return $videoInfo[ 'thumbnail_medium' ];
+            default:
+                break;
+        }
+
+    }
+
+    return FALSE;
+
 }
+
+//get video id for vimeo and youtube
+function get_video_id($url){
+
+    $video_type = videoType($url);
+
+    if( $video_type == 'youtube'){
+
+        preg_match('#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+(?=\?)|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#', $url, $match);
+        $video_id = $match[0];        
+        
+    }
+    else {
+
+        $video_id =(int) substr(parse_url($url, PHP_URL_PATH), 1);
+    
+    }
+
+    return $video_id;
+
+}
+
+//get video thumb for vimeo and youtube
+function get_video_thumb($url){
+
+        $video_type = videoType($url);
+        $video_id = get_video_id($url);
+
+        if( $video_type == 'youtube'){
+            $video_thumb = 'http://img.youtube.com/vi/'. $video_id .'/sddefault.jpg';    
+        }
+        else {            
+            $video_thumb = getVimeoVideoThumbnailByVideoId($video_id);                
+        }
+    return $video_thumb;
+
+}
+

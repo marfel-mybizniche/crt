@@ -162,7 +162,7 @@ function build_contact_us_map(){
 add_shortcode('office_locator','build_contact_us_map');
 
 function build_find_office_map(){ 
-    //wp_reset_query();
+
     $office_args = array(  
         'post_type' => 'offices',
         'posts_per_page' => -1, 
@@ -270,4 +270,85 @@ function build_find_office_map(){
     <?php 
         return $returnhtml;
     }
-    add_shortcode('display_map', 'build_find_office_map');
+add_shortcode('display_map', 'build_find_office_map');
+
+function mbn_video_list_shortcode() {
+    
+    $video_args = array(  
+        'post_type' => 'videos',
+        'posts_per_page' => -1, 
+        'post_status' => 'publish',
+        'orderby' => 'title',
+        'order' => 'asc',
+    );
+
+    $videos = new WP_Query( $video_args );   
+    $ctr = $videos->found_posts; 
+
+
+    //$returnhtml .= count($videos);
+    $returnhtml .= '<div id="video_container" class="video_container">';
+        $returnhtml .= '<div class="video_inner">';
+            $returnhtml .= '<div class="video_header">';
+                $returnhtml .= '<div class="video_header_title">';
+                    $returnhtml .= '<span>'. esc_html('Video Playlist') .' (<em>'. esc_html($ctr) .'</em>)</span>';
+                $returnhtml .= '</div>'; //video_header_title
+                $returnhtml .= '<div class="video_header_toggle">';
+                $returnhtml .= '<a href="#/" class="video_toggle">';
+                $returnhtml .= '<div class="video_toggle_open">'. esc_html('More Videos') .'<span class="video_toggle_icon"><i class="fa fa-angle-right"></i></span></div>';
+                $returnhtml .= '<div class="video_toggle_close">'. esc_html('Collapse') .'<span class="video_toggle_icon"><i class="fa fa-angle-down"></i></span></div>';
+                    $returnhtml .= '</div></a>';
+                    $returnhtml .= '</div>'; //video_header_toggle
+            $returnhtml .= '</div>'; //video_header
+            $returnhtml .= '<div class="video_body">';
+            $returnhtml .= '<div class="video_lists_wrap">';
+                $returnhtml .= '<div class="video_lists">';
+
+                while ( $videos->have_posts() ) : $videos->the_post();
+
+                $video_url = get_field('video_link');
+
+                $video_thumb = get_video_thumb($video_url);
+                $video_id = get_video_id($video_url);
+                $postID = get_the_ID();
+				$terms = wp_get_post_terms( $postID, 'category' );
+                
+                $returnhtml .= '<a href="#" data-url="'.esc_url($video_url) .'" data-reveal-id="video_popup">';
+                $returnhtml .= '<div class="video_item media_flex">';
+                $returnhtml .= '<div class="media_left">';
+                $returnhtml .= '<figure class="video_thumb"><img src="'. esc_url($video_thumb) .'" width="100" height="60"/></figure></div>';
+                $returnhtml .= '<div class="media_body">';
+
+                if ( $terms || !is_wp_error( $terms ) ):
+                    foreach ( $terms as $term ):
+                        $returnhtml .= '<span class="video_cat">'. $term->name .'</span>';
+                    endforeach;
+                endif;
+                
+                $returnhtml .= '<span class="video_title">'. get_the_title() .'</span>';
+                $returnhtml .= '</div>'; //media_body
+                $returnhtml .= '</div>'; //video_item
+                $returnhtml .= '</a>'; //video_link
+
+                endwhile;    
+                wp_reset_postdata();
+        
+                    $returnhtml .= '</div>'; //video_lists
+                $returnhtml .= '</div>'; //video_lists_wrap
+            $returnhtml .= '</div>'; //video_body
+        $returnhtml .= '</div>'; //video_inner
+    $returnhtml .= '</div>'; // video_container
+
+    $returnhtml .= '';
+
+    $returnhtml .= '<div id="video_popup" class="reveal-modal large" data-reveal aria-labelledby="videoModalTitle" aria-hidden="true" role="dialog">';
+    $returnhtml .= '<h2 id="videoModalTitle">This modal has video</h2>';
+    $returnhtml .= '<div class="flex-video widescreen vimeo">';
+    $returnhtml .= '<iframe width="1280" height="720"  src="//www.youtube-nocookie.com/embed/wnXCopXXblE?rel=0"frameborder="0" allowfullscreen></iframe></div>';
+    $returnhtml .= '<a class="close-reveal-modal" aria-label="Close">&#215;</a>';
+    $returnhtml .= '</div>'; // video_popup
+
+    return $returnhtml;
+}
+add_shortcode('mbn_video_list', 'mbn_video_list_shortcode');
+
