@@ -257,6 +257,7 @@ figure {
         height: 100%;
         overflow: visible;
         background: rgba(22, 31, 30, 0.8);
+        right: 0;
     }
 
 }    
@@ -381,8 +382,8 @@ figure {
 }
 
 @media(min-width: 1024px) and (max-width: 1600px){
-body.is-visible .video_container {
-    transform: translate(-29%, 0%);
-    bottom: -200px;
-}
+    body.is-visible .video_container {
+        transform: translate(-29%, 0%);
+        bottom: -200px;
+    }
 }
