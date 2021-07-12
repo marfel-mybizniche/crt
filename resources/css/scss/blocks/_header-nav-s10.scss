@@ -99,10 +99,7 @@ header {
 					}
 
 					.navicon {
-						span {
-							color: $color-dark;  
-						}
-						
+											
 						&::before,					
 						&::after {						
 							border-top: 2px solid #DB323F;  
@@ -154,21 +151,7 @@ header {
 							}
 						}
 					}	
-				}				
-				
-				@include media(max-width, 1023px) {					
-					
-					.logo_mobile_wrap {
-
-						.logo_mobile_1 {
-							display: none;
-						}
-						.logo_mobile_2 {
-							display: block;
-						}
-					}
-
-				}
+				}		
 
 			}
 
@@ -228,6 +211,22 @@ header {
 	
 					} 
 				
+				}
+				.navicon {							
+				
+					@include media(max-width, 1023px) {					
+						
+						.logo_mobile_wrap {
+
+							.logo_mobile_1 {
+								display: block;
+							}
+							.logo_mobile_2 {
+								display: none;
+							}
+						}
+
+					}
 				}
 			}
 
@@ -636,11 +635,20 @@ header {
 					color: $color-white;
 
 					@include media(max-width, 1023px){
-						font-size: 10px;
+						font-size: 10px;							
+
+						&.nav_label_1 {
+							display: block;
+						}
+						&.nav_label_2 {
+							display: none;
+						}
+						
 					}
 
 				}
 				@at-root header.show-menu .hsnav-s10 .navicon {
+
 					&:before {
 						box-shadow: none; 
 						left: 14px; 
@@ -649,11 +657,25 @@ header {
 						transform: rotate(-45deg); 
 						border-bottom: 0; 
 					}
+
 					&:after {
 						width: 22px; 
 						left: 14px; 
 						top: 24px; 
 						transform: rotate(45deg);
+					}
+
+					@include media(max-width, 1023px){		
+
+						span {
+							&.nav_label_2 {
+								display: block;
+							}
+							&.nav_label_1 {
+								display: none;
+							}
+						}
+						
 					}
 				}
 

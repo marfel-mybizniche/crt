@@ -1,7 +1,7 @@
 <?php 
 
 //acf fields
-echo $banner_height = get_field('page_header_banner_height');				
+$banner_height = get_field('page_header_banner_height');				
 $banner_right_text = get_field('banner_right_text');
 $banner_right = get_field('has_banner_right');
 $add_image = get_field('right_image');

@@ -1015,6 +1015,7 @@ h1.page_title {
         align-items: center;
         align-items: flex-start;
     }
+
     .branch_title {
         font-size: 24px;
     }
@@ -1049,6 +1050,7 @@ h1.page_title {
         border-bottom: 3px solid $color-primary;
         color: $color-white;
     }
+
 
 }
 .slick-arrow {
@@ -1407,11 +1409,6 @@ img.wpsl-store-thumb.wp-post-image {
     }
 }
 
-.wp-block-video,
-.wp-block-embed { 
-
-}
-
 @include media (min-width, 1024px){
     .wp-block-column:not(:first-child) {
         /* margin-left: 6em !important; */
@@ -1428,6 +1425,13 @@ img.wpsl-store-thumb.wp-post-image {
     }
     .wp-block-column:not(:first-child) {
         margin-left: 0 !important;
+    }
+
+    .office_locator {
+        
+        hr {
+            display: none !important;
+        }
     }
 
 }

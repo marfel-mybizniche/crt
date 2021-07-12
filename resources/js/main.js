@@ -198,7 +198,7 @@ set_height = function () {
     container.toggleClass('show_tab');
 
   });
-  
+
   if(device_width <= 1023) {
     if( !container.hasClass('show_tab') ){
       container.addClass('show_tab');

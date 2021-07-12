@@ -34,7 +34,7 @@
                                 <img src="<?php echo MBN_ASSETS_URI ?>/img/logo-mobile-2.png" alt="">
                             </a>  
                         </div>     
-                        <a class="navicon hide-for-large" data-toggle="header"><span>Menu</span></a>  
+                        <a class="navicon hide-for-large" data-toggle="header"><span class="nav_label_1">Menu</span><span class="nav_label_2">Back</span></a>  
                         <a href="tel:4807765231" class="navphone hide-for-large"><span>Call Now<span></a>  
 
                     </div>

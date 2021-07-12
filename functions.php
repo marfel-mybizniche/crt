@@ -126,7 +126,7 @@ function mbn_enqueue_scripts(){
 
 
     // google maps
-    //
+    
     // $api_key = apply_filters( 'mbn-google-api-key', MBN_MAP_API_KEY );
     // wp_enqueue_script(
     //     'google-maps-api-v3',
@@ -203,7 +203,11 @@ function ct_custom_new_menu() {
   add_action( 'init', 'ct_custom_new_menu' );
 
 function mbn_insert_headers(){
-    ?><link rel="stylesheet" type="text/css" href="https://kenwheeler.github.io/slick/slick/slick-theme.css"/><?php
+    ?>
+    <link rel="stylesheet" type="text/css" href="https://kenwheeler.github.io/slick/slick/slick-theme.css"/>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+   
+    <?php
 }
 add_action('wp_head', 'mbn_insert_headers');
 
@@ -298,3 +302,113 @@ function get_video_thumb($url){
 
 }
 
+function build_find_office_map(){ 
+
+    $office_args = array(  
+        'post_type' => 'offices',
+        'posts_per_page' => -1, 
+        'post_status' => 'publish',
+        'orderby' => 'title',
+        'order' => 'ASC',
+    );
+    
+    $office_loop = new WP_Query( $office_args );
+   
+    $returnhtml .= '<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>';
+    $returnhtml .= '<script src="https://maps.googleapis.com/maps/api/js?key='. MBN_MAP_API_KEY .'&callback=initMap&libraries=&v=weekly" defer></script>';
+    ?>
+    <script>function initMap() {
+     
+        const myLatlng = { lat: 33.3344657, lng: -111.8984525 };
+    
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 8,
+            center: myLatlng,
+        });
+    
+    
+        var bounds = new google.maps.LatLngBounds();
+        var infowindow = new google.maps.InfoWindow();  
+        
+        var markers_array = new Array();
+        var locations = [];
+        var array_holder;
+        var loc_content = "";
+        var loc_ctr = 0;
+        var emp_phones = "";
+    
+        <?php while ( $office_loop->have_posts() ) : $office_loop->the_post(); ?>
+            <?php if(!empty(get_field('location_map'))): ?>
+                <?php //var_dump( get_field('map') ); ?>
+                var loc_title = '<?php the_title(); ?>';
+                var office_lat = <?php echo get_field('location_map')['lat']; ?>; 
+                var office_lng = <?php echo get_field('location_map')['lng']; ?>;
+        
+                loc_content = '<div id="mapInfo'+loc_ctr+'" class="map_grid grid-container">';
+                loc_content += '<div class="grid-x align-top">';
+        
+                loc_content += '<div class="cell medium-12">';       
+                <?php if( !empty(get_the_post_thumbnail_url()) ) :?>
+                loc_content += '<figure class="loc_img"><img src="<?php echo esc_html( get_the_post_thumbnail_url() );?>"/></figure>';
+                <?php endif; ?>
+                loc_content += '<div class="loc_body">';
+                loc_content += '<h2 class="office_map_title">'+ loc_title +'</h2>';
+                loc_content += '<p class="office_address"><?php echo esc_html(get_field('location_map')['address']); ?></p>';
+                loc_content += '<p class="office_phone"><?php echo esc_html(get_field('location_phone')); ?></p>';
+                loc_content += '</div></div>';        
+        
+                loc_content += '</div></div>';
+        
+                array_holder = [loc_title, office_lat, office_lng, loc_content];
+                locations.push(array_holder);
+                loc_ctr = loc_ctr+1;
+            <?php endif; ?>
+            <?php endwhile; wp_reset_postdata(); ?>
+        
+        
+        for (var i = 0; i < locations.length; i++) {
+          
+          var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+            map: map
+          });
+    
+           bounds.extend(marker.position);
+    
+    
+          google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+              infowindow.setContent(locations[i][3]);
+              infowindow.open(map, marker);
+              map.setCenter(this.getPosition());
+            }
+          })(marker, i));
+    
+          markers_array.push(marker);
+        }
+    
+        //now fit the map to the newly inclusive bounds
+        map.fitBounds(bounds);
+      
+    
+        //(optional) restore the zoom level after the map is done scaling
+        var listener = google.maps.event.addListener(map, "idle", function () {
+            map.setZoom(10);
+            google.maps.event.removeListener(listener);
+        });
+    
+        
+        $('.branch_wrap').each(function(i){
+            $(this).on('click', function(e){
+                google.maps.event.trigger(markers_array[i], 'click');
+                e.preventDefault();
+            });
+        });
+    
+    
+    }</script>
+    
+    <?php 
+        return $returnhtml;
+    }
+add_action('wp_head', 'build_find_office_map');
