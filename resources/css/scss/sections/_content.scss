@@ -13,22 +13,28 @@ figure {
         background-size: cover;
         display: block;
         transition: all 0.3s ease-in-out;
-        top: 40%;
-        left: 45%;
     }
 
     
     &.is-type-video {
-        width: 100px;
+        
         height: auto;
         position: relative;
 
         &:after {
             width: 70px;
             height: 70px;
+            top: 40%;
+            left: 45%;
+
+            @include media(max-width,768px) {                
+                width: 50px;
+                height: 50px;
+            }
         }
             
-        &.video_thumb {
+        &.video_thumb {        
+                width: 100px;
 
             &:before {
                 background-color: rgba(0,0,0,0.5);
@@ -258,6 +264,7 @@ figure {
         overflow: visible;
         background: rgba(22, 31, 30, 0.8);
         right: 0;
+        z-index: 999;
     }
 }    
 
