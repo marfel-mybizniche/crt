@@ -13,6 +13,7 @@ $add_buttons = get_field('has_call_to_action');
 <section class="hero_banner_wrap <?php echo $banner_height; ?>" data-body-class="<?php echo $banner_height; ?>" data-height="110vh">
 <?php else : ?>
 <section class="hero_banner_wrap ">
+<?php endif; ?>
 	<div class="hero_banner">
 		<figure class="bg">
 			<img src="<?php echo get_field('page_header_image'); ?>" />
@@ -22,8 +23,8 @@ $add_buttons = get_field('has_call_to_action');
 			<?php if( $banner_height == "full_height" ) : ?>
 				<div class="banner_wrap " data-height="100vh">
 			<?php else:  ?>
-
-			<div class="banner_wrap">
+				<div class="banner_wrap">				
+			<?php endif; ?>
 				<div class="banner_left <?php echo get_field('banner_subtitle_style');?>">
 					<h3 class="banner_subtitle_text"><?php echo get_field('page_header_subtitle'); ?></h3>
 					<div class="banner_subtitle_body">
@@ -47,50 +48,46 @@ $add_buttons = get_field('has_call_to_action');
 					</div>
 				</div>
 				<div class="banner_right">					
-				<?php 				
-				if( $banner_right ):
-				?>
-					<?php if ($banner_right_text): ?><h5><?php echo esc_attr($banner_right_text);?></h5><?php endif; ?>
-					<?php if ($add_image): ?><figure class=""><img src="<?php echo esc_attr($add_image);?>"></figure> <?php endif; ?>
-						
-					<div class="grid-container">
-						<div class="grid-x grid-margin-x banner_contact">
-                            <?php if ($add_buttons): 
-                                // Check rows exists.
-                                if( have_rows('call_to_action_btns') ):
+					<?php if( $banner_right ):?>
+						<?php if ($banner_right_text): ?><h5><?php echo esc_attr($banner_right_text);?></h5><?php endif; ?>
+						<?php if ($add_image): ?><figure class=""><img src="<?php echo esc_attr($add_image);?>"></figure> <?php endif; ?>
+							
+						<div class="grid-container">
+							<div class="grid-x grid-margin-x banner_contact">
+								<?php if ($add_buttons): 
+									// Check rows exists.
+									if( have_rows('call_to_action_btns') ):
 
-                                    // Loop through rows.
-                                    while( have_rows('call_to_action_btns') ) : the_row();
+										// Loop through rows.
+										while( have_rows('call_to_action_btns') ) : the_row();
 
-                                        // Load sub field value.
-                                        $sub_text = explode(" ", get_sub_field('sub_text'));							
-                                        $main_text = get_sub_field('main_text');?>										
-											<div class="cell small-6 medium-6 large-6 col-item">
-												<a class="info_box" href="tel:<?php echo $main_text; ?>">
-                    								<figure class="icon_wrapper"></figure>
-													<?php 
-														for( $i=0; $i <= count($sub_text); $i++ ){
-															echo '<div class="address">'. $sub_text[$i] . '</div>';
-														}
-													?>
-													<div class="phone"><?php echo $main_text; ?></div>
-												</a>
-											</div>
-										<?php
+											// Load sub field value.
+											$sub_text = explode(" ", get_sub_field('sub_text'));							
+											$main_text = get_sub_field('main_text');?>										
+												<div class="cell small-6 medium-6 large-6 col-item">
+													<a class="info_box" href="tel:<?php echo $main_text; ?>">
+														<figure class="icon_wrapper"></figure>
+														<?php 
+															for( $i=0; $i <= count($sub_text); $i++ ){
+																echo '<div class="address">'. $sub_text[$i] . '</div>';
+															}
+														?>
+														<div class="phone"><?php echo $main_text; ?></div>
+													</a>
+												</div>
+											<?php
 
-									// End loop.
-									endwhile;
-								endif;					
-							endif; ?>
+										// End loop.
+										endwhile;
+									endif;					
+								endif; ?>
+							</div>
 						</div>
-					</div>
-				<?php endif; ?>
+					<?php endif; ?>
 				</div>
 			</div>
-		<?php endif; ?>
 
         </div>
 	</div>
 </section>
-<?php endif; ?>
 
