@@ -1,7 +1,7 @@
 <?php 
 
 //acf fields
-$banner_height = get_field('page_header_banner_height');				
+echo $banner_height = get_field('page_header_banner_height');				
 $banner_right_text = get_field('banner_right_text');
 $banner_right = get_field('has_banner_right');
 $add_image = get_field('right_image');
@@ -9,7 +9,7 @@ $add_buttons = get_field('has_call_to_action');
 
 ?>
 
-<?php if( $banner_height ) : ?>
+<?php if( $banner_height == "full_height" ) : ?>
 <section class="hero_banner_wrap <?php echo $banner_height; ?>" data-body-class="<?php echo $banner_height; ?>" data-height="110vh">
 <?php endif; ?>
 
@@ -20,8 +20,8 @@ $add_buttons = get_field('has_call_to_action');
 		</figure>
 		<div class="grid-container"> 
 			
-			<?php if( $banner_height ) : ?>
-				<div class="banner_wrap " data-height="<?php echo ( $banner_height == "full_height" ) ? '100vh' : '780px';?>">
+			<?php if( $banner_height == "full_height" ) : ?>
+				<div class="banner_wrap " data-height="100vh">
 			<?php endif; ?>
 
 			<div class="banner_wrap">
