@@ -21,6 +21,9 @@
 		}
 
 		@include media(max-width,375px){
+			.banner_wrap {
+				justify-content: center;
+			}
 			.banner_style_2 {
 				
 				display: flex;
