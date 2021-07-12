@@ -11,8 +11,7 @@ $add_buttons = get_field('has_call_to_action');
 
 <?php if( $banner_height == "full_height" ) : ?>
 <section class="hero_banner_wrap <?php echo $banner_height; ?>" data-body-class="<?php echo $banner_height; ?>" data-height="110vh">
-<?php endif; ?>
-
+<?php else : ?>
 <section class="hero_banner_wrap ">
 	<div class="hero_banner">
 		<figure class="bg">
@@ -22,7 +21,7 @@ $add_buttons = get_field('has_call_to_action');
 			
 			<?php if( $banner_height == "full_height" ) : ?>
 				<div class="banner_wrap " data-height="100vh">
-			<?php endif; ?>
+			<?php else:  ?>
 
 			<div class="banner_wrap">
 				<div class="banner_left <?php echo get_field('banner_subtitle_style');?>">
@@ -48,8 +47,7 @@ $add_buttons = get_field('has_call_to_action');
 					</div>
 				</div>
 				<div class="banner_right">					
-				<?php 
-				
+				<?php 				
 				if( $banner_right ):
 				?>
 					<?php if ($banner_right_text): ?><h5><?php echo esc_attr($banner_right_text);?></h5><?php endif; ?>
@@ -89,7 +87,10 @@ $add_buttons = get_field('has_call_to_action');
 				<?php endif; ?>
 				</div>
 			</div>
+		<?php endif; ?>
+
         </div>
 	</div>
 </section>
+<?php endif; ?>
 
