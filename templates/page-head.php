@@ -37,12 +37,11 @@ $add_buttons = get_field('has_call_to_action');
                             $form_shortcode = get_field('form_shortcode');
                             echo do_shortcode($form_shortcode); ?>
                         </div>   
+						<?php if(is_home()) : ?><div class="divider_double_line"></div> <?php endif; ?>
 						<?php 
-
 						$show_checklists = get_field('show_checklists');
 						
-						if ($show_checklists): ?>
-							<div class="divider_double_line"></div>                                                
+						if ($show_checklists): ?>                                               
 							<?= do_shortcode('[banner_checklist]'); ?>
 						<?php endif; ?>   
 					</div>

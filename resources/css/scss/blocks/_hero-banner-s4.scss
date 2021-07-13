@@ -484,8 +484,7 @@
 	.hero_mobile_bottom {
 		padding: 30px 0;
 
-		.banner_checklist {
-			
+		.banner_checklist {			
 			display: flex;
 			flex-direction: column;
 			flex-wrap: wrap;
@@ -502,15 +501,15 @@
 					line-height: 1.4;				
 					
 					@include media(max-width, 375px){
-
 						font-size: 14px !important;
-
+					}							
+					
+					@include media(max-width, 1023px){
+						border: 2px solid #000;
 					}		
 					
 					@include media(min-width, 1024px){
-
 						color: $color-white;
-
 					}
 				}
 
@@ -678,6 +677,11 @@
 			font-weight: lighter;
 			line-height: 17px;
 			letter-spacing: 0.02em;
+			color: $color-white;
+					
+			@include media(max-width, 1023px){
+				color: $color-dark;
+			}		
 
 		}
 	}
@@ -697,7 +701,11 @@
 			img {
 				width: 12px;
 				margin: 0 auto;
-			}
+			}	
+					
+			@include media(max-width, 1023px){
+				border: 2px solid #000;
+			}		
 			
 		}
 		@include media (min-width, 1024px){
