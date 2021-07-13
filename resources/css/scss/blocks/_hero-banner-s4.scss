@@ -504,6 +504,12 @@
 
 						font-size: 14px !important;
 
+					}		
+					
+					@include media(min-width, 1024px){
+
+						color: $color-white;
+
 					}
 				}
 
@@ -743,6 +749,7 @@
 			flex-direction: column;
 			align-items: center;
 		}
+
 		&:after {
 			content: url('../../resources/img/polygon-img.png');
 			height: 80px;
