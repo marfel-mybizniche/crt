@@ -29,7 +29,7 @@ $add_buttons = get_field('has_call_to_action');
 					<h3 class="banner_subtitle_text"><?php echo get_field('page_header_subtitle'); ?></h3>
 					<div class="banner_subtitle_body">
 						<h1 class="banner_subtitle_title"><?php echo get_field('page_header_title'); ?></h1>
-						<div class="banner_paragraph">
+						<div class="banner_paragraph desktop_only">
                             <?php echo get_field('page_header_body'); ?>   
                         </div>                                           
                         <div class="banner_form_wrap">                         
@@ -46,6 +46,11 @@ $add_buttons = get_field('has_call_to_action');
 							<?= do_shortcode('[banner_checklist]'); ?>
 						<?php endif; ?>   
 					</div>
+					
+						<div class="banner_paragraph mobile_only">
+                            <?php echo get_field('page_header_body'); ?>   
+                        </div>       
+
 				</div>
 				<div class="banner_right">					
 					<?php if( $banner_right ):?>
