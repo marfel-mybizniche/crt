@@ -40,6 +40,7 @@ h1.page_title {
     max-width: 1490px;
     margin-left: auto;
     margin-right: auto;
+    padding: 0 30px;
 
     @include media(max-width,1023px){
         flex-wrap: nowrap;
