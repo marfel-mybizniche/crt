@@ -61,6 +61,8 @@
 				z-index: -1;
 			}
 
+		}
+		@include media (min-width, 1024px){
 			.banner_wrap,
 			.banner_subtitle_text {
 				color: $color-white;
@@ -71,7 +73,6 @@
 				
 			}
 		}
-
 
 	}
 
