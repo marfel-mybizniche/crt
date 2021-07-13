@@ -681,6 +681,7 @@
 					
 			@include media(max-width, 1023px){
 				color: $color-dark;
+				font-weight: 600 !important;
 			}		
 
 		}
