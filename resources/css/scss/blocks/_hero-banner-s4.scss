@@ -606,7 +606,7 @@
 			@include media (max-width,1023px) {						
 				color: $color-dark;
 				height: auto;
-				padding: 30px 30px 0;
+				padding: 30px 0 0 0;
 
 				.banner_right {
 					display: none;
@@ -617,6 +617,9 @@
 				
 				.banner_paragraph {
 					color: $body-font-color;
+					p {
+						margin-bottom: 0px;
+					}
 				}
 			}
 			@include media (min-width,1024px) {						
