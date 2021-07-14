@@ -481,7 +481,7 @@ ul.gform_fields  {
                     margin-right: 0;
                 }
                 
-                @include media(max-width, 936px) {
+                @include media(max-width, 1023px) {
                     .ginput_left, .ginput_right {
                         float: left;
                         width: 50%;
