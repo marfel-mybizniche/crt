@@ -95,8 +95,7 @@ header {
 						&::after {						
 							border-top: 2px solid #DB323F;  
 						}
-					}
-	
+					}		
 					
 					.navphone {
 						span {
@@ -104,7 +103,7 @@ header {
 						}
 						&::before {						
 							content: url(../img/icn-phone.svg);
-						}					
+						}				
 					}
 				}
 				
@@ -921,7 +920,7 @@ body{
 					
 					&::before,					
 					&::after {						
-						border-top: 2px solid #DB323F;  
+						border-top: 2px solid $color-primary;  
 					}
 				}
 
@@ -985,6 +984,23 @@ body{
 	}
 
 	&.full_height {
+		
+		@at-root header.show-menu .hsnav-s10 .navicon {
+
+
+			@include media(max-width, 1023px){		
+
+				span {
+					&.nav_label_2 {
+						display: block !important;
+					}
+					&.nav_label_1 {
+						display: none !important;
+					}
+				}
+				
+			}
+		}
 
 		@include media (max-width, 1023px){
 			
@@ -1029,6 +1045,35 @@ body{
 			}
 
 			.is-stuck {
+				
+				.navbar {
+
+					.navphone {
+						span {
+							color: $color-dark;  
+						}
+						&::before {						
+							content: url(../img/icn-phone.svg);
+						}				
+					}
+					.navicon{
+						&:after,
+						&:before {							
+							border-top: 2px solid $color-primary;  
+						}
+
+						span {
+							color: $color-dark;
+
+							&.nav_label_1 {
+								display: block;
+							}
+							&.nav_label_2 {
+								display: none;
+							}
+						}
+					}
+				}
 
 				.logo_mobile_wrap {
 

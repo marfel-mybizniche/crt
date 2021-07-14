@@ -90,6 +90,7 @@ set_height = function () {
         arrows: true,                  
         dots: false,
         infinite: true,
+        centerPadding: '50px',
         speed: 300,
         slidesToShow: 4,
         slidesToScroll: 1,                    
@@ -111,14 +112,7 @@ set_height = function () {
             }
           },
           {
-            breakpoint: 600,
-            settings: {
-              slidesToShow: 2,
-              slidesToScroll: 2
-            }
-          },
-          {
-            breakpoint: 530,
+            breakpoint: 768,
             settings: {
               slidesToShow: 1,
               slidesToScroll: 1

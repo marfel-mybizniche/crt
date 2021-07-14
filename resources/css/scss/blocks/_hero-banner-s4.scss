@@ -383,6 +383,7 @@
 				}
 			}
 			.banner_subtitle_text {
+				color: $color-white;
 				h3{
 					color: $color-white;
 				}
@@ -893,4 +894,14 @@
 		}
 	}
 
+}
+
+.banner_style_1,
+.banner_style_2 {
+	
+
+	@include media (max-width,375px){		
+		padding-left: 30px !important;
+		padding-right: 30px !important;
+	}
 }

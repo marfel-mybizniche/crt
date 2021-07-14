@@ -335,9 +335,11 @@ ul.gform_fields  {
             }
         }
     }
-    .gfield_label {
-        display: none;
-    }
+}
+
+.gfield_label,
+.hidden_sub_label {
+    display: none;
 }
 
 .sec_form {
