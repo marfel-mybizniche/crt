@@ -249,3 +249,90 @@ function mbn_video_list_shortcode() {
 }
 add_shortcode('mbn_video_list', 'mbn_video_list_shortcode');
 
+function mbn_view_listings_shortcode($atts){
+
+    if( ! empty( $atts['category'] ) ):
+        $cat = $atts['category'] ;
+        $term = get_term_by('name', $cat, 'listings_cat' );
+        $cat_slug = $term->name;
+        $tax_arg = array(
+            array(
+                'taxonomy' => 'listings_cat',
+                'field' => 'slug', //can be set to ID
+                'terms' => $cat_slug  //if field is ID you can reference by cat/term number
+            )
+        );
+    endif;
+
+    $listings_args = array(  
+        'post_type' => 'listings',
+        'posts_per_page' => 6, 
+        'post_status' => 'publish',
+        'orderby' => 'id',
+        'tax_query' => $tax_arg,
+        'order' => 'asc',
+    );
+
+    $listings = new WP_Query( $listings_args );   
+
+    //$returnhtml .= '<div class="sec-3cols">';
+    $returnhtml .= '<div class="grid-x cols3-s2 listing_container">';
+
+    while ( $listings->have_posts() ) : $listings->the_post();
+
+        $title = get_the_title();
+        $img_url = get_the_post_thumbnail_url();
+        $url = get_the_permalink();
+
+        $property_price = get_field('property_price');
+        preg_match_all('!\d+!', $property_price, $matches);
+        $property_price = number_format( implode(' ', $matches[0]) ,3, ',', '.');
+        
+        $property_address = get_field('property_address');
+        $property_city = get_field('property_city');
+        $property_state = get_field('property_state');
+        $property_zip = get_field('property_zip');
+        $property_address = $property_address.' '.$property_city.' '.$property_state.' '.$property_zip;
+        $property_bedrooms = get_field('property_bedrooms');
+        $property_half_bathrooms = get_field('property_half_bathrooms');
+        $property_square_feet = get_field('property_square_feet');
+
+            $returnhtml .= '<div class="cell medium-6 large-4 col-item listing_item">';            
+                $returnhtml .= '<a href="'.esc_url($url).'">';
+                    $returnhtml .= '<div class="listing-wrap">';
+                        $returnhtml .= '<div class="listing-widget-thumb"><figure><img src="'. esc_attr($img_url) .'" /></figure></div>';
+                        $returnhtml .= '<div class="listing-widget-details">';                    
+                            $returnhtml .= '<div class="listing-tag listing-tag-mob"><span>'.esc_html($cat_name).'</span></div>';
+                            $returnhtml .= '<div class="listing-price-address">';
+                                $returnhtml .= '<div class="listing-price"><span><strong>'.esc_html('$').'</strong></span>'.esc_html($property_price).'</div>';
+                                $returnhtml .= '<div class="listing-title"></div>';
+                                $returnhtml .= '<div class="listing-address"><span class="loc_pin"></span>'.esc_html($property_address).'</div>';
+                                //$returnhtml .= '<div class="listing-city-state-zip"></div>';
+                            $returnhtml .= '</div>'; // listing-price-address                
+                                $returnhtml .= '<div class="listing-other-info">';
+                                    $returnhtml .= '<div class="listing-beds-baths-sqft">';
+                                        $returnhtml .= '<div class="beds"><span class="listing-beds">'.esc_html($property_bedrooms).'</span><span>'.esc_html('BEDS').'</span></div>';
+                                        $returnhtml .= '<div class="baths"><span class="listing-baths">'.esc_html($property_half_bathrooms).'</span><span>'.esc_html('BATHS').'</span></div>';
+                                        $returnhtml .= '<div class="sq_ft"><span class="listing-sqft">'.esc_html($property_square_feet).'</span><span>'.esc_html('SQ. FEET').'</span></div>';
+                                    $returnhtml .= '</div>';
+                                    $returnhtml .= '<div class="listing-tag listing-tag-desk"><span>'.esc_html($cat_name).'</span></div>';
+                                $returnhtml .= '</div>'; // listing-other-info     
+                        $returnhtml .= '</div>'; // listing-widget-details
+                        $returnhtml .= '</div>'; // media-tex
+                    $returnhtml .= '</a>'; // media-text
+            $returnhtml .= '</div>'; //cell
+
+    endwhile;
+
+    if( $listings->found_posts > 6 ) {
+        $returnhtml .= '<a href="'.get_site_url() .'/listings_cat/'. $cat_slug .'">LOAD MORE</a>';
+    }
+    wp_reset_postdata();
+
+    $returnhtml .= '</div>'; //listing-wrap
+    //$returnhtml .= '</div>'; // sec-3cols
+    
+    return $returnhtml;
+
+}
+add_shortcode('mbn_view_listings', 'mbn_view_listings_shortcode');

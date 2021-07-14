@@ -1038,6 +1038,12 @@ h1.page_title {
         background: #2C3837;
         border-bottom: 3px solid $color-primary;
         color: $color-white;
+        
+        .branch_title {
+            font-size: 24px;
+            color: $color-white;
+        }
+        
     }
 
 

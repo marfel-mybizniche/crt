@@ -40,7 +40,14 @@
 	padding: 0 !important;
 }
 
-//padding-0
+.ct_padding_x_30_mobile {
+	padding-right: 0;
+	padding-left: 0;
+	@include media (max-width, 1023px){
+		padding-right: 30px;
+		padding-left: 30px;
+	}
+}
 .ct_padding_x_30 {
 	padding-right: 30px;
 	padding-left: 30px;
@@ -49,6 +56,7 @@
 .ct_padding_top_30_mobile {
 	padding: 0 30px;
 }
+
 .ct_padding_top_30_desktop {
 	padding-top: 30px;
 	@include media (max-width, 1023px){

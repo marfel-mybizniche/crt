@@ -412,3 +412,117 @@ function build_find_office_map(){
         return $returnhtml;
     }
 add_action('wp_head', 'build_find_office_map');
+
+if ( ! function_exists('listings_admin_page') ) :
+
+    add_action( 'admin_menu' , 'listings_admin_page' );
+    
+    /**
+     * Generate sub menu page for settings
+     *
+     * @uses listings_options_display()
+     */
+    function listings_admin_page()
+    {
+        add_submenu_page(
+            'edit.php?post_type=listings',
+            __('Listings Options', 'listings'),
+            __('Listing Options', 'listings'),
+            'manage_options',
+            'listings_archive',
+            'listings_options_display');
+    }
+endif;
+
+if ( ! function_exists('listings_options_display') ) :
+    /**
+     * Display the form on the Listings Settings sub menu page.
+     *
+     * Used by 'listings_admin_page'.
+     */
+    function listings_options_display()
+    {
+        // Create a header in the default WordPress 'wrap' container
+        echo '<div class="wrap">';
+    
+        settings_errors();
+    
+        echo '<form method="post" action="">';
+    
+        var_dump( get_option('listings_archive') );
+    
+        settings_fields( 'edit.php?post_type=listings&page=listings_archive' );
+    
+        do_settings_sections( 'edit.php?post_type=listings&page=listings_archive' );
+    
+        submit_button();
+    
+        echo '</form></div><!-- .wrap -->';
+    }
+endif;
+        
+add_action( 'admin_init', 'listings_settings' );
+
+/**
+ * Register settings and add settings sections and fields to the admin page.
+ */
+function listings_settings()
+{
+    if ( false == get_option( 'listings_archive' ) )
+        add_option( 'listings_archive' );
+
+    add_settings_section(
+        'listings_archive_header', // Section $id
+        __('Listings Archive Page Settings', 'listings'),
+        'listings_settings_section_title', // Callback
+        'edit.php?post_type=listings&page=listings_archive' // Settings Page Slug
+        );
+
+    add_settings_field(
+        'header_text',          // Field $id
+        __('Header Text', 'listings'),          // Setting $title
+        'listings_archive_header_text_callback',
+        'edit.php?post_type=listings&page=listings_archive',   // Settings Page Slug
+        'listings_archive_header',          // Section $id
+        array('Text to display in the archive header.')
+        );
+
+    register_setting(
+        'edit.php?post_type=listings&page=listings_archive', // $option_group
+        'listings_archive',  // $option_name
+        'listings_archive_save_options'
+        );
+}
+
+/**
+ * Callback for settings section.
+ *
+ * Commented out until settings are working.
+ * 
+ * @param  array $args Gets the $id, $title and $callback.
+ */
+function listings_settings_section_title( $args ) {
+    // printf( '<h2>%s</h2>', apply_filters( 'the_title', $args['title'] ) );
+}
+
+/**
+ * Settings fields callbacks.
+ */
+function listings_archive_header_text_callback($args)
+{
+    $options = get_option('listings_archive');
+
+    printf( '<input class="widefat" id="header_text" name="listings_archive[header_text]" type="textarea" value="%1$s" />',
+        $options );
+}
+
+/**
+ * Save options.
+ */
+function listings_archive_save_options()
+{
+    if ( isset( $_POST['listings_archive[header_text]'] ) )
+    {
+        update_option( 'listings_archive', $_POST['listings_archive[header_text]'] );
+    }
+}

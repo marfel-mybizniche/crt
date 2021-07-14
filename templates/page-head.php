@@ -15,9 +15,11 @@ $add_buttons = get_field('has_call_to_action');
 <section class="hero_banner_wrap ">
 <?php endif; ?>
 	<div class="hero_banner">
+		<?php if( get_field('page_header_image') ): ?>
 		<figure class="bg">
 			<img src="<?php echo get_field('page_header_image'); ?>" />
 		</figure>
+		<?php endif; ?>
 		<div class="grid-container"> 
 			
 			<?php if( $banner_height == "full_height" ) : ?>
