@@ -1264,7 +1264,28 @@ ul.star-rating li i {
     }
 }
 
+//your home sold guarantee
+.your_home_sold_figures {
+    h2{
+        &.figure_num {
+            font-size: 56px;
+        }
+    }
 
+    @include media(max-width, 1023px){
+        h2{
+            &.figure_num {
+                font-size: 40px;
+            }
+            &.figure_label {
+    
+            }
+        }
+
+    }
+}
+
+//sell you home page
 .sell_your_home_page {
     
     .block_checklists {
