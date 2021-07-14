@@ -1167,9 +1167,20 @@ ul.star-rating li i {
     figure {
         position: absolute;
         bottom: 0;
-        
-        @include media (max-width, 1023px){
+        @include media (max-width, 1200px){
             display: none;
+        }
+    }
+
+    @include media (min-width, 1201px){
+        min-height: 680px;
+    }
+    @include media (max-width, 1200px){
+        .wp-block-cover__inner-container {
+            .wp-block-columns {
+            
+                flex-direction: column;
+            }
         }
     }
 }
