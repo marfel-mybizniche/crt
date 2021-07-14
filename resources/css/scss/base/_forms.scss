@@ -341,7 +341,6 @@ ul.gform_fields  {
     opacity: 0.9;
     padding: 35px 40px 30px;        
     font-family: $body-font-family;
-    background-color: $color-dark;
     
     h4 {
         font-style: normal;
@@ -452,7 +451,7 @@ ul.gform_fields  {
                 }
             }
 
-            &.ginput_complex.ginput_container_address {
+            &.ginput_container_address {
                 display: flex;
                 flex-direction: row;
                 flex-wrap: wrap;
@@ -473,11 +472,11 @@ ul.gform_fields  {
 
                 }
 
-                &:last-child {
+                .ginput_address_zip {
                     margin-right: 0;
                 }
                 
-                @include media(max-width, 480px) {
+                @include media(max-width, 936px) {
                     .ginput_left, .ginput_right {
                         float: left;
                         width: 50%;
