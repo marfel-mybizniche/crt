@@ -372,6 +372,11 @@ ul.gform_fields  {
         }
     }
 
+    .wp-block-group__inner-container {
+        padding-right:0;
+        padding-left:0;
+    }
+
     &_light {
         background-color: $color-white;
         .gform_button {
@@ -481,7 +486,7 @@ ul.gform_fields  {
                     margin-right: 0;
                 }
                 
-                @include media(max-width, 1023px) {
+                @include media(max-width, 1158px) {
                     .ginput_left, .ginput_right {
                         float: left;
                         width: 50%;
