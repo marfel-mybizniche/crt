@@ -96,6 +96,7 @@
 				top: 30px;
 				bottom: 0;
 				z-index: -1;
+				background-color: $color-black;
 				
 				@include media (max-width,1023px) {							
 					position: relative;

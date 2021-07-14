@@ -526,3 +526,36 @@ function listings_archive_save_options()
         update_option( 'listings_archive', $_POST['listings_archive[header_text]'] );
     }
 }
+
+
+function custom_render_block_core_group (
+	string $block_content, 
+	array $block
+): string 
+{
+	if (
+		$block['blockName'] === 'core/group' && 
+		!is_admin() &&
+		!wp_is_json_request()
+	) {
+		$html = '';
+
+		$html .= '<div class="wp-block-group ' . $block['attrs']['className'] . '">' . "\n";
+		$html .= '<div class="grid-container">' . "\n";
+
+		if (isset($block['innerBlocks'])) {
+			foreach ($block['innerBlocks'] as $inner_block) {
+				$html .= render_block($inner_block);
+			}
+		}
+
+		$html .= '</div><!--/ .container -->' . "\n";
+		$html .= '</div><!--/ .wp-block-group -->' . "\n";
+
+		return $html;
+	}
+
+	return $block_content;
+}
+
+add_filter('render_block', 'custom_render_block_core_group', null, 2);

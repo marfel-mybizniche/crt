@@ -13,7 +13,36 @@ h1.page_title {
 .grid-container{
     position: relative;
 }
+
 .wp-block-columns {
+    margin: 30px 0;
+    width: 100%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: repeat;
+    display: flex;
+    padding-right: 0;
+    padding-left: 0;
+    flex-direction: unset;
+    max-width: 1490px;
+    margin-left: auto;
+    margin-right: auto;
+
+
+    @include media(max-width,782px){
+        flex-wrap: nowrap;
+        flex-direction: column;
+        align-items: stretch;
+        align-content: space-around;
+    }
+
+
+    @include media(max-width,480px){
+        flex-wrap: wrap;
+    }
+}
+
+/*.wp-block-columns {
     width: 100%;
     width: 100%;
     background-size: cover;
@@ -41,7 +70,7 @@ h1.page_title {
     &.ct_padding_top_0 {
         padding-top: 0;
     }
-}
+}*/
 
 /*.ct_*/
 .address_boxes {
@@ -554,156 +583,6 @@ h1.page_title {
     }
 }
 
-.sec_form {
-    opacity: 0.9;
-    padding: 35px 40px 30px;        
-    font-family: $body-font-family;
-    
-    h4 {
-        font-style: normal;
-        font-weight: bold;
-        font-size: 22px;
-        font-family: $body-font-family;
-        text-align: center;
-        text-transform: capitalize;
-        color: #FFFFFF;
-    }
-
-    p.small {
-        font-family: $body-font-family;
-        font-style: normal;
-        font-weight: 400;
-        font-size: 13px;
-        line-height: 1.4;
-        letter-spacing: 0.03em;
-        color: rgba(255, 255, 255, 0.8);
-
-        @include media(max-width,375px) {
-            line-height: 1.4;
-            font-size: 11px;
-        }
-    }
-
-    &_light {
-        .gform_button {
-    
-            &.button {
-                color: $color-dark;
-
-                &:after {
-                    color: $color-dark;
-                    background-image: url(../img/icn-arrow-r.svg);
-                }
-
-                &:hover {
-                    color: $color-white;
-                    &:after {
-                        color: $color-white;
-                        background-image: url(../img/icn-arrow-rw.svg);
-                    }
-                }
-                
-            }
-        }
-        @include media(max-width, 1023px){
-            padding: 0;
-        }
-
-    }
-        
-    .gform_button {
-
-        &.button {
-            background-color:  transparent;
-        }
-    }
-
-    .gform_footer {
-        padding: 16px;
-        border-radius:0;
-        border: 2px solid #DB323F;       
-        transition: all 0.3s ease;     
-
-        &:hover {
-            background-color:  #DB323F;
-        }
-        
-    }
-
-    @include media(max-width, 480px) {
-        .gform_footer {
-            padding: 0;
-            
-        }
-    }
-
-    .ct_field {
-
-        padding-right: 0!important;
-        
-        .ginput_container {              
-                       
-            input,
-            select, 
-            textarea {
-                color: #858689;                    
-                margin-top: 12px !important;
-                margin-bottom: 0px !important;
-                padding: 15px 20px !important;
-                background-color: #fff;
-                font-size: 20px!important;           
-                font-weight: 300;
-                font-family: $body-font-family!important;    
-                line-height: 1.2;
-
-                &::placeholder{
-                    color: #858689;
-
-                }
-                
-                @include media(max-width, 375px) {
-                    font-size: 14px!important;           
-                }
-            }
-
-            &.ginput_complex.ginput_container_address {
-
-                .ginput_address_zip {
-                    margin-right: 0 !important;
-                    padding-right: 0 !important;
-                }
-
-                .ginput_left, .ginput_right {
-                    width: 33.33%;
-                    margin-right: 0 ;
-                }
-                
-                @include media(max-width, 480px) {
-                    .ginput_left, .ginput_right {
-                        float: left;
-                        width: 50%;
-                    }
-
-                    .ginput_left {
-                        &.ginput_address_city {
-                            margin-right: 8px;
-                            padding-right: 2px;                                
-                        }
-                    }
-                    
-                    
-                    .ginput_right {
-                        
-                        &.ginput_address_state{
-                            margin-right: -8px;
-                            padding-right: 8px;  
-                        }                         
-                    }
-                }
-            }    
-        }
-    }
-}
 
 .media_flex {
 
@@ -1038,7 +917,7 @@ h1.page_title {
         background: #2C3837;
         border-bottom: 3px solid $color-primary;
         color: $color-white;
-        
+
         .branch_title {
             font-size: 24px;
             color: $color-white;
@@ -1403,10 +1282,10 @@ img.wpsl-store-thumb.wp-post-image {
 
     }
 }
-
+/*
 @include media (min-width, 1024px){
-    .wp-block-column:not(:first-child) {
-        /* margin-left: 6em !important; */
+    .wp-block-column:not(:first-child) { 
+
     }
     .address_boxes .wp-block-column:not(:first-child) {
         margin-left: 0 !important;
@@ -1416,7 +1295,6 @@ img.wpsl-store-thumb.wp-post-image {
 
 @include media (max-width, 1023px){
     .wp-block-column {
-        /* margin-top: 30px; */
     }
     .wp-block-column:not(:first-child) {
         margin-left: 0 !important;
@@ -1430,6 +1308,7 @@ img.wpsl-store-thumb.wp-post-image {
     }
 
 }
+*/
 
 @include media(max-width, 1023px){
     
