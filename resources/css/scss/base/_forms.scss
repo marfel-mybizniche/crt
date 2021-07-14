@@ -455,7 +455,7 @@ ul.gform_fields  {
                 display: flex;
                 flex-direction: row;
                 flex-wrap: wrap;
-                justify-content: flex-start;
+                justify-content: space-between;
 
                 .ginput_address_line_2 {
                     width: 100%;

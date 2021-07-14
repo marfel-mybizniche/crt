@@ -83,6 +83,21 @@
 	margin-top: -180px;
 	position: relative;
 
+	&:before{
+		content: '';		
+		background: linear-gradient(180deg, rgba(22, 31, 30, 0.8) 0%, rgba(22, 31, 30, 0.616) 30%, rgba(22, 31, 30, 0) 100%);
+		width: 100%;
+		height: 100%; 
+		position: absolute;
+		top: 0;
+	}
+
+	@include media(max-width,1023px){
+		&:before{
+			display: none;
+		}
+	}
+
 	.hero_banner {
 		
 		padding: 0 30px;
@@ -103,6 +118,7 @@
 					left: 0;
 					right: 0;
 					top: 0;
+					height: 300px;
 				}
 
 				img {
@@ -787,6 +803,7 @@
 
 			&:before {
 				width: 100%;
+				font-size: 18px;
 			}
 		}
 		
@@ -794,10 +811,6 @@
 			
 			text-align: center;
 			width: 100%;
-
-			&:before{
-				font-size: 18px;
-			}
 			
 		}
 
