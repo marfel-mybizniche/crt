@@ -232,7 +232,7 @@
 					}							
 					
 					@include media(max-width, 1023px){
-						border: 2px solid #000;
+						color: $color-dark;
 					}		
 					
 					@include media(min-width, 1024px){
@@ -292,6 +292,7 @@
 		padding: 0;
 
 		.hero-caption {
+			padding-top: 600px;
 			height: auto;
     		padding-bottom: 0;
 		}
