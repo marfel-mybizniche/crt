@@ -88,5 +88,5 @@
 
     <main id="content" class="content"> 
         <?php 
-	        get_template_part( 'templates/page-head' );
+            get_template_part( 'templates/page-head' );
         ?>

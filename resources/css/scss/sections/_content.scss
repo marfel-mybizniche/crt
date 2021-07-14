@@ -4,6 +4,15 @@ body.is-visible {
     overflow: hidden;
 }
 
+.page-content {
+    h1, h2, h3, h4, h5, h6 {
+        color: $color-black;
+    }
+    p {
+        color: $color-dark;
+    }
+}
+
 figure {
 
     &:after {

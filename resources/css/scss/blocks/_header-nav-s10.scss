@@ -51,31 +51,22 @@ header {
 			
 		&.is-at-top {
 
-			&.is-anchored {				
-				
+			&.is-anchored {		
 				background: transparent;
-
 				.navmenu {
-
 					.menu {
-
 						> li {
-	
 							&.menu-item {
 								a {									
 									color: lighten($color-white, 0%);	
 								}
 							}
 						}
-					}								
-
+					}		
 				}
-
-				
+			
 				@include media(max-width, 1023px) {
-					
 					.logo_mobile_wrap {
-
 						.logo_mobile_1 {
 							display: block;
 						}
