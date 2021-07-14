@@ -984,7 +984,7 @@ body{
 	}
 
 	&.full_height {
-		
+
 		@at-root header.show-menu .hsnav-s10 .navicon {
 
 
@@ -1096,7 +1096,7 @@ body{
 		header.show-menu {
 			.hsnav-s10,
 			.is-stuck	{
-				background: $color-dark !important;
+				//background: $color-dark !important;
 				.navicon {
 					span {
 						color: $color-white !important

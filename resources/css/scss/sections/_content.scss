@@ -138,7 +138,7 @@ figure {
     overflow: hidden;
     transform: translate(-44%, 0%);
     bottom: 0;
-    transition: all 250ms cubic-bezier(0.55, 0, 0.1, 1);
+    transition: all 0.3s ease;
     padding: 15px 15px;
 
     .video_header {
@@ -162,6 +162,7 @@ figure {
         }
 
         .video_header_toggle {
+            translate: all 0.5s ease;
             font-size: 11px;
             font-weight: 800;
             
@@ -221,7 +222,7 @@ figure {
             }
 
             .media_left {
-                padding-right: 10px;
+                padding-right: 0;
                 border-right: 3px solid $color-primary;
                 margin-right: 20px;
                 background-color: #000;

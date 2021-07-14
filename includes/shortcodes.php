@@ -235,7 +235,7 @@ function mbn_video_list_shortcode() {
     $returnhtml .= '<div class="modal-overlay modal-toggle"></div>';
     $returnhtml .= '<div class="modal-wrapper modal-transition">';
     $returnhtml .= '<div class="modal-header">';
-    $returnhtml .= '<a class="modal-close modal-toggle" data-toggle="header" aria-expanded="true" aria-controls="header"><span>Menu</span></a>';
+    $returnhtml .= '<a class="modal-close modal-toggle"><span>Menu</span></a>';
     $returnhtml .= '</div>';      
     $returnhtml .= '<div class="modal-body">';
     $returnhtml .= '<div class="modal-content">';
