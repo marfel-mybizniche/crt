@@ -404,6 +404,7 @@ function mbn_view_listings_shortcode($atts){
     $listings = new WP_Query( $listings_args );   
 
     //$returnhtml .= '<div class="grid-container">';
+    $returnhtml .= '<div id="'.$term->slug.'" class="listing_container">';
     $returnhtml .= '<div class="grid-x cols3-s2 listing_inner">';
 
     while ( $listings->have_posts() ) : $listings->the_post();
@@ -464,7 +465,7 @@ function mbn_view_listings_shortcode($atts){
     }
 
     $returnhtml .= '</div>'; // listing_inner
-    //$returnhtml .= '</div>'; // sec-3cols
+    $returnhtml .= '</div>'; // listing_container
     
     return $returnhtml;
 
