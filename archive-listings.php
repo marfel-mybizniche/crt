@@ -19,6 +19,8 @@
 
     while ( $listings->have_posts() ) : $listings->the_post();
 
+        $cats  = get_the_terms( $listings->ID, 'listings_cat' );
+
         $title = get_the_title();
         $img_url = get_the_post_thumbnail_url();
         $img = wp_get_attachment_image_src( get_post_thumbnail_id( $listings->ID ), 'large' ); 
@@ -42,7 +44,15 @@
                     <div class="listing-wrap">
                         <div class="listing-widget-thumb"><figure><img src="<?php echo ( isset($img[0]) ) ? esc_url($img[0]) : esc_url('https://via.placeholder.com/470x300'); ?>"/></figure></div>
                         <div class="listing-widget-details">                 
-                            <div class="listing-tag listing-tag-mob"><span><?php echo esc_html($cat_name); ?></span></div>
+                            <div class="listing-tag listing-tag-mob"><span>
+                                <?php 
+                                if ( $cats || !is_wp_error( $cats ) ):
+                                    foreach($cats as $cat){
+                                            echo $cat->name;
+                                    }
+                                endif;
+                                
+                                 ?></span></div>
                             <div class="listing-price-address">
                                 <div class="listing-price"><span><strong><?php echo esc_html('$'); ?></strong></span><?php echo esc_html($property_price); ?></div>
                                 <div class="listing-title"></div>
@@ -55,7 +65,16 @@
                                         <div class="baths"><span class="listing-baths"><?php echo esc_html($property_half_bathrooms); ?></span><span><?php echo esc_html('BATHS'); ?></span></div>
                                         <div class="sq_ft"><span class="listing-sqft"><?php echo esc_html($property_square_feet); ?></span><span><?php echo esc_html('SQ. FEET'); ?></span></div>
                                     </div>
-                            <div class="listing-tag listing-tag-desk"><span><?php echo esc_html($cat_name); ?></span></div>
+                            <div class="listing-tag listing-tag-desk"><span>
+                                <?php 
+                                if ( $cats || !is_wp_error( $cats ) ):
+                                    foreach($cats as $cat){
+                                            echo $cat->name;
+                                    }
+                                endif;
+                                
+                                 ?>
+                            </span></div>
                         </div> 
                     </div>
                 </div>

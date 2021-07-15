@@ -519,8 +519,6 @@
 		.banner_wrap {
 			padding-top: 400px;
 			padding-bottom: 60px;
-			padding-left: 30px;
-			padding-right: 30px;
 			color: #fff;
 			display: flex;
 			align-items: flex-end;
@@ -575,7 +573,7 @@
 
 				figure {
 					padding-bottom: 0;
-					position: relative;
+					position: absolute;
 					bottom: -60px;
 
 					&.bg {

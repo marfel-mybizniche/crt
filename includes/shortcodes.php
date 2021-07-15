@@ -249,12 +249,137 @@ function mbn_video_list_shortcode() {
 }
 add_shortcode('mbn_video_list', 'mbn_video_list_shortcode');
 
+
+
+/** Listings **/
+
+function mbn_view_listings_all_shortcode(){
+
+    
+
+$returnhtml .= '<div class="grid-container">';
+    $returnhtml .= '<div class="listings_nav_wrap">';
+        $returnhtml .= '<div class="listings_nav">';
+
+    $terms = get_terms( 'listings_cat', array( 'hide_empty' => false, 'orderby' => 'id') ); // Get all terms of a taxonomy
+
+    if ( $terms && !is_wp_error( $terms ) ) :
+        
+        foreach ( $terms as $term ) :
+
+            $returnhtml .= '<div class="cat_item" data-anchor="'. esc_attr( $term->slug ) .'"><div class="cat_link" ><span>'. esc_html( $term->name ) .'</span></div></div>';
+
+        endforeach;
+
+    endif;
+
+        $returnhtml .= '</div>';//listings_nav    
+    $returnhtml .= '</div>';//listings_nav_wrap    
+    $returnhtml .= '<div class="listings">';
+
+    if ( $terms && !is_wp_error( $terms ) ) :
+        
+        foreach ( $terms as $term ) :
+
+            $listings_args = array(  
+                'post_type' => 'listings',
+                'posts_per_page' => 3, 
+                'post_status' => 'publish',
+                'orderby' => 'id',
+                'tax_query' => $term->slug,
+                'order' => 'asc',
+            );
+
+            $listings = new WP_Query( $listings_args );   
+
+            $returnhtml .= '<div id="'.$term->slug.'" class="listing_container">';
+                $returnhtml .= '<h2>'.$term->name.'</h2>';
+                $returnhtml .= '<div class="grid-x cols3-s2 listing_inner">';
+
+                while ( $listings->have_posts() ) : $listings->the_post();
+
+                    $title = get_the_title();
+                    $img_url = get_the_post_thumbnail_url();
+                    $url = get_the_permalink();
+
+                    $property_price = get_field('property_price');
+                    preg_match_all('!\d+!', $property_price, $matches);
+                    $property_price = number_format( implode(' ', $matches[0]) ,3, ',', '.');
+                    
+                    $img = wp_get_attachment_image_src( get_post_thumbnail_id( $listings->ID ), 'large' ); 
+                    if( isset( $img[0] ) ): 
+                        $img = esc_url($img[0]); 
+                    else : 
+                        $img = esc_url('https://via.placeholder.com/470x300');         
+                    endif;
+
+                    $property_address = get_field('property_address');
+                    $property_city = get_field('property_city');
+                    $property_state = get_field('property_state');
+                    $property_zip = get_field('property_zip');
+                    $property_address = $property_address.' '.$property_city.' '.$property_state.' '.$property_zip;
+                    $property_bedrooms = get_field('property_bedrooms');
+                    $property_half_bathrooms = get_field('property_half_bathrooms');
+                    $property_square_feet = get_field('property_square_feet');
+
+
+
+                    $returnhtml .= '<div id="'.$cat_slug.'" class="cell medium-6 large-4 col-item listing_item">';            
+                        $returnhtml .= '<a href="'.esc_url($url).'">';
+                            $returnhtml .= '<div class="listing-wrap">';
+                                $returnhtml .= '<div class="listing-widget-thumb"><figure><img src="'. $img .'" /></figure></div>';
+                                $returnhtml .= '<div class="listing-widget-details">';                    
+                                    $returnhtml .= '<div class="listing-tag listing-tag-mob"><span>'.esc_html($cat).'</span></div>';
+                                    $returnhtml .= '<div class="listing-price-address">';
+                                        $returnhtml .= '<div class="listing-price"><span><strong>'.esc_html('$').'</strong></span>'.esc_html($property_price).'</div>';
+                                        $returnhtml .= '<div class="listing-title"></div>';
+                                        $returnhtml .= '<div class="listing-address"><span class="loc_pin"></span>'.esc_html($property_address).'</div>';
+                                    $returnhtml .= '</div>'; // listing-price-address                
+                                    $returnhtml .= '<div class="listing-other-info">';
+                                        $returnhtml .= '<div class="listing-beds-baths-sqft">';
+                                            $returnhtml .= '<div class="beds"><span class="listing-beds">'.esc_html($property_bedrooms).'</span><span>'.esc_html('BEDS').'</span></div>';
+                                            $returnhtml .= '<div class="baths"><span class="listing-baths">'.esc_html($property_half_bathrooms).'</span><span>'.esc_html('BATHS').'</span></div>';
+                                            $returnhtml .= '<div class="sq_ft"><span class="listing-sqft">'.esc_html($property_square_feet).'</span><span>'.esc_html('SQ. FEET').'</span></div>';
+                                        $returnhtml .= '</div>';
+                                        $returnhtml .= '<div class="listing-tag listing-tag-desk"><span>'.esc_html($cat).'</span></div>';
+                                    $returnhtml .= '</div>'; // listing-other-info     
+                                $returnhtml .= '</div>'; // listing-widget-details
+                            $returnhtml .= '</div>'; // listing-wrap
+                        $returnhtml .= '</a>'; // media-text
+                    $returnhtml .= '</div>'; //cell
+
+
+                endwhile;
+                wp_reset_postdata();
+
+                $returnhtml .= '</div>'; //listing_inner
+
+                if( $listings->found_posts > 3 ) {
+                    $returnhtml .= '<div class="loadMore_btn"><a href="'.get_site_url() . $cat_page .'" class="btn_primary_hollow">LOAD MORE</a></div>';
+                }
+                
+            $returnhtml .= '</div>'; // listing_container
+        endforeach;
+    endif;
+    
+    $returnhtml .= '</div>';//listings
+    $returnhtml .= '</div>';//grid-container
+
+    return $returnhtml;
+
+}
+add_shortcode('mbn_view_listings_all', 'mbn_view_listings_all_shortcode');
+
+// listings single by atts = category
+
 function mbn_view_listings_shortcode($atts){
 
     if( ! empty( $atts['category'] ) ):
-        $returnhtml .= $cat = $atts['category'] ;
+        $cat = $atts['category'] ;
         $term = get_term_by('name', $cat, 'listings_cat' );
-        $cat_slug = $term->name;
+        $cat_slug = $term->slug;
+        $cat_page = '/listings_cat/'. $cat_slug;
+
         $tax_arg = array(
             array(
                 'taxonomy' => 'listings_cat',
@@ -262,11 +387,14 @@ function mbn_view_listings_shortcode($atts){
                 'terms' => $cat_slug  //if field is ID you can reference by cat/term number
             )
         );
+    else:
+
+        $cat_page  = '/listings';
     endif;
 
     $listings_args = array(  
         'post_type' => 'listings',
-        'posts_per_page' => 6, 
+        'posts_per_page' => 3, 
         'post_status' => 'publish',
         'orderby' => 'id',
         'tax_query' => $tax_arg,
@@ -275,7 +403,7 @@ function mbn_view_listings_shortcode($atts){
 
     $listings = new WP_Query( $listings_args );   
 
-    //$returnhtml .= '<div class="sec-3cols">';
+    //$returnhtml .= '<div class="grid-container">';
     $returnhtml .= '<div class="grid-x cols3-s2 listing_container">';
 
     while ( $listings->have_posts() ) : $listings->the_post();
@@ -304,39 +432,38 @@ function mbn_view_listings_shortcode($atts){
         $property_half_bathrooms = get_field('property_half_bathrooms');
         $property_square_feet = get_field('property_square_feet');
 
-            $returnhtml .= '<div class="cell medium-6 large-4 col-item listing_item">';            
+            $returnhtml .= '<div id="'.$cat_slug.'" class="cell medium-6 large-4 col-item listing_item">';            
                 $returnhtml .= '<a href="'.esc_url($url).'">';
                     $returnhtml .= '<div class="listing-wrap">';
                         $returnhtml .= '<div class="listing-widget-thumb"><figure><img src="'. $img .'" /></figure></div>';
                         $returnhtml .= '<div class="listing-widget-details">';                    
-                            $returnhtml .= '<div class="listing-tag listing-tag-mob"><span>'.esc_html($cat_name).'</span></div>';
+                            $returnhtml .= '<div class="listing-tag listing-tag-mob"><span>'.esc_html($cat).'</span></div>';
                             $returnhtml .= '<div class="listing-price-address">';
                                 $returnhtml .= '<div class="listing-price"><span><strong>'.esc_html('$').'</strong></span>'.esc_html($property_price).'</div>';
                                 $returnhtml .= '<div class="listing-title"></div>';
                                 $returnhtml .= '<div class="listing-address"><span class="loc_pin"></span>'.esc_html($property_address).'</div>';
-                                //$returnhtml .= '<div class="listing-city-state-zip"></div>';
                             $returnhtml .= '</div>'; // listing-price-address                
-                                $returnhtml .= '<div class="listing-other-info">';
-                                    $returnhtml .= '<div class="listing-beds-baths-sqft">';
-                                        $returnhtml .= '<div class="beds"><span class="listing-beds">'.esc_html($property_bedrooms).'</span><span>'.esc_html('BEDS').'</span></div>';
-                                        $returnhtml .= '<div class="baths"><span class="listing-baths">'.esc_html($property_half_bathrooms).'</span><span>'.esc_html('BATHS').'</span></div>';
-                                        $returnhtml .= '<div class="sq_ft"><span class="listing-sqft">'.esc_html($property_square_feet).'</span><span>'.esc_html('SQ. FEET').'</span></div>';
-                                    $returnhtml .= '</div>';
-                                    $returnhtml .= '<div class="listing-tag listing-tag-desk"><span>'.esc_html($cat_name).'</span></div>';
-                                $returnhtml .= '</div>'; // listing-other-info     
+                            $returnhtml .= '<div class="listing-other-info">';
+                                $returnhtml .= '<div class="listing-beds-baths-sqft">';
+                                    $returnhtml .= '<div class="beds"><span class="listing-beds">'.esc_html($property_bedrooms).'</span><span>'.esc_html('BEDS').'</span></div>';
+                                    $returnhtml .= '<div class="baths"><span class="listing-baths">'.esc_html($property_half_bathrooms).'</span><span>'.esc_html('BATHS').'</span></div>';
+                                    $returnhtml .= '<div class="sq_ft"><span class="listing-sqft">'.esc_html($property_square_feet).'</span><span>'.esc_html('SQ. FEET').'</span></div>';
+                                $returnhtml .= '</div>';
+                                $returnhtml .= '<div class="listing-tag listing-tag-desk"><span>'.esc_html($cat).'</span></div>';
+                            $returnhtml .= '</div>'; // listing-other-info     
                         $returnhtml .= '</div>'; // listing-widget-details
-                        $returnhtml .= '</div>'; // media-tex
-                    $returnhtml .= '</a>'; // media-text
+                    $returnhtml .= '</div>'; // listing-wrap
+                $returnhtml .= '</a>'; // media-text
             $returnhtml .= '</div>'; //cell
 
     endwhile;
-
-    if( $listings->found_posts > 6 ) {
-        $returnhtml .= '<a href="'.get_site_url() .'/listings_cat/'. $cat_slug .'">LOAD MORE</a>';
-    }
     wp_reset_postdata();
 
-    $returnhtml .= '</div>'; //listing-wrap
+    if( $listings->found_posts > 3 ) {
+        $returnhtml .= '<a href="'.get_site_url() . $cat_page .'" class="btn_primary_hollow">LOAD MORE</a>';
+    }
+
+    $returnhtml .= '</div>'; // listing_container
     //$returnhtml .= '</div>'; // sec-3cols
     
     return $returnhtml;

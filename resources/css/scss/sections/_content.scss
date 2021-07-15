@@ -406,141 +406,216 @@ figure {
 
 /** listings **/
 
-.listing_container {
+.listings_nav {
 
 
-    .listing_item {
-        color: $color-white;
-        padding: 0 15px !important;
+    .cat_item {
+        //scroll-behavior: smooth;
+        
+        .cat_link {
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            color: $color-grey;
+            transition: all 0.3s ease;
+            border-bottom: none;
 
-        a {
-            color: $color-white;
         }
 
-        @include media (min-width,1023px){
-            &:not(:last-child){
-                //padding-right: 30px;
+        &:hover,
+        &:active{
+            
+            .cat_link {
+                color: $color-dark;
+                border-bottom: 4px solid $color-primary;
             }
+        }
+    }
+    
 
+    &.slick-slider {
+        padding: 0 30px;
+        .slick-list{padding:0 20% 0 0;}
+        .slick-track {
+            margin: 0 !important;
+        }
+        .slick-slide {            
+            padding-right: 20px;
+        }
+    }
+
+    @include media(min-width, 768px) {
+        display: none;
+    }
+}
+
+.listings {
+    margin-top: 45px;
+
+    .listing_container {    
+
+        h2 {
+            font-style: italic;
+            font-weight: 800;
+            padding: 0 25px;
+            @include media(min-width, 768px ){
+                padding: 0;
+            }
         }
 
-        .listing-wrap {
-            position: relative;
+        .listing_inner {
 
-            .listing-widget-thumb {
-                figure {
-                    margin: 0;
-                }
-            }
+            margin-bottom: 50px;
 
-            .listing-widget-details {
-                position: absolute;
-                bottom: 0;
-                width: calc(100% + 4px);
-                background: linear-gradient(90deg, rgba(22, 31, 30, 0.8) 0%, rgba(22, 31, 30, 0.616) 76.96%, rgba(22, 31, 30, 0) 100%);
-                border-left: 4px solid #DB323F;
-                left: -4px;
+            .listing_item {
+                color: $color-white;
 
-                .listing-other-info {                    
-                    display: flex;
-                    align-items: flex-end;            
-                    flex-direction: row;
+                /*@include media(min-width, 768px){
+                    padding-left: 0 !important;
+                }*/
+
+                a {
+                    color: $color-white;
                 }
 
-                .listing-price-address {
-                    padding: 15px 20px;
+                .listing-wrap {
+                    position: relative;
 
-                    .listing-address {
-                        font-size: 14px;
-                        display: flex;
-                        align-items: center;
-
-                        span.loc_pin {
-                            color: $color-white;                            
-                            content: url(../img/icn-location-pin.svg);
-                            margin-right: 10px;
-                        }
-                    }
-                    .listing-price {                        
-                        font-size: 20px;
-                        padding-bottom: 6px;
-
-                        span {                            
-                            margin-right: 15px;
-                        }
-                    }
-                }
-                .listing-beds-baths-sqft {
-                    display: flex;
-                    background: #161F1E;
-                    width: 100%;
-                    justify-content: space-around;
-
-                    .beds,
-                    .baths,
-                    .sq_ft {
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        padding-top: 10px;
-                        padding-bottom: 10px;
-
-                        span {
-                            font-size: 12px;
-                            text-transform: uppercase;
-                            flex-direction: column;
-                            align-items: center;
-
-                            &.listing-beds,
-                            &.listing-baths,
-                            &.listing-sqft {
-                                font-size: 16px;
-                                font-weight: 600;
+                    .listing-widget-thumb {
+                        figure {
+                            margin: 0;
+                            height: 300px;
+                            img {
+                                height: 100%;
+                                width: 100%;
+                                object-fit:contain;
+                            }
+                            @include media(max-width,1015px){
+                                height: auto;
                             }
                         }
                     }
-                }
-                .listing-tag {
-                    width: 100%;
-                    background: #AD131F;
-                    text-align: center;
-                
-                    span {
-                        font-size: 12px;
-                        text-transform: uppercase;
-                        font-weight: 700;
-                        text-align: center;
-                    }
-                }                
-                .listing-tag-desk{
-                    display: block;
-                }
-                
-                .listing-tag-mob{
-                    display: none;
-                }
 
-                
-                @include media(max-width,480px){
-                    background: linear-gradient(90deg, rgba(22, 31, 30, 0.8) 0%, rgba(22, 31, 30, 0.8) 76.96%, rgba(22, 31, 30, 0.8) 100%);
-                    position: relative;
+                    .listing-widget-details {
+                        position: absolute;
+                        bottom: 0;
+                        width: 100%;
+                        background: linear-gradient(90deg, rgba(22, 31, 30, 0.8) 0%, rgba(22, 31, 30, 0.616) 76.96%, rgba(22, 31, 30, 0) 100%);
+                        
+                        @include media(min-width,1016px){
+                            border-left: 4px solid #DB323F;
+                            left: -4px;
+                            width: calc(100% + 4px);
+                        }
 
-                    .listing-tag-mob{
-                        display: block;
-                    }
-                    .listing-tag-desk{
-                        display: none;
-                    }
-                    .listing-other-info {                    
-                        flex-direction: column;
-                    }
+                        .listing-other-info {                    
+                            display: flex;
+                            align-items: flex-end;            
+                            flex-direction: row;
+                        }
 
-                    .listing-price-address {
-                        padding: 15px 25px;
+                        .listing-price-address {
+                            padding: 15px 20px;
+
+                            .listing-address {
+                                font-size: 14px;
+                                display: flex;
+                                align-items: center;
+
+                                span.loc_pin {
+                                    color: $color-white;                            
+                                    content: url(../img/icn-location-pin.svg);
+                                    margin-right: 10px;
+                                }
+                            }
+                            .listing-price {                        
+                                font-size: 20px;
+                                padding-bottom: 6px;
+
+                                span {                            
+                                    margin-right: 15px;
+                                }
+                            }
+                        }
+                        .listing-beds-baths-sqft {
+                            display: flex;
+                            background: #161F1E;
+                            width: 100%;
+                            justify-content: space-around;
+
+                            .beds,
+                            .baths,
+                            .sq_ft {
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                padding-top: 10px;
+                                padding-bottom: 10px;
+
+                                span {
+                                    font-size: 12px;
+                                    text-transform: uppercase;
+                                    flex-direction: column;
+                                    align-items: center;
+
+                                    &.listing-beds,
+                                    &.listing-baths,
+                                    &.listing-sqft {
+                                        font-size: 16px;
+                                        font-weight: 600;
+                                    }
+                                }
+                            }
+                        }
+                        .listing-tag {
+                            width: 100%;
+                            height: 32px;
+                            background: #AD131F;
+                            text-align: center;
+                            justify-content: center;
+                            align-items: center;
+                        
+                            span {
+                                font-size: 12px;
+                                text-transform: uppercase;
+                                font-weight: 700;
+                                text-align: center;
+                            }
+                        }                
+                        .listing-tag-desk{
+                            display: flex;
+                        }
+                        
+                        .listing-tag-mob{
+                            display: none;
+                        }
+                        
+                        @include media(max-width,1015px){
+                            background: linear-gradient(90deg, rgba(22, 31, 30, 0.8) 0%, rgba(22, 31, 30, 0.8) 76.96%, rgba(22, 31, 30, 0.8) 100%);
+                            position: relative;
+
+                            .listing-tag-mob{
+                                display: flex;
+                            }
+                            .listing-tag-desk{
+                                display: none;
+                            }
+                            .listing-other-info {                    
+                                flex-direction: column;
+                            }
+
+                            .listing-price-address {
+                                padding: 15px 25px;
+                            }
+                        }
+
                     }
                 }
 
             }
+
         }
 
     }

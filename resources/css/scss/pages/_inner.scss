@@ -67,10 +67,6 @@ h1.page_title {
         align-content: space-around;
     }
 
-
-    @include media(max-width,480px){
-        flex-wrap: wrap;
-    }
 }
 
 .wp-block-media-text.small_media_text{
