@@ -357,7 +357,7 @@ $returnhtml .= '<div class="grid-container">';
                 if( $listings->found_posts > 3 ) {
                     $returnhtml .= '<div class="loadMore_btn"><a href="'.get_site_url() . $cat_page .'" class="btn_primary_hollow">LOAD MORE</a></div>';
                 }
-                
+
             $returnhtml .= '</div>'; // listing_container
         endforeach;
     endif;
@@ -404,7 +404,7 @@ function mbn_view_listings_shortcode($atts){
     $listings = new WP_Query( $listings_args );   
 
     //$returnhtml .= '<div class="grid-container">';
-    $returnhtml .= '<div class="grid-x cols3-s2 listing_container">';
+    $returnhtml .= '<div class="grid-x cols3-s2 listing_inner">';
 
     while ( $listings->have_posts() ) : $listings->the_post();
 
@@ -463,7 +463,7 @@ function mbn_view_listings_shortcode($atts){
         $returnhtml .= '<a href="'.get_site_url() . $cat_page .'" class="btn_primary_hollow">LOAD MORE</a>';
     }
 
-    $returnhtml .= '</div>'; // listing_container
+    $returnhtml .= '</div>'; // listing_inner
     //$returnhtml .= '</div>'; // sec-3cols
     
     return $returnhtml;
