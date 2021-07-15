@@ -481,13 +481,12 @@ a.btn-back {
 }
 
 .loadMore_btn {
-    padding: 30px 60px;
     margin: 10px auto;
     width: 100%;
     text-align: center;
 
     .btn_primary_hollow {
-    
+        padding: 30px 60px;    
         text-align: center; 
         font-weight: 800;
         color: $color-dark;
