@@ -283,7 +283,7 @@ $returnhtml .= '<div class="grid-container">';
 
             $listings_args = array(  
                 'post_type' => 'listings',
-                'posts_per_page' => 3, 
+                'posts_per_page' => 6, 
                 'post_status' => 'publish',
                 'orderby' => 'id',
                 'tax_query' => $term->slug,
@@ -354,7 +354,7 @@ $returnhtml .= '<div class="grid-container">';
 
                 $returnhtml .= '</div>'; //listing_inner
 
-                if( $listings->found_posts > 3 ) {
+                if( $listings->found_posts > 6 ) {
                     $returnhtml .= '<div class="loadMore_btn"><a href="'.get_site_url() . $cat_page .'" class="btn_primary_hollow">LOAD MORE</a></div>';
                 }
 
@@ -394,7 +394,7 @@ function mbn_view_listings_shortcode($atts){
 
     $listings_args = array(  
         'post_type' => 'listings',
-        'posts_per_page' => 3, 
+        'posts_per_page' => 6, 
         'post_status' => 'publish',
         'orderby' => 'id',
         'tax_query' => $tax_arg,
@@ -460,7 +460,7 @@ function mbn_view_listings_shortcode($atts){
     endwhile;
     wp_reset_postdata();
 
-    if( $listings->found_posts > 3 ) {
+    if( $listings->found_posts > 6 ) {
         $returnhtml .= '<a href="'.get_site_url() . $cat_page .'" class="btn_primary_hollow">LOAD MORE</a>';
     }
 
