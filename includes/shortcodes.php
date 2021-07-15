@@ -253,15 +253,17 @@ add_shortcode('mbn_video_list', 'mbn_video_list_shortcode');
 
 /** Listings **/
 
-function mbn_view_listings_all_shortcode(){
+function mbn_view_listings_all_shortcode($atts){
 
-    
+    $exclude_cat = (isset($atts['exclude_category'])) ? $atts['exclude_category'] : '';    
+    $exclude_cat = get_term_by('name', $exclude_cat, 'listings_cat' );
+    $exclude_cat = $term->term_id;
 
 $returnhtml .= '<div class="grid-container">';
     $returnhtml .= '<div class="listings_nav_wrap">';
         $returnhtml .= '<div class="listings_nav">';
 
-    $terms = get_terms( 'listings_cat', array( 'hide_empty' => false, 'orderby' => 'id') ); // Get all terms of a taxonomy
+    $terms = get_terms( 'listings_cat', array( 'hide_empty' => false, 'orderby' => 'id', 'exclude' => $exclude_cat ) ); // Get all terms of a taxonomy
 
     if ( $terms && !is_wp_error( $terms ) ) :
         
@@ -288,6 +290,7 @@ $returnhtml .= '<div class="grid-container">';
                 'orderby' => 'id',
                 'tax_query' => $term->slug,
                 'order' => 'asc',
+                'category__not_in' => $exclude_cat,
             );
 
             $listings = new WP_Query( $listings_args );   
