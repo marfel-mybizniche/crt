@@ -92,7 +92,11 @@ function mbn_testimonials_shortcode(){
         $testimonial_role_position  = get_field('testimonial_role_position'); 
         $testimonial_company        = get_field('testimonial_company'); 
         $testimonial_rating         = get_field('testimonial_rating'); 
-        $testimonial_video          = get_field('testimonial_video'); 
+        $video_url                  = get_field('testimonial_video'); 
+        $video_thumb                = get_video_thumb($video_url);
+        $video_type                 = videoType($video_url);
+        $video_id                   = get_video_id($video_url);
+
         $short_excerpt          = get_field('short_excerpt'); 
 
         $returnhtml .= '<div class="testimonial_item">';
@@ -100,7 +104,8 @@ function mbn_testimonials_shortcode(){
         $returnhtml .= '<div class="testimonial_blockitem">';
         $returnhtml .= ($testimonial_img) ? '<figure class="col-image"><img src="'. $testimonial_img .'" alt=""></figure>' : '<figure><img src="https://via.placeholder.com/1200x500"/></figure>';
         $returnhtml .= '<div class="testimonial_body">';    
-        $returnhtml .= '<div class="testimonial_vbtn"><figure><img src="'. MBN_ASSETS_URI .'/img/icn-play-w.svg" alt=""></figure><span>PLAY VIDEO</span></div>';
+        $returnhtml .= '<a href="#" data-video-id="'.esc_attr($video_id) .'" class="modal-toggle testimonial_vbtn" data-video-type="'.esc_attr($video_type).'">';
+        $returnhtml .= '<figure><img src="'. MBN_ASSETS_URI .'/img/icn-play-w.svg" alt=""></figure><span>PLAY VIDEO</span></a>';
         $returnhtml .= '<div class="testimonial_info">'. $testimonial_rating;
         $returnhtml .= ( $short_excerpt ) ? '<h3>'. $short_excerpt .'</h3>': '';
         $returnhtml .= ( $testimonial_name ) ? '<p class="testimonial_name">'. $testimonial_name .'</p>': '';
@@ -112,6 +117,23 @@ function mbn_testimonials_shortcode(){
     endwhile;
     $returnhtml .= '</div></div></section>';
     wp_reset_postdata();
+    
+
+
+    $returnhtml .= '<div class="modal">';
+    $returnhtml .= '<div class="modal-overlay modal-toggle"></div>';
+    $returnhtml .= '<div class="modal-wrapper modal-transition">';
+    $returnhtml .= '<div class="modal-header">';
+    $returnhtml .= '<a class="modal-close modal-toggle"><span>Menu</span></a>';
+    $returnhtml .= '</div>';      
+    $returnhtml .= '<div class="modal-body">';
+    $returnhtml .= '<div class="modal-content">';
+    $returnhtml .= '<iframe width="1280" height="720"  src="" frameborder="0" allow="autoplay" allowfullscreen></iframe></div>';
+    $returnhtml .= '</div>';
+    $returnhtml .= '</div>';
+    $returnhtml .= '</div>';
+    $returnhtml .= '</div>';
+
     return $returnhtml;
 
 }

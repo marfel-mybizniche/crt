@@ -1127,18 +1127,19 @@ ul.star-rating li i {
                     font-style: italic;
                     font-weight: 600;
                     line-height: 1.2;
+                    color: $color-dark;
                 }
 
                 p{
                     line-height: 1.2;
-                    color: #777;
+                    color: $color-grey;
                     font-size: 11px;
                     margin-bottom: 5px;
 
                     &.testimonial_name {
                         font-size: 13px;
                         font-weight: 700;
-                        color: #111111;
+                        color: $color-dark
                     }
                 }
                 @include media (max-width, 768px){
