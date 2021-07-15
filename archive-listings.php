@@ -21,6 +21,7 @@
 
         $title = get_the_title();
         $img_url = get_the_post_thumbnail_url();
+        $img = wp_get_attachment_image_src( get_post_thumbnail_id( $listings->ID ), 'large' ); 
         $url = get_the_permalink();
 
         $property_price = get_field('property_price');
@@ -39,7 +40,7 @@
             <div class="cell medium-6 large-4 col-item listing_item">            
                 <a href="<?php echo esc_url($url); ?>">
                     <div class="listing-wrap">
-                        <div class="listing-widget-thumb"><figure><img src="<?php echo esc_attr($img_url); ?>" /></figure></div>
+                        <div class="listing-widget-thumb"><figure><img src="<?php echo ( isset($img[0]) ) ? esc_url($img[0]) : esc_url('https://via.placeholder.com/470x300'); ?>"/></figure></div>
                         <div class="listing-widget-details">                 
                             <div class="listing-tag listing-tag-mob"><span><?php echo esc_html($cat_name); ?></span></div>
                             <div class="listing-price-address">

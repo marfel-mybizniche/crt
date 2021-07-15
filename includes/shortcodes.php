@@ -252,7 +252,7 @@ add_shortcode('mbn_video_list', 'mbn_video_list_shortcode');
 function mbn_view_listings_shortcode($atts){
 
     if( ! empty( $atts['category'] ) ):
-        $cat = $atts['category'] ;
+        $returnhtml .= $cat = $atts['category'] ;
         $term = get_term_by('name', $cat, 'listings_cat' );
         $cat_slug = $term->name;
         $tax_arg = array(
@@ -288,6 +288,13 @@ function mbn_view_listings_shortcode($atts){
         preg_match_all('!\d+!', $property_price, $matches);
         $property_price = number_format( implode(' ', $matches[0]) ,3, ',', '.');
         
+        $img = wp_get_attachment_image_src( get_post_thumbnail_id( $listings->ID ), 'large' ); 
+        if( isset( $img[0] ) ): 
+            $img = esc_url($img[0]); 
+        else : 
+            $img = esc_url('https://via.placeholder.com/470x300');         
+        endif;
+
         $property_address = get_field('property_address');
         $property_city = get_field('property_city');
         $property_state = get_field('property_state');
@@ -300,7 +307,7 @@ function mbn_view_listings_shortcode($atts){
             $returnhtml .= '<div class="cell medium-6 large-4 col-item listing_item">';            
                 $returnhtml .= '<a href="'.esc_url($url).'">';
                     $returnhtml .= '<div class="listing-wrap">';
-                        $returnhtml .= '<div class="listing-widget-thumb"><figure><img src="'. esc_attr($img_url) .'" /></figure></div>';
+                        $returnhtml .= '<div class="listing-widget-thumb"><figure><img src="'. $img .'" /></figure></div>';
                         $returnhtml .= '<div class="listing-widget-details">';                    
                             $returnhtml .= '<div class="listing-tag listing-tag-mob"><span>'.esc_html($cat_name).'</span></div>';
                             $returnhtml .= '<div class="listing-price-address">';
