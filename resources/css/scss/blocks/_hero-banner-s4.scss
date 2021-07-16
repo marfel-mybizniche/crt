@@ -463,8 +463,8 @@ body.medium_height {
 	.hero_banner_wrap{
 		
 		&.medium_height {
-			.banner_right { 
-				bottom: 0 ;
+			.banner_right_img { 
+				bottom: 0 !important;
 			}
 			@include media(max-width,1023px){
 				.banner_left {
@@ -621,7 +621,7 @@ body.medium_height {
 					&.banner_right_img {
 						padding-bottom: 0;
 						position: absolute;
-						bottom: 0;
+						bottom: -60px;
 					}
 
 					&.bg {
