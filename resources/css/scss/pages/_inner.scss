@@ -828,6 +828,16 @@ h1.page_title {
     
 }
 
+// 2500 page
+.cta_desktop_box {
+    @include media(min-width,1024px){
+        border: 1px solid #E5E5E5;
+        padding: 50px;
+        .wp-block-media-text.small_media_text{
+            grid-template-columns: 5% auto !important;
+        }
+    }
+}
 
 .desktop_only {
     visibility: visible;
