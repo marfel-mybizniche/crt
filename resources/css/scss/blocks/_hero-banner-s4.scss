@@ -369,6 +369,11 @@
 				p {
 					color: $color-white;	
 				}
+				.banner_right {
+					figure.banner_right_img {
+						bottom: 0;
+					}
+				}
 			}
 		}
 	}

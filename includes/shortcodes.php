@@ -254,18 +254,18 @@ function mbn_video_list_shortcode() {
 
 
     $returnhtml .= '<div class="modal">';
-    $returnhtml .= '<div class="modal-overlay modal-toggle"></div>';
-    $returnhtml .= '<div class="modal-wrapper modal-transition">';
-    $returnhtml .= '<div class="modal-header">';
-    $returnhtml .= '<a class="modal-close modal-toggle"><span>Menu</span></a>';
-    $returnhtml .= '</div>';      
-    $returnhtml .= '<div class="modal-body">';
-    $returnhtml .= '<div class="modal-content">';
-    $returnhtml .= '<iframe width="1280" height="720"  src="" frameborder="0" allow="autoplay" allowfullscreen></iframe></div>';
-    $returnhtml .= '</div>';
-    $returnhtml .= '</div>';
-    $returnhtml .= '</div>';
-    $returnhtml .= '</div>';
+        $returnhtml .= '<div class="modal-overlay modal-toggle"></div>';//modal-overlay
+        $returnhtml .= '<div class="modal-wrapper modal-transition">';
+            $returnhtml .= '<div class="modal-header">';
+                $returnhtml .= '<a class="modal-close modal-toggle"><span>Menu</span></a>';
+            $returnhtml .= '</div>';    //modal-header  
+            $returnhtml .= '<div class="modal-body">';
+                $returnhtml .= '<div class="modal-content">';
+                    $returnhtml .= '<iframe width="1280" height="720"  src="" frameborder="0" allow="autoplay" allowfullscreen></iframe>';
+                $returnhtml .= '</div>'; //modal-content
+            $returnhtml .= '</div>';//modal-body
+        $returnhtml .= '</div>';//modal-wrapper
+    $returnhtml .= '</div>'; //modal-modal
 
     return $returnhtml;
 }
