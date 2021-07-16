@@ -202,6 +202,18 @@ function ct_custom_new_menu() {
   }
   add_action( 'init', 'ct_custom_new_menu' );
 
+function my_acf_format_value_for_api($value, $post_id, $field){
+	return str_replace( ']]>', ']]>', apply_filters( 'the_content', $value) );
+}
+function my_on_init(){
+	if(!is_admin()){
+		add_filter('acf/format_value_for_api/type=wysiwyg', 'my_acf_format_value_for_api', 10, 3);
+	}
+}
+add_action('init', 'my_on_init');
+
+
+
 function mbn_insert_headers(){
     ?>
     <link rel="stylesheet" type="text/css" href="https://kenwheeler.github.io/slick/slick/slick-theme.css"/>

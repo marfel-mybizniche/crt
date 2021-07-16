@@ -358,7 +358,7 @@
 }
 
 
-//fullheight
+//fullheight and medium_height
 .hero_banner_wrap{
 
 	&.full_height,
@@ -457,6 +457,43 @@
 		}
 	}
 
+}
+//medium height {
+body.medium_height {	
+	.hero_banner_wrap{
+		
+		&.medium_height {
+			.banner_right { 
+				bottom: 0 ;
+			}
+			@include media(max-width,1023px){
+				.banner_left {
+					display: none;
+				}
+				.banner_right{ 
+					display: flex !important;
+					bottom: 0;
+					width: 100%;
+					height: 500px;
+					margin: 0 auto;
+					align-items: center;
+					justify-content: center;
+				}
+
+			}
+		}	
+	}
+	.medium_height_mobile {
+		.grid-container {
+			display: none;
+		}
+		@include media(max-width,1023px){
+			.grid-container {
+				display: block;
+			}
+
+		}
+	}
 }
 
 // other pages
@@ -575,9 +612,12 @@
 				width: 40%;
 
 				figure {
-					padding-bottom: 0;
-					position: absolute;
-					bottom: -60px;
+					
+					&.banner_right_img {
+						padding-bottom: 0;
+						position: absolute;
+						bottom: -60px;
+					}
 
 					&.bg {
 				
