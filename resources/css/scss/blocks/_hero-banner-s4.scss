@@ -484,10 +484,15 @@ body.medium_height {
 		}	
 	}
 	.medium_height_mobile {
+		
 		.grid-container {
 			display: none;
 		}
+
 		@include media(max-width,1023px){
+			
+			margin-top: 50px;
+
 			.grid-container {
 				display: block;
 			}
