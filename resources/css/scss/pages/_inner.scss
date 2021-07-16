@@ -830,11 +830,29 @@ h1.page_title {
 
 // 2500 page
 .cta_desktop_box {
-    @include media(min-width,1024px){
-        border: 1px solid #E5E5E5;
-        padding: 50px;
-        .wp-block-media-text.small_media_text{
-            grid-template-columns: 5% auto !important;
+    border: 1px solid #E5E5E5;
+    padding: 50px;
+    .wp-block-media-text.small_media_text{
+        grid-template-columns: 5% auto !important;
+    }
+    @include media(max-width,1023px){
+        border: 0;
+    }
+    @include media(max-width,480px){
+        .call_carol_col {
+            p.call_carol  {
+                font-size: 12px;
+            }
+        }
+        .call_carol_num {
+            p{
+                font-size: 35px;
+            }
+        }
+        .wp-block-media-text__content {
+            p {
+                font-size: 16px !important;
+            }
         }
     }
 }
