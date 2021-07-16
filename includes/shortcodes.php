@@ -232,7 +232,7 @@ function mbn_video_list_shortcode() {
 
                 if ( $terms || !is_wp_error( $terms ) ):
                     foreach ( $terms as $term ):
-                        $returnhtml .= '<span class="video_cat">'. $term->name .'</span>';
+                        $returnhtml .= '<span class="video_cat">'. esc_html($term->name) .'</span>';
                     endforeach;
                 endif;
                 
@@ -275,6 +275,7 @@ add_shortcode('mbn_video_list', 'mbn_video_list_shortcode');
 
 /** Listings **/
 
+// ALL LISTINGS
 function mbn_view_listings_all_shortcode($atts){
 
     $exclude_cat = (isset($atts['exclude_category'])) ? $atts['exclude_category'] : '';    
@@ -283,6 +284,16 @@ function mbn_view_listings_all_shortcode($atts){
 
 $returnhtml .= '<div class="grid-container">';
     $returnhtml .= '<div class="listings_nav_wrap">';
+        $returnhtml .= '<div class="listings_nav_header">';
+        $returnhtml .= '
+                <div class="banner_wrap mobile_only">
+                <div class="banner_left '.get_field('banner_subtitle_style').'">
+					<h3 class="banner_subtitle_text">'. get_field('page_header_subtitle').'</h3>
+					<div class="banner_subtitle_body">
+						<h1 class="banner_subtitle_title">'.get_field('page_header_title').'</h1>
+                    </div>
+				</div></div>';
+        $returnhtml .= '</div>';
         $returnhtml .= '<div class="listings_nav">';
 
     $terms = get_terms( 'listings_cat', array( 'hide_empty' => false, 'orderby' => 'id', 'exclude' => $exclude_cat ) ); // Get all terms of a taxonomy
@@ -317,8 +328,8 @@ $returnhtml .= '<div class="grid-container">';
 
             $listings = new WP_Query( $listings_args );   
 
-            $returnhtml .= '<div id="'.$term->slug.'" class="listing_container">';
-                $returnhtml .= '<h2>'.$term->name.'</h2>';
+            $returnhtml .= '<div id="'.esc_attr($term->slug).'" class="listing_container">';
+                $returnhtml .= '<h2>'.esc_html($term->name).'</h2>';
                 $returnhtml .= '<div class="grid-x cols3-s2 listing_inner">';
 
                 while ( $listings->have_posts() ) : $listings->the_post();
@@ -333,9 +344,9 @@ $returnhtml .= '<div class="grid-container">';
                     
                     $img = wp_get_attachment_image_src( get_post_thumbnail_id( $listings->ID ), 'large' ); 
                     if( isset( $img[0] ) ): 
-                        $img = esc_url($img[0]); 
+                        $img = $img[0]; 
                     else : 
-                        $img = esc_url('https://via.placeholder.com/470x300');         
+                        $img = 'https://via.placeholder.com/470x300';         
                     endif;
 
                     $property_address = get_field('property_address');
@@ -349,12 +360,12 @@ $returnhtml .= '<div class="grid-container">';
 
 
 
-                    $returnhtml .= '<div id="'.$cat_slug.'" class="cell medium-6 large-4 col-item listing_item">';            
+                    $returnhtml .= '<div id="'.esc_attr($cat_slug).'" class="cell medium-6 large-4 col-item listing_item">';            
                         $returnhtml .= '<a href="'.esc_url($url).'">';
                             $returnhtml .= '<div class="listing-wrap">';
-                                $returnhtml .= '<div class="listing-widget-thumb"><figure><img src="'. $img .'" /></figure></div>';
+                                $returnhtml .= '<div class="listing-widget-thumb"><figure><img src="'. esc_attr($img) .'" /></figure></div>';
                                 $returnhtml .= '<div class="listing-widget-details">';                    
-                                    $returnhtml .= '<div class="listing-tag listing-tag-mob"><span>'.esc_html($cat).'</span></div>';
+                                    $returnhtml .= '<div class="listing-tag listing-tag-mob"><span>'.esc_html($term->name).'</span></div>';
                                     $returnhtml .= '<div class="listing-price-address">';
                                         $returnhtml .= '<div class="listing-price"><span><strong>'.esc_html('$').'</strong></span>'.esc_html($property_price).'</div>';
                                         $returnhtml .= '<div class="listing-title"></div>';
@@ -366,7 +377,7 @@ $returnhtml .= '<div class="grid-container">';
                                             $returnhtml .= '<div class="baths"><span class="listing-baths">'.esc_html($property_half_bathrooms).'</span><span>'.esc_html('BATHS').'</span></div>';
                                             $returnhtml .= '<div class="sq_ft"><span class="listing-sqft">'.esc_html($property_square_feet).'</span><span>'.esc_html('SQ. FEET').'</span></div>';
                                         $returnhtml .= '</div>';
-                                        $returnhtml .= '<div class="listing-tag listing-tag-desk"><span>'.esc_html($cat).'</span></div>';
+                                        $returnhtml .= '<div class="listing-tag listing-tag-desk"><span>'.esc_html($term->name).'</span></div>';
                                     $returnhtml .= '</div>'; // listing-other-info     
                                 $returnhtml .= '</div>'; // listing-widget-details
                             $returnhtml .= '</div>'; // listing-wrap
@@ -380,7 +391,7 @@ $returnhtml .= '<div class="grid-container">';
                 $returnhtml .= '</div>'; //listing_inner
 
                 if( $listings->found_posts > 6 ) {
-                    $returnhtml .= '<div class="loadMore_btn"><a href="'.get_site_url() . $cat_page .'" class="btn_primary_hollow">LOAD MORE</a></div>';
+                    $returnhtml .= '<div class="loadMore_btn"><a href="'.get_site_url() . esc_url($cat_page) .'" class="btn_primary_hollow">LOAD MORE</a></div>';
                 }
 
             $returnhtml .= '</div>'; // listing_container
@@ -458,10 +469,10 @@ function mbn_view_listings_shortcode($atts){
         $property_half_bathrooms = get_field('property_half_bathrooms');
         $property_square_feet = get_field('property_square_feet');
 
-            $returnhtml .= '<div id="'.$cat_slug.'" class="cell medium-6 large-4 col-item listing_item">';            
+            $returnhtml .= '<div id="'.esc_attr($cat_slug).'" class="cell medium-6 large-4 col-item listing_item">';            
                 $returnhtml .= '<a href="'.esc_url($url).'">';
                     $returnhtml .= '<div class="listing-wrap">';
-                        $returnhtml .= '<div class="listing-widget-thumb"><figure><img src="'. $img .'" /></figure></div>';
+                        $returnhtml .= '<div class="listing-widget-thumb"><figure><img src="'. esc_attr($img) .'" /></figure></div>';
                         $returnhtml .= '<div class="listing-widget-details">';                    
                             $returnhtml .= '<div class="listing-tag listing-tag-mob"><span>'.esc_html($cat).'</span></div>';
                             $returnhtml .= '<div class="listing-price-address">';
@@ -486,7 +497,7 @@ function mbn_view_listings_shortcode($atts){
     wp_reset_postdata();
 
     if( $listings->found_posts > 6 ) {
-        $returnhtml .= '<a href="'.get_site_url() . $cat_page .'" class="btn_primary_hollow">LOAD MORE</a>';
+        $returnhtml .= '<a href="'.get_site_url() . esc_url($cat_page) .'" class="btn_primary_hollow">LOAD MORE</a>';
     }
 
     $returnhtml .= '</div>'; // listing_inner

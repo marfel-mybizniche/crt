@@ -230,7 +230,11 @@ set_height = function () {
   });
   
 
-  if ( device_width <= 767 ) {
+  if( $('body').find('.listings_nav_wrap')){
+        
+    $('body').addClass('listings_page');
+  }
+
 
       $('.listings:first-child').show();
       $('.listing_container:not(:first-child)').hide();
@@ -253,17 +257,6 @@ set_height = function () {
         slidesToScroll: 1,
         variableWidth: true
       });
-      /*
-      $('.listing_container').slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: false,
-        fade: true,
-        asNavFor: '.cat_listings'
-      });
-      */
-
-  }
 
     
 })(jQuery);

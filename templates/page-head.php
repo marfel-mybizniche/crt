@@ -9,10 +9,16 @@ $add_buttons = get_field('has_call_to_action');
 
 ?>
 
-<?php if( !is_home()) : ?>
-
-<?php if( $banner_height == "full_height" ) : ?>
-<section class="hero_banner_wrap <?php echo $banner_height; ?>" data-body-class="<?php echo $banner_height; ?>" data-height="110vh">
+<?php if( $banner_height == "full_height" || $banner_height == "medium_height" ) : 
+	if( $banner_height == "full_height" ) {
+		$height = '110vh';
+	}
+	else {
+		$height = '90vh';
+	}
+	
+	?>
+<section class="hero_banner_wrap <?php echo $banner_height; ?>" data-body-class="<?php echo $banner_height; ?>" data-height="<?php echo $height; ?>">
 <?php else : ?>
 <section class="hero_banner_wrap ">
 <?php endif; ?>
@@ -24,8 +30,8 @@ $add_buttons = get_field('has_call_to_action');
 		<?php endif; ?>
 		<div class="grid-container"> 
 			
-			<?php if( $banner_height == "full_height" ) : ?>
-				<div class="banner_wrap " data-height="100vh">
+		<?php if( $banner_height == "full_height" || $banner_height == "medium_height" ) : ?>
+				<div class="banner_wrap " data-height="<?php echo $height; ?>">
 			<?php else:  ?>
 				<div class="banner_wrap">				
 			<?php endif; ?>
@@ -98,99 +104,4 @@ $add_buttons = get_field('has_call_to_action');
         </div>
 	</div>
 </section>
-<?php elseif( is_home() ) : ?>
-    <section class="hero hero-s4">
-        <!-- Hero Desktop -->
-        <div class="hero-block hero-block_desktop">
-
-			<?php if( get_field('page_header_image') ): ?>
-				<figure class="bg">
-					<img src="<?php echo get_field('page_header_image'); ?>" />
-				</figure>
-			<?php endif; ?>
-
-            <div class="grid-container hero-caption"> 
-                <div class="grid-x">
-                    <div class="cell large-7  <?php echo get_field('banner_subtitle_style');?>">
-						<h3 class="banner_subtitle_text"><?php echo get_field('page_header_subtitle'); ?></h3>
-                        <div class="banner_subtitle_body">
-                            <h1><?php echo get_field('page_header_title'); ?></h1>
-                            <p> <?php echo get_field('page_header_body'); ?></p>                              
-                            <div class="banner_form_wrap">                               
-								<?php 
-								$form_shortcode = get_field('form_shortcode');
-								echo do_shortcode($form_shortcode); 
-								?>
-                            </div>         
-                        </div>
-                        <div class="divider_double_line"></div>                                                
-                        <?php 
-						$show_checklists = get_field('show_checklists');
-						
-						if ($show_checklists): ?>                                               
-							<?= do_shortcode('[banner_checklist]'); ?>
-						<?php endif; ?>  
-						
-                    </div>
-
-					<?php if( $banner_right ):?>
-                    <div class="cell small-10 small-offset-1 large-5 large-offset-0 align-self-bottom">
-						<?php if ($banner_right_text): ?><h5><?php echo esc_attr($banner_right_text);?></h5><?php endif; ?>
-						<?php if ($add_image): ?><figure class="right_img text-center"><img src="<?php echo esc_attr($add_image);?>"></figure> <?php endif; ?>
-						
-							<?php echo ($add_buttons) ? do_shortcode('[ct_contact_button]') : '' ; ?>
-
-                    </div>
-					<?php endif ?>
-                </div>
-            </div>
-        </div>        
-        <!-- Hero Mobile -->
-        
-        <div class="hero-block_mobile">
-            <div class="hero-block hero_mobile_top">
-
-			<?php if( get_field('page_header_image') ): ?>
-				<figure class="bg">
-					<img src="<?php echo get_field('page_header_image'); ?>" />
-				</figure>
-			<?php endif; ?>
-
-                <div class="grid-container"> 
-                    <div class="grid-x hero-caption">
-                        <div class="cell small-10 small-offset-1 large-5 large-offset-0 align-self-bottom">
-						<?php if ($add_image): ?><figure class="right_img text-center"><img src="<?php echo esc_attr($add_image);?>"></figure> <?php endif; ?>    
-                        </div>
-                    </div>
-                </div> 
-            </div>        
-            <div class="hero-block hero_mobile_bottom">
-                <div class="grid-container">
-                    <div class="sec_body  <?php echo get_field('banner_subtitle_style');?>">
-                        <h3 class="banner_subtitle"><?php echo get_field('page_header_subtitle'); ?></h3>
-                        <div class="banner_subtitle_body">
-                            <h1><?php echo get_field('page_header_title'); ?></h1>
-                            <p> <?php echo get_field('page_header_body'); ?></p>                                  
-                            <div class="banner_form_wrap">                                            
-								<?php 
-								$form_shortcode = get_field('form_shortcode');
-								echo do_shortcode($form_shortcode); 
-								?>
-                            </div>         
-                        </div>
-                        
-						<?php 
-						$show_checklists = get_field('show_checklists');
-						
-						if ($show_checklists): ?>                                               
-							<?= do_shortcode('[banner_checklist]'); ?>
-						<?php endif; ?>  
-						  
-                    </div>
-                </div>
-            </div> 
-        </div>
-    </section>
-
-<?php endif; ?>
 

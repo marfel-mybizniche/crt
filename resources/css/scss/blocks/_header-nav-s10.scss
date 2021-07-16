@@ -831,7 +831,7 @@ header {
 							a {
 								font-size: 14px; 
 								line-height: 1.1; 
-								font-weight: bold; 
+								font-weight: 400; 
 								color:$color-white; 
 								text-transform: uppercase; 
 								padding:16px 35px; 
@@ -844,44 +844,67 @@ header {
 									margin-top:-22px; 
 								}
 							}
-							ul {
-								margin: 0;
-								padding: 0;
-								li {
-									a {
-										padding-left: 45px;
-										text-transform: uppercase; 
-										text-align: left; 
-										color: lighten($color-black, 44%); 
-									}
+						}
+					}
+
+    				
+					.submenu-toggle {
+						background: $color-dark url(../img/icn-chev-down-r.svg) no-repeat 17px center/15px;
+
+						&[aria-expanded="true"]{
+							background: $color-dark url(../img/icn-close-w.svg) no-repeat 17px center/15px;
+
+						}
+						&:after {
+							display: none;
+						}
+					}
+					.sub-menu {
+						margin: 0;
+						padding: 0;
+						li{
+							a{
+								padding-left: 55px !important;
+								text-transform: uppercase; 
+								text-align: left; 
+								color: $color-white; 
+
+								&:before {
+									content: "";
+									background-size: 20px 10px;
+									width: 20px;
+									height: 10px;
+									background-repeat: no-repeat;
+									background-image: url(../img/icn-arrow-rdr.svg);
+									display: inline-block;
+									margin-right: 10px;
+									left: 32px;
+									top: 85%;
 								}
 							}
 						}
 					}
-
-    				.submenu-toggle {
-    					background:lighten($color-black, 90%)  url(../img/icn-plus.svg) no-repeat 17px center / 15px; 
-    					width:55px; 
-    					height: 47px; 
-    					right: 0;
-
-    					&[aria-expanded="true"] {
-    						background-image: url(../img/icn-close-r.svg); 
-    					}
-    					&:after {
-    						content: ""; border:0;
-    					}
-    				}
 					
 					@at-root header.show-menu .hsnav-s10 .mobmenu {
 						display: block;
 						width: 100%;
 					}
-
+					
 				}
 			}
 		}
 
+	}
+
+	&.show-menu {
+		.hsnav-s10 {
+			
+			@include media (max-width, 1023px){
+				
+				background: $color-dark !important;
+			}
+
+		}
 	}
 }
 body{
@@ -984,7 +1007,7 @@ body{
 	}
 
 	&.full_height {
-
+		
 		@at-root header.show-menu .hsnav-s10 .navicon {
 
 
@@ -1096,7 +1119,6 @@ body{
 		header.show-menu {
 			.hsnav-s10,
 			.is-stuck	{
-				//background: $color-dark !important;
 				.navicon {
 					span {
 						color: $color-white !important
@@ -1142,34 +1164,6 @@ body{
 						}
 
 					} 
-					.submenu-toggle {
-						background: $color-dark url(../img/icn-chev-down-r.svg) no-repeat 17px center/15px;
-
-						&[aria-expanded="true"]{
-							background: $color-dark url(../img/icn-close-w.svg) no-repeat 17px center/15px;
-
-						}
-					}
-					.sub-menu {
-						li{
-							a{
-								padding-left: 55px !important;
-
-								&:before {
-									content: "";
-									background-size: 20px 10px;
-									width: 20px;
-									height: 10px;
-									background-repeat: no-repeat;
-									background-image: url(../img/icn-arrow-rdr.svg);
-									display: inline-block;
-									margin-right: 10px;
-									left: 32px;
-									top: 85%;
-								}
-							}
-						}
-					}
 				}
 
 			}
