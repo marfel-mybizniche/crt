@@ -1,20 +1,21 @@
 <?php 
-    /* Template Name: About template */
-    get_header();
 
-    $listings_args = array(  
-        'post_type' => 'listings',
-        'posts_per_page' => -1, 
-        'post_status' => 'publish',
-        'orderby' => 'id',
-        'order' => 'asc',
-    );
+get_header();
 
-    $listings = new WP_Query( $listings_args );   
+$listings_args = array(  
+    'post_type' => 'listings',
+    'posts_per_page' => -1, 
+    'post_status' => 'publish',
+    'orderby' => 'id',
+    'order' => 'asc',
+);
+
+$listings = new WP_Query( $listings_args );   
 ?>
 <section class="sec-3cols">
     <div class="grid-container">
-        <div class="grid-x cols3-s2 listing_container">
+        <div id="<?php echo esc_attr($term->slug) ?>" class="listing_container">
+             <div class="grid-x cols3-s2 listing_inner">
 <?php
 
     while ( $listings->have_posts() ) : $listings->the_post();
