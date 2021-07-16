@@ -361,6 +361,18 @@
 //fullheight and medium_height
 .hero_banner_wrap{
 
+	&.full_height {		
+
+		.hero_banner {
+			.banner_wrap {
+				padding: 0;
+				p {
+					color: $color-white;	
+				}
+			}
+		}
+	}
+
 	&.full_height,
 	&.medium_height {
 
@@ -368,13 +380,9 @@
 			margin-top: -78px;
 
 			.banner_wrap {
-				padding: 0;
 				.banner_paragraph {
 					h3{
 						color: $color-white;
-					}
-					p {
-						color: #858689;	
 					}
 					small {
 						align-items: center;
@@ -463,9 +471,14 @@ body.medium_height {
 	.hero_banner_wrap{
 		
 		&.medium_height {
-			.banner_right_img { 
-				bottom: 0 !important;
+
+			.banner_paragraph{
+				p {
+					color: $color-white;
+				}
 			}
+
+
 			@include media(max-width,1023px){
 				.banner_left {
 					display: none;
@@ -479,6 +492,9 @@ body.medium_height {
 					align-items: center;
 					justify-content: center;
 				}
+				.banner_right_img { 
+					bottom: 0 !important;
+				}
 
 			}
 		}	
@@ -487,6 +503,12 @@ body.medium_height {
 		
 		.grid-container {
 			display: none;
+		}
+
+		.banner_paragraph {
+			p{
+				color: $color-grey;
+			}
 		}
 
 		@include media(max-width,1023px){

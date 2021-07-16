@@ -410,6 +410,7 @@ figure {
 .listings_page {
     @include media (max-width, 1023px){
         .hero_banner .banner_wrap,
+        .medium_height_mobile,
         .buyers_cnt {
             display:none
         }
