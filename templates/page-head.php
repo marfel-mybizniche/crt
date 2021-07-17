@@ -1,4 +1,5 @@
 <?php 
+global $template;
 
 //acf fields
 $banner_height = get_field('page_header_banner_height');				
@@ -8,6 +9,7 @@ $add_image = get_field('right_image');
 $show_elements = get_field('show_elements');
 $custom_content = get_field('custom_content');
 
+if(! strpos( $template, 'single-listings.php' )):
 ?>
 
 <?php if( $banner_height == "full_height" || $banner_height == "medium_height" ) : 
@@ -144,4 +146,6 @@ $custom_content = get_field('custom_content');
 	</div>	<!-- grid-container -->	
 	<!-- for medium height on mobile -->
 </section>
-<?php endif; ?>
+<?php endif; 
+ endif; 
+ ?>

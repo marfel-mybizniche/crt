@@ -710,3 +710,52 @@ figure {
         }
     }
 }
+
+// listings single
+.single-listings {
+    .hero_banner_wrap{
+        &:before {
+            background: $color-white;
+        }
+    }
+}
+.listing_single_wrap {
+    
+    .listing_sticky_info {
+        background: #f8f8f8;
+        padding: 20px;
+
+        .cols3-s1 {            
+            flex-wrap: nowrap;
+        }
+
+        .sticky_info {
+
+            text-transform: capitalize;
+            line-height: 1.2;
+
+            &_left {
+                .coming_soon_red {
+                    font-size: 12px;
+                    font-weight: 600;
+                    letter-spacing: 0.02em;
+                    color: $color-primary;
+                }
+                .address {
+                    color: $color-dark;
+                    font-family: $heading-font-family;
+                    font-size: 18px;
+
+                }
+            }
+            &_right {      
+                display:flex;
+
+                font-size: 16px;
+                font-weight: 300;
+                line-height: 1.2;
+            }
+        }
+    }
+
+}

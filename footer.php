@@ -24,64 +24,62 @@
                 </div>
             </div>
             <div class="footer_wrap">
-                <div class="grid-container"> 
-                    <div class="grid-x ct_margin_both_0 cols4-s2 footer_desktop">
-                        <div class="cell medium-6 large-3 xlarge-3 col-item">                       
-                            <?php
-                                wp_nav_menu( array( 
-                                    'theme_location' => 'footer-menu',
-                                    'menu'         => '',
-                                    'container'    => 'ul',
-                                    'items_wrap' => '<ul class="footer_menu">%3$s</ul>' ,
-                                    'menu_class'   => 'footer_menu',
-                                ));
-                            ?> 
-                        </div>
-                        <div class="cell medium-6 large-3 xlarge-3 col-item">                  
-                            <?php
-                                wp_nav_menu( array( 
-                                    'theme_location' => 'sell-menu',
-                                    'menu'         => '',
-                                    'container'    => 'ul',
-                                    'items_wrap' => '<ul class="footer_menu bulleted_menu">%3$s</ul>' ,
-                                    'menu_class'   => 'footer_menu bulleted_menu',
-                                ));
-                            ?> 
-                        </div>
-                        <div class="cell medium-6 large-3 xlarge-3 col-item">                  
-                            <?php
-                                wp_nav_menu( array( 
-                                    'theme_location' => 'buy-menu',
-                                    'menu'         => '',
-                                    'container'    => 'ul',
-                                    'items_wrap' => '<ul class="footer_menu bulleted_menu">%3$s</ul>' ,
-                                    'menu_class'   => 'footer_menu bulleted_menu',
-                                ));
-                            ?> 
-                        </div>
-                        <div class="cell medium-6 large-3 xlarge-3 col-item">                
-                            <?php
-                                wp_nav_menu( array( 
-                                    'theme_location' => 'additional-menu',
-                                    'menu'         => '',
-                                    'container'    => 'ul',
-                                    'items_wrap' => '<ul class="footer_menu additional_menu" >%3$s</ul>' ,
-                                    'menu_class'   => 'footer_menu',
-                                ));
-                            ?> 
-                        </div>
-                    </div>                    
-                    <div class="footer_mobile">                  
+                <div class="grid-x ct_margin_both_0 cols4-s2 footer_desktop">
+                    <div class="cell medium-6 large-3 xlarge-3 col-item">                       
                         <?php
                             wp_nav_menu( array( 
-                                'theme_location' => 'footer-mobile-menu',
+                                'theme_location' => 'footer-menu',
                                 'menu'         => '',
                                 'container'    => 'ul',
-                                'items_wrap' => '<ul class="footer_menu footer_mobile_menu">%3$s</ul>' ,
-                                'menu_class'   => 'footer_menu footer_mobile_menu',
+                                'items_wrap' => '<ul class="footer_menu">%3$s</ul>' ,
+                                'menu_class'   => 'footer_menu',
                             ));
                         ?> 
                     </div>
+                    <div class="cell medium-6 large-3 xlarge-3 col-item">                  
+                        <?php
+                            wp_nav_menu( array( 
+                                'theme_location' => 'sell-menu',
+                                'menu'         => '',
+                                'container'    => 'ul',
+                                'items_wrap' => '<ul class="footer_menu bulleted_menu">%3$s</ul>' ,
+                                'menu_class'   => 'footer_menu bulleted_menu',
+                            ));
+                        ?> 
+                    </div>
+                    <div class="cell medium-6 large-3 xlarge-3 col-item">                  
+                        <?php
+                            wp_nav_menu( array( 
+                                'theme_location' => 'buy-menu',
+                                'menu'         => '',
+                                'container'    => 'ul',
+                                'items_wrap' => '<ul class="footer_menu bulleted_menu">%3$s</ul>' ,
+                                'menu_class'   => 'footer_menu bulleted_menu',
+                            ));
+                        ?> 
+                    </div>
+                    <div class="cell medium-6 large-3 xlarge-3 col-item">                
+                        <?php
+                            wp_nav_menu( array( 
+                                'theme_location' => 'additional-menu',
+                                'menu'         => '',
+                                'container'    => 'ul',
+                                'items_wrap' => '<ul class="footer_menu additional_menu" >%3$s</ul>' ,
+                                'menu_class'   => 'footer_menu',
+                            ));
+                        ?> 
+                    </div>
+                </div>                    
+                <div class="footer_mobile">                  
+                    <?php
+                        wp_nav_menu( array( 
+                            'theme_location' => 'footer-mobile-menu',
+                            'menu'         => '',
+                            'container'    => 'ul',
+                            'items_wrap' => '<ul class="footer_menu footer_mobile_menu">%3$s</ul>' ,
+                            'menu_class'   => 'footer_menu footer_mobile_menu',
+                        ));
+                    ?> 
                 </div>
             </div>
             
