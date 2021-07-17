@@ -508,3 +508,82 @@ function mbn_view_listings_shortcode($atts){
 
 }
 add_shortcode('mbn_view_listings', 'mbn_view_listings_shortcode');
+
+// [featured-post-slider posts_per_page=""]
+function featured_post_slider($attr) {
+    extract( shortcode_atts( array(
+        'post_type' => 'post',
+        'posts_per_page' => '',
+    ), $attr ) );
+
+    $args   =   array(
+        'post_type' =>  $post_type,
+        'posts_per_page' => $posts_per_page,
+        // 'orderby' => $orderby,
+        // 'order' => $order,
+        'post_status' => 'publish'
+    );
+
+    $postslist = new WP_Query( $args );
+
+    if ( $postslist->have_posts() ) :
+        $html   .= '<div class="wp-block-columns grid-x grid-margin-x home_news_list blog_news_slider">';
+    
+        while ( $postslist->have_posts() ) : $postslist->the_post();   
+            $terms = get_the_terms( $post->ID, 'category' );     
+
+            $html    .= '<div class="wp-block-column cell large-4 news_item">';
+            $html    .= '<figure class="wp-block-image size-full"><a href="'. get_permalink() .'">';
+            if ( has_post_thumbnail() ) {
+                $html    .= '<img loading="lazy" src="'.get_the_post_thumbnail_url().'" width="450" height="250">';
+            }
+            else {
+                $html    .= '<img loading="lazy" src="'.home_url().'/wp-content/uploads/2021/07/img-6-steps.jpg" width="450" height="250">';
+            }
+            $html    .= '</a></figure>';
+            $html    .= '<h6>';
+            if($terms) foreach( $terms as $term ) {
+                $html    .= '<a href="'.get_category_link( $term->term_id ).'">'.$term->name.'</a>';
+            }
+            $html    .= '</h6>';
+            $html    .= '<h3><a href="'. get_permalink() .'">'. get_the_title() .'</a></h3>';
+            $html    .= '</div>';
+        endwhile;
+        wp_reset_postdata();
+
+        $html  .= '</div>';
+
+        $html  .= '
+            <script>
+                jQuery(function($){
+                    $(".blog_news_slider").slick({
+                        dots: false,
+                        infinite: true,
+                        speed: 300,
+                        slidesToShow: 3,
+                        slidesToScroll: 1,
+                        responsive: [
+                          {
+                            breakpoint: 1200,
+                            settings: {
+                              slidesToShow: 2
+                            }
+                          },
+                          {
+                            breakpoint: 768,
+                            settings: {
+                              slidesToShow: 1
+                            }
+                          }
+                        ]
+                    });
+                });
+            </script>
+        ';   
+
+    endif;    
+
+    
+    return $html;
+}
+add_shortcode( 'featured-post-slider', 'featured_post_slider' );
