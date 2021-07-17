@@ -121,13 +121,12 @@
 						</div>
 					</div>
 				</div>
-				<div class="cell medium-4 large-8 small-12">
+				<div class="cell medium-4 large-8 small-12 listing_gallery">
 				<?php 
 					$images = get_field('photo_gallery');
 					if( $images ): ?>
-						<div class="listing_gallery slider-for">
-							<?php 
-							
+						<div class="slider-for">
+							<?php 							
 							foreach( $images as $image ): ?>
 								<div class="gallery_item">
 									<img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
@@ -135,7 +134,7 @@
 							<?php endforeach; ?>
 						</div>
 						
-						<div class="listing_gallery slider-nav">
+						<div class=" slider-nav">
 							<?php foreach( $images as $image ): ?>
 								<div class="gallery_item">
 									<img src="<?php echo esc_url($image['sizes']['thumbnail']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />

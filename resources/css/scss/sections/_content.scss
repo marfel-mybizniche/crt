@@ -714,11 +714,37 @@ figure {
 
 // listings single
 .single-listings {
+
     .hero_banner_wrap{
         &:before {
             background: $color-white;
         }
     }
+
+    .listing_single_wrap {
+
+        &.is-stuck {
+    
+            .listing_sticky_info {
+                
+                position: fixed;
+                //top: calc(28px + 120px);
+                left: 0;
+                right: 0;
+                z-index: 5;
+            }
+    
+            .listing_gallery {
+                position: fixed;
+                //top: calc(28px + 292px);
+                right: -20%;
+                z-index: 5;
+            }
+    
+        }
+
+    }
+
 }
 .listing_single_wrap {
     
@@ -953,5 +979,7 @@ figure {
 }
 
 .listing_gallery{
-    display: flex;
+    .slide-nav {
+        display: flex;
+    }
 }
