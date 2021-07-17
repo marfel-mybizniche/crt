@@ -19,6 +19,9 @@
 	$sq_ft	 		= get_field('property_square_feet');
 	$car			= get_field('property_garage');
 	$price	 		= get_field('property_price');
+	$pool	 		= get_field('property_pool');
+	$year	 		= get_field('property_year_built');
+	$type	 		= get_field('property_type');
 
 ?>
 
@@ -76,30 +79,30 @@
 								<div class="info_value"><?php echo esc_html($address); ?></div>	
 							</div>
 							<div class="row">
-								<div class="info_label"><?php echo esc_html('ADDRESS'); ?></div>	
-								<div class="info_value"><?php echo esc_html($address); ?></div>	
+								<div class="info_label"><?php echo esc_html('City'); ?></div>	
+								<div class="info_value"><?php echo esc_html($city); ?></div>	
 							</div>
 							<div class="row">
-								<div class="info_label"><?php echo esc_html('ADDRESS'); ?></div>	
-								<div class="info_value"><?php echo esc_html($address); ?></div>	
+								<div class="info_label"><?php echo esc_html('state'); ?></div>	
+								<div class="info_value"><?php echo esc_html($state); ?></div>	
 							</div>
 							<div class="row">
-								<div class="info_label"><?php echo esc_html('ADDRESS'); ?></div>	
-								<div class="info_value"><?php echo esc_html($address); ?></div>	
+								<div class="info_label"><?php echo esc_html('zip'); ?></div>	
+								<div class="info_value"><?php echo esc_html($zip); ?></div>	
 							</div>
 						</div>			
 						<div class="cols">
 							<div class="row">
-								<div class="info_label"><?php echo esc_html('city'); ?></div>	
-								<div class="info_value"><?php echo esc_html($city); ?></div>	
+								<div class="info_label"><?php echo esc_html('pool'); ?></div>	
+								<div class="info_value"><?php echo esc_html($pool); ?></div>	
 							</div>
 							<div class="row">
-								<div class="info_label"><?php echo esc_html('ADDRESS'); ?></div>	
-								<div class="info_value"><?php echo esc_html($address); ?></div>	
+								<div class="info_label"><?php echo esc_html('year built'); ?></div>	
+								<div class="info_value"><?php echo esc_html($year); ?></div>	
 							</div>
 							<div class="row">
-								<div class="info_label"><?php echo esc_html('ADDRESS'); ?></div>	
-								<div class="info_value"><?php echo esc_html($address); ?></div>	
+								<div class="info_label"><?php echo esc_html('type'); ?></div>	
+								<div class="info_value"><?php echo esc_html($type); ?></div>	
 							</div>
 						</div>		
 					</div>		
@@ -119,6 +122,28 @@
 					</div>
 				</div>
 				<div class="cell medium-4 large-8 small-12">
+				<?php 
+					$images = get_field('photo_gallery');
+					if( $images ): ?>
+						<div class="listing_gallery slider-for">
+							<?php 
+							
+							foreach( $images as $image ): ?>
+								<div class="gallery_item">
+									<img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+								</div>
+							<?php endforeach; ?>
+						</div>
+						
+						<div class="listing_gallery slider-nav">
+							<?php foreach( $images as $image ): ?>
+								<div class="gallery_item">
+									<img src="<?php echo esc_url($image['sizes']['thumbnail']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+								</div>
+							<?php endforeach; ?>
+						</div>
+
+					<?php endif; ?>
 				</div>
 			</div>
 		</div>
