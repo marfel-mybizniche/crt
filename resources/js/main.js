@@ -235,9 +235,12 @@ set_height = function () {
     $('body').addClass('listings_page');
   }
 
+      if( device_width <= 781 ){
+        
+        $('.listings:first-child').show();
+        $('.listing_container:not(:first-child)').hide();
 
-      $('.listings:first-child').show();
-      $('.listing_container:not(:first-child)').hide();
+      }
     
       $('.cat_item').on('click', function(event) {
     
