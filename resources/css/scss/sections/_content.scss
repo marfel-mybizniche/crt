@@ -410,8 +410,7 @@ figure {
 .listings_page {
     @include media (max-width, 1023px){
         .hero_banner .banner_wrap,
-        .medium_height_mobile,
-        .buyers_cnt {
+        .medium_height_mobile {
             display:none
         }
 
@@ -436,50 +435,53 @@ figure {
 
 }
 
-.listings_nav {
+.listings_nav_wrap {
+    display: none;
 
-    .cat_item {
-        //scroll-behavior: smooth;
-        
-        .cat_link {
-            font-weight: 600;
-            font-size: 16px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            cursor: pointer;
-            color: $color-grey;
-            transition: all 0.3s ease;
-            border-bottom: none;
-            @include media(max-width, 480px) {
-                font-size: 12px;
-            }
+    .listings_nav {
 
-        }
-
-        &:hover,
-        &:active{
+        .cat_item {
+            //scroll-behavior: smooth;
             
             .cat_link {
-                color: $color-dark;
-                border-bottom: 4px solid $color-primary;
+                font-weight: 600;
+                font-size: 16px;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                cursor: pointer;
+                color: $color-grey;
+                transition: all 0.3s ease;
+                border-bottom: none;
+                @include media(max-width, 480px) {
+                    font-size: 12px;
+                }
+
+            }
+
+            &:hover,
+            &:active{
+                
+                .cat_link {
+                    color: $color-dark;
+                    border-bottom: 4px solid $color-primary;
+                }
+            }
+        }    
+
+        &.slick-slider {
+            padding: 0;
+            .slick-list{padding:0 20% 0 0;}
+            .slick-track {
+                margin: 0 !important;
+            }
+            .slick-slide {            
+                padding-right: 20px;
             }
         }
-    }
-    
 
-    &.slick-slider {
-        padding: 0;
-        .slick-list{padding:0 20% 0 0;}
-        .slick-track {
-            margin: 0 !important;
-        }
-        .slick-slide {            
-            padding-right: 20px;
-        }
     }
-
-    @include media(min-width, 1024px) {
-        display: none;
+    @include media(max-width, 1023px) {
+        display: block;
     }
 }
 

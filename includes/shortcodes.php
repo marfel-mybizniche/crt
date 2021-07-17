@@ -285,16 +285,16 @@ function mbn_view_listings_all_shortcode($atts){
 
 $returnhtml .= '<div class="grid-container">';
     $returnhtml .= '<div class="listings_nav_wrap">';
-        $returnhtml .= '<div class="listings_nav_header">';
-        $returnhtml .= '
-                <div class="banner_wrap mobile_only">
-                <div class="banner_left '.get_field('banner_subtitle_style').'">
-					<h3 class="banner_subtitle_text">'. get_field('page_header_subtitle').'</h3>
-					<div class="banner_subtitle_body">
-						<h1 class="banner_subtitle_title">'.get_field('page_header_title').'</h1>
-                    </div>
-				</div></div>';
-        $returnhtml .= '</div>';
+        // $returnhtml .= '<div class="listings_nav_header">';
+        // $returnhtml .= '
+        //         <div class="banner_wrap mobile_only">
+        //         <div class="banner_left '.get_field('banner_subtitle_style').'">
+		// 			<h3 class="banner_subtitle_text">'. get_field('page_header_subtitle').'</h3>
+		// 			<div class="banner_subtitle_body">
+		// 				<h1 class="banner_subtitle_title">'.get_field('page_header_title').'</h1>
+        //             </div>
+		// 		</div></div>';
+        // $returnhtml .= '</div>';
         $returnhtml .= '<div class="listings_nav">';
 
     $terms = get_terms( 'listings_cat', array( 'hide_empty' => false, 'orderby' => 'id', 'exclude' => $exclude_cat ) ); // Get all terms of a taxonomy
