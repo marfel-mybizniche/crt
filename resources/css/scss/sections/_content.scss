@@ -722,6 +722,53 @@ figure {
 }
 .listing_single_wrap {
     
+    .coming_soon_red {
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        color: #DB323F;
+    }
+    .address {
+        color: $color-dark;
+        font-family: $heading-font-family;
+    }
+
+    .text_wrap {
+
+        &:before {
+            margin-right: 16px;
+        }
+
+        &.info_bed {
+            &:before {
+                content: url(../img/icn-bed.png);
+            }
+        }
+
+        &.info_bath {
+            &:before {
+                content: url(../img/icn-bath.png);
+            }
+        }
+
+        &.info_sq_ft {
+            &:before {
+                content: url(../img/icn-sq-ft.png);
+            }
+        }
+
+        &.info_car {
+            &:before {
+                content: url(../img/icn-garage.png);
+            }
+        }
+
+        &.info_price{ 
+            font-weight: 700;
+            color: #DB323F;
+        }
+
+    }
+    
     .listing_sticky_info {
         background: #f8f8f8;
         padding: 20px 0;
@@ -743,13 +790,8 @@ figure {
             &_left {
                 .coming_soon_red {
                     font-size: 12px;
-                    font-weight: 600;
-                    letter-spacing: 0.02em;
-                    color: $color-primary;
                 }
                 .address {
-                    color: $color-dark;
-                    font-family: $heading-font-family;
                     font-size: 18px;
                     display: flex;
                     &:before {
@@ -759,6 +801,7 @@ figure {
                 }
             }
             &_right {      
+
                 display:flex;
                 flex-direction: row;
                 justify-content: space-evenly;
@@ -767,41 +810,8 @@ figure {
                 font-weight: 400;
                 line-height: 1.2;
 
-                .text_wrap {
-                    &:before {
-                        margin-right: 16px;
-                    }
-
-                    &.info_bed {
-                        &:before {
-                            content: url(../img/icn-bed.png);
-                        }
-                    }
-
-                    &.info_bath {
-                        &:before {
-                            content: url(../img/icn-bath.png);
-                        }
-                    }
-
-                    &.info_sq_ft {
-                        &:before {
-                            content: url(../img/icn-sq-ft.png);
-                        }
-                    }
-
-                    &.info_car {
-                        &:before {
-                            content: url(../img/icn-garage.png);
-                        }
-                    }
-
-                    &.info_price{ 
-                        font-size: 18px;
-                        font-weight: 700;
-                        color: $color-primary;
-                    }
-
+                &.info_price { 
+                    font-size: 18px;
                 }
             }
         }
@@ -810,22 +820,135 @@ figure {
 }
 
 .listing_content {
+    padding: 65px 0;
 
-    .listing_info {
+    .grid-container {
+        padding: 20px 0;
+    }
 
-        .coming_soon_red {
-            font-size: 14px;
-            font-weight: 600;
-            letter-spacing: 0.02em;
-            color: $color-primary;
+    .content_info{
+        padding-left: 20px;
+    
+        &:not(.content_info_head):not(.content_info_desc) {
+            display: flex;
         }
-        .address {
-            color: $color-dark;
-            font-family: $heading-font-family;
-            font-size: 40px;
+
+        .cols {
+            width: 50%;
+            .text_wrap{
+                margin-bottom: 30px;
+            }
         }
-        .price {
+
+        &.content_info_head {
+            display: block;
+            line-height: 1.2;
+
+            div {
+                margin-bottom: 20px;
+            }
+
+            .coming_soon_red {
+                font-size: 14px;
+            }
+
+            .address {
+                font-size: 40px;
+            }
+
+            .info_price {
+                font-size: 24px;
+            }
+
+        }
+
+        &.content_info_main {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        &.content_info_btn {
+            padding-bottom: 30px;
+            
+            .schedule_btn {
+                font-size:16px;
+            }
+
+            .more_btn {
+                font-size: 12px!important;
+                .btn:after{
+                    content: url(../img/icn-down-red.png);
+                }
+            }
+        }
+
+        &.content_info_addtl {
+            
+            font-weight: 400;
+            padding-top: 30px;
+            margin-bottom: 16px;
+
+            .row {
+                padding-bottom: 16px;
+            }
             
         }
+
+        &.content_info_desc {
+            display: block;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            .info_value {
+                font-size: 18px;
+
+            }
+        }
+
+        .info_label {
+            text-transform: uppercase;
+            font-size: 11px;
+            color: $color-dark;
+        }
+
+        .info_value {
+            font-size: 16px;
+            color: $color-grey;
+        }
+
+        &.content_info_form {
+            margin-top: 10px;
+            .sec_form {
+                background-color: $color-dark;
+                padding:30px 17px 10px;
+
+                h2 {
+                    font-size: 18px;
+                    font-weight: 700;
+                    color: $color-white;
+                    font-family: $body-font-family;
+                    text-align: center;
+                }
+
+                p{
+                    font-size: 12px;
+                }
+
+                .ginput_container_name {
+                    display: flex;
+                    .name_first {
+                        padding-right: 1%;
+                    }
+                    .name_last {
+                        padding-left: 1%;
+                    }
+                }
+
+                .gform_body {
+                    margin-bottom: 20px;
+                }
+            }
+        }
+        
     }
 }
+

@@ -72,7 +72,7 @@ function cptui_register_my_cpts_listings() {
 		"rewrite" => [ "slug" => "listings", "with_front" => true ],
 		"query_var" => true,
 		"menu_icon" => "dashicons-admin-home",
-		"supports" => [ "title", "thumbnail" ],
+		"supports" => [ "title", "editor", "thumbnail" ],
 		"show_in_graphql" => false,
 	];
 
