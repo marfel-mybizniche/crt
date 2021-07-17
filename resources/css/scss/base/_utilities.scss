@@ -71,7 +71,7 @@
 
 .ct_padding_top_30_desktop {
 	padding-top: 30px;
-	@include media (max-width, 1023px){
+	@include media (max-width, 781px){
 		padding-top: 0;
 	}
 }

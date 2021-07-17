@@ -178,9 +178,6 @@ set_height = function () {
         });  
       })
 
-  });
-
-
   // video list slide up
 
   var container = $('#video_container');
@@ -236,7 +233,7 @@ set_height = function () {
   }
 
       if( device_width <= 781 ){
-        
+
         $('.listings:first-child').show();
         $('.listing_container:not(:first-child)').hide();
 
@@ -260,6 +257,9 @@ set_height = function () {
         slidesToScroll: 1,
         variableWidth: true
       });
+
+
+    });
 
     
 })(jQuery);

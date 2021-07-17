@@ -9,7 +9,7 @@ $add_image = get_field('right_image');
 $show_elements = get_field('show_elements');
 $custom_content = get_field('custom_content');
 
-if(! strpos( $template, 'single-listings.php' )):
+if(! strpos( $template, 'single-listings.php' )): // not in single post template
 ?>
 
 <?php if( $banner_height == "full_height" || $banner_height == "medium_height" ) : 

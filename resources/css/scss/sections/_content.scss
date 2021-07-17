@@ -439,6 +439,7 @@ figure {
     display: none;
 
     .listings_nav {
+        .slick-arrow  {display: none;}
 
         .cat_item {
             //scroll-behavior: smooth;
@@ -723,16 +724,21 @@ figure {
     
     .listing_sticky_info {
         background: #f8f8f8;
-        padding: 20px;
+        padding: 20px 0;
+
+        .grid-container {
+            padding: 0 20px;
+        }
 
         .cols3-s1 {            
             flex-wrap: nowrap;
+            align-items: center;
         }
 
         .sticky_info {
 
             text-transform: capitalize;
-            line-height: 1.2;
+            line-height: 1.6;
 
             &_left {
                 .coming_soon_red {
@@ -745,17 +751,81 @@ figure {
                     color: $color-dark;
                     font-family: $heading-font-family;
                     font-size: 18px;
-
+                    display: flex;
+                    &:before {
+                        content: url(../img/icn-marker-tiny.png);
+                        margin-right: 12px;
+                    }
                 }
             }
             &_right {      
                 display:flex;
-
+                flex-direction: row;
+                justify-content: space-evenly;
+                align-items: flex-end;
                 font-size: 16px;
-                font-weight: 300;
+                font-weight: 400;
                 line-height: 1.2;
+
+                .text_wrap {
+                    &:before {
+                        margin-right: 16px;
+                    }
+
+                    &.info_bed {
+                        &:before {
+                            content: url(../img/icn-bed.png);
+                        }
+                    }
+
+                    &.info_bath {
+                        &:before {
+                            content: url(../img/icn-bath.png);
+                        }
+                    }
+
+                    &.info_sq_ft {
+                        &:before {
+                            content: url(../img/icn-sq-ft.png);
+                        }
+                    }
+
+                    &.info_car {
+                        &:before {
+                            content: url(../img/icn-garage.png);
+                        }
+                    }
+
+                    &.info_price{ 
+                        font-size: 18px;
+                        font-weight: 700;
+                        color: $color-primary;
+                    }
+
+                }
             }
         }
     }
 
+}
+
+.listing_content {
+
+    .listing_info {
+
+        .coming_soon_red {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            color: $color-primary;
+        }
+        .address {
+            color: $color-dark;
+            font-family: $heading-font-family;
+            font-size: 40px;
+        }
+        .price {
+            
+        }
+    }
 }

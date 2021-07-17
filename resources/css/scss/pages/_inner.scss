@@ -28,9 +28,8 @@ h1.page_title {
     
 }
 
-.wp-block-columns {
+.sell_your_home_page.wp-block-columns {
     margin: 30px 0;
-    width: 100%;
     width: 100%;
     background-size: cover;
     background-repeat: repeat;
@@ -917,8 +916,12 @@ h1.page_title {
 }
 
 //slick
-.slick-track {
+.slick-unknown.slick-track {
     display: flex !important;
+}
+
+.office_locator_wrap .wp-block-group__inner-container {
+    max-width: 100%;
 }
 
 .gMap_wrap {
@@ -934,6 +937,42 @@ h1.page_title {
         @include media (max-width, 1023px ){
             display: none;
         }
+    }
+    
+}
+
+#map {
+    height: 100%;
+    min-height: 600px;
+    overflow-anchor: none;
+    
+    .loc_img {
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .loc_body {
+
+        padding: 10px 20px;
+
+        h2,
+        p {
+            margin-bottom: 5px;
+
+        }
+
+        h2.office_map_title {
+            font-size: 14px;
+        }
+        p {
+            font-family: "Lato";
+            &.office_phone {
+                font-weight: 600;
+            }
+        }
+
     }
 }
 
@@ -1002,47 +1041,51 @@ h1.page_title {
         }
         
     }
-
-
 }
-.slick-arrow {
-    @include media (max-width, 1023px ){
-        display: none !important;
-    }
 
-    &.arrow_prev,
-    &.arrow_next  {
-        font-size: 0;
-        background-size: 22px 27px;
-        background-repeat: no-repeat;
-        background-position: center;
-        bottom: -50px;
-        top: auto !important;
-        /*
-        &:before{
-            display: inline-block;
-            color: #111111;
-            -webkit-font-smoothing: antialiased;
-            font: normal 14px/1 'dashicons';
-        }*/
+.branch_lists {
+
+    .slick-arrow {
+        @include media (max-width, 1023px ){
+            display: none !important;
+        }
+    
+        &.arrow_prev,
+        &.arrow_next  {
+            font-size: 0;
+            background-size: 22px 27px;
+            background-repeat: no-repeat;
+            background-position: center;
+            bottom: -50px;
+            top: auto !important;
+            /*
+            &:before{
+                display: inline-block;
+                color: #111111;
+                -webkit-font-smoothing: antialiased;
+                font: normal 14px/1 'dashicons';
+            }*/
+        }
+        
+        
+        &.arrow_prev {
+           /*&:before{
+                content: "\f340";
+            }*/    
+            left: 50px;
+            background-image: url(../img/icn-arrow-l.svg);
+        }
+        
+        &.arrow_next {
+            /*&:before{
+                content: "\f344";
+            }*/
+            left: 90px;
+            background-image: url(../img/icn-arrow-r.svg);
+        }
     }
     
-    
-    &.arrow_prev {
-       /*&:before{
-            content: "\f340";
-        }*/    
-        left: 50px;
-        background-image: url(../img/icn-arrow-l.svg);
-    }
-    
-    &.arrow_next {
-        /*&:before{
-            content: "\f344";
-        }*/
-        left: 90px;
-        background-image: url(../img/icn-arrow-r.svg);
-    }
+
 }
 
 .block_checklists {
@@ -1359,40 +1402,6 @@ img.wpsl-store-thumb.wp-post-image {
     }
 }
 
-#map {
-    height: 100%;
-    min-height: 600px;
-    overflow-anchor: none;
-    
-    .loc_img {
-        img {
-            width: 100%;
-            object-fit: cover;
-        }
-    }
-
-    .loc_body {
-
-        padding: 10px 20px;
-
-        h2,
-        p {
-            margin-bottom: 5px;
-
-        }
-
-        h2.office_map_title {
-            font-size: 14px;
-        }
-        p {
-            font-family: "Lato";
-            &.office_phone {
-                font-weight: 600;
-            }
-        }
-
-    }
-}
 /*
 @include media (min-width, 1024px){
     .wp-block-column:not(:first-child) { 
