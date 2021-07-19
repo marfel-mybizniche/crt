@@ -983,10 +983,14 @@ body.medium_height {
 //single listing header
 
 .single-listings {
-	header .hsnav-s10.is-at-top.is-stuck .navbar .logo2 {
-		display: none;
+	header .hsnav-s10.is-stuck {
+		box-shadow: none;
 	}
-	header .hsnav-s10.is-at-top.is-stuck .navbar .logo1 {
+
+	header .hsnav-s10.is-at-top.is-anchored .navbar .logo2 {
 		display: block;
+	}
+	header .hsnav-s10.is-at-top.is-anchored .navbar .logo {
+		display: none;
 	}
 }
