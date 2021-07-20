@@ -9,28 +9,58 @@ $add_image = get_field('right_image');
 $show_elements = get_field('show_elements');
 $custom_content = get_field('custom_content');
 
+if( $banner_height == "full_height" ) {
+	$height = '110vh';
+}
+else {
+	$height = '88vh';
+}
+
 if(! strpos( $template, 'single-listings.php' )): // not in single post template
+	
+	//if global header setting
+	if( get_field('page_header_options') == "global_header_opt" ):
+?>
+    
+    <section class="hero_banner_wrap hero_banner_default">
+		<div class="hero_banner">
+			<figure class="bg"><img src="<?php echo get_theme_mod( 'global_header_img' ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" /></figure>
+			<div class="grid-container">
+				<div class="banner_wrap">
+					<div class="banner_left banner_style_2">
+						<div class="banner_subtitle_body">
+							<h1 class="banner_subtitle_title"><?php echo mbn_page_title(); ?></h1>		
+						</div>				
+					</div>
+					<div class="banner_right">					
+					</div>
+				</div>
+			</div>
+		</div>		
+    </section>
+
+
+<?php 
+
+	else: 
+		
+	if( $banner_height == "full_height" || $banner_height == "medium_height" ) : 
+		
 ?>
 
-<?php if( $banner_height == "full_height" || $banner_height == "medium_height" ) : 
-	if( $banner_height == "full_height" ) {
-		$height = '110vh';
-	}
-	else {
-		$height = '90vh';
-	}
-	
-	?>
 <section class="hero_banner_wrap <?php echo $banner_height; ?>" data-body-class="<?php echo $banner_height; ?>" data-height="<?php echo $height; ?>">
 <?php else : ?>
 <section class="hero_banner_wrap ">
 <?php endif; ?>
 	<div class="hero_banner">
+
 		<?php if( get_field('page_header_image') ): ?>
+			
 		<figure class="bg">
-			<img src="<?php echo get_field('page_header_image'); ?>" />
+			<img src="<?php echo get_field('page_header_image'); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" />
 		</figure>
 		<?php endif; ?>
+
 		<div class="grid-container"> 			
 		<?php if( $banner_height == "full_height"  || $banner_height == "medium_height" ) :?>
 			<div class="banner_wrap " data-height="<?php echo $height; ?>">
@@ -144,8 +174,8 @@ if(! strpos( $template, 'single-listings.php' )): // not in single post template
 			</div>
 		</div><!-- banner_wrap -->
 	</div>	<!-- grid-container -->	
-	<!-- for medium height on mobile -->
 </section>
 <?php endif; 
  endif; 
+endif;
  ?>

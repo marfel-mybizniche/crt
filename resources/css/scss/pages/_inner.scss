@@ -923,8 +923,16 @@ h1.page_title {
     display: flex !important;
 }
 
-.office_locator_wrap .wp-block-group__inner-container {
-    max-width: 100%;
+.office_locator_wrap {
+    .wp-block-group__inner-container {
+        max-width: 100%;
+    }   
+
+    .office_locator {
+        hr {
+            margin-right: 70px;
+        }
+    }
 }
 
 .gMap_wrap {
@@ -1046,49 +1054,81 @@ h1.page_title {
     }
 }
 
-.branch_lists {
 
-    .slick-arrow {
-        @include media (max-width, 1023px ){
-            display: none !important;
-        }
-    
-        &.arrow_prev,
-        &.arrow_next  {
-            font-size: 0;
-            background-size: 22px 27px;
-            background-repeat: no-repeat;
-            background-position: center;
+.branch_lists,
+.happy_clients_section {
+
+    button {
+
+        &.slick-arrow {            
+            background: none;
             bottom: -50px;
-            top: auto !important;
-            /*
-            &:before{
-                display: inline-block;
-                color: #111111;
-                -webkit-font-smoothing: antialiased;
-                font: normal 14px/1 'dashicons';
-            }*/
-        }
-        
-        
-        &.arrow_prev {
-           /*&:before{
-                content: "\f340";
-            }*/    
-            left: 50px;
-            background-image: url(../img/icn-arrow-l.svg);
-        }
-        
-        &.arrow_next {
-            /*&:before{
-                content: "\f344";
-            }*/
-            left: 90px;
-            background-image: url(../img/icn-arrow-r.svg);
-        }
-    }
-    
+            top: auto;
+            left: 10px;
+            z-index: 99;
 
+            &:before {
+                color: $color-dark;
+                font-size: 30px;
+            }
+
+            @include media (max-width, 1023px ){
+                display: none !important;
+            }
+
+            &.slick-next {
+                margin-left: 50px;
+
+                &:before {
+                    content: "\01F862";
+                }
+            }
+
+            &.slick-prev {
+                
+                &:before {
+                    content: "\01F860";
+                }
+            }
+        
+            // &.arrow_prev,
+            // &.arrow_next  {
+            //     font-size: 0;
+            //     background-size: 22px 27px;
+            //     background-repeat: no-repeat;
+            //     background-position: center;
+            //     bottom: -50px;
+            //     top: auto !important;
+            //     /*
+            //     &:before{
+            //         display: inline-block;
+            //         color: #111111;
+            //         -webkit-font-smoothing: antialiased;
+            //         font: normal 14px/1 'dashicons';
+            //     }*/
+            // }
+            
+            
+            // &.arrow_prev {
+            //    /*&:before{
+            //         content: "\f340";
+            //     }*/    
+            //     left: 50px;
+            //     content: "\01F860";
+            // }
+            
+            // &.arrow_next {
+            //     /*&:before{
+            //         content: "\f344";
+            //     }*/
+            //     left: 90px;
+            //     &
+            //     content: "\01F860";
+            // }
+
+        }
+       
+    }
 }
 
 .block_checklists {
@@ -1132,7 +1172,10 @@ ul.star-rating li i {
 
     .testimonial_block {
         width: 100%;
+        padding-left: 0;
+        padding-right: 0;
     }
+    
     .slick-dots{
         position:relative !important;
     }

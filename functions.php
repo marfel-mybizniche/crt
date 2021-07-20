@@ -223,6 +223,22 @@ function mbn_insert_headers(){
 }
 add_action('wp_head', 'mbn_insert_headers');
 
+//page type for templates
+
+/** Get page type, eg. for customizer option */
+function mbn_page_title() {
+	global $template;
+
+	if ( strpos( $template, 'archive-listings.php' ) ) {
+		$title = 'listings';
+	}
+    else {
+        $title = get_the_title();
+    }
+
+    return $title;
+}
+
 
 //check video type if vimeo or youtube
 function videoType($url) {

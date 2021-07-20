@@ -68,19 +68,6 @@ $(document).ready(function(){
                     $('.sticky').removeClass('is-stuck');
 
                 }
-              
-              if ( $(".content").offset().top < top ) {
-
-                $('.listing_single_wrap').addClass('is-stuck');
-                $('.listing_single_wrap').removeClass('is-anchored');
-                sticky = true;
-
-                } else {
-
-                    $('.listing_single_wrap').addClass('is-anchored');
-                    $('.listing_single_wrap').removeClass('is-stuck');
-
-                }
           });
 
   
@@ -110,9 +97,7 @@ $(document).ready(function(){
             centerPadding: '50px',
             speed: 300,
             slidesToShow: 4,
-            slidesToScroll: 1,                    
-            prevArrow: '<button class="arrow_prev">prev</button>',
-            nextArrow: '<button class="arrow_next">next</button>',
+            slidesToScroll: 1,
             responsive: [
               {
                 breakpoint: 1200,
@@ -165,20 +150,17 @@ $(document).ready(function(){
                 {
                   breakpoint: 600,
                   settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2
+                    slidesToShow: 1,
+                    slidesToScroll: 1
                   }
                 },
                 {
-                  breakpoint: 530,
+                  breakpoint: 480,
                   settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1
                   }
                 }
-                // You can unslick at a given breakpoint now by adding:
-                // settings: "unslick"
-                // instead of a settings object
               ]
           });
                 
@@ -276,24 +258,68 @@ $(document).ready(function(){
               });
 
               // gallery single listing
-              $('.slider-for').slick({
+              $('.slider_for').slick({
                 slidesToShow: 1,
                 slidesToScroll: 1,
                 arrows: false,
                 fade: true,
-                asNavFor: '.slider-nav'
+                asNavFor: '.slider_nav'
               });
-              $('.slider-nav').slick({
+              $('.slider_nav').slick({
                 slidesToShow: 9,
                 slidesToScroll: 1,
-                asNavFor: '.slider-for',
-                dots: true,
-                centerMode: true,
-                focusOnSelect: true
+                asNavFor: '.slider_for',
+                dots: false,
+                centerMode: false,
+                focusOnSelect: true,
+                adaptiveHeight: true,
+                arrows: true,                
+                prevArrow: '<button class="arrow_prev">prev</button>',
+                nextArrow: '<button class="arrow_next">next</button>',
+                responsive: [
+                  {
+                    breakpoint: 1200,
+                    settings: {
+                      slidesToShow: 5,
+                      slidesToScroll: 1
+                    }
+                  },
+                    {
+                      breakpoint: 1024,
+                      settings: {
+                        slidesToShow: 4,
+                        slidesToScroll: 1
+                      }
+                    },
+                    {
+                      breakpoint: 600,
+                      settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                      }
+                    },
+                    {
+                      breakpoint: 480,
+                      settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                      }
+                    }
+                  ]
               });
 
-
+                  
+              //happy client section 1              
+              $('.slick_on .wp-block-group__inner-container ').slick({
+                dots: false,
+                arrow: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 1,
+                slidesToScroll: 1                     
+              });
 
         });
+
     
 })(jQuery);
