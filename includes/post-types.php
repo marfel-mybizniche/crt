@@ -134,7 +134,7 @@ function cptui_register_my_cpts() {
 		"public" => true,
 		"publicly_queryable" => true,
 		"show_ui" => true,
-		"show_in_rest" => true,
+		"show_in_rest" => false,
 		"rest_base" => "",
 		"rest_controller_class" => "WP_REST_Posts_Controller",
 		"has_archive" => false,
@@ -148,7 +148,7 @@ function cptui_register_my_cpts() {
 		"rewrite" => [ "slug" => "client_testimonials", "with_front" => true ],
 		"query_var" => true,
 		"menu_icon" => "dashicons-format-chat",
-		"supports" => [ "title", "editor", "thumbnail" ],
+		"supports" => [ "title" ],
 		"show_in_graphql" => false,
 	];
 

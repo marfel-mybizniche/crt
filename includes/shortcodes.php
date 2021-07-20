@@ -88,11 +88,13 @@ function mbn_testimonials_shortcode(){
     while ( $testimonials->have_posts() ) : $testimonials->the_post();
 
         $testimonial_name           = get_field('testimonial_name'); 
-        $testimonial_img            = get_the_post_thumbnail_url();
+        $testimonial_img            = get_field('testimonial_video_thumb');
         $testimonial_role_position  = get_field('testimonial_role_position'); 
         $testimonial_company        = get_field('testimonial_company'); 
         $testimonial_rating         = get_field('testimonial_rating'); 
+        $testimonial_greview        = get_field('google_review_excerpt'); 
         $video_url                  = get_field('testimonial_video'); 
+        $review_type                = get_field('review_type'); 
         $video_thumb                = get_video_thumb($video_url);
         $video_type                 = videoType($video_url);
         $video_id                   = get_video_id($video_url);
@@ -101,17 +103,26 @@ function mbn_testimonials_shortcode(){
 
         $returnhtml .= '<div class="testimonial_item">';
         
-        $returnhtml .= '<div class="testimonial_blockitem">';
-        $returnhtml .= ($testimonial_img) ? '<figure class="col-image"><img src="'. $testimonial_img .'" alt=""></figure>' : '<figure><img src="https://via.placeholder.com/1200x500"/></figure>';
-        $returnhtml .= '<div class="testimonial_body">';    
-        $returnhtml .= '<a href="#" data-video-id="'.esc_attr($video_id) .'" class="modal-toggle testimonial_vbtn" data-video-type="'.esc_attr($video_type).'">';
-        $returnhtml .= '<figure><img src="'. MBN_ASSETS_URI .'/img/icn-play-w.svg" alt=""></figure><span>PLAY VIDEO</span></a>';
-        $returnhtml .= '<div class="testimonial_info">'. $testimonial_rating;
-        $returnhtml .= ( $short_excerpt ) ? '<h3>'. $short_excerpt .'</h3>': '';
-        $returnhtml .= ( $testimonial_name ) ? '<p class="testimonial_name">'. $testimonial_name .'</p>': '';
-        $returnhtml .= ( $testimonial_role_position ) ? '<p>'. $testimonial_role_position .' | '. $testimonial_company .'</p>' : '';
-        $returnhtml .= '</div></div></div>';
-        //$returnhtml .= $testimonial_name .' '. $testimonial_role_position . $testimonial_company;
+        if( $review_type == 'video_review' ) :
+            $returnhtml .= '<div class="testimonial_blockitem">';
+            $returnhtml .= ($testimonial_img) ? '<figure class="col-image"><img src="'. $testimonial_img .'" alt=""></figure>' : '<figure><img src="https://via.placeholder.com/1200x500"/></figure>';
+            $returnhtml .= '<div class="testimonial_body">';    
+            $returnhtml .= '<a href="#" data-video-id="'.esc_attr($video_id) .'" class="modal-toggle testimonial_vbtn" data-video-type="'.esc_attr($video_type).'">';
+            $returnhtml .= '<figure><img src="'. MBN_ASSETS_URI .'/img/icn-play-w.svg" alt=""></figure><span>PLAY VIDEO</span></a>';
+            $returnhtml .= '<div class="testimonial_info">'. $testimonial_rating;
+            $returnhtml .= ( $short_excerpt ) ? '<h3>'. $short_excerpt .'</h3>': '';
+            $returnhtml .= ( $testimonial_name ) ? '<p class="testimonial_name">'. $testimonial_name .'</p>': '';
+            $returnhtml .= ( $testimonial_role_position ) ? '<p>'. $testimonial_role_position .' | '. $testimonial_company .'</p>' : '';
+            $returnhtml .= '</div></div></div>';
+        else:
+            $returnhtml .= '<div class="testimonial_greview_item">';
+            $returnhtml .= '<figure class="col-image"><img src="'. MBN_ASSETS_URI .'/img/icn-quote-r.png" alt=""></figure>';
+            $returnhtml .= '<div class="testimonial_body">';    
+            $returnhtml .= '<h3>'. $testimonial_greview .'</h3>';
+            $returnhtml .= '<div class="testimonial_info">';
+            $returnhtml .= ( $testimonial_name ) ? '<p>'. $testimonial_name .' | '. $testimonial_rating .'</p>' : '';
+            $returnhtml .= '</div></div></div>';
+        endif;
         $returnhtml .= '</div>';
 
     endwhile;
@@ -277,7 +288,7 @@ add_shortcode('mbn_video_list', 'mbn_video_list_shortcode');
 /** Listings **/
 
 // ALL LISTINGS
-function mbn_view_listings_all_shortcode($atts){
+function mbn_view_listings_all_filter_shortcode($atts){
 
     $exclude_cat = (isset($atts['exclude_category'])) ? $atts['exclude_category'] : '';    
     $exclude_cat = get_term_by('name', $exclude_cat, 'listings_cat' );
@@ -285,16 +296,6 @@ function mbn_view_listings_all_shortcode($atts){
 
 $returnhtml .= '<div class="grid-container">';
     $returnhtml .= '<div class="listings_nav_wrap">';
-        // $returnhtml .= '<div class="listings_nav_header">';
-        // $returnhtml .= '
-        //         <div class="banner_wrap mobile_only">
-        //         <div class="banner_left '.get_field('banner_subtitle_style').'">
-		// 			<h3 class="banner_subtitle_text">'. get_field('page_header_subtitle').'</h3>
-		// 			<div class="banner_subtitle_body">
-		// 				<h1 class="banner_subtitle_title">'.get_field('page_header_title').'</h1>
-        //             </div>
-		// 		</div></div>';
-        // $returnhtml .= '</div>';
         $returnhtml .= '<div class="listings_nav">';
 
     $terms = get_terms( 'listings_cat', array( 'hide_empty' => false, 'orderby' => 'id', 'exclude' => $exclude_cat ) ); // Get all terms of a taxonomy
@@ -392,7 +393,7 @@ $returnhtml .= '<div class="grid-container">';
                 $returnhtml .= '</div>'; //listing_inner
 
                 if( $listings->found_posts > 6 ) {
-                    $returnhtml .= '<div class="loadMore_btn"><a href="'.get_site_url() . esc_url($cat_page) .'" class="btn_primary_hollow">LOAD MORE</a></div>';
+                    $returnhtml .= '<div class="loadMore_btn"><a href="'.get_site_url() .'/listings' .'" class="btn_primary_hollow">LOAD MORE</a></div>';
                 }
 
             $returnhtml .= '</div>'; // listing_container
@@ -405,7 +406,7 @@ $returnhtml .= '<div class="grid-container">';
     return $returnhtml;
 
 }
-add_shortcode('mbn_view_listings_all', 'mbn_view_listings_all_shortcode');
+add_shortcode('mbn_view_listings_filter', 'mbn_view_listings_all_filter_shortcode');
 
 // listings single by atts = category
 
@@ -415,7 +416,6 @@ function mbn_view_listings_shortcode($atts){
         $cat = $atts['category'] ;
         $term = get_term_by('name', $cat, 'listings_cat' );
         $cat_slug = $term->slug;
-        $cat_page = '/listings_cat/'. $cat_slug;
 
         $tax_arg = array(
             array(
@@ -424,14 +424,12 @@ function mbn_view_listings_shortcode($atts){
                 'terms' => $cat_slug  //if field is ID you can reference by cat/term number
             )
         );
-    else:
 
-        $cat_page  = '/listings';
     endif;
 
     $listings_args = array(  
         'post_type' => 'listings',
-        'posts_per_page' => 6, 
+        'posts_per_page' => 7, 
         'post_status' => 'publish',
         'orderby' => 'id',
         'tax_query' => $tax_arg,
@@ -445,6 +443,11 @@ function mbn_view_listings_shortcode($atts){
     $returnhtml .= '<div class="grid-x cols3-s2 listing_inner">';
 
     while ( $listings->have_posts() ) : $listings->the_post();
+
+        $terms = get_the_terms( $listings->ID, 'listings_cat' );
+        $term = array_pop($terms);
+
+        $cat = (empty($cat)) ? $term->name : $cat;
 
         $title = get_the_title();
         $img_url = get_the_post_thumbnail_url();
@@ -496,12 +499,12 @@ function mbn_view_listings_shortcode($atts){
 
     endwhile;
     wp_reset_postdata();
+    $returnhtml .= '</div>'; // listing_inner
 
-    if( $listings->found_posts > 6 ) {
-        $returnhtml .= '<a href="'.get_site_url() . esc_url($cat_page) .'" class="btn_primary_hollow">LOAD MORE</a>';
+    if( $listings->found_posts > 6 &&  !(empty($cat)) ) {
+        $returnhtml .= '<a href="'.get_site_url() . '/listings' .'" class="btn_primary_hollow">LOAD MORE</a>';
     }
 
-    $returnhtml .= '</div>'; // listing_inner
     $returnhtml .= '</div>'; // listing_container
     
     return $returnhtml;

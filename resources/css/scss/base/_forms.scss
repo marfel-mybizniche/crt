@@ -337,15 +337,18 @@ ul.gform_fields  {
     }
 }
 
-.gfield_label,
-.hidden_sub_label {
-    display: none;
-}
+
 
 .sec_form {
     opacity: 0.9;
     padding: 35px 40px 30px;        
     font-family: $body-font-family;
+    
+    .gfield_label,
+    .hidden_sub_label {
+        display: none;
+    }
+
     
     h4 {
         font-style: normal;
