@@ -27,6 +27,8 @@
 	$year	 		= get_field('property_year_built');
 	$type	 		= get_field('property_type');
 
+	$form			= get_theme_mod('listing_option_form');
+
 ?>
 
 <section class="listing_single_wrap">
@@ -167,7 +169,7 @@
 				<div class="content_left content_info_inner info_form">
 					<div class="sec_form">                    
 						<h2>To Schedule Showing, Please Fill Out Form Below</h2>
-						<?= do_shortcode('[gravityform id="4" title="false" description="false" ajax="false"]'); ?>
+						<?= do_shortcode($form); ?>
 						<p class="small">Carol Royse Team is committed to protecting and respecting your privacy. 
 							By clicking Get Into Our Nice Homes, you agree that we may store and process the personal information submitted above.
 						</p>
