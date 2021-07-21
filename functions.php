@@ -262,13 +262,16 @@ function videoType($url) {
 
 function getVimeoVideoThumbnailByVideoId( $id = '', $thumbType = 'medium' ) {
 
-    $id = trim($id);
+    if( !empty( $id )) :
+        $id = trim($id);
+    endif;
+    $url = 'https://vimeo.com/api/v2/video/'.$id.'.php';
 
     if ( $id == '' ) {
         return FALSE;
     }
 
-    $apiData = unserialize( file_get_contents( "http://vimeo.com/api/v2/video/$id.php" ) );
+    $apiData = unserialize( file_get_contents( $url ) );
 
     if ( is_array( $apiData ) && count( $apiData ) > 0 ) {
 

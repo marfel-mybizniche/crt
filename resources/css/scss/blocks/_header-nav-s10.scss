@@ -1172,3 +1172,58 @@ body{
 	}
 
 }
+
+//single listing header
+
+.single-listings,
+.disabled_header {
+
+	header .hsnav-s10.is-stuck {
+		box-shadow: none;
+	}
+
+	header .hsnav-s10.is-at-top.is-anchored .navbar .logo2 {
+		display: block;
+	}
+	header .hsnav-s10.is-at-top.is-anchored .navbar .logo {
+		display: none;
+	}
+
+	header .hsnav-s10.is-at-top {
+		.navmenu {
+			ul{
+				li{
+					&.menu-item:not(.menu_button){
+						a{
+							color: $color-dark;
+						}
+					}
+					&.menu_report {
+						a {
+							&:before {
+								content: url(../../resources/img/menu-report.png) !important;
+							}
+						}
+					}
+					&.menu_podcast  {
+						a {
+							&:before {
+								content: url(../../resources/img/menu-podcast.png) !important;
+							}
+						}
+					}
+				}
+			}
+
+			.navutil {
+				.toll-free {
+					a,
+					span {
+						color: $color-dark;
+
+					}
+				}
+			}
+		}
+	}
+}

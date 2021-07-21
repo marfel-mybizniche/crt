@@ -119,9 +119,12 @@ function mbn_testimonials_shortcode(){
             $returnhtml .= '<figure class="col-image"><img src="'. MBN_ASSETS_URI .'/img/icn-quote-r.png" alt=""></figure>';
             $returnhtml .= '<div class="testimonial_body">';    
             $returnhtml .= '<h3>'. $testimonial_greview .'</h3>';
-            $returnhtml .= '<div class="testimonial_info">';
-            $returnhtml .= ( $testimonial_name ) ? '<p>'. $testimonial_name .' | '. $testimonial_rating .'</p>' : '';
-            $returnhtml .= '</div></div></div>';
+            $returnhtml .= '</div><div class="testimonial_info">';
+            $returnhtml .= ( $testimonial_name ) ? '<div class="testimonial_name">'. $testimonial_name .'</div>' : '';
+            $returnhtml .= '<span class="border"></span>';
+            $returnhtml .= ( $testimonial_rating ) ?'<div class="testimonial_rating">'. $testimonial_rating .'<div class="greview"><figure><img src="'. MBN_ASSETS_URI .'/img/Google-Review.png" alt=""></figure></div></div>' : '';
+            $returnhtml .= '</div><div class="testimonial_link"><figure><img src="'. MBN_ASSETS_URI .'/img/icn-anchor.png" alt=""></figure></div>';
+            $returnhtml .= '</div>';
         endif;
         $returnhtml .= '</div>';
 

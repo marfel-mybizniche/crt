@@ -482,10 +482,10 @@ h1.page_title {
 @include media(max-width,375px) {
     .sec_column_item, .grid-container {
         padding: 0 !important;
-        margin: 0 !important;
-        
+        margin: 0 !important;        
     }
 }
+
 
 .sec_info_wrap {
 
@@ -918,6 +918,7 @@ h1.page_title {
     }
 }
 
+
 //slick
 .slick-unknown.slick-track {
     display: flex !important;
@@ -1055,8 +1056,7 @@ h1.page_title {
 }
 
 
-.branch_lists,
-.happy_clients_section {
+.branch_lists {
 
     button {
 

@@ -982,18 +982,3 @@ body.medium_height {
 		padding-right: 30px !important;
 	}
 }
-
-//single listing header
-
-.single-listings {
-	header .hsnav-s10.is-stuck {
-		box-shadow: none;
-	}
-
-	header .hsnav-s10.is-at-top.is-anchored .navbar .logo2 {
-		display: block;
-	}
-	header .hsnav-s10.is-at-top.is-anchored .navbar .logo {
-		display: none;
-	}
-}

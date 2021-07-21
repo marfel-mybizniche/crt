@@ -515,3 +515,33 @@ a.btn-back {
     
     }
 }
+
+.back_to_home_btn {
+    
+    text-align: right;
+    background-color: #161f1e;
+    width: 500px;
+
+    a{
+        font-weight: 800;
+        background-color: #161f1e;
+        font-size: 18px;
+        text-transform: uppercase;
+        padding: 40px;
+        &:before {
+            
+            background-image: url(../img/icn-arrow-ldr.png);
+            content: "";
+            background-size: 12px 11px;
+            width: 12px;
+            height: 11px;
+            background-repeat: no-repeat;
+            display: inline-block;
+            margin-right: 10px;
+        }
+    }
+
+    @include media (max-width, 480px ){        
+        text-align: right;
+    }
+}

@@ -12,7 +12,7 @@
 </head>
 <body <?php body_class() ?>>
 
-<div id="wrapper"> 
+<div id="wrapper" class="<?php echo ( get_field('page_header_options') == 'no_header' )? 'disabled_header' : '' ?>" > 
     <header id="header" class="" data-sticky-container data-toggler=".show-menu">
         <div class="hsnav-s10 sticky" data-sticky data-options="marginTop:0"> 
             <div class="navbar clearfix">                               

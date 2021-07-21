@@ -1,6 +1,8 @@
 <?php 
 global $template;
 
+if ( get_field('page_header_options') !== 'no_header' ):
+
 //acf fields
 $banner_height = get_field('page_header_banner_height');				
 $banner_right_text = get_field('banner_right_text');
@@ -177,5 +179,6 @@ if(! strpos( $template, 'single-listings.php' )): // not in single post template
 </section>
 <?php endif; 
  endif; 
+endif;
 endif;
  ?>
