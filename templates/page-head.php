@@ -61,6 +61,10 @@ if(! strpos( $template, 'single-listings.php' )): // not in single post template
 		<figure class="bg">
 			<img src="<?php echo get_field('page_header_image'); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" />
 		</figure>
+		<?php elseif( strpos($template, 'archive-listings.php') ): ?>
+			<figure class="bg">
+				<img src="<?php echo get_theme_mod('global_header_img'); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" />
+			</figure>
 		<?php endif; ?>
 
 		<div class="grid-container"> 			
@@ -72,7 +76,13 @@ if(! strpos( $template, 'single-listings.php' )): // not in single post template
 				<div class="banner_left <?php echo get_field('banner_subtitle_style');?>">
 					<h3 class="banner_subtitle_text"><?php echo get_field('page_header_subtitle'); ?></h3>
 					<div class="banner_subtitle_body">
-						<h1 class="banner_subtitle_title"><?php echo get_field('page_header_title'); ?></h1>
+						<h1 class="banner_subtitle_title">
+						<?php 
+							if( strpos($template, 'archive-listings.php') ) : 
+								echo esc_html('Listings');
+							else:
+								echo get_field('page_header_title'); 
+							endif;?></h1>
 						<div class="banner_paragraph desktop_only">
 							<?php echo get_field('page_header_body'); ?>   
 						</div>                                           

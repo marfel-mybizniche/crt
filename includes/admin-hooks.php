@@ -40,6 +40,18 @@ function mbn_new_customizer_settings($wp_customize) {
 		'priority' => 90,
 	));
 		
+	
+
+	$wp_customize->add_setting('archive_listing_header_img');
+
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'archive_listing_header_img',
+	array(
+	'label' => __('Upload Archive Listing Header Banner'),
+	'section' => 'listing_options',
+	'settings' => 'archive_listing_header_img',
+	) ) );
+
+
 	$wp_customize->add_setting('listing_option_form');
 
 	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'listing_option_form',
