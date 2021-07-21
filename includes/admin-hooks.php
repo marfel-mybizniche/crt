@@ -17,20 +17,48 @@ function mbn_new_customizer_settings($wp_customize) {
 
 	// Add Global Header Section
 	$wp_customize->add_section('global_header', array(
-	'title' => 'Header',
+	'title' => __('Header'),
 	'description'=> '',
 	'priority' => 80,
 	));
-	
-	// add a setting for the global header
+
 	$wp_customize->add_setting('global_header_img');
 
-	// Add a control to upload the bg
 	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'global_header_img',
 	array(
-	'label' => 'Upload Global Header Background',
+	'label' => __('Upload Global Header Background'),
 	'section' => 'global_header',
 	'settings' => 'global_header_img',
+	) ) );
+
+
+	//Listing
+	
+	$wp_customize->add_section('listing_options', array(
+		'title' => __('Listing Page Options'),
+		'description'=> '',
+		'priority' => 90,
+	));
+		
+	
+
+	$wp_customize->add_setting('archive_listing_header_img');
+
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'archive_listing_header_img',
+	array(
+	'label' => __('Upload Archive Listing Header Banner'),
+	'section' => 'listing_options',
+	'settings' => 'archive_listing_header_img',
+	) ) );
+
+
+	$wp_customize->add_setting('listing_option_form');
+
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'listing_option_form',
+	array(
+	'label' => __('Add shortcode for the form for Single Listing Page'),
+	'section' => 'listing_options',
+	'settings' => 'listing_option_form',
 	) ) );
 
 
