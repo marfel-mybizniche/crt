@@ -498,10 +498,6 @@ figure {
         font-style: italic;
         font-weight: 600;
         padding: 0 25px;
-
-        @include media(min-width, 376px ){
-            padding: 0;
-        }
     }
 
     .listing_inner {
@@ -818,11 +814,6 @@ figure {
                 z-index: 5;
             }
 
-        }
-
-
-        &.is-stuck {
-    
         }
 
     }
