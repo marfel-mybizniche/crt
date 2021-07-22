@@ -680,6 +680,14 @@ body.medium_height {
 			.banner_subtitle_title {
 				text-transform: capitalize;
 			}
+
+			.banner_paragraph {
+				p {
+					font-weight: 300;
+					width: 70%;
+				}
+			}
+			
 			
 			@include media (max-width,1023px) {						
 				color: $color-dark;
@@ -697,6 +705,7 @@ body.medium_height {
 					color: $body-font-color;
 					p {
 						margin-bottom: 0px;
+						width: 100%;
 					}
 				}
 			}

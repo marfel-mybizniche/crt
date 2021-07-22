@@ -530,3 +530,53 @@ ul.gform_fields  {
     }
     
 }
+
+.pie_form {
+    .ct_field {
+
+        &:not(#field_8_5){
+
+            .gfield_label {
+                display: none !important;
+            }
+
+        }
+
+        &#field_8_5 {
+            .gfield_label {
+                font-size: 14px !important;
+                font-weight: 800 !important;
+            }
+        }
+
+
+        .ginput_container {
+            input,
+            select {
+                width: 100% !important;
+                background-color: #fff !important;
+                color: #4e4e4e !important;
+                padding: 10px 15px !important;
+                margin-bottom: 10px !important;
+                border-radius: 5px !important;
+            }
+
+        }
+    }
+    .gfield {        
+
+        .ginput_container {
+            
+            .gchoice {
+                display: flex!important;
+                align-items: center!important;
+
+                input[type=radio] {    
+                    margin-right: 15px!important;
+                    margin-top: 7px!important;
+                }
+            }
+
+        }
+    }
+}
