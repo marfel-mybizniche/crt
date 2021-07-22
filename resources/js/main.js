@@ -226,11 +226,6 @@ $(document).ready(function(){
           });
           
 
-          if( $('body').find('.listings_nav_wrap')){
-                
-            $('body').addClass('listings_page');
-          }
-
               if( device_width <= 781 ){
 
                 $('.listings:first-child').show();

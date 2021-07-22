@@ -580,3 +580,103 @@ ul.gform_fields  {
         }
     }
 }
+
+.tune_in_weekly {
+    position: absolute;
+    top: -44.6%;
+    right: 15%;
+
+    .media_columns {
+        margin:0
+    }
+
+    .media_title {
+        background: $color-primary;
+        font-size: 25px;
+        font-weight: 600;
+        line-height: 1;
+        color: #F8F8F8;
+        position: absolute;
+        bottom: 100%;
+        padding: 12px 35px 12px 40px;
+        left: -35px;
+        text-transform: uppercase;
+
+        &:before {
+            content: "";
+            position: absolute;
+            border-top: 45px solid transparent;
+            border-bottom: 45px solid transparent;
+            border-right: 20px solid #DB323F;
+            border-left: 0;
+            transform: rotate(-22deg);
+            left: 0;
+            z-index: -1;
+            bottom: -42px;
+        }
+
+        .wp-block-group__inner-container {
+            display: flex;
+            align-items: center;
+
+            &:before {
+                content: url(../img/icn-nav_podcasts.png);
+                margin-right: 10px;
+            }
+
+        }
+
+        h3 {
+            color: $color-white;
+            font-family: $body-font-family;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 24px;
+            margin-bottom: 0px !important;
+        }
+    }
+
+    .media_wrap {
+        padding: 10px 18px;
+        background-color: rgba(0,0,0,0.4);
+
+        .wp-block-group__inner-container {
+            padding: 0 40px;
+        }
+
+        .app_btns {
+            margin-bottom: 10px;
+
+            .app_store {
+
+            }
+
+            .app_gplay {
+                margin-left: 0
+            }
+
+            .app_feed{
+                margin-left: 0.5em;
+            }
+
+        }
+
+        .media_right {
+            margin-left: 1em;
+    
+            .title {
+                color: $color-white;
+                font-size: 20px;
+                font-weight: 300;
+                margin-bottom: 0;
+            }
+    
+            .content {
+                color: $color-white;
+                font-size: 16px;
+                font-weight: 300;
+            }
+        }
+    }
+
+}

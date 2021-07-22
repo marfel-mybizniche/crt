@@ -377,6 +377,10 @@
 						bottom: 0;
 					}
 				}
+
+				@include media(max-width,1023px){
+					padding-bottom:40px
+				}
 			}
 		}
 	}
@@ -410,21 +414,13 @@
 				.banner_subtitle_body {
 					h1{
 						color: $color-white;
+						margin-bottom: 20px;
 					}
 				}
 
 			}
 
 			@include media(max-width,375px){
-				.banner_wrap {
-					justify-content: center;
-				}
-				.banner_style_2 {
-					
-					display: flex;
-					flex-direction: column;
-					align-items: center;
-				}
 				.banner_subtitle_title {
 					font-size: 24px;
 					margin-bottom: 0;
@@ -433,9 +429,8 @@
 					h3 {
 						font-size: 16px;
 					}
-					p {
+					small {
 						font-size: 12px;
-						color: rgba(133, 134, 137, 1);
 					}
 				}
 				
@@ -990,4 +985,19 @@ body.medium_height {
 		padding-left: 30px !important;
 		padding-right: 30px !important;
 	}
+}
+
+//podcast page
+
+.podcasts_page {
+
+	@include media (max-width, 375px){
+		figure {
+			img {
+				object-position: 30% center;
+			}
+		}
+
+	}
+
 }
