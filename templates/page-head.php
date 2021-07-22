@@ -1,5 +1,7 @@
 <?php 
-global $template;
+global $template, $post;
+
+$page_slug = $post->post_name .'_page';
 
 if ( get_field('page_header_options') !== 'no_header' ):
 
@@ -24,7 +26,7 @@ if(! strpos( $template, 'single-listings.php' )): // not in single post template
 	if( get_field('page_header_options') == "global_header_opt" ):
 ?>
     
-    <section class="hero_banner_wrap hero_banner_default">
+    <section class="hero_banner_wrap hero_banner_default <?php echo esc_attr($page_slug) ?>">
 		<div class="hero_banner">
 			<figure class="bg"><img src="<?php echo get_theme_mod( 'global_header_img' ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" /></figure>
 			<div class="grid-container">
@@ -50,9 +52,9 @@ if(! strpos( $template, 'single-listings.php' )): // not in single post template
 		
 ?>
 
-<section class="hero_banner_wrap <?php echo $banner_height; ?>" data-body-class="<?php echo $banner_height; ?>" data-height="<?php echo $height; ?>">
+<section class="hero_banner_wrap <?php echo esc_attr($page_slug) ?> <?php echo $banner_height; ?>" data-body-class="<?php echo $banner_height; ?>" data-height="<?php echo $height; ?>">
 <?php else : ?>
-<section class="hero_banner_wrap ">
+<section class="hero_banner_wrap <?php echo esc_attr($page_slug) ?> ">
 <?php endif; ?>
 	<div class="hero_banner">
 
