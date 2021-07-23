@@ -213,7 +213,7 @@ $(document).ready(function(){
 
           var container = $('#video_container');
 
-          $('.video_toggle').click(function(e){
+          $('.video_toggle_open').click(function(e){
             // Prevent the default event.
             e.preventDefault();    
 
@@ -285,32 +285,39 @@ $(document).ready(function(){
                 variableWidth: true,                
               });
 
-              //vendors nav 
-              $('.vendors_nav').slick({
-                dots: false,
-                arrow: false,
-                infinite: true,
-                speed: 300,
-                slidesToShow: 3,
-                slidesToScroll: 1,
-                variableWidth: true,
-                responsive: [
-                    {
-                      breakpoint: 768,
-                      settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 1
-                      }
-                    },
-                    {
-                      breakpoint: 480,
-                      settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                      }
-                    }
-                  ]
-              });
+              $(window).resize(function(){
+                var $windowWidth = $(window).width();
+                console.log($windowWidth);
+                if ($windowWidth <= 1023) {
+
+                  //vendors nav 
+                  $('.vendors_nav').slick({
+                    dots: false,
+                    arrow: false,
+                    infinite: true,
+                    speed: 300,
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    variableWidth: true,
+                    responsive: [
+                      {
+                        breakpoint: 768,
+                        settings: {
+                          slidesToShow: 3,
+                          slidesToScroll: 1
+                        }
+                      },
+                        {
+                          breakpoint: 480,
+                          settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1
+                          }
+                        }
+                      ]
+                  });
+                }
+            });
 
               // gallery single listing
               $('.slider_for').slick({

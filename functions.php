@@ -338,6 +338,8 @@ function get_video_thumb($url){
 
 function build_find_office_map(){ 
 
+    wp_reset_query();
+
     $office_args = array(  
         'post_type' => 'offices',
         'posts_per_page' => -1, 
@@ -371,34 +373,41 @@ function build_find_office_map(){
         var loc_ctr = 0;
         var emp_phones = "";
     
-        <?php while ( $office_loop->have_posts() ) : $office_loop->the_post(); ?>
-            <?php if(!empty(get_field('location_map'))): ?>
-                <?php //var_dump( get_field('map') ); ?>
-                var loc_title = '<?php the_title(); ?>';
-                var office_lat = <?php echo get_field('location_map')['lat']; ?>; 
-                var office_lng = <?php echo get_field('location_map')['lng']; ?>;
+        <?php 
         
-                loc_content = '<div id="mapInfo'+loc_ctr+'" class="map_grid grid-container">';
-                loc_content += '<div class="grid-x align-top">';
-        
-                loc_content += '<div class="cell medium-12">';       
-                <?php if( !empty(get_the_post_thumbnail_url()) ) :?>
-                loc_content += '<figure class="loc_img"><img src="<?php echo esc_html( get_the_post_thumbnail_url() );?>"/></figure>';
+        if( $office->have_posts() ):
+            
+            while ( $office_loop->have_posts() ) : $office_loop->the_post(); ?>
+                <?php if(!empty(get_field('location_map'))): ?>
+                    <?php //var_dump( get_field('map') ); ?>
+                    var loc_title = '<?php the_title(); ?>';
+                    var office_lat = <?php echo get_field('location_map')['lat']; ?>; 
+                    var office_lng = <?php echo get_field('location_map')['lng']; ?>;
+            
+                    loc_content = '<div id="mapInfo'+loc_ctr+'" class="map_grid grid-container">';
+                    loc_content += '<div class="grid-x align-top">';
+            
+                    loc_content += '<div class="cell medium-12">';       
+                    <?php if( !empty(get_the_post_thumbnail_url()) ) :?>
+                    loc_content += '<figure class="loc_img"><img src="<?php echo esc_html( get_the_post_thumbnail_url() );?>"/></figure>';
+                    <?php endif; ?>
+                    loc_content += '<div class="loc_body">';
+                    loc_content += '<h2 class="office_map_title">'+ loc_title +'</h2>';
+                    loc_content += '<p class="office_address"><?php echo esc_html(get_field('location_map')['address']); ?></p>';
+                    loc_content += '<p class="office_phone"><?php echo esc_html(get_field('location_phone')); ?></p>';
+                    loc_content += '</div></div>';        
+            
+                    loc_content += '</div></div>';
+            
+                    array_holder = [loc_title, office_lat, office_lng, loc_content];
+                    locations.push(array_holder);
+                    loc_ctr = loc_ctr+1;
                 <?php endif; ?>
-                loc_content += '<div class="loc_body">';
-                loc_content += '<h2 class="office_map_title">'+ loc_title +'</h2>';
-                loc_content += '<p class="office_address"><?php echo esc_html(get_field('location_map')['address']); ?></p>';
-                loc_content += '<p class="office_phone"><?php echo esc_html(get_field('location_phone')); ?></p>';
-                loc_content += '</div></div>';        
-        
-                loc_content += '</div></div>';
-        
-                array_holder = [loc_title, office_lat, office_lng, loc_content];
-                locations.push(array_holder);
-                loc_ctr = loc_ctr+1;
-            <?php endif; ?>
             <?php endwhile; wp_reset_postdata(); ?>
-        
+            <?php else: ?>   
+                loc_content +='<p>'<?php echo esc_html('Sorry, no posts were found.', 'textdomain' ) ?>'</p>';
+
+        <?php endif; ?>
         
         for (var i = 0; i < locations.length; i++) {
           
