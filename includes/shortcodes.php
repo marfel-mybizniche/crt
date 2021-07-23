@@ -479,7 +479,7 @@ function mbn_view_listings_shortcode($atts){
             $returnhtml .= '<div id="'.esc_attr($cat_slug).'" class="cell medium-6 large-4 col-item listing_item">';            
                 $returnhtml .= '<a href="'.esc_url($url).'">';
                     $returnhtml .= '<div class="listing-wrap">';
-                        $returnhtml .= '<div class="listing-widget-thumb"><figure><img src="'. esc_attr($img) .'" /></figure></div>';
+                        $returnhtml .= '<div class="listing-widget-thumb"><figure><img src="'. esc_url($img) .'" /></figure></div>';
                         $returnhtml .= '<div class="listing-widget-details">';                    
                             $returnhtml .= '<div class="listing-tag listing-tag-mob"><span>'.esc_html($cat).'</span></div>';
                             $returnhtml .= '<div class="listing-price-address">';
@@ -593,3 +593,100 @@ function featured_post_slider($attr) {
     return $html;
 }
 add_shortcode( 'featured-post-slider', 'featured_post_slider' );
+
+// vendors
+function vendors_list_shortcode(){
+    
+    $terms = get_terms( 'vendors_cat', array('hide_empty' => false, 'orderby' => 'name', 'order' => 'asc' ));
+    $returnhtml .= '<section class="vendors_container">';
+        $returnhtml .= '<div class="grid-container">';  
+            $returnhtml .= '<div class="grid-x grid-margin-x cols2-s3">';
+                $returnhtml .='<div class="cell large-3">';
+                    $returnhtml .='<div class="vendors_nav">';
+                    // categories list
+                
+                    if ( $terms && !is_wp_error( $terms ) ) :            
+                        foreach ( $terms as $term ) : 
+                            $returnhtml .= '<div class="vendors_category"><a href="#'.esc_attr( $term->slug ).'">'.esc_html( $term->name ).'</a></div>';
+                        endforeach;
+                    endif;
+                    $returnhtml .='</div>'; //vendors_nav
+                $returnhtml .='</div>'; //cell
+                $returnhtml .= '<div class="cell large-9 col-copy  align-self-middle">';
+                    $returnhtml .='<div class="vendors_list">';
+
+                    if ( $terms && !is_wp_error( $terms ) ) :
+                
+                        foreach ( $terms as $term ) :
+                                
+                            $vendors_args = array(  
+                                'post_type' => 'vendors',
+                                'post_status' => 'publish',
+                                'orderby' => 'name',
+                                'hide_empty' => true,
+                                'tax_query' => array(
+                                    array(
+                                        'taxonomy' => 'vendors_cat',
+                                        'field'    => 'slug',
+                                        'terms'    => $term->slug,
+                                    ),
+                                ),
+                                'order' => 'asc',
+                            );
+                            $vendors = new WP_Query( $vendors_args );  
+                            
+                            $returnhtml .= '<div id="'.esc_attr($term->slug).'" class="vendors_container">';
+                                $returnhtml .= '<h4 class="vendor_cat_title">'. esc_html($term->name) . $vendors->found_posts().'</h4>';
+                                $returnhtml .= '<div class="vendor_wrap">';
+                                
+                                //vendors list
+                                while ( $vendors->have_posts() ) : $vendors->the_post();
+                                                
+                                    /*$img = wp_get_attachment_image_src( get_post_thumbnail_id( $vendors->ID ), 'medium' ); 
+                                    if( isset( $img[0] ) ): 
+                                        $img = $img[0]; 
+                                    else : 
+                                        $img = 'https://via.placeholder.com/470x300';         
+                                    endif;
+                                    */
+                                    $img = get_the_post_thumbnail_url();
+                                    $returnhtml .= '<div class="vendor_inner">';
+                                        $returnhtml .= '<div class="vendor_media"><div class="vendor_logo"><figure><img src="'. esc_url($img) .'"/></figure></div></div>';
+                                        $returnhtml .= '<hr/>';
+                                        $returnhtml .= '<div class="vendor_name">';
+                                            $returnhtml .= '<h3>'. get_the_title() .'</h3>';
+                                            $returnhtml .= '<a href="'.get_the_permalink().'" target="_blank" >'.esc_html('View Info & Promos').'</a>';
+                                        $returnhtml .= '</div>'; //vendor_name
+                                    $returnhtml .= '</div>'; //vendor_inner
+
+                                endwhile;
+                                wp_reset_postdata();
+
+                                $returnhtml .='</div>'; //vendor_wrap
+                            $returnhtml .='</div>'; //vendors_container
+                        endforeach;
+                    endif;
+                    $returnhtml .='</div>'; //vendors_list
+                $returnhtml .='</div>'; //cell
+            
+            $returnhtml .= '</div';
+        $returnhtml .= '</div>';
+    $returnhtml .= '</section>';
+    return $returnhtml;
+
+}
+add_shortcode ('vendors_list', 'vendors_list_shortcode');
+
+
+//search form
+
+function mbn_search_form($atts) {
+    $placeholder = isset($atts['placeholder']) ? $atts['placeholder'] : 'Search..';
+
+    $search_form = '<div class="site-search" id="search" ><form method="get" id="search-form-alt" action="'. esc_url(home_url('/')) .'">
+        <input type="text" name="s" id="s" placeholder="'. esc_attr($placeholder) .'" value="">        
+        <input type="image" src="'. MBN_ASSETS_URI .'/img/icn-search.svg">
+    </form></div>';
+    return $search_form;
+}
+add_shortcode( 'search_form', 'mbn_search_form' );

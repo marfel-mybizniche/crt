@@ -388,3 +388,81 @@ function cptui_register_my_taxes_video_cat() {
 	register_taxonomy( "video_cat", [ "videos" ], $args );
 }
 add_action( 'init', 'cptui_register_my_taxes_video_cat' );
+
+
+function cptui_register_my_cpts_vendors() {
+
+	/**
+	 * Post Type: Vendors.
+	 */
+
+	$labels = [
+		"name" => __( "Vendors", "custom-post-type-ui" ),
+		"singular_name" => __( "Vendor", "custom-post-type-ui" ),
+	];
+
+	$args = [
+		"label" => __( "Vendors", "custom-post-type-ui" ),
+		"labels" => $labels,
+		"description" => "",
+		"public" => true,
+		"publicly_queryable" => true,
+		"show_ui" => true,
+		"show_in_rest" => false,
+		"rest_base" => "",
+		"rest_controller_class" => "WP_REST_Posts_Controller",
+		"has_archive" => true,
+		"show_in_menu" => true,
+		"show_in_nav_menus" => true,
+		"delete_with_user" => false,
+		"exclude_from_search" => false,
+		"capability_type" => "post",
+		"map_meta_cap" => true,
+		"hierarchical" => false,
+		"rewrite" => [ "slug" => "vendors", "with_front" => true ],
+		"query_var" => true,
+		"menu_icon" => "dashicons-store",
+		"supports" => [ "title", "editor", "thumbnail" ],
+		"show_in_graphql" => false,
+	];
+
+	register_post_type( "vendors", $args );
+}
+
+add_action( 'init', 'cptui_register_my_cpts_vendors' );
+
+
+function cptui_register_my_taxes_vendors_cat() {
+
+	/**
+	 * Taxonomy: Vendors Category.
+	 */
+
+	$labels = [
+		"name" => __( "Category", "custom-post-type-ui" ),
+		"singular_name" => __( "Categories", "custom-post-type-ui" ),
+	];
+
+	
+	$args = [
+		"label" => __( "Category", "custom-post-type-ui" ),
+		"labels" => $labels,
+		"public" => true,
+		"publicly_queryable" => true,
+		"hierarchical" => true,
+		"show_ui" => true,
+		"show_in_menu" => true,
+		"show_in_nav_menus" => true,
+		"query_var" => true,
+		"rewrite" => [ 'slug' => 'vendors_cat', 'with_front' => true, ],
+		"show_admin_column" => true,
+		"show_in_rest" => true,
+		"rest_base" => "vendors_cat",
+		"rest_controller_class" => "WP_REST_Terms_Controller",
+		"show_in_quick_edit" => true,
+		"show_in_graphql" => false,
+	];
+	register_taxonomy( "vendors_cat", [ "vendors" ], $args );
+}
+add_action( 'init', 'cptui_register_my_taxes_vendors_cat' );
+

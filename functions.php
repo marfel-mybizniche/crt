@@ -232,6 +232,9 @@ function mbn_page_title() {
 	if ( strpos( $template, 'archive-listings.php' ) ) {
 		$title = 'listings';
 	}
+	elseif ( strpos( $template, 'archive-vendors.php' ) ) {
+		$title = 'vendors';
+	}
     else {
         $title = get_the_title();
     }

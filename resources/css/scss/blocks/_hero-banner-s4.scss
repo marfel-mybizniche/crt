@@ -523,6 +523,10 @@ body.medium_height {
 				display: block;
 			}
 
+			.banner_wrap  {
+				display: none;
+			}
+
 		}
 	}
 }
@@ -674,6 +678,10 @@ body.medium_height {
 
 			.banner_subtitle_title {
 				text-transform: capitalize;
+				width: 80%;
+				@include media (max-width,1023px) {						
+					width: 100%
+				}
 			}
 
 			.banner_paragraph {
@@ -683,6 +691,34 @@ body.medium_height {
 				}
 			}
 			
+			
+			.site-search {
+
+				position: relative;
+				width: 100%;
+				max-width: 100%;
+				margin-bottom: 30px;
+
+				input[type='image'] {
+					position: absolute;
+					right: 12px;
+					width: 22px;
+					top: 12px;
+				}	
+				
+				input[type='text'],
+				input[type='search']{
+					margin-bottom: 0;
+					width: 100%;
+					height: 50px;
+					padding: 10px 50px 10px 20px;
+
+					&::placeholder {
+						color: #858689;
+
+					}
+				}
+			} 
 			
 			@include media (max-width,1023px) {						
 				color: $color-dark;
@@ -717,7 +753,6 @@ body.medium_height {
 		}
 		
 	}
-
 	
 	@include media (max-width,1023px) {		
 		margin-top: 0

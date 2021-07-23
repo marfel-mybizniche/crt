@@ -545,3 +545,25 @@ a.btn-back {
         text-align: right;
     }
 }
+
+.btn_scroll_up {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 99999;
+    background-color: rgba(22, 31, 30, 0.8);
+    padding: 10px 20px;
+    border-radius: 10px 10px 0 0;
+    font-size: 0;
+    cursor:pointer;
+
+    span:before {
+        background-image: url(../img/icn-chev-up.svg);
+        content: "";
+        background-size: 20px 20px;
+        width: 20px;
+        height: 20px;
+        background-repeat: no-repeat;
+        display: inline-block;
+    }
+}
