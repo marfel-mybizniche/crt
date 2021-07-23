@@ -49,10 +49,23 @@ $(document).ready(function(){
 
     var stickyTop = $('.sticky').offset().top;
     var listing_single_wrap = $('.listing_single_wrap').offset().top;
+
+
+    //smooth scroll
+    $('a[href^="#"]').on('click',function (e) {
+        e.preventDefault();
+        var target = this.hash;
+        var $target = $(target);
+        $('html, body').stop().animate({
+            'scrollTop': $target.offset().top - 150
+        }, 900, 'swing', function () {
+            // window.location.hash = target;
+        });
+    });
     
 
           $(window).scroll(function() {
-              var offset = 0;
+              var offset = 0, button_up;
               var sticky = false;
               var top = $(window).scrollTop();
                   
@@ -68,8 +81,27 @@ $(document).ready(function(){
                     $('.sticky').removeClass('is-stuck');
 
                 }
+
+                
+              /* Button Scroll Up */
+              (button_up = function() {
+                  var button;
+                  button = $('.btn_scroll_up');
+                  if (top > $(window).offset().top){
+                      return button.fadeIn('slow');
+                  } else {
+                      return button.fadeOut('slow');
+                  }
+              })();
+
+              
           });
 
+          //Click event to scroll to top
+          $('.btn_scroll_up').click(function(){
+              $('html, body').animate({scrollTop : 0},800);
+              return false;
+          });
   
     
           $('.banner_subtitle_text').each(function(){
@@ -240,6 +272,7 @@ $(document).ready(function(){
                 $('#' + target).fadeIn('slow').siblings('.listing_container').fadeOut('slow');
             
               });
+
             
               /* listing slick */
               $('.listings_nav').slick({
@@ -249,7 +282,34 @@ $(document).ready(function(){
                 speed: 300,
                 slidesToShow: 1,
                 slidesToScroll: 1,
-                variableWidth: true
+                variableWidth: true,                
+              });
+
+              //vendors nav 
+              $('.vendors_nav').slick({
+                dots: false,
+                arrow: false,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                variableWidth: true,
+                responsive: [
+                    {
+                      breakpoint: 768,
+                      settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1
+                      }
+                    },
+                    {
+                      breakpoint: 480,
+                      settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                      }
+                    }
+                  ]
               });
 
               // gallery single listing

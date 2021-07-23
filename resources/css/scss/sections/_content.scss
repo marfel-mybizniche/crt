@@ -1392,8 +1392,188 @@ figure {
     }
 }
 
-
 //podcasts
 .podcast_iframe {
     width: 100%;
+}
+
+//vendors 
+.vendors_container {
+
+    h4.vendor_cat_title {
+        font-size: 16px;
+        text-transform: uppercase;
+        font-weight: 600;
+        color: $color-dark;
+        letter-spacing: 0.05em;
+    }
+
+    .vendors_nav {
+        background: #F8F8F8;
+        padding: 20px 30px;
+        
+
+        .vendors_category {
+            margin-bottom: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: baseline;
+
+            a {
+                font-weight: 600;
+                letter-spacing: 0.05em;
+                font-size: 12px;
+                text-transform: uppercase;
+                color: $color-grey;
+
+                &:hover,
+                &:focus,
+                &:active {
+                    color: $color-dark;
+                }
+            }
+
+            &:before {
+                background-image: url(../img/icn-arrow-rdr.svg);
+                content: "";
+                background-size: 20px 10px;
+                width: 20px;
+                height: 10px;
+                background-repeat: no-repeat;
+                display: inline-block;
+                margin-right: 12px;
+
+                @include media (max-width,1023px){
+                    display: none;
+                }
+            }
+        }
+
+
+        @include media (max-width,1023px){
+            display: flex; 
+            flex-wrap: wrap;
+            padding: 0;
+            background: transparent;
+            margin-bottom: 50px;
+            
+            .slick-arrow  {display: none !important;}
+
+            .vendors_category {
+                
+                .a {
+                    font-weight: 600;
+                    font-size: 16px;
+                    text-transform: uppercase;
+                    letter-spacing: 0.05em;
+                    cursor: pointer;
+                    color: $color-grey;
+                    transition: all 0.3s ease;
+                    border-bottom: none;
+                    @include media(max-width, 480px) {
+                        font-size: 12px;
+                    }
+
+                }
+
+                &:hover,
+                &:active{
+                    
+                    a {
+                        color: $color-dark;
+                        border-bottom: 4px solid $color-primary;
+                    }
+                }
+            }    
+
+            &.slick-slider {
+                padding-left: 0;
+                .slick-list{padding:0 20% 0 0;}
+                .slick-track {
+                    margin: 0 !important;
+                }
+                .slick-slide {            
+                    padding-right: 20px;
+                }
+            }
+        }
+    }
+
+    .vendors_list {
+
+        .vendor_wrap {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+
+            .vendor_inner {
+                width: 330px;
+                border: 1px solid #E5E5E5;
+                margin-right: 15px;
+                margin-bottom: 20px;
+
+                hr{
+                    margin: 0;
+                    border-bottom: 1px solid #E5E5E5;
+                }
+
+                .vendor_name,
+                .vendor_logo {
+                    padding: 15px 30px;
+                }
+
+                .vendor_logo {
+
+                    figure{
+                        display: flex;
+                        justify-content: center;
+                        max-width: 100%;
+                        height: 150px;
+                        flex-wrap: nowrap;
+                        align-items: center;
+                        
+                        img {
+                            max-height: 100%;
+                        }
+                    }
+                }
+
+                .vendor_name {
+
+                    min-height: 140px;
+                    position: relative;
+
+                    h3 {
+                        font-size: 24px;
+                    }
+
+                    a {
+                        font-weight: 800;
+                        font-size: 14px;
+                        text-transform: uppercase;
+                        color: $color-dark;
+                        position: absolute;
+                        bottom: 20px;
+    
+                        &:after {
+                            background-image: url(../img/icn-arrow-rdr.svg);
+                            content: "";
+                            background-size: 20px 10px;
+                            width: 20px;
+                            height: 10px;
+                            background-repeat: no-repeat;
+                            display: inline-block;
+                            margin-left: 10px;
+                        }
+
+                        &:hover {
+                            color: $color-primary;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
 }

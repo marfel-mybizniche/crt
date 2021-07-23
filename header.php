@@ -86,7 +86,17 @@
         </div>  
     </header>
 
-    <main id="content" class="content"> 
+    <button data-scroll="up" class="btn_scroll_up"><span>UP</span></button>
+
+    <?php
+    
+global $template, $post;
+
+$page_slug = $post->post_name .'_page';
+
+
+?>
+    <main id="content" class="content <?php echo esc_attr($page_slug) ?> "> 
         <?php 
              get_template_part( 'templates/page-head' );
         ?>
