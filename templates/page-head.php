@@ -10,7 +10,7 @@ $show_elements = get_field('show_elements');
 $custom_content = get_field('custom_content');
 
 if( $banner_height == "full_height" ) {
-	$height = '110vh';
+	$height = '100vh';
 }
 else {
 	$height = '88vh';

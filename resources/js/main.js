@@ -213,7 +213,7 @@ $(document).ready(function(){
 
           var container = $('#video_container');
 
-          $('.video_toggle_open').click(function(e){
+          $('.video_toggle').click(function(e){
             // Prevent the default event.
             e.preventDefault();    
 
