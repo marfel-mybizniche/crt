@@ -137,7 +137,7 @@ function mbn_testimonials_shortcode(){
 
     else:               
                         
-        $returnhtml .= '<p>'. esc_html('Sorry, no posts were found.', 'textdomain' ) .'</p>';
+        $returnhtml .= '<p>'. esc_html('Sorry, no posts were found.') .'</p>';
 
     endif;
 
@@ -198,7 +198,7 @@ function build_contact_us_map(){
         
     else:
                         
-        $returnhtml .= '<p>'. esc_html('Sorry, no posts were found.', 'textdomain' ) .'</p>';
+        $returnhtml .= '<p>'. esc_html('Sorry, no posts were found.' ) .'</p>';
 
     endif;
 
@@ -278,7 +278,7 @@ function mbn_video_list_shortcode() {
                 wp_reset_postdata();
             else:               
                     
-                $returnhtml .= '<p>'. esc_html('Sorry, no posts were found.', 'textdomain' ) .'</p>';
+                $returnhtml .= '<p style="text-align:center">'. esc_html('Sorry, no posts were found.' ) .'</p>';
 
             endif;
 
@@ -422,7 +422,7 @@ $returnhtml .= '<div class="grid-container">';
                 
                 else:               
                         
-                    $returnhtml .= '<p>'. esc_html('Sorry, no posts were found.', 'textdomain' ) .'</p>';
+                    $returnhtml .= '<p>'. esc_html('Sorry, no posts were found.' ) .'</p>';
 
                 endif;
                 
