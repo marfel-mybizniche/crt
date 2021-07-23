@@ -85,55 +85,61 @@ function mbn_testimonials_shortcode(){
     $returnhtml .= '<div class="grid-container">';
     $returnhtml .= '<div class="grid-x grid-margin-x cols3-s3 testimonial_block">';
 
-    while ( $testimonials->have_posts() ) : $testimonials->the_post();
+    if($testimonials->have_posts()):
 
-        $testimonial_name           = get_field('testimonial_name'); 
-        $testimonial_img            = get_field('testimonial_video_thumb');
-        $testimonial_role_position  = get_field('testimonial_role_position'); 
-        $testimonial_company        = get_field('testimonial_company'); 
-        $testimonial_rating         = get_field('testimonial_rating'); 
-        $testimonial_greview        = get_field('google_review_excerpt'); 
-        $video_url                  = get_field('testimonial_video'); 
-        $review_type                = get_field('review_type'); 
-        $video_thumb                = get_video_thumb($video_url);
-        $video_type                 = videoType($video_url);
-        $video_id                   = get_video_id($video_url);
+        while ( $testimonials->have_posts() ) : $testimonials->the_post();
 
-        $short_excerpt          = get_field('short_excerpt'); 
+            $testimonial_name           = get_field('testimonial_name'); 
+            $testimonial_img            = get_field('testimonial_video_thumb');
+            $testimonial_role_position  = get_field('testimonial_role_position'); 
+            $testimonial_company        = get_field('testimonial_company'); 
+            $testimonial_rating         = get_field('testimonial_rating'); 
+            $testimonial_greview        = get_field('google_review_excerpt'); 
+            $video_url                  = get_field('testimonial_video'); 
+            $review_type                = get_field('review_type'); 
+            $video_thumb                = get_video_thumb($video_url);
+            $video_type                 = videoType($video_url);
+            $video_id                   = get_video_id($video_url);
 
-        $returnhtml .= '<div class="testimonial_item">';
-        
-        if( $review_type == 'video_review' ) :
-            $returnhtml .= '<div class="testimonial_blockitem">';
-            $returnhtml .= ($testimonial_img) ? '<figure class="col-image"><img src="'. $testimonial_img .'" alt=""></figure>' : '<figure><img src="https://via.placeholder.com/1200x500"/></figure>';
-            $returnhtml .= '<div class="testimonial_body">';    
-            $returnhtml .= '<a href="#" data-video-id="'.esc_attr($video_id) .'" class="modal-toggle testimonial_vbtn" data-video-type="'.esc_attr($video_type).'">';
-            $returnhtml .= '<figure><img src="'. MBN_ASSETS_URI .'/img/icn-play-w.svg" alt=""></figure><span>PLAY VIDEO</span></a>';
-            $returnhtml .= '<div class="testimonial_info">'. $testimonial_rating;
-            $returnhtml .= ( $short_excerpt ) ? '<h3>'. $short_excerpt .'</h3>': '';
-            $returnhtml .= ( $testimonial_name ) ? '<p class="testimonial_name">'. $testimonial_name .'</p>': '';
-            $returnhtml .= ( $testimonial_role_position ) ? '<p>'. $testimonial_role_position .' | '. $testimonial_company .'</p>' : '';
-            $returnhtml .= '</div></div></div>';
-        else:
-            $returnhtml .= '<div class="testimonial_greview_item">';
-            $returnhtml .= '<figure class="col-image"><img src="'. MBN_ASSETS_URI .'/img/icn-quote-r.png" alt=""></figure>';
-            $returnhtml .= '<div class="testimonial_body">';    
-            $returnhtml .= '<h3>'. $testimonial_greview .'</h3>';
-            $returnhtml .= '</div><div class="testimonial_info">';
-            $returnhtml .= ( $testimonial_name ) ? '<div class="testimonial_name">'. $testimonial_name .'</div>' : '';
-            $returnhtml .= '<span class="border"></span>';
-            $returnhtml .= ( $testimonial_rating ) ?'<div class="testimonial_rating">'. $testimonial_rating .'<div class="greview"><figure><img src="'. MBN_ASSETS_URI .'/img/Google-Review.png" alt=""></figure></div></div>' : '';
-            $returnhtml .= '</div><div class="testimonial_link"><figure><img src="'. MBN_ASSETS_URI .'/img/icn-anchor.png" alt=""></figure></div>';
+            $short_excerpt          = get_field('short_excerpt'); 
+
+            $returnhtml .= '<div class="testimonial_item">';
+            
+            if( $review_type == 'video_review' ) :
+                $returnhtml .= '<div class="testimonial_blockitem">';
+                $returnhtml .= ($testimonial_img) ? '<figure class="col-image"><img src="'. $testimonial_img .'" alt=""></figure>' : '<figure><img src="https://via.placeholder.com/1200x500"/></figure>';
+                $returnhtml .= '<div class="testimonial_body">';    
+                $returnhtml .= '<a href="#" data-video-id="'.esc_attr($video_id) .'" class="modal-toggle testimonial_vbtn" data-video-type="'.esc_attr($video_type).'">';
+                $returnhtml .= '<figure><img src="'. MBN_ASSETS_URI .'/img/icn-play-w.svg" alt=""></figure><span>PLAY VIDEO</span></a>';
+                $returnhtml .= '<div class="testimonial_info">'. $testimonial_rating;
+                $returnhtml .= ( $short_excerpt ) ? '<h3>'. $short_excerpt .'</h3>': '';
+                $returnhtml .= ( $testimonial_name ) ? '<p class="testimonial_name">'. $testimonial_name .'</p>': '';
+                $returnhtml .= ( $testimonial_role_position ) ? '<p>'. $testimonial_role_position .' | '. $testimonial_company .'</p>' : '';
+                $returnhtml .= '</div></div></div>';
+            else:
+                $returnhtml .= '<div class="testimonial_greview_item">';
+                $returnhtml .= '<figure class="col-image"><img src="'. MBN_ASSETS_URI .'/img/icn-quote-r.png" alt=""></figure>';
+                $returnhtml .= '<div class="testimonial_body">';    
+                $returnhtml .= '<h3>'. $testimonial_greview .'</h3>';
+                $returnhtml .= '</div><div class="testimonial_info">';
+                $returnhtml .= ( $testimonial_name ) ? '<div class="testimonial_name">'. $testimonial_name .'</div>' : '';
+                $returnhtml .= '<span class="border"></span>';
+                $returnhtml .= ( $testimonial_rating ) ?'<div class="testimonial_rating">'. $testimonial_rating .'<div class="greview"><figure><img src="'. MBN_ASSETS_URI .'/img/Google-Review.png" alt=""></figure></div></div>' : '';
+                $returnhtml .= '</div><div class="testimonial_link"><figure><img src="'. MBN_ASSETS_URI .'/img/icn-anchor.png" alt=""></figure></div>';
+                $returnhtml .= '</div>';
+            endif;
             $returnhtml .= '</div>';
-        endif;
-        $returnhtml .= '</div>';
 
-    endwhile;
-    $returnhtml .= '</div></div></section>';
-    wp_reset_postdata();
-    
+        endwhile;
+        $returnhtml .= '</div></div></section>';
+        wp_reset_postdata();
+        
 
+    else:               
+                        
+        $returnhtml .= '<p>'. esc_html('Sorry, no posts were found.', 'textdomain' ) .'</p>';
 
+    endif;
 
     $returnhtml .= '<div class="modal">';
         $returnhtml .= '<div class="modal-overlay modal-toggle"></div>';//modal-overlay
@@ -155,6 +161,7 @@ function mbn_testimonials_shortcode(){
 
 function build_contact_us_map(){
 
+    wp_reset_query();
 
     $query = array(
         'post_type'  => 'offices',
@@ -168,26 +175,33 @@ function build_contact_us_map(){
     $returnhtml .= '<div class="grid-container">';
     $returnhtml .= '<div class="grid-x cols4-s2 branch_lists">';
     
-    while ( $branches->have_posts() ) : $branches->the_post();
-    
-        $title = get_the_title();    
-        $phone = get_field('location_phone');
-        $loc_map = get_field('location_map');
-        $lat = $loc_map['lat'];
-        $lng = $loc_map['lng'];
-    
-
-        $returnhtml .= '<div class="cell large-6 xlarge-3 col-item branch_wrap" data-lat="'. esc_attr($lat) .'" data-lng="'. esc_attr($lng) .'" data-location="'.esc_attr($title).'">';
-        $returnhtml .= '<div class="branch_link" >';
-        $returnhtml .= '<h2 class="branch_title">'. $title .'</h2>';
-        $returnhtml .= '<p class="branch_address">' . $loc_map['address'] .'</p>';
-        $returnhtml .= '<p class="branch_phone">' . $phone .'</p>';
-        $returnhtml .= '</div></div>'; //branch_wrap
+    if($branches->have_posts()) :
+        while ( $branches->have_posts() ) : $branches->the_post();
         
-    
-    endwhile;    
-    wp_reset_postdata();
-    
+            $title = get_the_title();    
+            $phone = get_field('location_phone');
+            $loc_map = get_field('location_map');
+            $lat = $loc_map['lat'];
+            $lng = $loc_map['lng'];
+        
+
+            $returnhtml .= '<div class="cell large-6 xlarge-3 col-item branch_wrap" data-lat="'. esc_attr($lat) .'" data-lng="'. esc_attr($lng) .'" data-location="'.esc_attr($title).'">';
+            $returnhtml .= '<div class="branch_link" >';
+            $returnhtml .= '<h2 class="branch_title">'. $title .'</h2>';
+            $returnhtml .= '<p class="branch_address">' . $loc_map['address'] .'</p>';
+            $returnhtml .= '<p class="branch_phone">' . $phone .'</p>';
+            $returnhtml .= '</div></div>'; //branch_wrap
+            
+        
+        endwhile;    
+        wp_reset_postdata();
+        
+    else:
+                        
+        $returnhtml .= '<p>'. esc_html('Sorry, no posts were found.', 'textdomain' ) .'</p>';
+
+    endif;
+
     $returnhtml .= '</div>';// grid-x branch_lists
     $returnhtml .= '<hr/>';
     $returnhtml .= '</div>';//grid-container     
@@ -198,6 +212,9 @@ function build_contact_us_map(){
 add_shortcode('office_locator','build_contact_us_map');
 
 function mbn_video_list_shortcode() {
+
+    wp_reset_query();
+
     
     $video_args = array(  
         'post_type' => 'videos',
@@ -229,6 +246,7 @@ function mbn_video_list_shortcode() {
             $returnhtml .= '<div class="video_lists_wrap">';
                 $returnhtml .= '<div class="video_lists">';
 
+            if ( $videos->have_posts() ) :
                 while ( $videos->have_posts() ) : $videos->the_post();
 
                 $video_url = get_field('video_link');
@@ -256,9 +274,14 @@ function mbn_video_list_shortcode() {
                 $returnhtml .= '</div>'; //video_item
                 $returnhtml .= '</a>'; //video_link
 
-                endwhile;    
+                endwhile;
                 wp_reset_postdata();
-        
+            else:               
+                    
+                $returnhtml .= '<p>'. esc_html('Sorry, no posts were found.', 'textdomain' ) .'</p>';
+
+            endif;
+
                     $returnhtml .= '</div>'; //video_lists
                 $returnhtml .= '</div>'; //video_lists_wrap
             $returnhtml .= '</div>'; //video_body
@@ -292,6 +315,8 @@ add_shortcode('mbn_video_list', 'mbn_video_list_shortcode');
 
 // ALL LISTINGS
 function mbn_view_listings_all_filter_shortcode($atts){
+
+    wp_reset_query();
 
     $exclude_cat = (isset($atts['exclude_category'])) ? $atts['exclude_category'] : '';    
     $exclude_cat = get_term_by('name', $exclude_cat, 'listings_cat' );
@@ -337,62 +362,70 @@ $returnhtml .= '<div class="grid-container">';
                 $returnhtml .= '<h2>'.esc_html($term->name).'</h2>';
                 $returnhtml .= '<div class="grid-x cols3-s2 listing_inner">';
 
-                while ( $listings->have_posts() ) : $listings->the_post();
+                if( $listings->have_posts()) :
 
-                    $title = get_the_title();
-                    $img_url = get_the_post_thumbnail_url();
-                    $url = get_the_permalink();
+                    while ( $listings->have_posts() ) : $listings->the_post();
 
-                    $property_price = get_field('property_price');
-                    preg_match_all('!\d+!', $property_price, $matches);
-                    $property_price = number_format( implode(' ', $matches[0]) ,3, ',', '.');
-                    
-                    $img = wp_get_attachment_image_src( get_post_thumbnail_id( $listings->ID ), 'large' ); 
-                    if( isset( $img[0] ) ): 
-                        $img = $img[0]; 
-                    else : 
-                        $img = 'https://via.placeholder.com/470x300';         
-                    endif;
+                        $title = get_the_title();
+                        $img_url = get_the_post_thumbnail_url();
+                        $url = get_the_permalink();
 
-                    $property_address = get_field('property_address');
-                    $property_city = get_field('property_city');
-                    $property_state = get_field('property_state');
-                    $property_zip = get_field('property_zip');
-                    $property_address = $property_address.' '.$property_city.' '.$property_state.' '.$property_zip;
-                    $property_bedrooms = get_field('property_bedrooms');
-                    $property_half_bathrooms = get_field('property_half_bathrooms');
-                    $property_square_feet = get_field('property_square_feet');
+                        $property_price = get_field('property_price');
+                        preg_match_all('!\d+!', $property_price, $matches);
+                        $property_price = number_format( implode(' ', $matches[0]) ,3, ',', '.');
+                        
+                        $img = wp_get_attachment_image_src( get_post_thumbnail_id( $listings->ID ), 'large' ); 
+                        if( isset( $img[0] ) ): 
+                            $img = $img[0]; 
+                        else : 
+                            $img = 'https://via.placeholder.com/470x300';         
+                        endif;
 
-
-
-                    $returnhtml .= '<div id="'.esc_attr($cat_slug).'" class="cell medium-6 large-4 col-item listing_item">';            
-                        $returnhtml .= '<a href="'.esc_url($url).'">';
-                            $returnhtml .= '<div class="listing-wrap">';
-                                $returnhtml .= '<div class="listing-widget-thumb"><figure><img src="'. esc_attr($img) .'" /></figure></div>';
-                                $returnhtml .= '<div class="listing-widget-details">';                    
-                                    $returnhtml .= '<div class="listing-tag listing-tag-mob"><span>'.esc_html($term->name).'</span></div>';
-                                    $returnhtml .= '<div class="listing-price-address">';
-                                        $returnhtml .= '<div class="listing-price"><span><strong>'.esc_html('$').'</strong></span>'.esc_html($property_price).'</div>';
-                                        $returnhtml .= '<div class="listing-title"></div>';
-                                        $returnhtml .= '<div class="listing-address"><span class="loc_pin"></span>'.esc_html($property_address).'</div>';
-                                    $returnhtml .= '</div>'; // listing-price-address                
-                                    $returnhtml .= '<div class="listing-other-info">';
-                                        $returnhtml .= '<div class="listing-beds-baths-sqft">';
-                                            $returnhtml .= '<div class="beds"><span class="listing-beds">'.esc_html($property_bedrooms).'</span><span>'.esc_html('BEDS').'</span></div>';
-                                            $returnhtml .= '<div class="baths"><span class="listing-baths">'.esc_html($property_half_bathrooms).'</span><span>'.esc_html('BATHS').'</span></div>';
-                                            $returnhtml .= '<div class="sq_ft"><span class="listing-sqft">'.esc_html($property_square_feet).'</span><span>'.esc_html('SQ. FEET').'</span></div>';
-                                        $returnhtml .= '</div>';
-                                        $returnhtml .= '<div class="listing-tag listing-tag-desk"><span>'.esc_html($term->name).'</span></div>';
-                                    $returnhtml .= '</div>'; // listing-other-info     
-                                $returnhtml .= '</div>'; // listing-widget-details
-                            $returnhtml .= '</div>'; // listing-wrap
-                        $returnhtml .= '</a>'; // media-text
-                    $returnhtml .= '</div>'; //cell
+                        $property_address = get_field('property_address');
+                        $property_city = get_field('property_city');
+                        $property_state = get_field('property_state');
+                        $property_zip = get_field('property_zip');
+                        $property_address = $property_address.' '.$property_city.' '.$property_state.' '.$property_zip;
+                        $property_bedrooms = get_field('property_bedrooms');
+                        $property_half_bathrooms = get_field('property_half_bathrooms');
+                        $property_square_feet = get_field('property_square_feet');
 
 
-                endwhile;
-                wp_reset_postdata();
 
+                        $returnhtml .= '<div id="'.esc_attr($cat_slug).'" class="cell medium-6 large-4 col-item listing_item">';            
+                            $returnhtml .= '<a href="'.esc_url($url).'">';
+                                $returnhtml .= '<div class="listing-wrap">';
+                                    $returnhtml .= '<div class="listing-widget-thumb"><figure><img src="'. esc_attr($img) .'" /></figure></div>';
+                                    $returnhtml .= '<div class="listing-widget-details">';                    
+                                        $returnhtml .= '<div class="listing-tag listing-tag-mob"><span>'.esc_html($term->name).'</span></div>';
+                                        $returnhtml .= '<div class="listing-price-address">';
+                                            $returnhtml .= '<div class="listing-price"><span><strong>'.esc_html('$').'</strong></span>'.esc_html($property_price).'</div>';
+                                            $returnhtml .= '<div class="listing-title"></div>';
+                                            $returnhtml .= '<div class="listing-address"><span class="loc_pin"></span>'.esc_html($property_address).'</div>';
+                                        $returnhtml .= '</div>'; // listing-price-address                
+                                        $returnhtml .= '<div class="listing-other-info">';
+                                            $returnhtml .= '<div class="listing-beds-baths-sqft">';
+                                                $returnhtml .= '<div class="beds"><span class="listing-beds">'.esc_html($property_bedrooms).'</span><span>'.esc_html('BEDS').'</span></div>';
+                                                $returnhtml .= '<div class="baths"><span class="listing-baths">'.esc_html($property_half_bathrooms).'</span><span>'.esc_html('BATHS').'</span></div>';
+                                                $returnhtml .= '<div class="sq_ft"><span class="listing-sqft">'.esc_html($property_square_feet).'</span><span>'.esc_html('SQ. FEET').'</span></div>';
+                                            $returnhtml .= '</div>';
+                                            $returnhtml .= '<div class="listing-tag listing-tag-desk"><span>'.esc_html($term->name).'</span></div>';
+                                        $returnhtml .= '</div>'; // listing-other-info     
+                                    $returnhtml .= '</div>'; // listing-widget-details
+                                $returnhtml .= '</div>'; // listing-wrap
+                            $returnhtml .= '</a>'; // media-text
+                        $returnhtml .= '</div>'; //cell
+
+
+                    endwhile;
+                    wp_reset_postdata();
+                
+                else:               
+                        
+                    $returnhtml .= '<p>'. esc_html('Sorry, no posts were found.', 'textdomain' ) .'</p>';
+
+                endif;
+                
                 $returnhtml .= '</div>'; //listing_inner
 
                 if( $listings->found_posts > 6 ) {
@@ -620,7 +653,7 @@ function vendors_list_shortcode(){
                         foreach ( $terms as $term ) :
                                 
                             $vendors_args = array(  
-                                'post_type' => 'vendors',
+                                'post_type' => 'vendors_type',
                                 'post_status' => 'publish',
                                 'orderby' => 'name',
                                 'hide_empty' => true,
