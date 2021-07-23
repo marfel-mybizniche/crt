@@ -236,10 +236,10 @@ function mbn_video_list_shortcode() {
                     $returnhtml .= '<span>'. esc_html('Video Playlist') .' (<em>'. esc_html($ctr) .'</em>)</span>';
                 $returnhtml .= '</div>'; //video_header_title
                 $returnhtml .= '<div class="video_header_toggle">';
-                $returnhtml .= '<a href="#/" class="video_toggle">';
+                $returnhtml .= '<a href="#" class="video_toggle">';
                 $returnhtml .= '<div class="video_toggle_open">'. esc_html('More Videos') .'<span class="video_toggle_icon"><i class="fa fa-angle-right"></i></span></div>';
                 $returnhtml .= '<div class="video_toggle_close">'. esc_html('Collapse') .'<span class="video_toggle_icon"><i class="fa fa-angle-down"></i></span></div>';
-                    $returnhtml .= '</div></a>';
+                    $returnhtml .= '</a>';
                     $returnhtml .= '</div>'; //video_header_toggle
             $returnhtml .= '</div>'; //video_header
             $returnhtml .= '<div class="video_body">';
