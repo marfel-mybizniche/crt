@@ -419,14 +419,14 @@ function cptui_register_my_cpts_vendors() {
 		"capability_type" => "post",
 		"map_meta_cap" => true,
 		"hierarchical" => false,
-		"rewrite" => [ "slug" => "vendors", "with_front" => true ],
+		"rewrite" => [ "slug" => "vendors_type", "with_front" => true ],
 		"query_var" => true,
 		"menu_icon" => "dashicons-store",
 		"supports" => [ "title", "editor", "thumbnail" ],
 		"show_in_graphql" => false,
 	];
 
-	register_post_type( "vendors", $args );
+	register_post_type( "vendors_type", $args );
 }
 
 add_action( 'init', 'cptui_register_my_cpts_vendors' );
@@ -462,7 +462,7 @@ function cptui_register_my_taxes_vendors_cat() {
 		"show_in_quick_edit" => true,
 		"show_in_graphql" => false,
 	];
-	register_taxonomy( "vendors_cat", [ "vendors" ], $args );
+	register_taxonomy( "vendors_cat", [ "vendors_type" ], $args );
 }
 add_action( 'init', 'cptui_register_my_taxes_vendors_cat' );
 
