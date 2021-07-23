@@ -1398,7 +1398,44 @@ figure {
 }
 
 //vendors 
+
+.vendors_page {
+
+
+    @include media (max-width, 1023px){
+
+        .hero_banner_wrap {
+
+            .hero_banner {
+                display: flex;
+                flex-direction: column;
+
+                figure.bg {
+                    order: 2;
+                }
+                .grid-container{
+                    order: 1;
+                }
+
+                .banner_wrap {
+                    flex-direction: column !important;
+                }
+                
+                .banner_right {
+                    display: block !important;
+                    width: 100% !important;
+                    padding: 0 30px;
+                }
+        
+            }
+        }
+    }
+}
 .vendors_container {
+    
+    .cols2-s3 {
+        padding: 0;
+    }
 
     h4.vendor_cat_title {
         font-size: 16px;
