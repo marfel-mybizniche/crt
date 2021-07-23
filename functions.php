@@ -405,7 +405,7 @@ function build_find_office_map(){
                 <?php endif; ?>
             <?php endwhile; wp_reset_postdata(); ?>
             <?php else: ?>   
-                loc_content +='<p>'<?php echo esc_html('Sorry, no posts were found.' ) ?>'</p>';
+                loc_content +='<p style="text-align:center">'<?php echo esc_html('Sorry, no posts were found.' ) ?>'</p>';
 
         <?php endif; ?>
         
