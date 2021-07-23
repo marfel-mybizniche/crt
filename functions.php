@@ -375,7 +375,7 @@ function build_find_office_map(){
     
         <?php 
         
-        if( $office->have_posts() ):
+        if( $office_loop->have_posts() ):
             
             while ( $office_loop->have_posts() ) : $office_loop->the_post(); ?>
                 <?php if(!empty(get_field('location_map'))): ?>
@@ -405,7 +405,7 @@ function build_find_office_map(){
                 <?php endif; ?>
             <?php endwhile; wp_reset_postdata(); ?>
             <?php else: ?>   
-                loc_content +='<p>'<?php echo esc_html('Sorry, no posts were found.', 'textdomain' ) ?>'</p>';
+                loc_content +='<p>'<?php echo esc_html('Sorry, no posts were found.' ) ?>'</p>';
 
         <?php endif; ?>
         
