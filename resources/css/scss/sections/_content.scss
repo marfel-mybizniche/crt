@@ -1637,6 +1637,17 @@ figure {
                     margin: 0;
                 }
             }
+
+            @include media(max-width, 782px){
+                width: 100%;
+                position: relative;
+                .sec_form {
+    
+                    .wp-block-group__inner-container {
+                        width: 100%;
+                    }
+                }
+            }
         }
     }
     
