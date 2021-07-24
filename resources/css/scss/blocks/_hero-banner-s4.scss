@@ -1036,3 +1036,15 @@ body.medium_height {
 	}
 
 }
+
+//single listings
+.single-listings {
+
+	.hero_banner_wrap {
+		margin-top: -40px;
+		.hero_banner {
+			display : none;
+		}
+
+	}
+}

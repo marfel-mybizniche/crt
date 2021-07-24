@@ -1614,3 +1614,30 @@ figure {
     }
 
 }
+
+//single vendor
+
+.single-vendors_type {
+    
+    .page-content {
+        padding-top: 0;
+
+        .sticky_form {
+            position: fixed;
+            right: 0;
+            width: 47%;
+            z-index: 5;
+
+            .sec_form {
+
+                opacity: 1;
+
+                .wp-block-group__inner-container {
+                    width: 80%;
+                    margin: 0;
+                }
+            }
+        }
+    }
+    
+}
