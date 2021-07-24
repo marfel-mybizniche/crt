@@ -524,7 +524,11 @@ body.medium_height {
 			}
 
 			.banner_wrap  {
-				max-height: auto !important;
+				min-height: 100% !important;
+				
+				.banner_subtitle_body {
+					color: $color-dark;
+				}
 			}
 
 		}
