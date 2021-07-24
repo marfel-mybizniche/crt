@@ -438,6 +438,19 @@ ul.gform_fields  {
         
     }
 
+    .ginput_container_name {
+
+        @include media(min-width, 1023px){
+            display: flex;
+            .name_first {
+                width: 49%;
+            }
+            .name_last {
+                width: 50%;
+            }
+        }
+    }
+
     @include media(max-width, 480px) {
         .gform_footer {
             padding: 0;
