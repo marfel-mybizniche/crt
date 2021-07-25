@@ -99,7 +99,7 @@
 					<?php endif; ?> 
 				</div><!-- vendors_info_left -->
 				<div class="image_badge_bottom desktop_only">
-					<figure><img src="<?php echo esc_url( MBN_ASSETS_URI .'/img/carol-royse-badge'); ?>" alt=""/><figure>
+					<figure><img src="<?php echo esc_url( MBN_ASSETS_URI .'/img/carol-royse-badge.png'); ?>" alt=""/><figure>
 				</div>
 			</div>
 			<div class="cell medium-6 large-6 small-12">
