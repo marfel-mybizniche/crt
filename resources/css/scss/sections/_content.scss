@@ -1617,37 +1617,215 @@ figure {
 
 //single vendor
 
-.single-vendors_type {
+.vendors_wrapper {
     
-    .page-content {
-        padding-top: 0;
+    .vendors_header {
 
-        .sticky_form {
-            position: fixed;
-            right: 0;
-            width: 47%;
-            z-index: 5;
-
-            .sec_form {
-
-                opacity: 1;
-
-                .wp-block-group__inner-container {
-                    width: 80%;
-                    margin: 0;
+        .back_to_vendors_list {
+            display: flex;
+            margin-bottom: 30px;
+            align-items: center;
+    
+            figure {
+                margin-right: 10px;
+            }
+    
+            span {
+                font-size: 12px;
+                font-weight: 800;
+                text-transform: uppercase;
+                color: $color-dark;
+    
+                &:hover {
+                    color: $color-primary;
                 }
             }
+        }    
+        .vendors_name {
+            color: $color-dark;
+            font-size: 40px;
+            font-weight: 400;
+            line-height: 1.4;
+            margin: 40px 0;
+        }
+        
+    }
 
-            @include media(max-width, 782px){
-                width: 100%;
-                position: relative;
-                .sec_form {
-    
-                    .wp-block-group__inner-container {
-                        width: 100%;
+    .vendors_contact_wrapper {
+        display: flex;
+        margin: 30px 0;
+
+        .vendor_logo,
+        .vendor_contact {
+            width: 50%;
+        }
+
+        .vendor_contact {
+
+            .vendor_owner {
+                font-family: $body-font-family;
+                color: $color-dark;
+                font-size: 20px;
+                font-weight: 700;
+                line-height: 1.2;
+                text-transform: capitalize;      
+                margin-bottom: 25px;          
+            }
+
+            .text_wrap {
+                display: flex;
+                align-items: center;
+                margin-bottom: 16px;
+
+                .media_left {
+                    margin-right: 10px;
+                }
+
+                .media_right {
+                    p{
+                        font-size: 16px;
+                        font-weight: 400;
+                        color: $color-dark;
+                        line-height: 1.2;
+                        margin-bottom: 0;
                     }
                 }
             }
+        }
+
+    }
+
+    .vendor_video_wrap {
+        padding: 40px 0;
+        iframe {
+            border: 0;
+            width: 100%;
+        }
+    }
+
+    .vendor_content {
+        margin-bottom: 60px;
+
+        .section_subtitle,
+        p {
+            color: $color-dark;
+        }
+
+        p.vendor_excerpt {
+            margin-bottom: 60px;
+            font-size: 20px;
+            line-height: 1.4;
+        }
+
+        .section_subtitle {
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+        }
+
+        @media (min-width: 600px) and (max-width: 781px){
+            .wp-block-column:nth-child(2n) {
+                margin-left: 0em !important;
+            }
+        }
+    }
+
+    .image_badge_bottom {
+        text-align: center;
+    }
+
+
+    .sticky_form {
+        position: fixed;
+        right: 0;
+        width: 47%;
+        z-index: 5;
+        margin-top: -40px;
+        background-color: #F8F8F8;
+
+        .sec_form {
+            width: 75%;
+            opacity: 1;
+            background-color: transparent;
+            padding: 40px;
+            
+            h4,
+            p {
+                color: $color-dark;
+            }
+
+            h4 {
+                font-size: 22px;
+                font-weight: 700;
+                line-height: 1.2;
+                text-transform: capitalize;
+            }
+
+            p {
+                font-size: 12px;
+            }
+
+            .wp-block-group__inner-container {
+                width: 80%;
+                margin: 0;
+            }
+        }
+
+        @include media(max-width, 1023px){
+            
+            .sec_form {
+                width: 100%;
+            }
+        }
+
+        @include media(max-width, 768px){
+            width: 100%;
+            position: relative;
+            margin-top: 0;
+
+            .sec_form {
+                .wp-block-group__inner-container {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    @include media(max-width,1023px){
+        .vendors_contact_wrapper {
+            flex-direction: column;
+            margin: 0;
+
+            .vendor_logo,
+            .vendor_contact {
+                width: 100%;
+            }
+
+            .vendor_logo {   
+                margin-bottom: 30px;
+
+            }
+        }
+        .vendor_video_wrap {
+            padding: 0;
+        }
+    }
+
+    @include media(max-width,768px){
+        .vendors_contact_wrapper {
+            .vendor_logo {   
+                text-align: center;
+
+            }
+        }
+    }
+
+    @include media(max-width, 1420px){            
+
+        .vendors_info_left,
+        .vendors_header {
+            padding-right: 30px !important;
+            padding-left: 30px !important;
         }
     }
     
