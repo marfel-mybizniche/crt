@@ -94,16 +94,16 @@
 					<figure><img src="<?php echo esc_url( MBN_ASSETS_URI .'/img/carol-royse-badge'); ?>" alt=""/><figure>
 				</div>
 			</div>
-		</div> <!-- cell -->
-		<div class="cell medium-6 large-6 small-12">
-			<div class="sticky_form vendors_info_right">
-				<div class="sec_form sec_form_light">
-					<h4><?php echo esc_html('Fill the form to receive a special pricing coupon!') ?></h4>
-					<?php echo do_shortcode($vendor_form); ?>
-					<p><?php echo esc_html('Carol Royse Team is committed to protecting and respecting your privacy. By clicking Get Your Special Pricing Code, you agree that we may store and process the personal information submitted above.') ?></p>
+			<div class="cell medium-6 large-6 small-12">
+				<div class="sticky_form vendors_info_right">
+					<div class="sec_form sec_form_light">
+						<h4><?php echo esc_html('Fill the form to receive a special pricing coupon!') ?></h4>
+						<?php echo do_shortcode($vendor_form); ?>
+						<p><?php echo esc_html('Carol Royse Team is committed to protecting and respecting your privacy. By clicking Get Your Special Pricing Code, you agree that we may store and process the personal information submitted above.') ?></p>
+					</div>
 				</div>
 			</div>
-		</div>
+		</div> <!-- grid-x -->
 	</div>
 </section>
 <?php 
