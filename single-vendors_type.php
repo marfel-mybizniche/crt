@@ -34,17 +34,17 @@
 									$contact_type = get_sub_field('vendor_contact_info_type'); 
 									if ( $contact_type == 'phone_type' ):
 										$icon = '<figure><img src="'. MBN_ASSETS_URI .'/img/icn-phone-hollow-r.svg"/></figure>';
-										$text = '<p>'.get_sub_field('vendor_phone_number').'</p>';									
+										$text = '<a href="tel:'.get_sub_field('vendor_phone_number').'"><p>'.get_sub_field('vendor_phone_number').'</p></a>';									
 									elseif( $contact_type == 'office_phone_type' ):
 										$icon = '<figure><img src="'. MBN_ASSETS_URI .'/img/icn-office-r.svg"/></figure>';
-										$text = '<p>'.get_sub_field('vendor_office_number').'</p>';
+										$text = '<a href="tel:'.get_sub_field('vendor_office_number').'"><p>'.get_sub_field('vendor_office_number').'</p></a>';
 									elseif( $contact_type == 'email_type' ):
 										$icon = '<figure><img src="'. MBN_ASSETS_URI .'/img/icn-envelope-hollow-r.svg"/></figure>';
-										$text = '<p>'.get_sub_field('vendor_email_address').'</p>';									
+										$text = '<a href="mailto:'.get_sub_field('vendor_email_address').'"><p>'.get_sub_field('vendor_email_address').'</p></a>';	
 									elseif( $contact_type == 'website_type' ):
 										$icon = '<figure><img src="'. MBN_ASSETS_URI .'/img/icn-globe-hollow-r.svg"/></figure>';
-										$text = '<a href="mailt o:'.get_sub_field('vendor_email_address').'"><p>'.get_sub_field('vendor_email_address') .'</p></a>';
-									elseif( $contact_type == 'loction_type ' ):
+										$text = '<a href="'.get_sub_field('vendor_website').'" target="_blank"><p>'.get_sub_field('vendor_website') .'</p></a>';
+									elseif( $contact_type == 'location_type ' ):
 										$icon = '<figure><img src="'. MBN_ASSETS_URI .'/img/icn-map-r.png"/></figure>';
 										$text = '<p>'.get_sub_field('vendor_location_address').'</p>';
 									endif; ?>														
