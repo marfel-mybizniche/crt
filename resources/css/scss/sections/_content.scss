@@ -17,6 +17,7 @@ figure {
     
     &.is-type-video {
 
+
         &:after {
             content: '';
             background: url(../img/icn-play-circle-wr.svg) no-repeat top center;
@@ -1679,10 +1680,11 @@ figure {
 
                 .media_left {
                     margin-right: 10px;
+                    width: 15px;
                     
                     figure {
-                        .icn-map-pin {
-                            width: 16px;
+                        &.icn-map-pin {
+                            width: 15px;
                         }
                     }
                 }
