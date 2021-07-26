@@ -2,6 +2,7 @@
     /* Template Name: Blocks template */
     get_header(); 
 
+	$vendor_employee	= get_field('vendor_employee');
 	$vendor_owner 		= get_field('vendors_owner_name');
 	$vendor_position 	= get_field('vendor_title_position');
 	$vendor_form 		= get_field('vendor_contact_form');
@@ -24,49 +25,61 @@
 						<?php if( !empty(get_the_post_thumbnail_url()) ): ?>
 							<div class="vendor_logo"><figure><img src="<?php echo get_the_post_thumbnail_url() ?>" width="300" /></figure></div>
 						<?php endif; ?>	
-						<?php if( have_rows('vendor_contact_info') ): ?>
-							<div class="vendor_contact">
+						<div class="vendor_contact">
+							
+							<?php	
+							if( have_rows('vendor_employee') ):
+
+								while( have_rows('vendor_employee') ) : the_row();
+
+
+								$vendor_owner 		= get_sub_field('vendors_owner_name'); 
+								$vendor_position 	= get_sub_field('vendor_title_position');
+							?>
 								<div class="vendor_owner"><?php echo esc_html($vendor_owner .' - '. $vendor_position)?></div>
+							<?php	
+								endwhile;
+							endif;
+							if( have_rows('vendor_contact_info') ):
+								// Loop through rows.
+								while( have_rows('vendor_contact_info') ) : the_row();
 
-								<?php	// Loop through rows.
-									while( have_rows('vendor_contact_info') ) : the_row();
 
+								$contact_type = get_sub_field('vendor_contact_info_type'); 
 
-									$contact_type = get_sub_field('vendor_contact_info_type'); 
-
-									if ( $contact_type == 'phone_type' ):
-										$value 	= get_sub_field('vendor_phone_number');
-										$icon 	= '<figure><img src="'. MBN_ASSETS_URI .'/img/icn-phone-hollow-r.svg"/></figure>';
-										$text	= '<a href="tel:'.$value.'"><p>'.$value.'</p></a>';									
-									elseif( $contact_type == 'office_phone_type' ):										
-										$value 	= get_sub_field('vendor_office_number');
-										$icon 	= '<figure><img src="'. MBN_ASSETS_URI .'/img/icn-office-r.svg"/></figure>';
-										$text 	= '<a href="tel:'.$value.'"><p>'.$value.'</p></a>';
-									elseif( $contact_type == 'email_type' ):								
-										$value 	= get_sub_field('vendor_email_address');
-										$icon 	= '<figure><img src="'. MBN_ASSETS_URI .'/img/icn-envelope-hollow-r.svg"/></figure>';
-										$text 	= '<a href="mailto:'.$value.'"><p>'.$value.'</p></a>';	
-									elseif( $contact_type == 'website_type' ):							
-										$value 	= get_sub_field('vendor_website');						
-										$url 	= preg_replace("(^https?://)", "", $value );
-										$icon 	= '<figure><img src="'. MBN_ASSETS_URI .'/img/icn-globe-hollow-r.svg"/></figure>';
-										$text 	= '<a href="'.$value.'" target="_blank"><p>'.$url .'</p></a>';
-									elseif( $contact_type == 'location_type ' ):					
-										$value 	= get_sub_field('vendor_location_address');	
-										$icon 	= '<figure><img src="'. MBN_ASSETS_URI .'/img/icn-map-r.png"/></figure>';
-										$text 	= '<p>'.$value.'</p>';
-									endif; ?>														
-										<div class="text_wrap">
-											<div class="media_left">
-												<?php echo $icon; ?>
-											</div>
-											<div class="media_right">
-												<?php echo $text; ?>
-											</div>
+								if ( $contact_type == 'phone_type' ):
+									$value 	= get_sub_field('vendor_phone_number');
+									$icon 	= '<figure><img src="'. MBN_ASSETS_URI .'/img/icn-phone-hollow-r.svg"/></figure>';
+									$text	= '<a href="tel:'.$value.'"><p>'.$value.'</p></a>';									
+								elseif( $contact_type == 'office_phone_type' ):										
+									$value 	= get_sub_field('vendor_office_number');
+									$icon 	= '<figure><img src="'. MBN_ASSETS_URI .'/img/icn-office-r.svg"/></figure>';
+									$text 	= '<a href="tel:'.$value.'"><p>'.$value.'</p></a>';
+								elseif( $contact_type == 'email_type' ):								
+									$value 	= get_sub_field('vendor_email_address');
+									$icon 	= '<figure><img src="'. MBN_ASSETS_URI .'/img/icn-envelope-hollow-r.svg"/></figure>';
+									$text 	= '<a href="mailto:'.$value.'"><p>'.$value.'</p></a>';	
+								elseif( $contact_type == 'website_type' ):							
+									$value 	= get_sub_field('vendor_website');						
+									$url 	= preg_replace("(^https?://)", "", $value );
+									$icon 	= '<figure><img src="'. MBN_ASSETS_URI .'/img/icn-globe-hollow-r.svg"/></figure>';
+									$text 	= '<a href="'.$value.'" target="_blank"><p>'.$url .'</p></a>';
+								elseif( $contact_type == 'location_type ' ):					
+									$value 	= get_sub_field('vendor_location_address');	
+									$icon 	= '<figure><img src="'. MBN_ASSETS_URI .'/img/icn-map-r.png"/></figure>';
+									$text 	= '<p>'.$value.'</p>';
+								endif; ?>														
+									<div class="text_wrap">
+										<div class="media_left">
+											<?php echo $icon; ?>
 										</div>
-								<?php endwhile;?>							
-							</div><!--vendor_contact -->
-						<?php endif;?>						
+										<div class="media_right">
+											<?php echo $text; ?>
+										</div>
+									</div>
+							<?php endwhile;
+							endif; ?>							
+						</div><!--vendor_contact -->
 					</div><!--vendors_contact_wrapper -->		
 					<?php
 					if( have_rows('vendor_video_urls') ):
