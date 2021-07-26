@@ -1704,6 +1704,27 @@ figure {
         }
     }
 
+    .vendor_audio_wrap {
+
+        margin-bottom: 30px;
+        background: $color-primary;
+        padding: 20px;
+
+        h3 {
+            color: $color-white;
+            text-align: center;
+        }
+
+        .mejs-container,
+        .mejs-container .mejs-controls, 
+        .mejs-embed, 
+        .mejs-embed body {
+
+            background: $color-primary;
+        }
+
+    }
+
     .vendor_content {
         margin-bottom: 60px;
 
