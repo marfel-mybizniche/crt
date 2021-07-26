@@ -1,5 +1,11 @@
-<?php 
-    /* Template Name: Blocks template */
+<?php  
+/**
+ * The template for displaying all single vendor and attachments
+ *
+ * @package WordPress
+ * @subpackage MBN
+ * @since MBN
+ */
     get_header(); 
 
 	$vendor_employee	= get_field('vendor_employee');
@@ -34,9 +40,9 @@
 
 
 								$vendor_owner 		= get_sub_field('vendors_owner_name'); 
-								$vendor_position 	= get_sub_field('vendor_title_position');
+								$vendor_position 	= '- '. get_sub_field('vendor_title_position');
 							?>
-								<div class="vendor_owner"><?php echo esc_html($vendor_owner .' - '. $vendor_position)?></div>
+								<div class="vendor_owner"><?php echo esc_html($vendor_owner .' '. $vendor_position)?></div>
 							<?php	
 								endwhile;
 							endif;
@@ -64,7 +70,7 @@
 									$url 	= preg_replace("(^https?://)", "", $value );
 									$icon 	= '<figure><img src="'. MBN_ASSETS_URI .'/img/icn-globe-hollow-r.svg"/></figure>';
 									$text 	= '<a href="'.$value.'" target="_blank"><p>'.$url .'</p></a>';
-								elseif( $contact_type == 'location_type ' ):					
+								elseif( $contact_type == 'location_type' ):					
 									$value 	= get_sub_field('vendor_location_address');	
 									$icon 	= '<figure><img src="'. MBN_ASSETS_URI .'/img/icn-map-r.png"/></figure>';
 									$text 	= '<p>'.$value.'</p>';
