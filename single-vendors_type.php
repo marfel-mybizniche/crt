@@ -104,6 +104,32 @@
 						</figure>
 					</div>
 					<?php endwhile;
+					endif;?>		
+					<?php
+					if( have_rows('vendor_audio_urls') ):
+
+						// Loop through rows.
+						while( have_rows('vendor_audio_urls') ) : the_row();	
+							
+						$audio_title 	= get_sub_field('vendor_audio_title');
+						$audio_url 		= get_sub_field('vendor_audio_url');
+
+							$attr = array(
+								'src'      => $audio_url,
+								'loop'     => '',
+								'autoplay' => '',
+								'preload' => 'none'
+							);
+
+							
+					?>
+					<div class="vendor_audio_wrap">
+						<h3><?php echo esc_html($audio_title); ?></h3>
+						<figure>
+							<?php echo wp_audio_shortcode($attr); ?>
+						</figure>
+					</div>
+					<?php endwhile;
 					endif;?>
 					<?php if (!empty(get_the_content())): ?>
 					<div class="vendor_content">
