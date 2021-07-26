@@ -72,7 +72,7 @@
 									$text 	= '<a href="'.$value.'" target="_blank"><p>'.$url .'</p></a>';
 								elseif( $contact_type == 'location_type' ):					
 									$value 	= get_sub_field('vendor_location_address');	
-									$icon 	= '<figure><img src="'. MBN_ASSETS_URI .'/img/icn-map-r.png"/></figure>';
+									$icon 	= '<figure class="icn-map-pin><img src="'. MBN_ASSETS_URI .'/img/icn-map-r.png"/></figure>';
 									$text 	= '<p>'.$value.'</p>';
 								endif; ?>														
 									<div class="text_wrap">

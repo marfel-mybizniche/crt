@@ -1680,6 +1680,12 @@ figure {
 
                 .media_left {
                     margin-right: 10px;
+                    
+                    figure {
+                        .icn-map-pin {
+                            width: 15px;
+                        }
+                    }
                 }
 
                 .media_right {
