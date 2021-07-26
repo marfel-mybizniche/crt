@@ -1679,6 +1679,12 @@ figure {
 
                 .media_left {
                     margin-right: 10px;
+                    
+                    figure {
+                        .icn-map-pin {
+                            width: 16px;
+                        }
+                    }
                 }
 
                 .media_right {
@@ -1730,6 +1736,14 @@ figure {
         .section_subtitle,
         p {
             color: $color-dark;
+            
+            &.icon_list {
+                display: flex;
+                align-items: flex-start;
+                img {
+                    margin-right: 5px;
+                }
+            }
         }
 
         p.vendor_excerpt {
@@ -1850,4 +1864,13 @@ figure {
         }
     }
     
+}
+
+
+        
+.icn_checkbox_list {
+    ul {
+       
+        list-style-image: url(../img/icn-check-circle.png);
+    }
 }
