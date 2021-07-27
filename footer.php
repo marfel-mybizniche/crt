@@ -102,5 +102,18 @@
 </div>  
 <?php wp_footer() ?>
 
+<?php
+    //floating banner ad   
+
+    if( !empty(get_theme_mod('floating_ad_img')) ): ?>
+
+        <div class="floating_ad_banner">
+            <figure>
+                <img src="<?php echo esc_url(get_theme_mod('floating_ad_img')); ?>" />
+            </figure>
+        </div>
+
+   <?php endif;?>
+
 </body>
 </html>

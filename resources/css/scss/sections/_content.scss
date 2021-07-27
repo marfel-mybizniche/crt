@@ -1680,11 +1680,12 @@ figure {
 
                 .media_left {
                     margin-right: 10px;
-                    width: 15px;
                     
                     figure {
-                        &.icn-map-pin {
-                            width: 15px;
+                        width: 16px;
+
+                        .icn-map-pin {
+                            width: 16px;
                         }
                     }
                 }
@@ -1740,9 +1741,8 @@ figure {
             color: $color-dark;
             
             &.icon_list {
-                display: flex;
-                align-items: flex-start;
                 img {
+                    float: left;
                     margin-right: 5px;
                 }
             }
@@ -1875,4 +1875,25 @@ figure {
        
         list-style-image: url(../img/icn-check-circle.png);
     }
+}
+
+
+//floating banner ad
+.floating_ad_banner {
+    position: fixed;
+    top: 50%;
+    z-index: 999999;
+    left: 0;
+    transition: all 0.3s ease;
+
+    &:before {
+        content: url(../img/icn-close-grey.png);
+        width: 13px;
+        height: 13px;
+        position: absolute;
+        right: -15px;
+        top: 23px;
+        cursor: pointer;
+    }
+
 }

@@ -47,10 +47,6 @@ $(document).ready(function(){
     var bodyClass = $('.hero_banner_wrap').data('body-class');
     $('body').addClass(bodyClass);
 
-    var stickyTop = $('.sticky').offset().top;
-    var listing_single_wrap = $('.listing_single_wrap').offset().top;
-
-
     //smooth scroll
     $('a[href^="#"]').on('click',function (e) {
         e.preventDefault();
@@ -63,6 +59,11 @@ $(document).ready(function(){
         });
     });
     
+    //close popup floating banner ad
+    $('.floating_ad_banner').fadeIn('slow');
+    $('.floating_ad_banner').click(function(){
+        $(this).fadeOut('slow');
+    });
 
           $(window).scroll(function() {
               var offset = 0, button_up;
