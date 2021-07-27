@@ -1680,11 +1680,12 @@ figure {
 
                 .media_left {
                     margin-right: 10px;
-                    width: 15px;
                     
                     figure {
-                        &.icn-map-pin {
-                            width: 15px;
+                        width: 16px;
+
+                        .icn-map-pin {
+                            width: 16px;
                         }
                     }
                 }
@@ -1740,9 +1741,8 @@ figure {
             color: $color-dark;
             
             &.icon_list {
-                display: flex;
-                align-items: flex-start;
                 img {
+                    float: left;
                     margin-right: 5px;
                 }
             }

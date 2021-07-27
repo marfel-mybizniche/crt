@@ -201,10 +201,14 @@
             .sub-menu {
                 margin-left: 0 !important;
                 li {
+                    list-style-image: url(../img/icn-arrow-rdr.svg);
+                    list-style-position: inside;
+                    
                     a{
                         font-size: 14px;
                         color: $color-grey;
                         
+                        /*
                         &:before {                   
                             content: "";
                             background-size: 20px 10px;
@@ -214,7 +218,7 @@
                             background-image: url(../img/icn-arrow-rdr.svg);
                             display: inline-block;
                             margin-right: 10px;
-                        }
+                        }*/
                     }
                 }
             }
