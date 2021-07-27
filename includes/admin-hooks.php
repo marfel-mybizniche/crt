@@ -50,7 +50,7 @@ function mbn_new_customizer_settings($wp_customize) {
 	'label' 	=> __('Upload Floating Ad Banner'),
 	'section' 	=> 'global_header',
 	'settings' 	=> 'floating_ad_img',
-	'directions'=> __('Enable Banner ad by uploading image.');
+	'directions'=> __('Enable Banner ad by uploading image.'),
 	) ) );
 
 
