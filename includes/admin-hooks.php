@@ -82,9 +82,35 @@ function mbn_new_customizer_settings($wp_customize) {
 	'settings' 	=> 'listing_option_form',
 	) ) );
 
-	
-
-
-
 }
 add_action('customize_register', 'mbn_new_customizer_settings');
+
+
+
+//sidebars
+
+function my_custom_sidebar() {
+	register_sidebar(
+		array (
+			'name' => __( 'Footer Bottom', 'your-theme-domain' ),
+			'id' => 'footer-bottom-sidebar',
+			'description' => __( 'footer_bottom_sidebar', 'mbn' ),
+			'before_widget' => '',
+			'after_widget' => "",
+			'before_title' => '<h4 class="widget-title">',
+			'after_title' => '</h4>',
+		)
+	);
+	register_sidebar(
+		array (
+			'name' => __( 'Mobile Menu', 'your-theme-domain' ),
+			'id' => 'mobile-menu-widget',
+			'description' => __( 'mobile_menu_widget', 'mbn' ),
+			'before_widget' => '',
+			'after_widget' => '',
+			'before_title' => '<h4 class="widget-title">',
+			'after_title' => '</h4>',
+		)
+	);
+}
+add_action( 'widgets_init', 'my_custom_sidebar' );
