@@ -86,7 +86,10 @@
         </div>  
     </header>
 
-    <button data-scroll="up" class="btn_scroll_up"><span>UP</span></button>
+    <?php
+    //button scroll up
+    echo ( get_theme_mod('enable_buttonUp_scroll') )? '<button data-scroll="up" class="btn_scroll_up"><span>UP</span></button>' : ''; 
+    ?>
 
     <?php
     

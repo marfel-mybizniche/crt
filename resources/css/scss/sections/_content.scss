@@ -1876,3 +1876,24 @@ figure {
         list-style-image: url(../img/icn-check-circle.png);
     }
 }
+
+
+//floating banner ad
+.floating_ad_banner {
+    position: fixed;
+    top: 50%;
+    z-index: 999999;
+    left: 0;
+    transition: all 0.3s ease;
+
+    &:before {
+        content: url(../img/icn-close-grey.png);
+        width: 13px;
+        height: 13px;
+        position: absolute;
+        right: -15px;
+        top: 23px;
+        cursor: pointer;
+    }
+
+}
