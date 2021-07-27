@@ -451,6 +451,24 @@ ul.gform_fields  {
         }
     }
 
+    .gform_validation_errors{
+        margin-bottom: 0;
+
+        .gform_submission_error {
+            font-size: 16px;
+            color: #DB3441;
+            font-size: 16px;
+            margin-bottom: 0;
+        }
+    }
+    
+    .validation_message {
+        font-size: 16px;
+        color: #DB3441;
+        font-size: 16px;
+        margin-bottom: 0;
+    }
+
     @include media(max-width, 480px) {
         .gform_footer {
             padding: 0;
