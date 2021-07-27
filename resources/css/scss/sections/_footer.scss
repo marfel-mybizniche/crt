@@ -172,9 +172,11 @@
             padding-left: 50px;
         }
 
-        ul.footer_menu {
+        ul.footer_menu,
+        ul.menu {
 
             margin-left: 0;
+            display: block;
 
             li {
                 list-style: none;
@@ -186,6 +188,7 @@
                     font-weight: 600;
                     font-size: 16px;
                     line-height: 3;
+                    padding: 0;
 
                     &:hover,
                     &:focus {
@@ -256,8 +259,26 @@
             flex-wrap: nowrap;
             margin: 10px 20px;
 
+            .menu-footer-bottom-links-container {
+                width: 100%;
+                ul {                   
+
+                    justify-content: space-between;
+                    align-content: center;
+                    align-items: center;
+                    flex-wrap: nowrap;
+                }
+            }
+
             a {
                 color: lighten($color-black, 52.8%);
+                padding: 0;
+                text-transform: uppercase;
+            
+                &:hover {
+                    color: #fff;
+                }
+    
 
             }
             @include media (max-width, 375px){
@@ -280,9 +301,16 @@
             }
         }
 
-        &_right a{
+        &_right a {
             margin-left: 50px;
             color: lighten($color-black, 52.8%);
+            padding: 0;
+            text-transform: uppercase;
+
+            &:hover {
+                color: #fff;
+            }
+
             @include media (max-width, 1023px){
                 display: none;        
             }
