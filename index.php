@@ -1,33 +1,36 @@
 <?php get_header() ?>
 <section class="page-content">
         <div class="grid-container">
-            <div class="grid-x grid-margin-x blog-lists">
+            <div class="grid-x grid-margin-x blog_lists">
 
-                <?php while ( have_posts() ) : the_post(); ?>
-
-                    <div class="cell large-4 medium-6 small-12">
-                        <article>
-                            <div class="wp-block-image">
-                                <?php the_post_thumbnail(); ?>
-                            </div>
-                            
-                            <h5><a href="<?= get_the_permalink(); ?>"><?php the_title(); ?></a></h5>
-                            <small>
-                                <?php 
-                                    $controlPostCategory = get_the_category(get_the_ID());
-                                    $postCategoryLength = count($controlPostCategory);
-                                    $postCtr = 1;
-
-                                ?>
-                                <?php foreach ($controlPostCategory as $pc): ?>
-                                    <?= $pc->name ?><?= $postCtr != $postCategoryLength ? ',' :''; ?>
-                                <?php $postCtr++; endforeach; ?>
-                            </small>
-                        </article>
+                <?php while ( have_posts() ) : the_post(); 
+                    $terms = get_the_terms( $post->ID, 'category' ); 
+                ?>
+                    
+                    <div class="cell large-4 blog_item">
+                        <figure class="wp-block-image"><a href="<?php the_permalink(); ?>">
+                            <?php
+                            if ( has_post_thumbnail() ) {
+                                the_post_thumbnail(); 
+                            } else {
+                                echo '<img loading="lazy" src="'.home_url().'/wp-content/uploads/2021/07/img-6-steps.jpg" width="450" height="250">';
+                            } ?>
+                        </a></figure>
+                        <h6>
+                            <?php if($terms) foreach( $terms as $term ) {
+                                echo '<a href="'.get_category_link( $term->term_id ).'">'.$term->name.'</a>';
+                            } ?>
+                        </h6>
+                        <h3>
+                            <a href="<?php the_permalink(); ?>">
+                                <?php the_title() ?>
+                            </a>
+                        </h3>
                     </div>
 
                 <?php endwhile; ?>
             </div>
+
             <?php if (paginate_links()): ?>
                 <div class="text-center">
                     <div id="post-pagination" style="display: none">
