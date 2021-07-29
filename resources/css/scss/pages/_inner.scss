@@ -1471,17 +1471,54 @@ img.wpsl-store-thumb.wp-post-image {
         margin-left: 15px;
         margin-right: 15px;
         margin-bottom: 30px;
+        position: relative;
+        
+        &.one-half {
+            width: calc(50% - 30px);
+        }
+    
+        &.one-third {
+            width: calc(33.33% - 30px);
+        }
+    
+        &.one-fourth {
+            width: calc(25% - 30px);
+        }
+
+        .listing-widget-thumb {
+            position: relative;
+        }
+
+        .listing-property-type {
+            display: none;
+        }
+
+        .listing-title {
+            font-size: 14px;
+        }
+
+        .listing-beds-baths-sqft {
+            background: #161f1e;
+            margin:0;
+            padding:0;
+            list-style: none;
+            display: flex; 
+            width: 50%;
+        }
+
+        .listing-status {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 50%;
+        }
     }
 
-    .one-half {
-        width: calc(50% - 30px);
-    }
 
-    .one-third {
-        width: calc(33.33% - 30px);
-    }
-
-    .one-fourth {
-        width: calc(25% - 30px);
+    .listing-widget-details {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
     }
 }
