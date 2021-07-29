@@ -1488,12 +1488,23 @@ img.wpsl-store-thumb.wp-post-image {
         .listing-widget-thumb {
             position: relative;
         }
+        
+        .listing-widget-details {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
 
         .listing-property-type {
             display: none;
         }
 
         .listing-title {
+            font-size: 14px;
+            display: none;
+        }
+        .listing-address {
             font-size: 14px;
         }
 
@@ -1504,6 +1515,18 @@ img.wpsl-store-thumb.wp-post-image {
             list-style: none;
             display: flex; 
             width: 50%;
+
+            li {
+                font-size: 16px;
+                text-transform: uppercase; 
+                text-align: center;
+                color: #fff;
+
+                span {
+                    display: block;
+                    font-size: 11px;
+                }
+            }
         }
 
         .listing-status {
@@ -1512,13 +1535,10 @@ img.wpsl-store-thumb.wp-post-image {
             bottom: 0;
             width: 50%;
         }
+        .listing-price {
+            position: absolute;
+        }
     }
 
 
-    .listing-widget-details {
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-    }
 }
