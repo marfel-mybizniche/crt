@@ -1468,9 +1468,20 @@ img.wpsl-store-thumb.wp-post-image {
 
     .listing-wrap {
         width: 100%;
+        margin-left: 15px;
+        margin-right: 15px;
+        margin-bottom: 30px;
+    }
+
+    .one-half {
+        width: calc(50% - 30px);
     }
 
     .one-third {
-        width: 33.33%;
+        width: calc(33.33% - 30px);
+    }
+
+    .one-fourth {
+        width: calc(25% - 30px);
     }
 }
