@@ -1458,3 +1458,19 @@ img.wpsl-store-thumb.wp-post-image {
     }
 
 }*/
+
+
+
+/* listing plugin shortcode */
+.wp-listings-shortcode {
+    display:flex;
+    flex-flow: wrap;
+
+    .listing-wrap {
+        width: 100%;
+    }
+
+    .one-third {
+        width: 33.33%;
+    }
+}

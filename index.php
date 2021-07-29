@@ -1,6 +1,8 @@
 <?php get_header() ?>
-<section class="page-content">
+<section class="blog_content">
         <div class="grid-container">
+
+        
             <div class="grid-x grid-margin-x blog_lists">
 
                 <?php while ( have_posts() ) : the_post(); 
