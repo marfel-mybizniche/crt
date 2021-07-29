@@ -1487,13 +1487,20 @@ img.wpsl-store-thumb.wp-post-image {
 
         .listing-widget-thumb {
             position: relative;
+
+            img {
+                width: 100%;
+            }
         }
         
         .listing-widget-details {
+            background-image: linear-gradient(to right, #161f1e, rgba(22, 31, 30, 0.77), rgba(22, 31, 30, 0));
+            color: #fff;
             position: absolute;
             left: 0;
             right: 0;
             bottom: 0;
+            padding-top: 40px;
         }
 
         .listing-property-type {
@@ -1504,27 +1511,63 @@ img.wpsl-store-thumb.wp-post-image {
             font-size: 14px;
             display: none;
         }
-        .listing-address {
+        p.listing-address {
             font-size: 14px;
+            //background-image: linear-gradient(to right, #161f1e, rgba(22, 31, 30, 0.77), rgba(22, 31, 30, 0));
+            color: #fff;
+            margin: 0;
+            padding: 5px 0;
+            line-height: 1.2;
+            position: relative;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            padding-left: 30px;
+            margin: 0 0 5px 15px;
+            
+            span {
+                padding-right: 5px;
+            }
+
+            br {
+                display: none;
+            }
+
+            &:before {
+                content: url(../img/icn-location-pin.svg);
+                position: absolute;
+                left: 0;
+                top: 2px;
+            }
         }
 
         .listing-beds-baths-sqft {
             background: #161f1e;
             margin:0;
-            padding:0;
             list-style: none;
             display: flex; 
-            width: 50%;
+            width: 55%;
+            padding: 10px 0;
+            min-height: 52px;
 
             li {
                 font-size: 16px;
+                font-weight: 700;
                 text-transform: uppercase; 
                 text-align: center;
                 color: #fff;
+                width: 28%;
+                line-height: 1.2;
 
                 span {
                     display: block;
-                    font-size: 11px;
+                    font-size: 10px;
+                    font-weight: 400;
+                    white-space: nowrap;
+                }
+
+                &.sqft {
+                    width: 44%;
                 }
             }
         }
@@ -1533,12 +1576,62 @@ img.wpsl-store-thumb.wp-post-image {
             position: absolute;
             right: 0;
             bottom: 0;
-            width: 50%;
+            width: 45%;
+            background-color: #ad131f;
+            text-align: center;
+            padding: 10px;
+            font-size: 11px;
+            line-height: 1;
+            text-transform: uppercase;
+            color: #fff;
+            z-index: 99;
         }
-        .listing-price {
+
+        .listing-thumb-meta {
             position: absolute;
+            color: #fff;
+            left: 0;
+            right: 0;
+            bottom: 85px;
+            z-index: 99;
+        }
+
+        .listing-price {
+            position: relative;
+            letter-spacing: 2px;
+            display: inline-block;
+            font-size: 20px;
+            margin: 0 0 0 15px;
+
+            &::first-letter {
+                font-size: 24px;
+                font-weight: bold;
+                display: inline-block;
+                margin-right: 10px;
+            }
         }
     }
 
+    @media (max-width:1440px) {
+        .listing-wrap {
+    
+        
+            &.one-fourth {
+                width: calc(33.33% - 30px);
+            }
+        }
+    }
 
+    @media (max-width:1366px) {
+        .listing-wrap {
+            
+            &.one-third {
+                width: calc(50% - 30px);
+            }
+        
+            &.one-fourth {
+                width: calc(50% - 30px);
+            }
+        }
+    }
 }
