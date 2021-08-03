@@ -1881,7 +1881,7 @@ figure {
 //floating banner ad
 .floating_ad_banner {
     position: fixed;
-    top: 50%;
+    bottom: 0;
     z-index: 999999;
     left: 0;
     transition: all 0.3s ease;
