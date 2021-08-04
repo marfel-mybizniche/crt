@@ -825,6 +825,7 @@ figure {
         font-weight: 600;
         letter-spacing: 0.02em;
         color: #DB323F;
+        text-transform: uppercase;
     }
     .address {
         color: $color-dark;
@@ -871,6 +872,10 @@ figure {
     .listing_sticky_info {
         background: #f8f8f8;
         padding: 12px 0;
+        display: none;
+        &.active{
+            display: block;
+        }
 
         .grid-container {
             padding: 0 20px;
@@ -920,7 +925,7 @@ figure {
 
 .listing_content {
 
-    padding: 125px 0 65px;
+    padding: 50px 0 65px;
 
     @include media (max-width, 1023px){
         padding-top: 0 !important;

@@ -1,0 +1,95 @@
+%light-nav{
+     background: $color-white !important;
+        .navbar {
+            .logo {
+                display: none !important;
+            }
+
+            .logo2 {
+                display: block !important;
+            }
+
+            .navicon {
+
+                &::before,
+                &::after {
+                    border-top: 2px solid #DB323F !important;
+                }
+            }
+
+            .navphone {
+                span {
+                    color: $color-dark !important;
+                }
+
+                &::before {
+                    content: url(../img/icn-phone.svg) !important;
+                }
+            }
+        }
+
+        .navmenu {
+
+            .menu {
+
+                >li {
+
+                    &.menu-item {
+                        a {
+                            color: $color-dark !important;
+                        }
+                    }
+
+                    &.menu_button {
+                        a {
+                            color: $color-white !important;
+                        }
+                    }
+
+                    &.menu_report {
+
+                        a {
+                            &::before {
+                                content: url('../../resources/img/menu-report.png')!important;
+                                width: 21px;
+                                height: 21px;
+                                padding-bottom: 25px;
+                            }
+                        }
+
+                    }
+
+                    &.menu_podcast {
+
+                        a {
+
+                            &::before {
+                                content: url('../../resources/img/menu-podcast.png')!important;
+                                width: 28px;
+                                height: 18px;
+                                padding-bottom: 25px;
+                            }
+                        }
+
+                    }
+                }
+            }
+
+            .navutil {
+                .toll-free {
+
+                    span,
+                    a {
+                        color: $color-dark !important;
+                    }
+
+                    a {
+
+                        &:hover {
+                            color: darken($color-primary, 0.16) !important;
+                        }
+                    }
+                }
+            }
+        }
+}
