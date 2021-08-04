@@ -1648,6 +1648,10 @@ figure {
             font-weight: 400;
             line-height: 1.4;
             margin: 40px 0;
+
+						@media (max-width: 768px) {
+							margin: 20px 0 0;
+						}
         }
         
     }
@@ -1705,10 +1709,22 @@ figure {
     }
 
     .vendor_video_wrap {
-        padding: 40px 0;
+        padding: 0 0 30px;
+
+				@media (max-width: 768px) {
+					margin: 15px 0;
+				}
         iframe {
             border: 0;
             width: 100%;
+
+						@media (max-width: 1024px) {
+							height: 255px;
+						}
+
+						@media (max-width: 768px) {
+							height: 178px;
+						}
         }
     }
 
@@ -1776,19 +1792,27 @@ figure {
         position: fixed;
         right: 0;
         width: 47%;
-        z-index: 5;
-        margin-top: -40px;
         background-color: #F8F8F8;
+				bottom: 40px;
+				z-index: 999;
 
         .sec_form {
             width: 75%;
             opacity: 1;
             background-color: transparent;
             padding: 40px;
+
+					@media (max-width: 1662px) {
+						padding: 20px;
+					}
             
             h4,
             p {
                 color: $color-dark;
+
+								@media (max-width: 1662px) {
+									margin-bottom: 0;
+								}
             }
 
             h4 {
