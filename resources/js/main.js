@@ -294,7 +294,7 @@ $(document).ready(function(){
                   //vendors nav 
                   $('.vendors_nav').slick({
                     dots: false,
-                    arrow: true,
+                    arrow: false,
                     infinite: true,
                     speed: 300,
                     slidesToShow: 3,

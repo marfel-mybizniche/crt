@@ -1480,7 +1480,6 @@ figure {
                 background-repeat: no-repeat;
                 display: inline-block;
                 margin-right: 12px;
-								flex-shrink: 0;
 
                 @include media (max-width,1023px){
                     display: none;
@@ -1496,25 +1495,7 @@ figure {
             background: transparent;
             margin-bottom: 50px;
             
-            .slick-arrow  {
-							display: block;
-							background: none;
-							top: 10px;
-							opacity: 1;
-
-							&.slick-prev {
-								left: -25px;
-							}
-
-							&.slick-next {
-								right: -25px;
-							}
-
-							&:before {
-								color: red;
-								opacity: 1;
-							}
-						}
+            .slick-arrow  {display: none !important;}
 
             .vendors_category {
                 
