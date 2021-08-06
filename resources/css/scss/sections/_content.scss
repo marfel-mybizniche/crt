@@ -918,8 +918,15 @@ figure {
         background: #f8f8f8;
         padding: 12px 0;
         visibility: hidden;
-
+        opacity: 0;
+        transform: translate(0,-100%);
+        -webkit-transform: translate(0,-100%);
+        @extend %anim-default;
         &.active {
+              transform: translate(0,0%);
+        -webkit-transform: translate(0,0%);
+            opacity: 1;
+
             visibility: visible;
         }
 
