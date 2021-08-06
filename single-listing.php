@@ -33,7 +33,6 @@
         ['label'=>"Acres","value"=>"_listing_acres"],
         ['label'=>"Lot Square Feet","value"=>"_listing_lot_sqft"],
         ['label'=>"Half Bathrooms","value"=>"_listing_half_bath"],
-
     ];
 ?>
 
@@ -72,8 +71,16 @@
 					<div class="text_wrap info_price"><?php echo esc_html($price);  ?></div>
 				</div>
 				<div class="content_right content_info_gallery listing_gallery_wrap">
-
-					<div class="listing_gallery">
+						<div class="temp_gallery"><?php echo str_replace("src","data-src",do_shortcode(get_post_meta( $post->ID, '_listing_gallery', true))); ?></div>
+						<div class="listing_gallery">
+							<div class="slider_for_wrap">
+								<div class="slider_for"></div>
+							</div>
+							<div class="slider_nav_wrap">
+									<div class=" slider_nav"></div>
+							</div>
+						</div>
+					<?php /* <div class="listing_gallery">
 					<?php 
 						$images = get_field('photo_gallery');
 						if( $images ): ?>
@@ -100,7 +107,7 @@
 								</div>
 							</div>
 						<?php endif; ?>
-					</div>
+					</div> */?>
 
 				</div>
 			</div>
@@ -109,10 +116,10 @@
 					<div class="cols col-1">
                         <?php  ?>
 						<div class="text_wrap info_bed"><?php echo esc_html($bed . ' Bedrooms');  ?></div>	
-						<div class="text_wrap info_bath"><?php echo esc_html($bath . ' Bathrooms'); ?></div>
+						<div class="text_wrap info_sq_ft"><?php echo esc_html($sq_ft . ' sq ft'); ?> </div>
 					</div>			
 					<div class="cols col-2">
-						<div class="text_wrap info_sq_ft"><?php echo esc_html($sq_ft . ' sq ft'); ?> </div>
+						<div class="text_wrap info_bath"><?php echo esc_html($bath . ' Bathrooms'); ?></div>
                          <?php if(!empty($car)):?>
 						<div class="text_wrap info_car"><?php echo esc_html($car . ' Car Garage');  ?></div>
                         <?php endif;?>
@@ -121,8 +128,8 @@
 			</div>
 			<div class="content_info content_info_btn">
 				<div class="content_left content_info_inner info_btn">
-					<div class="schedule_btn"><a href="" class="button primary_button"><?php echo esc_html('SCHEDULE SHOWING'); ?></a></div>				
-					<div class="more_btn"><a href="" class="button light"><?php echo esc_html('MORE INFO'); ?></a></div>	
+					<div class="schedule_btn"><button data-target="#content_info_form" class="button primary_button scrollto"><?php echo esc_html('SCHEDULE SHOWING'); ?></button></div>				
+					<div class="more_btn"><button data-target="#content_info_desc" class="button light scrollto"><?php echo esc_html('MORE INFO'); ?></button></div>	
 				</div>				
 			</div>
 			<div class="content_info content_info_addtl">
@@ -168,14 +175,14 @@
 			<?php 
 			if( !empty(get_the_content()) ): ?>
 			
-			<div class="content_info content_info_desc">
+			<div id="content_info_desc" class="content_info content_info_desc">
 				<div class="content_left content_info_inner info_desc">
 					<div class="info_label"><?php echo esc_html('DESCRIPTION'); ?></div>	
 					<div class="info_value"><?php the_content(); ?></div>	
 				</div>	
 			</div>	
 			<?php endif; ?>		
-			<div class="content_info content_info_form">
+			<div id="content_info_form" class="content_info content_info_form">
 				<div class="content_left content_info_inner info_form">
 					<div class="sec_form">                    
 						<h2>To Schedule Showing, Please Fill Out Form Below</h2>
