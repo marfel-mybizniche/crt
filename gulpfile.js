@@ -180,7 +180,7 @@ gulp.task('watch', function(){
         browserSync.init(files, {
             watchTask: true,
             proxy: config.siteURL,
-            port: 7080,
+            port: 8888,
             notify: true
         });
     }
