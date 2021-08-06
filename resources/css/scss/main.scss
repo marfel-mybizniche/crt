@@ -1,6 +1,6 @@
 @import "./base/variables";
 @import "./base/mixins";
-
+@import "./base/placeholders"; 
 
 // FOUNDATION FRAMEWORK
 @import '../../vendor/foundation/scss/foundation';
@@ -71,4 +71,5 @@
 @import "./base/buttons";
 @import "./base/components";
 @import "./base/animations"; 
+
 

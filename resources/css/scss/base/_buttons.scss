@@ -486,33 +486,23 @@ a.btn-back {
     text-align: center;
 
     .btn_primary_hollow {
-        padding: 30px 60px;    
-        text-align: center; 
-        font-weight: 800;
-        color: $color-dark;
-        font-size: 16px;
-        font-family: $body-font-family;
+        @extend %btn_primary_hollow;
     
-        &:after {
-            background-image: url(../img/icn-arrow-rdr.svg);
-            content: "";
-            background-size: 20px 10px;
-            width: 20px;
-            height: 10px;
-            background-repeat: no-repeat;
-            display: inline-block;
-            margin-left: 10px;
+    }
+}
+.btn_load_more{
+    border:none;
+    @extend .loadMore_btn;
+    .wp-block-button__link{
+        border:none;
+        border-radius: 0px;
+        small{display: none}
+        text-transform: uppercase;
+        @extend %btn_primary_hollow;
+        color: $color-dark!important;
+        &:hover{
+            color: $color-white!important;
         }
-    
-        &:hover {
-            color: $color-white;        
-            background-color: $color-primary;
-    
-            &:after {
-                background-image: url(../img/icn-arrow-rw.svg);
-            }
-        }
-    
     }
 }
 
