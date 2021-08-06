@@ -22,6 +22,6 @@
         "files": {
         }
     },
-    "siteURL": "http://localhost:7080/mybizniche",
+    "siteURL": "http://localhost:8081",
     "browserSync": true
 }
