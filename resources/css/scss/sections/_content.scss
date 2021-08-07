@@ -1593,7 +1593,21 @@ figure {
             margin-bottom: 50px;
 
             .slick-arrow {
-                display: none !important;
+							display: block;
+							background: none;
+							top: 10px;
+							opacity: 1;
+
+							&.slick-prev {
+								left: -25px;
+							}
+							&.slick-next {
+								right: -25px;
+							}
+							&:before {
+								color: red;
+								opacity: 1;
+							}
             }
 
             .vendors_category {
