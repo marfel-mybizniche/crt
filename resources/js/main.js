@@ -73,7 +73,7 @@ $(document).ready(function(){
 			//</ Set variables from page calculations. >
 
 			/*
-				< Calculate on-scrolls. >
+				< Calculate on-scrolls and dynamically adjust form placement. >
 			*/
 			$(window).on('scroll', function() {
 				console.log("vts_bottomMargin: " + vts_bottomMargin);
@@ -95,7 +95,7 @@ $(document).ready(function(){
 				}
 	
 			});
-			// </ Calculate on-scrolls. >
+			// </ Calculate on-scrolls and dynamically adjust form placement. >
 
           $(window).scroll(function() {
               var offset = 0, button_up;
