@@ -65,6 +65,38 @@ $(document).ready(function(){
         $(this).fadeOut('slow');
     });
 
+			/*
+				Vendors Type Singe - Scrolling Form (vts_)
+				< Set variables from page calculations. >
+			*/
+			var vts_bottomMargin = $('.footer').outerHeight();
+			//</ Set variables from page calculations. >
+
+			/*
+				< Calculate on-scrolls. >
+			*/
+			$(window).on('scroll', function() {
+				console.log("vts_bottomMargin: " + vts_bottomMargin);
+
+				var vts_scrollBottomPos = $(window).scrollTop() + $(window).height();
+				console.log("vts_scrollPos: " + vts_scrollBottomPos);
+
+				var vts_scrollHeight = $(document).height() - vts_bottomMargin;
+				console.log("vts_scrollHeight: " + vts_scrollHeight);
+
+				if (!($(window).width() <= 768)) {
+					if (vts_scrollBottomPos > vts_scrollHeight) {
+						var vts_formBottomOffset = (vts_scrollBottomPos - vts_scrollHeight) + 40;
+						console.log(">>> vts_formBottomOffset: " + vts_formBottomOffset);
+						$('.vendors_wrapper .sticky_form').css('bottom',vts_formBottomOffset+'px');
+					} else {
+						$('.vendors_wrapper .sticky_form').css('bottom','40px');
+					}	
+				}
+	
+			});
+			// </ Calculate on-scrolls. >
+
           $(window).scroll(function() {
               var offset = 0, button_up;
               var sticky = false;
