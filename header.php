@@ -14,7 +14,7 @@
 
 <div id="wrapper" class="<?php echo ( get_field('page_header_options') == 'no_header' )? 'disabled_header' : '' ?>" > 
     <header id="header" class="" data-sticky-container data-toggler=".show-menu">
-        <div class="hsnav-s10 sticky" data-sticky data-options="marginTop:0"> 
+        <div class="hsnav sticky" data-sticky data-options="marginTop:0"> 
             <div class="navbar clearfix">                               
                 <div class="grid-container"> 
                     <div class="navbrand">                        
@@ -22,15 +22,15 @@
                             <a class="logo" href="<?php echo get_home_url(); ?>">
                                 <img src="<?php echo MBN_ASSETS_URI ?>/img/logo-2.png" alt="">
                             </a>
-                            <a class="logo2" href="#"> 
+                            <a class="logo2" href="<?php echo get_home_url(); ?>"> 
                                 <img src="<?php echo MBN_ASSETS_URI ?>/img/logo.png" alt="">
                             </a>
                         </div>
                         <div class="logo_mobile_wrap">
-                            <a class="logo_mobile_1" href="#"> 
+                            <a class="logo_mobile_1" href="<?php echo get_home_url(); ?>"> 
                                 <img src="<?php echo MBN_ASSETS_URI ?>/img/logo-mobile.png" alt="">
                             </a>  
-                            <a class="logo_mobile_2" href="#"> 
+                            <a class="logo_mobile_2" href="<?php echo get_home_url(); ?>"> 
                                 <img src="<?php echo MBN_ASSETS_URI ?>/img/logo-mobile-2.png" alt="">
                             </a>  
                         </div>     
