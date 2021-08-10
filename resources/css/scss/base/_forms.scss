@@ -510,11 +510,24 @@ ul.gform_fields  {
                     color: #858689;
 
                 }
+								
+								@include media (max-width, 1023px){
+									padding: 0 5px !important;
+									font-size: 18px !important;
+								}
                 
-                @include media(max-width, 375px) {
-                    font-size: 14px!important;           
+                @include media(max-width, 783px) {
+                    font-size: 14px!important;
+										padding: 5px !important;
                 }
             }
+
+						input, select {
+							@include media (max-width, 1023px){
+								height: auto;
+								line-height: normal;
+							}
+						}
 
             &.ginput_container_address {
                 display: flex;
@@ -544,26 +557,11 @@ ul.gform_fields  {
                 @include media(max-width, 1158px) {
                     .ginput_left, .ginput_right {
                         float: left;
-                        width: 50%;
-                    }
-
-                    .ginput_left {
-                        &.ginput_address_city {
-                            margin-right: 8px;
-                            padding-right: 2px;                                
-                        }
-                    }
-                    
-                    
-                    .ginput_right {
-                        
-                        &.ginput_address_state{
-                            margin-right: -8px;
-                            padding-right: 8px;  
-                        }                         
+                        width: 100%;
+												margin-right: 0;
                     }
                 }
-            }    
+            }
         }
     }
     @include media (max-width, 782px){
