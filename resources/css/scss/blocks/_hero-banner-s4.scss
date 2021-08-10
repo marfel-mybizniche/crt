@@ -681,7 +681,8 @@ body.medium_height {
 				text-transform: capitalize;
 				width: 80%;
 				@include media (max-width,1023px) {						
-					width: 100%
+					width: 100%;
+					line-height: 1.1;
 				}
 			}
 
