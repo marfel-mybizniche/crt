@@ -1,11 +1,30 @@
 <?php get_header() ?>
 <section class="blog_content">
         <div class="grid-container">
+            <div class="whats_new">
+                <h5>What’s New</h5>
+                <div class="grid-x grid-margin-x">
 
-        
-            <div class="grid-x grid-margin-x blog_lists">
+                </div>
+            </div>
 
-                <?php while ( have_posts() ) : the_post(); 
+            <div class="blog_cats">
+                <ul class="menu">
+                    <?php
+                    $categoryLists = get_categories(array('hide_empty' => false,'taxonomy' => 'category'));
+                    foreach ($categoryLists as $category):
+                    ?>  
+                    <li>
+                        <a href="<?= esc_url(get_category_link( $category->term_id )) ?>"><?= $category->name; ?></a>
+                        <?php //echo $category->category_count ?>
+                    </li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+
+            <?php echo '<div class="grid-x grid-margin-x blog_lists">';
+
+                while ( have_posts() ) : the_post(); 
                     $terms = get_the_terms( $post->ID, 'category' ); 
                 ?>
                     
@@ -30,18 +49,40 @@
                         </h3>
                     </div>
 
-                <?php endwhile; ?>
-            </div>
+                <?php endwhile; 
+            echo '</div>'; ?>
 
             <?php if (paginate_links()): ?>
                 <div class="text-center">
-                    <div id="post-pagination" style="display: none">
+                    <div id="post-pagination" style="display: block">
                         <?php  echo paginate_links(); ?>
                     </div>
                     <div class="wp-block-button">
-                        <a class="wp-block-button__link" href="javascript:;" id="loadMorePosts">SEE MORE</a>
+                        <a class="wp-block-button__link" href="javascript:;" id="loadMorePosts">Load More <span>&#129122;</span></a>
                     </div>
                 </div>
+                <script>
+                    jQuery(function($){
+
+                        var $nextLink = $('#post-pagination .next').attr('href');
+
+                        $('#loadMorePosts').click(function(e){
+                            e.preventDefault();
+                            $(this).hide();
+                            
+                            $.get( $nextLink, function( data ) {
+                                var getList = $(data).find('.blog_lists').html();
+                                $('.blog_lists').append(getList);
+                                $nextLink = $(data).find('#post-pagination .next').attr('href');
+                                if (!$nextLink) {
+                                    $('.btn-see-more').hide();
+                                }
+                            });
+                            $(this).delay(2000).show(0);
+
+                        });
+                    })
+                </script>
             <?php endif ?>
             
         </div>     
