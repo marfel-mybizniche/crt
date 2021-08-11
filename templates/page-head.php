@@ -5,6 +5,8 @@ if ( get_field('page_header_options') !== 'no_header' ):
 $banner_height = get_field('page_header_banner_height');				
 $banner_right_text = get_field('banner_right_text');
 $banner_right = get_field('banner_type');
+$header_banner_position = get_field('header_banner_position');
+$header_banner_overlay = get_field('header_banner_overlay');
 $add_image = get_field('right_image');
 $show_elements = get_field('show_elements');
 $custom_content = get_field('custom_content');
@@ -22,9 +24,9 @@ if(! strpos( $template, 'single-listings.php' )): // not in single post template
 	if( get_field('page_header_options') == "global_header_opt" || is_post_type_archive() || is_single() ):
 ?>
     
-    <section class="hero_banner_wrap hero_banner_default">
-		<div class="hero_banner">
-			<figure class="bg"><img src="<?php echo get_theme_mod( 'global_header_img' ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" /></figure>
+    <section class="hero_banner_wrap hero_banner_default <?php echo $header_banner_overlay ? 'dark_overlay' : ''; ?>">
+		<div class="hero_banner <?php echo $header_banner_position; ?>">
+			<figure class="bg <?php echo $header_banner_position; ?>"><img src="<?php echo get_theme_mod( 'global_header_img' ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" /></figure>
 			<div class="grid-container">
 				<div class="banner_wrap">
 					<div class="banner_left banner_style_2">
@@ -48,19 +50,19 @@ if(! strpos( $template, 'single-listings.php' )): // not in single post template
 		
 ?>
 
-<section class="hero_banner_wrap <?php echo $banner_height; ?>" data-body-class="<?php echo $banner_height; ?>" data-height="<?php echo $height; ?>">
+<section class="hero_banner_wrap <?php echo $banner_height; ?>" data-body-class="<?php echo $banner_height; ?>" data-height="<?php echo $height; ?> <?php echo $header_banner_overlay ? 'dark_overlay' : ''; ?>">
 <?php else : ?>
-<section class="hero_banner_wrap ">
+<section class="hero_banner_wrap <?php echo $header_banner_overlay ? 'dark_overlay' : ''; ?>">
 <?php endif; ?>
 	<div class="hero_banner">
 
 		<?php if( get_field('page_header_image') ): ?>
 			
-		<figure class="bg">
+		<figure class="bg <?php echo $header_banner_position; ?>">
 			<img src="<?php echo get_field('page_header_image'); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" />
 		</figure>
 		<?php elseif( strpos($template, 'archive-listings.php') ): ?>
-			<figure class="bg">
+			<figure class="bg <?php echo $header_banner_position; ?>">
 				<img src="<?php echo get_theme_mod('global_header_img'); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" />
 			</figure>
 		<?php endif; ?>
