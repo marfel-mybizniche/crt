@@ -455,11 +455,12 @@ ul.gform_fields  {
 
         @include media(min-width, 1023px){
             display: flex;
+						justify-content: space-between;
             .name_first {
-                width: 49%;
+                width: 49.3%;
             }
             .name_last {
-                width: 50%;
+                width: 49.3%;
             }
         }
     }
