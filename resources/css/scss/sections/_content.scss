@@ -135,6 +135,61 @@ figure {
 }
 
 
+.hero_banner_wrap {
+
+	@include media(min-width, 1024px) {
+		&.dark_overlay {
+			background: linear-gradient(180deg, rgba(22, 31, 30, 0.4) 0%, rgba(22, 31, 30, 0.35) 42.19%, rgba(47, 55, 54, 0.6) 67.19%, #2F3736 100%);
+			background-blend-mode: multiply, normal;
+
+			&:before {
+				display: none;
+			}
+		}
+	}
+}
+.hero_banner {
+
+	.bg {
+			
+		&.left {
+			img {
+				-o-object-position: left;
+				object-position: left;
+			}
+		}
+		
+		&.top {
+			img {
+				-o-object-position: top;
+				object-position: top;
+			}
+		}
+		
+		&.center {
+			img {
+				-o-object-position: center;
+				object-position: center;
+			}
+		}
+		
+		&.bottom {
+			img {
+				-o-object-position: bottom;
+				object-position: bottom;
+			}
+		}
+		
+		&.right {
+			img {
+				-o-object-position: right;
+				object-position: right;
+			}
+		}
+	}
+}
+
+
 //seller tips video slide up
 
 .video_container {
