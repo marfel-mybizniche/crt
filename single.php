@@ -1,9 +1,9 @@
 <?php get_header() ?>
-<section class="blog_content">	
-    <div class="grid-container">	
+<section class="blog_content">  
+    <div class="grid-container">    
         <div class="grid-x grid-margin-x">
             <div class="cell large-10 large-offset-1">
-                <div class="post_back show-for-large"><a href="<?php the_permalink(); ?>"><span>&#129120;</span> Back</a></div>
+                <div class="post_back show-for-large"><a href="javascript:history.back()"><span>&#129120;</span> Back</a></div>
                 <?php  while ( have_posts() ) : the_post(); ?>
                 <div class="post_cats">
                     <?php $category = get_the_category();

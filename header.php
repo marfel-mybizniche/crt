@@ -101,9 +101,9 @@ $page_slug = $post->post_name .'_page';
 ?>
     <main id="content" class="content <?php echo esc_attr($page_slug) ?> "> 
         <?php 
-            //if(is_home()) {
-            //    get_template_part( 'templates/blog-head' );
-            //} else {
+            if(is_home() || is_category()) {
+                get_template_part( 'templates/blog-head' );
+            } else {
                 get_template_part( 'templates/page-head' );
-            //}
+            }
         ?>
