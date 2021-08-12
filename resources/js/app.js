@@ -12,18 +12,8 @@
 
         utils: function () {
 
-            $('.navbar .btn-user').click(function () {
-                $('#header').toggleClass('show-account');
-                $('#header').removeClass('show-classes');
-                $('#header').removeClass('show-menu');
-            });
-
-            $('.navbar .btn-classes').click(function () {
-                $('#header').toggleClass('show-classes');
-                $('#header').removeClass('show-account');
-                $('#header').removeClass('show-menu');
-            });
-
+            $('.fancybox').fancybox();
+            
             $(window).scroll(function () {
                 var getTop = $('.courses_results').offset().top;
                 if ($(this).scrollTop() > getTop) {

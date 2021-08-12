@@ -16,11 +16,15 @@ $custom_content = get_field('custom_content', 51);
 
 	<div class="hero_banner blog_banner">
 			
-		<figure class="bg">
-			<img src="<?php echo get_field('page_header_image', 51); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" />
+		<figure class="bg media">
+			<img class="<?php if(get_field('page_header_image_small', 51)) echo 'show-for-medium'; ?>" src="<?php echo get_field('page_header_image', 51); ?>" alt="" />
+			
+			<?php if(get_field('page_header_image_small', 51)) { ?>
+			<img class="hide-for-medium" src="<?php echo get_field('page_header_image_small', 51); ?>" alt="" />
+			<?php } ?>
 		</figure>
 
-		<div class="grid-container"> 			
+		<div class="grid-container copy"> 			
 			<div class="banner_wrap">	
 				<div class="banner_left <?php echo get_field('banner_subtitle_style', 51);?>">
 					<h3 class="banner_subtitle_text"><?php echo get_field('page_header_subtitle', 51); ?></h3>

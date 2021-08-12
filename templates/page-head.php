@@ -67,7 +67,11 @@ if(! strpos( $template, 'single-listings.php' )): // not in single post template
 				</style>
 				
 		<figure class="bg <?php echo $header_banner_position; ?>">
-			<img src="<?php echo get_field('page_header_image'); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" />
+			<img class="<?php if(get_field('page_header_image_small')) echo 'show-for-medium'; ?>" src="<?php echo get_field('page_header_image'); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" />
+			
+			<?php if(get_field('page_header_image_small')) { ?>
+			<img class="hide-for-medium" src="<?php echo get_field('page_header_image_small'); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" />
+			<?php } ?>
 		</figure>
 		<?php elseif( strpos($template, 'archive-listings.php') ): ?>
 			<figure class="bg <?php echo $header_banner_position; ?>">
