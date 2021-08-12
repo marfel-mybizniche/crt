@@ -392,6 +392,12 @@ body.single-post {
         }
     }
     
+    @media (max-width:782px) {
+        .banner_paragraph p {
+            text-align:left !important;
+        }
+    }
+    
     @media (max-width:639px) {
         .banner_subtitle_title {
             font-size: 24px;
@@ -399,6 +405,10 @@ body.single-post {
 
         .stars {
             max-width:150px;
+        }
+
+        .banner_paragraph p {
+            font-size:14px !important;
         }
     }
 }
