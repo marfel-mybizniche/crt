@@ -137,56 +137,57 @@ figure {
 
 .hero_banner_wrap {
 
-	@include media(min-width, 1024px) {
-		&.dark_overlay {
-			background: linear-gradient(180deg, rgba(22, 31, 30, 0.4) 0%, rgba(22, 31, 30, 0.35) 42.19%, rgba(47, 55, 54, 0.6) 67.19%, #2F3736 100%);
-			background-blend-mode: multiply, normal;
+    @include media(min-width, 1024px) {
+        &.dark_overlay {
+            background: linear-gradient(180deg, rgba(22, 31, 30, 0.4) 0%, rgba(22, 31, 30, 0.35) 42.19%, rgba(47, 55, 54, 0.6) 67.19%, #2F3736 100%);
+            background-blend-mode: multiply, normal;
 
-			&:before {
-				display: none;
-			}
-		}
-	}
+            &:before {
+                display: none;
+            }
+        }
+    }
 }
+
 .hero_banner {
 
-	.bg {
-			
-		&.left {
-			img {
-				-o-object-position: left;
-				object-position: left;
-			}
-		}
-		
-		&.top {
-			img {
-				-o-object-position: top;
-				object-position: top;
-			}
-		}
-		
-		&.center {
-			img {
-				-o-object-position: center;
-				object-position: center;
-			}
-		}
-		
-		&.bottom {
-			img {
-				-o-object-position: bottom;
-				object-position: bottom;
-			}
-		}
-		
-		&.right {
-			img {
-				-o-object-position: right;
-				object-position: right;
-			}
-		}
-	}
+    .bg {
+
+        &.left {
+            img {
+                -o-object-position: left;
+                object-position: left;
+            }
+        }
+
+        &.top {
+            img {
+                -o-object-position: top;
+                object-position: top;
+            }
+        }
+
+        &.center {
+            img {
+                -o-object-position: center;
+                object-position: center;
+            }
+        }
+
+        &.bottom {
+            img {
+                -o-object-position: bottom;
+                object-position: bottom;
+            }
+        }
+
+        &.right {
+            img {
+                -o-object-position: right;
+                object-position: right;
+            }
+        }
+    }
 }
 
 
@@ -580,7 +581,7 @@ figure {
     .listing_inner {
 
         margin-bottom: 50px;
-        
+
         .listing_item {
             color: $color-white;
 
@@ -808,7 +809,7 @@ figure {
         .listing_sticky_info {
 
             position: fixed;
-           /* top: calc(28px + 120px);*/
+            /* top: calc(28px + 120px);*/
             left: 0;
             right: 0;
             z-index: 5;
@@ -820,9 +821,10 @@ figure {
 
         .listing_gallery_wrap {
 
-            .temp_gallery{
+            .temp_gallery {
                 display: none;
             }
+
             .listing_gallery {
                 .slide-nav {
                     display: flex;
@@ -974,12 +976,13 @@ figure {
         padding: 12px 0;
         visibility: hidden;
         opacity: 0;
-        transform: translate(0,-100%);
-        -webkit-transform: translate(0,-100%);
+        transform: translate(0, -100%);
+        -webkit-transform: translate(0, -100%);
         @extend %anim-default;
+
         &.active {
-              transform: translate(0,0%);
-        -webkit-transform: translate(0,0%);
+            transform: translate(0, 0%);
+            -webkit-transform: translate(0, 0%);
             opacity: 1;
 
             visibility: visible;
@@ -1057,9 +1060,10 @@ figure {
         hr {
             margin-left: -20px;
         }
+
         .more_btn,
         .schedule_btn {
-            
+
             .button {
                 height: 68px;
                 display: flex;
@@ -1631,7 +1635,7 @@ figure {
                 background-repeat: no-repeat;
                 display: inline-block;
                 margin-right: 12px;
-								flex-shrink: 0;
+                flex-shrink: 0;
 
                 @include media (max-width, 1023px) {
                     display: none;
@@ -1648,21 +1652,23 @@ figure {
             margin-bottom: 50px;
 
             .slick-arrow {
-							display: block;
-							background: none;
-							top: 10px;
-							opacity: 1;
+                display: block;
+                background: none;
+                top: 10px;
+                opacity: 1;
 
-							&.slick-prev {
-								left: -25px;
-							}
-							&.slick-next {
-								right: -25px;
-							}
-							&:before {
-								color: red;
-								opacity: 1;
-							}
+                &.slick-prev {
+                    left: -25px;
+                }
+
+                &.slick-next {
+                    right: -25px;
+                }
+
+                &:before {
+                    color: red;
+                    opacity: 1;
+                }
             }
 
             .vendors_category {
@@ -2102,3 +2108,4 @@ figure {
     }
 
 }
+

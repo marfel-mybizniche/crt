@@ -57,7 +57,15 @@ if(! strpos( $template, 'single-listings.php' )): // not in single post template
 	<div class="hero_banner">
 
 		<?php if( get_field('page_header_image') ): ?>
-			
+			<style type="text/css">
+				/* .hero_banner .bg{
+					background: url("<?php echo get_field('page_header_image');?>")  center center no-repeat;
+					background-size: cover;
+					background-blend-mode: multiply;
+  					background-image: linear-gradient(to top, rgba(26, 23, 78, 0.8), rgba(26, 23, 78, 0), rgba(47, 35, 64, 0.65), rgba(84, 56, 40, 0.92));
+				} */
+				</style>
+				
 		<figure class="bg <?php echo $header_banner_position; ?>">
 			<img src="<?php echo get_field('page_header_image'); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" />
 		</figure>

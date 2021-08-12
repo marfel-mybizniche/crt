@@ -786,6 +786,10 @@ h1.page_title {
     figure {
         margin-bottom: 3em !important;
 
+        &.icn-recent {
+            margin-bottom: 20px !important;
+        }
+
         @include media(max-width, 375px) {
 
             margin-bottom: 5em !important;
@@ -836,32 +840,33 @@ h1.page_title {
 }
 
 .benefits_lists_column {
-	@media only screen and (min-width:783px) and (max-width:1023px){
-		flex-basis: 100% !important;
-	}
+    @media only screen and (min-width:783px) and (max-width:1023px) {
+        flex-basis: 100% !important;
+    }
 }
 
 .benefits_list {
 
-	.numbered_benefits {
-		grid-template-columns: 48px auto !important;
+    .numbered_benefits {
+        grid-template-columns: 48px auto !important;
 
-		.wp-block-media-text__content {
+        .wp-block-media-text__content {
 
-			strong {
-				color: #161f1e;
-			}
-		}
-	}
+            strong {
+                color: #161f1e;
+            }
+        }
+    }
 
-	@media only screen and (min-width:783px) and (max-width:1023px){
-		.benefits_lists_column {
-			flex-basis: 100%;
-		}
-		.wp-block-group__inner-container {
-			padding-right: 0;
-		}
-	}
+    @media only screen and (min-width:783px) and (max-width:1023px) {
+        .benefits_lists_column {
+            flex-basis: 100%;
+        }
+
+        .wp-block-group__inner-container {
+            padding-right: 0;
+        }
+    }
 }
 
 .img_bottom {
@@ -872,49 +877,49 @@ h1.page_title {
 
 .\32 500-closing-costs_page {
 
-	.sec_form {
-		@media (min-width:600px) and (max-width:781px) {
-			margin-right: 2em;
-		}
-	}
-	
-	.cta_desktop_box {
-		@include media(min-width, 1024px) {
-			margin-left: 30px;
-		}
+    .sec_form {
+        @media (min-width:600px) and (max-width:781px) {
+            margin-right: 2em;
+        }
+    }
 
-		.wp-block-group__inner-container {
-			padding-left: 0;
-			padding-right: 0;
-		}
+    .cta_desktop_box {
+        @include media(min-width, 1024px) {
+            margin-left: 30px;
+        }
 
-		&.mobile_only {
-			.wp-block-group__inner-container {
-				padding: 0 30px;
-			}
-		}
-		
-		&.desktop_only {
-			.wp-block-group__inner-container {
-				@include media(max-width, 1023px) {
-					margin-left: 30px;
-				}
-			}
-		}
-	}
+        .wp-block-group__inner-container {
+            padding-left: 0;
+            padding-right: 0;
+        }
 
-	.intro_text_2500 {
-		margin-right: 40px;
-	
-		@include media(max-width, 1024px) {
-			margin-right: 30px;
-		}
-	
-		@include media(max-width, 768px) {
-			margin-right: 0;
-		}
-		
-	}
+        &.mobile_only {
+            .wp-block-group__inner-container {
+                padding: 0 30px;
+            }
+        }
+
+        &.desktop_only {
+            .wp-block-group__inner-container {
+                @include media(max-width, 1023px) {
+                    margin-left: 30px;
+                }
+            }
+        }
+    }
+
+    .intro_text_2500 {
+        margin-right: 40px;
+
+        @include media(max-width, 1024px) {
+            margin-right: 30px;
+        }
+
+        @include media(max-width, 768px) {
+            margin-right: 0;
+        }
+
+    }
 }
 
 // Thank You Pages
@@ -927,15 +932,15 @@ h1.page_title {
     border: 1px solid #E5E5E5;
     padding: 50px;
 
-		.wp-block-group__inner-container  {
-			padding-left: 0;
-			padding-right: 0;
+    .wp-block-group__inner-container {
+        padding-left: 0;
+        padding-right: 0;
 
-			@include media(max-width, 600px) {
-				padding-left: 30px;
-				padding-right: 30px;
-			}
-		}
+        @include media(max-width, 600px) {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+    }
 
     .call_carol_col {
         p.call_carol {
@@ -943,79 +948,81 @@ h1.page_title {
         }
     }
 
-		.call_carol_num {
+    .call_carol_num {
 
-			margin-left: 0;
+        margin-left: 0;
 
-			p {
-				margin-bottom: 0;
-			}
-		}
+        p {
+            margin-bottom: 0;
+        }
+    }
 
     @include media(max-width, 1023px) {
         padding: 0;
         border: 0;
     }
 
-		@media only screen and (min-width:783px) and (max-width:1199px){
-			&.cta_desktop_box {
+    @media only screen and (min-width:783px) and (max-width:1199px) {
+        &.cta_desktop_box {
 
-				.wp-block-group__inner-container {
-					padding-right: 0;
-				}
+            .wp-block-group__inner-container {
+                padding-right: 0;
+            }
 
-				.call_carol_col {
-					p {
-						font-size: 14px !important;
-					}
-				}
-				.call_carol_num {
-					p {
-						font-size: 36px !important;
-					}
-				}
-				
-				.small_media_text {
+            .call_carol_col {
+                p {
+                    font-size: 14px !important;
+                }
+            }
 
-					.wp-block-media-text__content {
-						p {
-							font-size: 14px !important;
-						}
-					}
-				}
-			}
-			
-		}
-		
-		@media only screen and (min-width:1200px) and (max-width:1490px){
-			&.cta_desktop_box {
+            .call_carol_num {
+                p {
+                    font-size: 36px !important;
+                }
+            }
 
-				.wp-block-group__inner-container {
-					padding-right: 0;
-				}
+            .small_media_text {
 
-				.call_carol_col {
-					p {
-						font-size: 16px !important;
-						margin-right: 15px;
-					}
-				}
-				.call_carol_num {
-					p {
-						font-size: 46px !important;
-					}
-				}
-				
-				.small_media_text {
+                .wp-block-media-text__content {
+                    p {
+                        font-size: 14px !important;
+                    }
+                }
+            }
+        }
 
-					.wp-block-media-text__content {
-						p {
-							font-size: 20px !important;
-						}
-					}
-				}
-			}
-		}
+    }
+
+    @media only screen and (min-width:1200px) and (max-width:1490px) {
+        &.cta_desktop_box {
+
+            .wp-block-group__inner-container {
+                padding-right: 0;
+            }
+
+            .call_carol_col {
+                p {
+                    font-size: 16px !important;
+                    margin-right: 15px;
+                }
+            }
+
+            .call_carol_num {
+                p {
+                    font-size: 46px !important;
+                }
+            }
+
+            .small_media_text {
+
+                .wp-block-media-text__content {
+                    p {
+                        font-size: 20px !important;
+                    }
+                }
+            }
+        }
+    }
 
     @include media(max-width, 480px) {
         .section_subtitle {
@@ -1042,19 +1049,19 @@ h1.page_title {
     }
 }
 
-@media only screen and (min-width:783px) and (max-width:1200px){
-	.carol-royse-team-pic {
+@media only screen and (min-width:783px) and (max-width:1200px) {
+    .carol-royse-team-pic {
 
-		.wp-block-group__inner-container {
-			padding: 0;
-			padding-left: 30px;
-		}
-		
-		figure {
-			margin-top: -180px !important;
-			width: 400px;
-		}
-	}
+        .wp-block-group__inner-container {
+            padding: 0;
+            padding-left: 30px;
+        }
+
+        figure {
+            margin-top: -180px !important;
+            width: 400px;
+        }
+    }
 }
 
 .border_none {
@@ -1587,23 +1594,23 @@ ul.star-rating li i {
             .call_carol_col {
                 flex-basis: 25% !important;
 
-								p {
-									font-size: 13px !important;
-								}
+                p {
+                    font-size: 13px !important;
+                }
             }
 
             .call_carol_num {
 
                 flex-basis: 75% !important;
                 margin-left: 0 !important;
-								text-align: right;
+                text-align: right;
 
                 p {
                     font-size: 36px !important;
 
-										strong {
-											font-weight: 600;
-										}
+                    strong {
+                        font-weight: 600;
+                    }
                 }
             }
 
@@ -1706,7 +1713,7 @@ img.wpsl-store-thumb.wp-post-image {
         margin-right: 15px;
         margin-bottom: 30px;
         position: relative;
-        
+
 
         &.one-half {
             width: calc(50% - 30px);
@@ -1736,11 +1743,12 @@ img.wpsl-store-thumb.wp-post-image {
             right: 0;
             bottom: 0;
             padding-top: 40px;
-             @include media(min-width, 1016px) {
-                        border-left: 4px solid #DB323F;
-                        left: -4px;
-                        width: calc(100% + 4px);
-                    }
+
+            @include media(min-width, 1016px) {
+                border-left: 4px solid #DB323F;
+                left: -4px;
+                width: calc(100% + 4px);
+            }
         }
 
         .listing-property-type {
@@ -1880,7 +1888,8 @@ img.wpsl-store-thumb.wp-post-image {
 //innner page
 .listing-template-default {
     .hsnav-s10 {
- background: $color-white !important;
+        background: $color-white !important;
+
         .navbar {
             .logo {
                 display: none !important;
@@ -1931,7 +1940,7 @@ img.wpsl-store-thumb.wp-post-image {
 
                         a {
                             &::before {
-                                content: url('../../resources/img/menu-report.png')!important;
+                                content: url('../../resources/img/menu-report.png') !important;
                                 width: 21px;
                                 height: 21px;
                                 padding-bottom: 25px;
@@ -1945,7 +1954,7 @@ img.wpsl-store-thumb.wp-post-image {
                         a {
 
                             &::before {
-                                content: url('../../resources/img/menu-podcast.png')!important;
+                                content: url('../../resources/img/menu-podcast.png') !important;
                                 width: 28px;
                                 height: 18px;
                                 padding-bottom: 25px;
@@ -1979,6 +1988,18 @@ img.wpsl-store-thumb.wp-post-image {
     section {
         &.hero_banner_wrap {
             display: none;
+        }
+    }
+}
+
+
+.hero_banner{
+    .banner_paragraph{
+        &.mobile_only{
+            p{
+                
+                text-align: center;
+            }
         }
     }
 }
