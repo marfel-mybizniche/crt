@@ -42,6 +42,9 @@ h1{
 }
 h2{
     font-size: 48px;
+    &.client-satisfaction{
+        font-size: 56px;
+    }
 }
 h3{
     font-size:32px;
