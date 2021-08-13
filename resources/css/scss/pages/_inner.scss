@@ -100,6 +100,16 @@ h1.page_title {
     margin-right: auto;
 }
 
+@media only screen and (min-width:783px) and (max-width:1024px) {
+	.has_cr_trio {
+		position: relative;
+
+		.img_bottom {
+			position: absolute;
+			bottom: 0;
+		}
+	}
+}
 
 /*.ct_*/
 .address_boxes {
@@ -873,8 +883,15 @@ h1.page_title {
     margin-bottom: -30px;
 }
 
-// 2500 page
+.sec_form {
+	p {
+		&.has-text-color {
+			opacity: 0.8;
+		}
+	}
+}
 
+// 2500 page
 .\32 500-closing-costs_page {
 
     .sec_form {
