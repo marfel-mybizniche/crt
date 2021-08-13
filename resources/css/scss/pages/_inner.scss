@@ -945,6 +945,24 @@ h1.page_title {
 	font-weight: 300;
 }
 
+.thank_you_referral_column {
+	margin-top: 0;
+	margin-bottom: 0;
+	
+	@include media (max-width, 1279px) {
+		padding: 0 50px;
+	}
+	
+	@include media (max-width, 480px) {
+		padding: 0;
+	}
+	
+	@include media (min-width, 1280px) {
+		padding: 0 300px;
+	}
+
+}
+
 .cta_desktop_box {
     border: 1px solid #E5E5E5;
     padding: 50px;
