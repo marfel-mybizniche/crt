@@ -76,22 +76,19 @@ $(document).ready(function(){
 				< Calculate on-scrolls and dynamically adjust form placement. >
 			*/
 			$(window).on('scroll', function() {
-				console.log("vts_bottomMargin: " + vts_bottomMargin);
-
 				var vts_scrollBottomPos = $(window).scrollTop() + $(window).height();
-				console.log("vts_scrollPos: " + vts_scrollBottomPos);
-
 				var vts_scrollHeight = $(document).height() - vts_bottomMargin;
-				console.log("vts_scrollHeight: " + vts_scrollHeight);
-
+	
 				if (!($(window).width() <= 768)) {
 					if (vts_scrollBottomPos > vts_scrollHeight) {
 						var vts_formBottomOffset = (vts_scrollBottomPos - vts_scrollHeight) + 40;
-						console.log(">>> vts_formBottomOffset: " + vts_formBottomOffset);
 						$('.vendors_wrapper .sticky_form').css('bottom',vts_formBottomOffset+'px');
-					} else {
+					} else if (vts_scrollHeight == vts_scrollBottomPos) {
+						$('.btn_scroll_up').css('display','none');
+					}
+					else {
 						$('.vendors_wrapper .sticky_form').css('bottom','40px');
-					}	
+					}
 				}
 	
 			});
@@ -119,10 +116,17 @@ $(document).ready(function(){
               /* Button Scroll Up */
               (button_up = function() {
                   var button;
+									var scrollBottomPos = top + $(window).height();
+									var scrollTopButtonOffset = $(document).height() - 150;
+									console.log("scrollBottomPos: " + scrollBottomPos);
+									console.log("scrollTopButtonOffset: " + scrollTopButtonOffset);
+
                   button = $('.btn_scroll_up');
-                  if (top > $(window).offset().top){
+                  if (top > $(window).offset().top && !(scrollBottomPos > scrollTopButtonOffset)){
+										console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> FADE IN!");
                       return button.fadeIn('slow');
                   } else {
+										console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> FADE OUT!");
                       return button.fadeOut('slow');
                   }
               })();
