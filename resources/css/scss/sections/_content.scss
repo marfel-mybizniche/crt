@@ -1546,6 +1546,15 @@ figure {
     }
 }
 
+.et_divi_builder {
+	.page-content {
+		padding-bottom: 0;
+		@include media (max-width, 1023px) {
+			padding-top: 10px;
+		}
+	}
+}
+
 //podcasts
 .podcast_iframe {
     width: 100%;
