@@ -118,15 +118,11 @@ $(document).ready(function(){
                   var button;
 									var scrollBottomPos = top + $(window).height();
 									var scrollTopButtonOffset = $(document).height() - 150;
-									console.log("scrollBottomPos: " + scrollBottomPos);
-									console.log("scrollTopButtonOffset: " + scrollTopButtonOffset);
 
                   button = $('.btn_scroll_up');
                   if (top > $(window).offset().top && !(scrollBottomPos > scrollTopButtonOffset)){
-										console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> FADE IN!");
                       return button.fadeIn('slow');
                   } else {
-										console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> FADE OUT!");
                       return button.fadeOut('slow');
                   }
               })();
@@ -434,7 +430,14 @@ $(document).ready(function(){
                 slidesToScroll: 1                     
               });
 
-        });
+
+
+
+	/*
+		Vendors Type Singe - Scrolling Form (vts_)
+		< Set variables from page calculations. >
+	*/
+});
 
     
 })(jQuery);
