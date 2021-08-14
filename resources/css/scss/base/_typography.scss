@@ -44,6 +44,10 @@ h2{
     font-size: 48px;
     &.client-satisfaction{
         font-size: 56px;
+        @include media(max-width,639px){
+            font-size: 24px;
+            margin-bottom: 0px;
+        }
     }
 }
 h3{
