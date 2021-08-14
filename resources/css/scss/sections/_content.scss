@@ -142,7 +142,8 @@ figure {
 
     @include media(min-width, 1024px) {
         &.dark_overlay {
-            background: linear-gradient(180deg, rgba(22, 31, 30, 0.4) 0%, rgba(22, 31, 30, 0.35) 42.19%, rgba(47, 55, 54, 0.6) 67.19%, #2F3736 100%);
+						background: rgb(0,0,0);
+						background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7399334733893557) 0%, rgba(0,0,0,0) 100%, rgba(0,0,0,1) 100%);
             background-blend-mode: multiply, normal;
 
             &:before {
