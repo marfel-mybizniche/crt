@@ -921,6 +921,11 @@ h1.page_title {
 }
 
 // Exclusive VIP Buyer page
+.exclusive_vip {
+	@include media(max-width, 639px) {
+		padding-top: 30px !important;
+	}
+}
 .exclusive_vip_bottom_notice {
 	.wp-block-group__inner-container {
 		@include media(max-width, 599px) {
