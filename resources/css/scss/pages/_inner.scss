@@ -2280,6 +2280,7 @@ body {
 
 					.banner_wrap {
 						min-height: 100vh !important;
+						padding-bottom: 100px;
 
 						.banner_left {
 
@@ -2299,10 +2300,12 @@ body {
 							}
 
 							.banner_paragraph {
+								padding-left: 0;
 								* {
 									font-size: 14px;
 									line-height: 22px;
 									text-align: left;
+									color: #fff;
 								}
 									
 							}
@@ -2373,10 +2376,10 @@ body {
 						margin-bottom: 200px;
 					}
 					@media only screen and (min-width:1024px) and (max-width:1280px) {
-						margin-bottom: 250px;
+						margin-bottom: 270px;
 					}
 					@media only screen and (min-width:1281px) {
-						margin-bottom: 320px;
+						margin-bottom: 350px;
 					}
 				}
 
