@@ -716,15 +716,17 @@ body.medium_height {
 				@include media (max-width, 1023px) {
 					width: 100%;
 					line-height: 1.1;
+					text-align: center;
 				}
 
 				@include media (max-width, 639px) {
 					font-size: 24px;
+					text-align: left;
 				}
 			}
 
 			.banner_paragraph {
-				
+
 				p {
 					font-weight: 300;
 					font-size: 20px;
@@ -733,13 +735,18 @@ body.medium_height {
 						font-size: 14px;
 						text-align: left;
 						font-weight: 400;
-						
+
 						color: $color-dark;
 					}
 				}
+
 				@include media (max-width, 639px) {
-					max-width: calc(100% - 81px);
-					margin:0 auto -60px;
+					padding-left: 42px;
+					margin: 0 auto -60px;
+				}
+
+				@include media (max-width, 375px) {
+					padding-left: 25px;
 				}
 
 			}
