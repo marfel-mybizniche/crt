@@ -1473,6 +1473,11 @@ h1.page_title {
         grid-template-columns: 9% auto !important;
 
     }
+    .wp-block-media-text__content{
+        p{
+            font-size:20px;
+        }
+    }
 
     @include media (max-width, 1023px) {
         .wp-block-media-text {
@@ -1854,6 +1859,9 @@ img.wpsl-store-thumb.wp-post-image {
 
         &.one-third {
             width: calc(33.33% - 30px);
+            &.first{
+                margin-left:0px;
+            }
         }
 
         &.one-fourth {
