@@ -2259,3 +2259,167 @@ img.wpsl-store-thumb.wp-post-image {
         padding: 0 30px;
     }
 }
+
+// Podcasts
+body {
+
+	&.et_mobile_device_not_ipad {
+		&.full_height {
+
+			.hero_banner_wrap {
+
+				&.full_height {
+					figure {
+						&.bg {
+							img {
+								object-position: 25% 50%;
+								height: 73%;
+							}
+						}
+					}
+
+					.banner_wrap {
+						min-height: 100vh !important;
+
+						.banner_left {
+
+							.banner_subtitle_text {
+								font-weight: 600;
+								font-size: 10px;
+								line-height: 12px;
+								letter-spacing: 0.2em;
+								text-transform: uppercase;
+							}
+
+							.banner_subtitle_title {
+								font-weight: 600;
+								font-size: 24px;
+								line-height: 24px;
+								color: #F8F8F8;
+							}
+
+							.banner_paragraph {
+								* {
+									font-size: 14px;
+									line-height: 22px;
+									text-align: left;
+								}
+									
+							}
+						}
+					}
+					
+				}
+			}
+		}
+	}
+
+	&.full_height {
+
+		#header {
+
+			.is-anchored {
+			
+				@include media(max-width, 1023px) {
+					background: transparent;
+
+					.navbar {
+
+						.navicon {
+							
+							&::before {
+								border-top: 2px solid #FFFFFF;
+							}
+							
+							&::after {
+								border-top: 2px solid #FFFFFF;
+							}
+
+							.nav_label_1 {
+								color: #FFFFFF;
+							}
+						}
+
+						.navphone {
+
+							&::before {
+								content: url(../img/icn-phone-light.svg);
+							}
+
+							span {
+								color: #FFFFFF;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.podcast_group_container {
+	.wp-block-group__inner-container {
+		.wp-block-columns {
+			margin-bottom: 0;
+
+			.column_invert_right {
+				position: relative;
+
+				.podcast_iframe {
+					@include media(max-width, 782px) {
+						margin-bottom: 320px;
+					}
+					@media only screen and (min-width:783px) and (max-width:1023px) {
+						margin-bottom: 200px;
+					}
+					@media only screen and (min-width:1024px) and (max-width:1280px) {
+						margin-bottom: 250px;
+					}
+					@media only screen and (min-width:1281px) {
+						margin-bottom: 320px;
+					}
+				}
+
+				.cta_place_bottom {
+					margin-bottom: 0;
+					position: absolute;
+					bottom: 0;
+					@include media(max-width, 782px) {
+						width: 310px;
+						left: 50%;
+						margin-left: -155px;
+					}
+					@media only screen and (min-width:783px) and (max-width:1023px) {
+						width: 200px;
+						left: 50%;
+						margin-left: -100px;
+					}
+					@media only screen and (min-width:1024px) and (max-width:1280px) {
+						width: 274px;
+						left: 50%;
+						margin-left: -137px;
+					}
+					@media only screen and (min-width:1281px) {
+						width: 350px;
+						left: 50%;
+						margin-left: -175px;
+					}
+
+					.call_carol {
+						font-size: 30px;
+						justify-content: center;
+						@media only screen and (min-width:783px) and (max-width:1023px) {
+							font-size: 16px;
+						}
+						@media only screen and (min-width:1024px) and (max-width:1280px) {
+							font-size: 28px;
+						}
+						@media only screen and (min-width:1281px) {
+							font-size: 34px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
