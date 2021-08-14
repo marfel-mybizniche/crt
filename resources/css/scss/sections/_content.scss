@@ -104,6 +104,9 @@ figure {
 
                     font-size: 14px !important;
                     font-weight: 600 !important;
+                    @include media(max-width,639px){
+                        padding-top:5px;
+                    }
                 }
             }
 

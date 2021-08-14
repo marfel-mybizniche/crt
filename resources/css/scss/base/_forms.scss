@@ -584,7 +584,7 @@ ul.gform_fields {
             input,
             select {
                 @include media (max-width, 1023px) {
-                    height: auto;
+                    height: 48px;
                     line-height: normal;
                 }
             }

@@ -723,3 +723,35 @@ function mbn_search_form($atts) {
     return $search_form;
 }
 add_shortcode( 'search_form', 'mbn_search_form' );
+
+
+
+function mbn_sold_listings(){
+
+    $query = query_posts([
+        'post_type'=>'sold-listings',
+        'publish_status'=>'publish',
+        'orderby'=>'menu_order',
+        'order'=>'asc'
+    ]);
+    $str = "<div class='sold-boxes'>";
+    foreach($query as $post){
+        $img = wp_get_attachment_image( get_field("image",$post->ID), "sold_listing_thumb", false,'' );
+        $str .="<div class='box'>";
+        $str .="<div class='thumb'>";
+        $str .="<span class='addr'>".get_field("address",$post->ID)."</span>";
+        $str .=$img;
+        $str .="</div>";
+        $str .="<h4>".$post->post_title."</h4>";
+        $str .="<span class='price'>".get_field("price",$post->ID)."</span>";
+        $str .="</div>";
+    }
+
+     $str .= "</div>";
+
+
+
+    return $str;
+}
+
+add_shortcode( 'mbn_sold_listings', 'mbn_sold_listings' );
