@@ -731,11 +731,14 @@ body.medium_height {
 					font-weight: 300;
 					font-size: 20px;
 
+					@include media (max-width, 1023px) {
+						text-align: center;
+					}
+
 					@include media (max-width, 639px) {
 						font-size: 14px;
 						text-align: left;
 						font-weight: 400;
-
 						color: $color-dark;
 					}
 				}
