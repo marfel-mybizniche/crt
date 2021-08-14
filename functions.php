@@ -49,7 +49,7 @@ function mbn_theme_setup(){
 }
 add_action('after_setup_theme', 'mbn_theme_setup');
 
-
+add_image_size("sold_listing_thumb",450,267,true);
 /**
  * Enqeueue stylesheets and scripts
 **/
