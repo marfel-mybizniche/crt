@@ -159,6 +159,62 @@ function mbn_testimonials_shortcode(){
 
 }
 
+add_shortcode('mbn_regular_testimonials', 'mbn_regular_testimonials_shortcode');
+function mbn_regular_testimonials_shortcode(){
+
+    $query = array(
+        'post_type'  => 'client_testimonials',
+        'orderby'    => '',
+        'order'      => 'asc',
+				'meta_key'		=> 'review_type',
+				'meta_value'	=> 'regular_review'
+    );
+    
+    $testimonials = new WP_Query( $query );
+
+       
+    $returnhtml .= '<div class="wp-block-group happy_clients_section slick_on">';
+    $returnhtml .= '<div class="wp-block-group__inner-container">';
+
+    if($testimonials->have_posts()):
+
+        while ( $testimonials->have_posts() ) : $testimonials->the_post();
+
+						$review_type                = get_field('review_type');
+						$short_excerpt        			= get_field('short_excerpt');
+						$testimonial_name           = get_field('testimonial_name');
+						$testimonial_picture        = get_field('testimonial_picture');
+						$long_description           = get_field('long_description');
+
+            $returnhtml .= '<div class="wp-block-columns slick_item grid-x grid-margin-x">';
+            
+            if( $review_type == 'regular_review' ) :
+                $returnhtml .= '<div class="wp-block-column cell large-5 xlarge-5 copy column_invert_left">';
+                $returnhtml .= ( $testimonial_name ) ? '<h3 class="section_subtitle has-text-color" style="color:#db323f">'. $testimonial_name .'</h3>': '';
+								$returnhtml .= ( $short_excerpt ) ? '<h3><strong>'. $short_excerpt .'</strong></h3>': '';
+								$returnhtml .= ( $long_description ) ? '<p>'. $long_description .'</p>': '';
+								$returnhtml .= '</div>';
+                $returnhtml .= '<div class="wp-block-column cell large-7 xlarge-7 media column_invert_right">';
+								$returnhtml .= ($testimonial_picture) ? '<figure class="wp-block-image size-large happy_client_img is-style-default"><img src="'. $testimonial_picture .'" alt=""></figure>' : '<figure><img src="https://via.placeholder.com/1200x500"/></figure>';
+								$returnhtml .= '</div>';
+            else:
+                return;
+            endif;
+            $returnhtml .= '</div>';
+
+        endwhile;
+        $returnhtml .= '</div></div>';
+        wp_reset_postdata();
+
+    else:
+        $returnhtml .= '<p>'. esc_html('Sorry, no posts were found.') .'</p>';
+
+    endif;
+
+    return $returnhtml;
+
+}
+
 function build_contact_us_map(){
 
     wp_reset_query();
