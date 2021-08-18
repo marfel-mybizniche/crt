@@ -1108,7 +1108,7 @@ body.single-post {
 
     .refer_box {
         position: relative;
-        padding: 30px;
+        padding: 25px;
         margin:0 -30px;
         background: #161F1E;
         color: #fff;
@@ -1802,7 +1802,7 @@ body.error404 {
                 }
 
                 .banner_wrap {
-                    padding-bottom: 20px;
+                    padding-bottom: 0;
                 }
 
                 .banner_subtitle_title {
@@ -1816,6 +1816,10 @@ body.error404 {
     
                 figure.bg {
                     height: auto;
+                }
+
+                .banner_subtitle_title {
+                    text-align:left !important;
                 }
             }
         }
