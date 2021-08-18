@@ -962,9 +962,43 @@ body.single-post {
 
 // }
 
+
+//Join CRT 
+.sec_join_hero {
+    position: relative;
+
+    @media (max-width:1023px) {
+        
+        .hero_banner  {
+            figure.bg {
+                height: auto;
+            }
+
+            .banner_subtitle_title,
+            .banner_paragraph p {
+                text-align: left !important;
+            }
+        }
+        
+    }
+    
+    @media (max-width:639px) {
+        
+        .hero_banner  {
+            .banner_paragraph {
+                padding:0 !important;
+                margin:0 !important;
+            }
+        }
+        
+    }
+
+}
+
 .sec_join_crt {
     position: relative;
     padding: 60px 0;
+    overflow: hidden;
 
     .join_box {
         margin: 50px 0;
@@ -974,8 +1008,8 @@ body.single-post {
     }
 
     .sec_form {
-        margin-left: -30px;
-        margin-right: -30px;
+        margin-left: -35px;
+        margin-right: -35px;
         padding: 30px ;
         opacity: 1;
 
@@ -992,6 +1026,8 @@ body.single-post {
     }
 
     @media (max-width:1023px) {
+        padding-top: 0;
+
         .sec_form {    
             .ct_field {
                 input {
@@ -1011,14 +1047,28 @@ body.single-post {
     @media (max-width:767px) {
 
         .sec_form {
-            margin-left: -25px;
-            margin-right: -25px;
+            margin-left: -30px;
+            margin-right: -30px;
         }
     }
 }
 
 
 //Referral Program
+.sec_ref_hero {
+    @media (max-width:639px) {
+        .hero_banner {
+            figure.bg {
+                height: auto;
+            }
+
+            .banner_paragraph {
+                margin-bottom: 0 !important;
+            }
+        }
+    }
+}
+
 .sec_ref_intro {
     position: relative;
     padding: 60px 0;
@@ -1154,7 +1204,7 @@ body.single-post {
     @media (max-width:639px) {
 
         h2 {
-            font-size: 24px;
+            font-size: 20px;
         }
         .copy {
             h6 {
@@ -1178,10 +1228,6 @@ body.single-post {
     }
 
     @media (max-width:375px) {
-
-        h2 {
-            font-size: 20px;
-        }
 
         h6 {
             font-size: 10px;
@@ -1551,6 +1597,8 @@ body.single-post {
 
 }
 
+
+//404 Page
 body.error404 {
     background: #fff;
 
@@ -1606,6 +1654,100 @@ body.error404 {
 } 
 
 
+//COntact page
+.sec_contact_hero {
+    position: relative;
+
+    @media (max-width:1023px) {
+        
+        .hero_banner  {
+
+            .banner_subtitle_title,
+            .banner_paragraph p {
+                text-align: left !important;
+            }
+        }
+        
+    }
+    
+    @media (max-width:639px) {
+        
+        .hero_banner  {
+            .banner_paragraph {
+                padding:0 !important;
+                margin:0 !important;
+            }
+        }
+        
+    }
+}
+
+.sec_contact_us {
+    position: relative;
+
+    @media (max-width:1023px) {
+        
+        .sec_form {
+            padding-top: 0 !important;
+        }
+
+        .cell_form {
+            .wp-block-image {
+                margin-bottom: 0;
+            }
+        }
+
+        .cell_info {
+            background: #f1f1f1;
+            margin: 0 -20px;
+            width: auto;
+            padding: 0 20px 20px;
+        }
+
+        .info_boxes {
+            .cell {
+                margin: 0 5px;
+                flex: 1;
+            }
+        }
+    }
+
+    @media (max-width:639px) {
+        
+        .info_boxes {
+            .info_box {
+                padding: 10% 5%;
+            }
+        }
+    }
+}
+
+.office_locator_wrap {
+    overflow: hidden;
+    position: relative;
+
+    .branch_lists {
+
+        .branch_address {
+            min-height: 75px;
+        }
+    }
+
+    @media (max-width:767px) {
+        .branch_lists {
+            padding-right: 50px !important;
+
+            .slick-list {
+                overflow: visible;
+            }
+        }
+    }
+}
+
+
+
+
+//Banner Custom
 .hero_banner_wrap {
     &.full_width {
 
@@ -1680,8 +1822,25 @@ body.error404 {
 }
 
 
+//Carol has the cash offer
+.sec_cash_offer {
+
+    .sec_form > * {
+        padding:0;
+    }
+
+    @media (max-width:782px) {
+        .column_invert_right {
+            margin-left: 0;
+        }
+    }
+}
+
+
+
+
 @media (min-width:1024px) and (max-width:1280px) {
-    .info_box .phone {
+    .info_box .phone { 
         font-size: 20px;
     }
 }

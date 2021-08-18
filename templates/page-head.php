@@ -10,6 +10,7 @@ $header_banner_overlay = get_field('header_banner_overlay');
 $add_image = get_field('right_image');
 $show_elements = get_field('show_elements');
 $custom_content = get_field('custom_content');
+$banner_class = get_field('page_header_class');
 
 if( $banner_height == "full_height" ) {
 	$height = '100vh';

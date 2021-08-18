@@ -1,5 +1,32 @@
-
 body.home {
+
+    #header {
+        .is-at-top {
+            .navbar {
+                .navicon::before, 
+                .navicon::after {
+                    border-color: #fff;
+                }
+
+                .navphone::before {
+                    content: url(../img/icn-phone-light.svg);
+                }
+            }
+        }
+
+        .is-stuck {
+            .navbar {
+                .navicon::before, 
+                .navicon::after {
+                    border-color: #DB323F;
+                }
+
+                .navphone::before {
+                    content: url(../img/icn-phone.svg);
+                }
+            }
+        }
+    }
 
     .hero_banner_wrap {
         &:before {
@@ -244,6 +271,7 @@ body.home {
                         color: #161F1E !important;
                         padding: 15px 45px;
                         margin: 0 !important;
+                        text-align: left;
                     }
 
                     .banner_paragraph {
@@ -252,6 +280,7 @@ body.home {
 
                         p {
                             color: #555;
+                            text-align: left;
                         }
                     }
 
@@ -334,10 +363,11 @@ body.home {
                     }
 
                     .banner_paragraph {
-                        display: block;
+                        //display: block;
                         padding: 0 40px 15px;
                         font-size: 16px;
                         line-height: 1.2;
+                        margin-bottom: 0;
                     }
 
                     // .banner_style_1, 
@@ -348,7 +378,7 @@ body.home {
 
                     .banner_left {
                         padding-top: 30px;
-                        
+                         
                     }
 
                     .banner_right {
@@ -400,14 +430,13 @@ body.home {
     }
 
     @media (max-width:375px) {
-
-        
-        .grid-container {
-            padding-left: 20px !important;
-            padding-right: 20px !important;
-        }
-
         .hero_banner_wrap {
+            
+            .grid-container {
+                padding-left: 20px !important;
+                padding-right: 20px !important;
+            }
+
             .hero_banner {
 
                 .banner_wrap {
@@ -545,6 +574,7 @@ body.home {
     }
     .testimonial_block_wrap {
         padding-top: 0;
+        
     }
     .testimonial_blockitem {
         padding:0 15px;
@@ -567,6 +597,18 @@ body.home {
     }
     
     @media (max-width:1023px) {
+        .testimonial_block_wrap {
+            .grid-container {
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+
+            .testimonial_block {
+                margin: 0;
+            }
+        }
+        
+
         h2 {
             font-size: 40px;
         }
@@ -580,6 +622,12 @@ body.home {
         h2 {
             font-size: 24px;
             margin-bottom: 15px;
+        }
+
+        .testimonial_block_wrap {
+            .testimonial_blockitem {
+                padding:0;
+            }
         }
     }
 }
@@ -733,6 +781,11 @@ body.home {
             padding-left: 35px;
             padding-right: 35px;
             margin-bottom: 50px;
+
+            .wp-block-buttons {
+                margin-left: -30px;
+                margin-right: -30px;
+            }
         }
         .media {
             //margin-left: 25px;
@@ -879,11 +932,13 @@ body.home {
         .listings_nav_header {
             display:none;
         }
+        
         h3 {
-            text-align: center;
+            font-size: 30px;
+            margin-bottom: 20px;
         }
         h3 br {
-            display: none;
+            //display: none;
         }
         .circle_check_list.inline {
             max-width: none;
@@ -898,6 +953,10 @@ body.home {
         
         div.slick-slider {
             margin:0;
+
+            .col-item {
+                padding: 0;
+            }
         }
     }
     @media (max-width:767px) {
@@ -910,6 +969,25 @@ body.home {
         
         button.slick-arrow {
             display:none !important;
+        }
+
+        .call_carol {
+            font-size: 30px;
+        }
+    }
+
+    @media (max-width:639px) {
+        h3 {
+            font-size: 20px;
+
+            br {
+                display: none;
+            }
+        }
+
+        .grid_foot > .cell:first-child {
+            padding-left: 25px;
+            padding-right: 25px;
         }
     }
 }
@@ -1123,7 +1201,7 @@ body.home {
     }
     
     @media (max-width:1023px) {
-        padding:60px 0 40px;
+        padding:40px 0;
 
         .quick_item {
             margin-bottom: 20px;
@@ -1319,12 +1397,12 @@ body.home {
             overflow: hidden;
 
             .slick-list {
-                width: 88%;
+                width: 88%; 
                 overflow: visible;
             }
         }
         
-    } 
+    }
     
     @media (max-width:639px) {
         h6 {
