@@ -143,7 +143,7 @@ function mbn_enqueue_scripts(){
     //     false
     // );
 
-    wp_enqueue_style('local-app', 'http://localhost/carolroyse/wp-content/themes/mybizniche-staging/resources/css/app.css', [], $wp_version);
+    wp_enqueue_style('local-app', 'http://localhost/carolroyse/wp-content/themes/mybizniche/resources/css/app.css', [], $wp_version);
     
 
 }
