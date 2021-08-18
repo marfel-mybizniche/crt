@@ -50,9 +50,9 @@ if(! strpos( $template, 'single-listings.php' )): // not in single post template
 		
 ?>
 
-<section class="hero_banner_wrap <?php echo $banner_height; ?>" data-body-class="<?php echo $banner_height; ?>" data-height="<?php echo $height; ?> <?php echo $header_banner_overlay ? 'dark_overlay' : ''; ?>">
+<section class="hero_banner_wrap <?php echo $banner_height; ?> <?php echo $banner_class ?>" data-body-class="<?php echo $banner_height; ?>" data-height="<?php echo $height; ?> <?php echo $header_banner_overlay ? 'dark_overlay' : ''; ?>">
 <?php else : ?>
-<section class="hero_banner_wrap <?php echo $header_banner_overlay ? 'dark_overlay' : ''; ?>">
+<section class="hero_banner_wrap <?php echo $header_banner_overlay ? 'dark_overlay' : ''; ?> <?php echo $banner_class ?>">
 <?php endif; ?>
 	<div class="hero_banner">
 

@@ -27,8 +27,8 @@
     }
 
     &.grid-margin-x {
-        margin-left: -15px;
-        margin-right: -15px;
+        margin-left: -10px;
+        margin-right: -10px;
     }
 
 }
@@ -38,17 +38,32 @@
 .button_hollow a,
 .button_hollow .wp-block-button__link {
     border-color:#DB323F;
-    color:#161F1E;
+    color:#161f1e !important;
     padding: 16px 20px;
     font-size: 16px;
     font-weight: 800;
     min-width: 250px;
     text-transform: uppercase;
+
+    small {
+        font-size: 0;
+        background: url(../img/icn-arrow-r.svg) no-repeat left center / 20px 10px;
+        display: inline-block;
+        width: 20px;
+        height: 12px;
+        vertical-align: middle;
+        line-height: 1;
+        margin-top: -3px;
+    }
 }
 .button_hollow a:hover,
 .button_hollow .wp-block-button__link:hover {
     background:#DB323F;
-    color:#fff;
+    color:#fff !important;
+
+    small {
+        filter: invert(100%);
+    }
 }
 
 @media (max-width:1023px) {
@@ -84,7 +99,20 @@
         border:0 !important;
         font-size:16px;
         font-weight: 800;
-        color:#161F1E;
+        color:#161f1e !important;
+        text-transform: uppercase;
+
+        small {
+            font-size: 0;
+            background: url(../img/icn-arrow-r.svg) no-repeat left center / 20px 10px;
+            display: inline-block;
+            width: 20px;
+            height: 12px;
+            vertical-align: middle;
+            line-height: 1;
+            margin-top: -3px;
+            filter: invert(39%) sepia(15%) saturate(3584%) hue-rotate(314deg) brightness(83%) contrast(107%);
+        }
     }
 
     @media (max-width:767px) {
@@ -98,6 +126,19 @@
         .wp-block-button__link {
             text-transform: uppercase;
         }
+    }
+}
+
+.button_arrow {
+    a small {
+        background: url(../img/icn-arrow-r.svg) no-repeat left -5px center / 30px 25px;
+        font-size: 0;
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        vertical-align: middle;
+        line-height: 1;
+        filter: invert(39%) sepia(15%) saturate(3584%) hue-rotate(314deg) brightness(83%) contrast(107%);
     }
 }
 
@@ -137,7 +178,7 @@
     font-size: 55px;
     font-weight: 600;
     color: #161F1E;
-    
+    display: flex;
     align-items: center;
     line-height: 1;
     justify-content: right;
@@ -405,10 +446,6 @@ body.single-post {
 
         .stars {
             max-width:150px;
-        }
-
-        .banner_paragraph p {
-            font-size:14px !important;
         }
     }
 }
@@ -1073,11 +1110,23 @@ body.single-post {
             }
 
             a {
-                font-size: 35px;
+                font-size: 34px;
                 font-weight: 600;
                 color: #fff;
                 display: inline-block;
             }
+        }
+    }
+
+    @media (max-width:1440px) {
+        .refer_call li a { 
+            font-size: 30px;
+        }
+    }
+
+    @media (max-width:1280px) {
+        .refer_call li a { 
+            font-size: 20px;
         }
     }
 
@@ -1095,6 +1144,10 @@ body.single-post {
             h2, h6 {
                 max-width: 80%;
             }
+        }
+        
+        .refer_call li a { 
+            font-size: 30px;
         }
     }
 
@@ -1508,6 +1561,20 @@ body.error404 {
         }
  
         .hsnav {
+            &.is-at-top {
+                .navbar .navmenu .menu {
+                    > li {
+                        &.menu_report a::before {
+                            content: url("../../resources/img/menu-report.png");
+                        }
+
+                        &.menu_podcast a:before {
+                            content: url("../../resources/img/menu-podcast.png");
+                        }
+                    }
+                }
+            }
+
             .navbar {
                 .logo {
                     display: none;
@@ -1531,12 +1598,104 @@ body.error404 {
     .hero_banner_wrap {
         display: none;
     }
+    
+    .sec_404 {
+        padding: 100px 0;
+        text-align: center;
+    }
 } 
 
-.sec_404 {
-    padding: 100px 0;
-    text-align: center;
+
+.hero_banner_wrap {
+    &.full_width {
+
+        @media (min-width:1024px) {
+        margin-top: -150px;
+
+        &:before {
+            display: none;
+        }
+        
+            .hero_banner {
+                padding: 0;
+
+                figure.bg {
+                    position: relative;
+                    top: 0;
+                }
+
+                .banner_wrap {
+                    padding-top: 0; 
+                }
+            }
+
+            .grid-container {
+                position: absolute;
+                left: 50%;
+                bottom: 0;
+                transform: translate(-50%, 0);
+                width: 1470px;
+                max-width: 100%;
+                padding-left: 30px;
+                padding-right: 30px;
+                height: auto;
+            }
+        }
+
+        @media (max-width:1600px) {
+            .hero_banner {
+    
+                figure.bg {
+                    height: 640px;
+                }
+            }
+        }
+
+        @media (max-width:1280px) {
+            .hero_banner {
+    
+                figure.bg {
+                    height: 480px;
+                }
+
+                .banner_wrap {
+                    padding-bottom: 20px;
+                }
+
+                .banner_subtitle_title {
+                    font-size: 32px;
+                }
+            }
+        }
+
+        @media (max-width:1023px) {
+            .hero_banner {
+    
+                figure.bg {
+                    height: auto;
+                }
+            }
+        }
+    }
 }
+
+
+@media (min-width:1024px) and (max-width:1280px) {
+    .info_box .phone {
+        font-size: 20px;
+    }
+}
+
+
+@media (max-width:1023px) {
+    .sec_form.max_width {
+        .wp-block-group__inner-container {
+            max-width: 640px;
+        }
+    }
+}
+
+
 
 
 .footer .footer_wrap ul.footer_menu .sub-menu li a, 
@@ -1546,4 +1705,7 @@ body.error404 {
 }
 .footer .footer_wrap ul.menu .sub-menu li {
     padding:8px 5px ;
+}
+.footer .foottop .foot_contact_text a {
+    color: #858689;
 }

@@ -479,7 +479,7 @@ ul.gform_fields {
 
     .gform_footer {
         margin-bottom: 10px;
-        padding: 16px;
+        //padding: 16px;
         border-radius: 0;
         border: 2px solid #DB323F;
         transition: all 0.3s ease;
@@ -537,7 +537,7 @@ ul.gform_fields {
 
     @include media(max-width, 480px) {
         .gform_footer {
-            padding: 0;
+            //padding: 0;
 
         }
     }

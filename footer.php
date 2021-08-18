@@ -73,7 +73,7 @@
             </div>
             <div class="footer_bottom">
                 <div class="footer_bottom_left">
-                    <div class="copyright"><?php echo date('Y'); ?> &copy; <a href="https://www.mybizniche.com/phoenix-web-design/" target="_blank">Carol Royse Team</a> | </div>        
+                    <div class="copyright"><?php echo date('Y'); ?> &copy; Carol Royse Team | </div>        
                     <div class="designby"> <a href="https://www.mybizniche.com/phoenix-web-design/" target="_blank">Website Design by:</a> My Biz Niche</div>
                 </div>
                 <div class="footer_bottom_right"> 
