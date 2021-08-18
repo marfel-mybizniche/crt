@@ -8,11 +8,12 @@ $banner_right = get_field('banner_type', 51);
 $add_image = get_field('right_image', 51);
 $show_elements = get_field('show_elements', 51);
 $custom_content = get_field('custom_content', 51);
+$banner_class = get_field('page_header_class');
 
 ?>
     
 
-<section class="hero_banner_wrap ">
+<section class="hero_banner_wrap <?php echo $banner_class ?>">
 
 	<div class="hero_banner blog_banner">
 			
