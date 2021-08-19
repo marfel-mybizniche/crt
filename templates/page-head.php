@@ -114,7 +114,7 @@ if(! strpos( $template, 'single-listings.php' )): // not in single post template
 					</div>
 					
 						<div class="banner_paragraph mobile_only">
-							<?php echo get_field('page_header_body'); ?>   
+							<?php echo get_field('page_header_body_mobile'); ?>   
 						</div>       
 
 				</div>
@@ -193,7 +193,7 @@ if(! strpos( $template, 'single-listings.php' )): // not in single post template
 				</div>
 				
 					<div class="banner_paragraph mobile_only">
-						<?php echo get_field('page_header_body'); ?>   
+						<?php echo get_field('page_header_body_mobile'); ?>   
 					</div>       
 
 			</div>

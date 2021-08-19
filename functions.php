@@ -460,3 +460,10 @@ function build_find_office_map(){
         return $returnhtml;
     }
 add_action('wp_head', 'build_find_office_map');
+
+function add_acf_body_class($class) {
+	$value = get_field('add_page_specific_class');
+	$class[] = $value;
+	return $class;
+}
+add_filter('body_class', 'add_acf_body_class');
