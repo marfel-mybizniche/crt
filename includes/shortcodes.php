@@ -167,7 +167,8 @@ function mbn_regular_testimonials_shortcode(){
         'orderby'    => '',
         'order'      => 'asc',
 				'meta_key'		=> 'review_type',
-				'meta_value'	=> 'regular_review'
+				'meta_value'	=> 'regular_review',
+				'posts_per_page' => -1
     );
     
     $testimonials = new WP_Query( $query );
@@ -189,12 +190,12 @@ function mbn_regular_testimonials_shortcode(){
             $returnhtml .= '<div class="wp-block-columns slick_item grid-x grid-margin-x">';
             
             if( $review_type == 'regular_review' ) :
-                $returnhtml .= '<div class="wp-block-column cell large-5 xlarge-5 copy column_invert_left">';
+                $returnhtml .= '<div class="wp-block-column cell large-5 xlarge-5 copy column_invert_left testimonial_text_container">';
                 $returnhtml .= ( $testimonial_name ) ? '<h3 class="section_subtitle has-text-color" style="color:#db323f">'. $testimonial_name .'</h3>': '';
 								$returnhtml .= ( $short_excerpt ) ? '<h3><strong>'. $short_excerpt .'</strong></h3>': '';
 								$returnhtml .= ( $long_description ) ? '<p>'. $long_description .'</p>': '';
 								$returnhtml .= '</div>';
-                $returnhtml .= '<div class="wp-block-column cell large-7 xlarge-7 media column_invert_right">';
+                $returnhtml .= '<div class="wp-block-column cell large-7 xlarge-7 media column_invert_right testimonial_picture_container">';
 								$returnhtml .= ($testimonial_picture) ? '<figure class="wp-block-image size-large happy_client_img is-style-default"><img src="'. $testimonial_picture .'" alt=""></figure>' : '<figure><img src="https://via.placeholder.com/1200x500"/></figure>';
 								$returnhtml .= '</div>';
             else:
