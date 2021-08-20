@@ -286,7 +286,7 @@ function mbn_video_list_shortcode() {
 
 
     //$returnhtml .= count($videos);
-    $returnhtml .= '<div id="video_container" class="video_container">';
+    $returnhtml .= '<div id="video_container" class="video_container show_tab">';
         $returnhtml .= '<div class="video_inner">';
             $returnhtml .= '<div class="video_header">';
                 $returnhtml .= '<div class="video_header_title">';
