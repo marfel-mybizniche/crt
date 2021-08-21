@@ -40,9 +40,9 @@
 
 
 								$vendor_owner 		= get_sub_field('vendors_owner_name'); 
-								$vendor_position 	= '- '. get_sub_field('vendor_title_position');
+								$vendor_position 	= get_sub_field('vendor_title_position');
 							?>
-								<div class="vendor_owner"><?php echo esc_html($vendor_owner .' '. $vendor_position)?></div>
+								<div class="vendor_owner"><?php echo esc_html($vendor_owner)?><?php echo ($vendor_position) ? ' - '.$vendor_position : ''; ?></div>
 							<?php	
 								endwhile;
 							endif;
@@ -64,13 +64,19 @@
 								elseif( $contact_type == 'email_type' ):								
 									$value 	= get_sub_field('vendor_email_address');
 									$icon 	= '<figure><img src="'. MBN_ASSETS_URI .'/img/icn-envelope-hollow-r.svg"/></figure>';
-									$text 	= '<a href="mailto:'.$value.'"><p>'.$value.'</p></a>';	
+									$text 	= '<a href="mailto:'.$value.'"><p>'.$value.'</p></a>';
 								elseif( $contact_type == 'website_type' ):							
 									$value 	= get_sub_field('vendor_website');						
 									$url 	= preg_replace("(^https?://)", "", $value );
+									$url = trim($url, '/');
 									$icon 	= '<figure><img src="'. MBN_ASSETS_URI .'/img/icn-globe-hollow-r.svg"/></figure>';
 									$text 	= '<a href="'.$value.'" target="_blank"><p>'.$url .'</p></a>';
-								elseif( $contact_type == 'location_type' ):					
+								elseif( $contact_type == 'website_facebook' ):
+									$url 	= get_sub_field('vendor_facebook_url');
+									$facebook_name 	= '@'.get_sub_field('vendor_facebook_name');
+									$icon 	= '<figure><img src="'. MBN_ASSETS_URI .'/img/icn-globe-hollow-r.svg"/></figure>';
+									$text 	= '<a href="'.$url.'" target="_blank"><p>'.$facebook_name .'</p></a>';
+								elseif( $contact_type == 'location_type' ):
 									$value 	= get_sub_field('vendor_location_address');	
 									$icon 	= '<figure class="icn-map-pin"><img src="'. MBN_ASSETS_URI .'/img/icn-map-r.png"/></figure>';
 									$text 	= '<p>'.$value.'</p>';
