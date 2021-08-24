@@ -3122,6 +3122,8 @@ body.error404 {
     }
 
     @media (max-width:1023px) {
+        min-height: calc(100vh - 165px) !important;
+
         &.full_height {
             .hero_banner {    
                 div.banner_wrap {
