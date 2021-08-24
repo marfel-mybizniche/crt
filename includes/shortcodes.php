@@ -314,7 +314,7 @@ function mbn_video_list_shortcode() {
                 $postID = get_the_ID();
 				$terms = wp_get_post_terms( $postID, 'category' );
                 
-                $returnhtml .= '<a href="#" data-video-id="'.esc_attr($video_id) .'" class="modal-toggle" data-video-type="'.esc_attr($video_type).'">';
+                $returnhtml .= '<a href="#" data-video-id="'.esc_attr($video_id) .'" class="xmodal-toggle" data-video-type="'.esc_attr($video_type).'">';
                 $returnhtml .= '<div class="video_item media_flex">';
                 $returnhtml .= '<div class="media_left">';
                 $returnhtml .= '<figure class="video_thumb is-type-video"><img src="'. esc_url($video_thumb) .'" width="100" height="60"/></figure></div>';
