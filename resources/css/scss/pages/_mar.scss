@@ -470,8 +470,8 @@
                 }
 
                 .banner_paragraph {
-                    padding-left: 0;
-                    margin-bottom: 0;
+                    padding-left: 0 !important;
+                    margin-bottom: 0 !important;
 
                     &.desktop_only {
                         display: block;
