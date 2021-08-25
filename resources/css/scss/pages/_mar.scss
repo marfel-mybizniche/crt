@@ -198,6 +198,10 @@
     justify-content: right;
     margin: 0;
 
+    &.text-left {
+        justify-content: left;
+    }
+
     span {
         font-size:19px;
         text-transform:uppercase;
@@ -220,6 +224,15 @@
 
     @media (max-width:480px) {
         font-size: 35px;
+    }
+    
+    @media (max-width:375px) {
+        font-size: 32px;
+
+        span {
+            font-size: 12px;
+            width: 95px;
+        }
     }
 }
 
@@ -281,6 +294,13 @@
             .home & {
                 background: transparent;
             }
+
+        }
+
+        .is-anchored {
+            .medium_height & {
+                background: transparent;
+            }
         }
 
         
@@ -316,12 +336,17 @@
                     &:before, 
                     &:after {
                         border-top: 2px solid #DB323F;
+
+                        .medium_height & {
+                            border-color: #fff;
+                        }
                     }
 
                     span {
                         color: #000;
 
-                        .home & {
+                        .home &,
+                        .medium_height & {
                             color: #fff;
                         }
                     }
@@ -334,11 +359,22 @@
                     span {
                         color: #161F1E;
                         
-                        .home & {
+                        .home &,
+                        .medium_height & {
                             color: #fff;
                         }
                     }
                 }
+            }
+
+            &.is-anchored {
+                .navphone {
+                    &:before {
+                        .medium_height & {
+                            content: url(../img/icn-phone-light.svg);
+                        }
+                    }
+                }                
             }
 
             &.is-stuck {
@@ -347,9 +383,17 @@
                 }
     
                 .navbar {
+                    .navicon:before,
+                    .navicon:after {
+                        .medium_height & {
+                            border-color: #DB323F;
+                        }
+                    }
+                    
                     .navicon span,
                     .navphone span {
-                        .home & {
+                        .home &,
+                        .medium_height & {
                             color: #000;
                         }
                     }
@@ -3010,6 +3054,8 @@ body.error404 {
 }
 
 .sec_sold_homes {
+    padding: 60px 0 100px;
+
 
     h2 {
         line-height: 1.2;
@@ -3017,6 +3063,41 @@ body.error404 {
 
     .copy {
         padding-bottom: 30px;
+    }
+
+    .sold-boxes {
+        margin-bottom: 0;
+        padding:0 0 40px;
+
+        button.slick-arrow {
+            background: none;
+            bottom: -50px;
+            top: auto;
+            left: 10px;
+            z-index: 99;
+    
+            &:before {
+                background: url(../img/icon-arrow-right.svg) no-repeat left top;
+                display: inline-block;
+                width: 30px;
+                height: 24px;
+                font-size: 0;
+            }
+        }
+    
+        button.slick-prev{
+            &:before {
+                transform: rotate(-180deg);
+            }
+        }
+    
+        button.slick-next {
+            margin-left:45px;
+    
+            &:before {
+                content:"\01F862";
+            }
+        }
     }
 
     .section_subtitle {
@@ -3081,37 +3162,45 @@ body.error404 {
 
 // Video Page
 .hero_banner_wrap.sec_video_hero {
-    .hero_banner .banner_wrap {
-        height: 100vh !important;
+    margin-top: -120px;
 
-        .banner_subtitle_title {
-            width: 100%;
-            margin-bottom: 0 !important;
+    .hero_banner {
+        figure.bg {
+            top:0;
         }
-        .banner_subtitle_text {
-            font-weight: 400;
-        }
+    
+        .banner_wrap {
+            height: 100vh !important;
 
-        .banner_paragraph  {
-            h3 {
-                font-size: 24px;
-                font-weight: 600;
-                margin-bottom: 30px;
-                padding-left: 20px;
+            .banner_subtitle_title {
+                width: 100%;
+                margin-bottom: 0 !important;
+            }
+            .banner_subtitle_text {
+                font-weight: 400;
             }
 
-            .xsmall {
-                line-height: 1.2;
-                small {
-                    font-size: 11px !important;
-                    color: #858689 !important;
-                    line-height: 1.2 !important;
+            .banner_paragraph  {
+                h3 {
+                    font-size: 24px;
+                    font-weight: 600;
+                    margin-bottom: 30px;
+                    padding-left: 20px;
+                }
+
+                .xsmall {
+                    line-height: 1.2;
+                    small {
+                        font-size: 11px !important;
+                        color: #858689 !important;
+                        line-height: 1.2 !important;
+                    }
                 }
             }
-        }
 
-        .banner_left {
-            padding-bottom: 50px;
+            .banner_left {
+                padding-bottom: 50px;
+            }
         }
     }
 
@@ -3122,6 +3211,7 @@ body.error404 {
     }
 
     @media (max-width:1023px) {
+        margin-top: -78px;
         min-height: calc(100vh - 165px) !important;
 
         &.full_height {
@@ -3135,7 +3225,7 @@ body.error404 {
         .hero_banner {
             figure.bg img {
                 height: 100% !important;
-                object-position: center !important;
+                object-position: 58% !important;
             }
 
             .banner_wrap {
@@ -3189,6 +3279,10 @@ body.error404 {
 
 .sec_video_list {
 
+    .wp-block-group__inner-container {
+        position: relative;
+    }
+
     @media (max-width:1366px) {
         .video_container {
             width: 350px;
@@ -3228,6 +3322,29 @@ body.error404 {
     }
 }
 
+//Listing
+.sec_hero_listing {
+
+}
+
+.sec_listing_counter {
+    padding:10px 0;
+
+    .wp-block-group__inner-container {
+        width: 520px;
+    }
+
+}
+
+.sec_listing_props {
+    padding: 40px 0;
+
+
+    .btn_load_more a {
+        padding:15px 30px;
+    }
+
+}
 
 
 
