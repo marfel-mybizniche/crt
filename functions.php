@@ -467,3 +467,13 @@ function add_acf_body_class($class) {
 	return $class;
 }
 add_filter('body_class', 'add_acf_body_class');
+
+//Add fancybox to WordPress Gutenberg Gallery block
+add_filter('the_content', 'fancybox_for_gutenberg_gallery');
+function fancybox_for_gutenberg_gallery($content) {
+	global $post;
+	$pattern ="/<li class=\"blocks-gallery-item\"><figure><a(.*?)href=('|\")(.*?).(bmp|gif|jpeg|jpg|png)('|\")(.*?)>/i";
+	$replacement = '<li class="blocks-gallery-item"><figure><a$1href=$2$3.$4$5 data-fancybox="gallery" title="'.$post->post_title.'"$6>';
+	$content = preg_replace($pattern, $replacement, $content);
+	return $content;
+}
