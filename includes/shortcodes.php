@@ -173,7 +173,8 @@ function mbn_regular_testimonials_shortcode(){
     
     $testimonials = new WP_Query( $query );
 
-       
+    
+		$returnhtml = "";
     $returnhtml .= '<div class="wp-block-group happy_clients_section slick_on">';
     $returnhtml .= '<div class="wp-block-group__inner-container">';
 
