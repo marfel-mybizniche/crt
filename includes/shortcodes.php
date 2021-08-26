@@ -813,3 +813,26 @@ function mbn_sold_listings(){
 }
 
 add_shortcode( 'mbn_sold_listings', 'mbn_sold_listings' );
+
+
+//search form
+function mbn_podcast_news_box($atts) {
+	$podcast_news_box = "";
+
+	if( have_rows('podcast_programs') ):
+
+    $podcast_news_box .= "<ul>";
+
+    while( have_rows('podcast_programs') ): the_row();
+
+        $podcast_news_box .= "";
+
+    endwhile;
+
+    $podcast_news_box .= "</ul>";
+
+	endif;
+
+	return $podcast_news_box;
+}
+add_shortcode( 'podcast_news_box', 'mbn_podcast_news_box' );
