@@ -1280,7 +1280,15 @@ figure {
 
 		.banner_wrap {
 
+			@media (min-width: 1024px) and (max-width: 1280px) {
+				padding-top: 380px !important;
+			}
+
 			.banner_paragraph {
+				&.desktop_only {
+					width: 550px;
+					line-height: 1.4;
+				}
 				&.mobile_only {
 					padding-left: 0;
 
