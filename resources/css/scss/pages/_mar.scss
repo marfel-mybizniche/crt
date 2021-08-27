@@ -3416,11 +3416,12 @@ body.error404 {
 }
 
 
+
 //Padcast
 .sec_podcast_hero {
 
     &.full_height {
-    margin-top: -120px;
+        margin-top: -120px;
 
         .hero_banner {
             figure.bg {
@@ -3430,6 +3431,14 @@ body.error404 {
             .banner_wrap {
                 //height: 100vh !important;
             }
+        }
+    }
+
+    .banner_paragraph {
+        max-width: 550px;
+
+        p {
+             opacity: 0.8;
         }
     }
 
@@ -3446,12 +3455,175 @@ body.error404 {
             margin-top: -78px;
             min-height: calc(100vh - 165px) !important;
         }
+
+        .hero_banner figure.bg img {
+            object-position: 26%;
+        }
+
+        .banner_wrap {
+            flex-flow: wrap;
+
+            .banner_left {
+                width: 100%;
+                display: block !important; 
+                padding-bottom: 60px;
+
+                .banner_subtitle_title {
+                    text-align: left;
+                }
+
+                .banner_paragraph {
+                    display: block !important;
+                    padding-left: 0;
+                    margin-bottom: 0;
+                    max-width: none;
+
+                    p {
+                        text-align: left;
+                    }
+                }
+            }
+
+            .podcast_news_app {
+                display: none;
+            }
+        }
+
+        .hero_banner .banner_wrap .banner_right {
+            .medium_height & {
+                display: none !important;
+            }
+        }
+        
     }
+
+
+    & + .medium_height_mobile {
+        overflow: visible;
+        margin-top: 0 !important;
+
+        .grid-container {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+
+        .banner_wrap {
+            
+            .banner_left  {
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+
+            .banner_subtitle_text,
+            .banner_subtitle_body {
+                display: none;
+            }
+        }
+
+        .podcast_news_app {
+            background: #0b0d0c;
+            max-width: none;
+
+            &:before {
+                left: 10px;
+            }
+
+            h4, p {
+                color: #fff !important;
+            }
+        }
+
+    }
+
 } 
+
+
+    
+.podcast_news_app {
+    position: relative;
+    padding: 25px 20px;
+    background: rgba(0, 0, 0, 0.4);
+    margin: 0 0 -60px auto;
+    max-width: 490px;
+
+    &:before {
+        content: "";
+        background: url(../img/tune-in-weekly.png) no-repeat left top;
+        background-size: 290px;
+        position: absolute;
+        width: 290px;
+        height: 75px;
+        left: -40px;
+        top: -39px;
+    }
+
+    .podcast_news_items {
+        margin: 0 0 20px;
+        padding: 0 0 10px;
+        list-style: none;
+        border-bottom: 1px solid #444;
+        
+        li {
+            position: relative;
+            padding:8px 0 0 150px;
+            min-height: 105px;
+            margin: 0 0 20px;
+
+            figure {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 150px;
+                padding: 0 20px;
+            }
+        }
+
+        h4 {
+            font-size: 20px;
+            line-height: 1;
+            margin: 0 0 5px;
+            font-weight: bold;
+        }
+
+        p {
+            line-height: 1.2;
+            font-size: 16px;
+        }
+    }
+
+    .podcast_app_links {
+        display: flex;
+        margin: 0 0 15px;
+        padding: 0;
+        list-style: none;
+
+        li { 
+            display: inline-block;
+            padding: 8px;
+        }
+    }
+}
+
 
 .sec_pod_casts {
     padding: 60px 0 0;
+
+    .copy {}
+
+    .aside {
+        max-width: 490px;
+        margin-left: auto;
+    }
+
+
+    @media (max-width:1023px) {
+        .aside {
+            max-width: none;
+            margin-left: auto;
+        }        
+    }
 }
+
 
 
 .footer .footer_wrap ul.footer_menu .sub-menu li a, 
