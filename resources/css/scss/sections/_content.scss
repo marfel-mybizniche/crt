@@ -2212,3 +2212,27 @@ figure {
 
 }
 
+
+.podcast_news_app {
+    position: relative;
+
+    .podcast_news_items {
+        li {
+            position: relative;
+            padding-left: 50px;
+
+            figure {
+                position: absolute;
+                left: 0;
+                width: 150px;
+                padding: 0 20px;
+            }
+        }
+    }
+
+    .podcast_app_links {
+        li {
+
+        }
+    }
+}

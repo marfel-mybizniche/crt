@@ -819,6 +819,8 @@ add_shortcode( 'mbn_sold_listings', 'mbn_sold_listings' );
 function mbn_podcast_news_box($atts) {
 	$podcast_news_box = "";
 
+    $podcast_news_box = "<div class='podcast_news_app'>";
+    
 	if( have_rows('podcast_programs') ):
 
     $podcast_news_box .= "<ul class='podcast_news_items'>";
@@ -860,7 +862,7 @@ function mbn_podcast_news_box($atts) {
 
     endif;
 
-
+    $podcast_news_box = "</div>";
 
 
 	return $podcast_news_box;
