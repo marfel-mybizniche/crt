@@ -850,7 +850,7 @@ function mbn_podcast_news_box($atts) {
 
         $podcast_news_box .= "<li>";
         $podcast_news_box .= "<a href='".get_sub_field('source_link')."'>";
-        $podcast_news_box .= "<img src='".$image_logo['url']."' alt='' />";
+        $podcast_news_box .= "<img src='".$image_slogo['url']."' alt='' />";
         $podcast_news_box .= "</a>";
         $podcast_news_box .= "</li>";
 
