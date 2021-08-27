@@ -111,7 +111,7 @@
 							
 					?>
 					<div class="vendor_video_wrap">
-						<figure>
+						<figure class="is-type-video">
 							<iframe title="<?php echo esc_attr(get_the_title()); ?>" src="<?php echo esc_url($video_url) ?>"  width="700" height="395" ></iframe>
 						</figure>
 					</div>
