@@ -828,7 +828,7 @@ function mbn_podcast_news_box($atts) {
         //$image_logo = wp_get_attachment_image( $image_logo, 'full' );   
 
         $podcast_news_box .= "<li>";
-        $podcast_news_box .= "<figure data-image='".$image_logo['url']."'>".wp_get_attachment_image( $image_logo, 'full' )."</figure>";
+        $podcast_news_box .= "<figure><img src='".$image_logo['url']."' alt='' /></figure>";
         $podcast_news_box .= "<h4>".get_sub_field('podcast_program_title')."</h4>";
         $podcast_news_box .= "<p>".get_sub_field('podcast_program_schedule')."</p>";
         $podcast_news_box .= "</li>";
@@ -850,7 +850,7 @@ function mbn_podcast_news_box($atts) {
 
         $podcast_news_box .= "<li>";
         $podcast_news_box .= "<a href='".get_sub_field('source_link')."'>";
-        $podcast_news_box .= "".wp_get_attachment_image( $image_slogo, 'full' )."";
+        $podcast_news_box .= "<img src='".$image_logo['url']."' alt='' />";
         $podcast_news_box .= "</a>";
         $podcast_news_box .= "</li>";
 
