@@ -433,12 +433,12 @@ $(document).ready(function(){
               if( $('.moreless')[0]){
                 $('.moreless').each(function(i, e){
                   var content = $(e).text().trim(),
-                    length  = 150,
+                    length  = 370,
                     output  = '';
 
                   if(content.length > length){
-                    output += '<div class="short">'+wrapP(content.substr(0, length)+'... <a href="#" class="toggler">more</a>')+'</div>';
-                    output += '<div class="full">'+wrapP(content+' <a href="#" class="toggler">less</a>')+'</div>';
+                    output += '<div class="short">'+wrapP(content.substr(0, length)+'... <a href="#" class="toggler">[more]</a>')+'</div>';
+                    output += '<div class="full">'+wrapP(content+' <a href="#" class="toggler">[less]</a>')+'</div>';
                   }else{
                     output += wrapP(content);
                   }

@@ -815,23 +815,53 @@ function mbn_sold_listings(){
 add_shortcode( 'mbn_sold_listings', 'mbn_sold_listings' );
 
 
-//search form
+//podcast news
 function mbn_podcast_news_box($atts) {
 	$podcast_news_box = "";
 
 	if( have_rows('podcast_programs') ):
 
-    $podcast_news_box .= "<ul>";
+    $podcast_news_box .= "<ul class='podcast_news_items'>";
 
     while( have_rows('podcast_programs') ): the_row();
+        $image_logo = get_sub_field('podcast_program_logo');
+        $image_logo = wp_get_attachment_image( $image_logo, 'full' );   
 
-        $podcast_news_box .= "";
-
+        $podcast_news_box .= "<li>";
+        $podcast_news_box .= "<figure>".$image_logo."</figure>";
+        $podcast_news_box .= "<h4>".get_sub_field('podcast_program_title')."</h4>";
+        $podcast_news_box .= "<p>".get_sub_field('podcast_program_schedule')."</p>";
+        $podcast_news_box .= "</li>";
+             
     endwhile;
 
     $podcast_news_box .= "</ul>";
 
 	endif;
+
+    if( have_rows('podcast_source_links') ):
+
+    $podcast_news_box .= "<ul class='podcast_app_links'>";
+
+    while( have_rows('podcast_source_links') ): the_row();
+
+        $image_slogo = get_sub_field('source_logo');
+        $image_slogo = wp_get_attachment_image( $image_slogo, 'full' );   
+
+        $podcast_news_box .= "<li>";
+        $podcast_news_box .= "<a href='".get_sub_field('source_link')."'>";
+        $podcast_news_box .= "".$image_slogo."";
+        $podcast_news_box .= "</a>";
+        $podcast_news_box .= "</li>";
+
+    endwhile;
+
+    $podcast_news_box .= "</ul>";
+
+    endif;
+
+
+
 
 	return $podcast_news_box;
 }
