@@ -3614,10 +3614,28 @@ body.error404 {
     .aside {
         max-width: 490px;
         margin-left: auto;
+        height: 100%;
+
+        > div {
+            height: 100%;
+            display: flex;
+            flex-flow: wrap;
+        }
+
+        iframe {
+            width: 100%;
+        }
+
+        .always_bottom {
+            margin-top: auto;
+            width: 100%
+        }
     }
 
 
     @media (max-width:1023px) {
+        padding: 20px 0 0;
+
         .aside {
             max-width: none;
             margin-left: auto;
