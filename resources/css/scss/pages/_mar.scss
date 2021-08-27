@@ -271,7 +271,7 @@
 
 
 figure.video_full_width {
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 
     > div {
         position: relative;
@@ -3523,6 +3523,7 @@ body.error404 {
         .podcast_news_app {
             background: #0b0d0c;
             max-width: none;
+            margin-bottom: 0;
 
             &:before {
                 left: 10px;
