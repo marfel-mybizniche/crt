@@ -3474,12 +3474,12 @@ body.error404 {
 
                 .banner_paragraph {
                     display: block !important;
-                    padding-left: 0;
-                    margin-bottom: 0;
+                    margin-bottom: 0 !important;
                     max-width: none;
 
                     p {
                         text-align: left;
+                        padding-left: 0 !important;
                     }
                 }
             }
