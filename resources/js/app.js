@@ -512,8 +512,8 @@ $(document).ready(function(){
                     output  = '';
 
                   if(content.length > length){
-                    output += '<div class="short">'+wrapP(content.substr(0, length)+'... <a href="#" class="toggler">[more]</a>')+'</div>';
-                    output += '<div class="full">'+wrapP(content+' <a href="#" class="toggler">[less]</a>')+'</div>';
+                    output += '<div class="short">'+wrapP(content.substr(0, length)+'... <span class="toggler">[more]</span>')+'</div>';
+                    output += '<div class="full">'+wrapP(content+' <span class="toggler">[less]</span>')+'</div>';
                   }else{
                     output += wrapP(content);
                   }
