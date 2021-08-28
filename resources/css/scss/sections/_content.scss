@@ -1531,6 +1531,18 @@ figure {
 
     }
 
+    @include media (max-width, 1280px) {
+
+        .moreless {
+            margin-bottom: 30px;
+
+            p {
+                font-size: 16px;
+            }
+        }
+
+    }
+
     @include media (max-width, 1023px) {
         width: 100%;
         background-color: $color-dark;
