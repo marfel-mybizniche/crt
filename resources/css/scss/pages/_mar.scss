@@ -3537,6 +3537,12 @@ body.error404 {
             }
         }
 
+        @media(max-width: 1023px) {
+            .mobile_only {
+                display: block;
+            }
+        }
+
     }
 
 } 
