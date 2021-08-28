@@ -351,7 +351,7 @@ function get_video_thumb($url){
 // Display On contact Page only
 
 function build_find_office_map(){ 
-    if (is_page(22) {
+    if (is_page(22)) {
 
     wp_reset_query();
 
