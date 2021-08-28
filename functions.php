@@ -70,8 +70,6 @@ function mbn_enqueue_scripts(){
     wp_register_style('inlinecss-handle', false);
     wp_enqueue_style('inlinecss-handle');
 
-    wp_enqueue_style('font-roboto', 'https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap', [], $wp_version);
-
 	//Global JS
 	wp_deregister_script( 'jquery' );
     wp_register_script( 'jquery', MBN_ASSETS_URI.'/vendor/jquery-3.4.1.min.js', [], $wp_version);
