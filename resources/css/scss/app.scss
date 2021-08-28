@@ -1,7 +1,9 @@
+@import "main";
+
 //vARIABLES
-@import "./base/variables";
-@import "./base/mixins";
-@import "./base/placeholders"; 
+//@import "./base/variables";
+//@import "./base/mixins";
+//@import "./base/placeholders"; 
 
 // SECTIONS -------
 @import "./sections/header";
@@ -12,10 +14,11 @@
 // PAGES
 @import "./pages/home";
 @import "./pages/inner";
-@import "./pages/mar"; 
+//@import "./pages/mar"; 
+
 
 //PLUGINS
 //Include slick
-@import "../../vendor/slick/slick.scss";  
+//@import "../../vendor/slick/slick.scss";  
  
 

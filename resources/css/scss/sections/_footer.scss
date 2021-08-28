@@ -60,9 +60,10 @@
 
             a {
                 text-transform: uppercase;
-                color: $color-grey;
+                //color: $color-grey;
                 font-size: 12px;
                 padding-bottom: 15px;
+                color: #858689;
             }
         }
 
@@ -210,11 +211,21 @@
                     
                     a{
                         font-size: 14px;
-                        color: $color-grey;
+                        //color: $color-grey;
+                        color: #999;
+                        line-height: 1.2;
                     }
                 }
             }
         }
+
+        ul.menu {
+            .sub-menu li {
+                padding:8px 5px ;
+            }
+        }
+
+        padding:8px 5px ;
         @include media(max-width, 480px) { 
             text-align: left;
         }
