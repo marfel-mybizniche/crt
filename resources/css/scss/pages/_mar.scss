@@ -3456,36 +3456,39 @@ body.error404 {
             min-height: calc(100vh - 165px) !important;
         }
 
-        .hero_banner figure.bg img {
-            object-position: 26%;
-        }
+        .hero_banner {
 
-        .banner_wrap {
-            flex-flow: wrap;
-
-            .banner_left {
-                width: 100%;
-                display: block !important; 
-                padding-bottom: 60px;
-
-                .banner_subtitle_title {
-                    text-align: left;
-                }
-
-                .banner_paragraph {
-                    display: block !important;
-                    margin-bottom: 0 !important;
-                    max-width: none;
-
-                    p {
-                        text-align: left;
-                        padding-left: 0 !important;
-                    }
-                }
+            figure.bg img {
+                object-position: 26%;
             }
 
-            .podcast_news_app {
-                display: none;
+            .banner_wrap {
+                flex-flow: wrap;
+
+                .banner_left {
+                    width: 100%;
+                    display: block !important; 
+                    padding-bottom: 60px;
+
+                    .banner_subtitle_title {
+                        text-align: left;
+                    }
+
+                    .banner_paragraph {
+                        display: block !important;
+                        margin-bottom: 0;
+                        padding-left: 0;
+                        max-width: none;
+
+                        p {
+                            text-align: left;
+                        }
+                    }
+                }
+
+                .podcast_news_app {
+                    display: none;
+                }
             }
         }
 
