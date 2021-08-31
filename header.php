@@ -20,18 +20,18 @@
                     <div class="navbrand">                        
                         <div class="logo_desktop">
                             <a class="logo" href="<?php echo get_home_url(); ?>">
-                                <img src="<?php echo MBN_ASSETS_URI ?>/img/logo-2.png" alt="">
+                                <img src="<?php echo MBN_ASSETS_URI ?>/img/logo-2.svg" alt="">
                             </a>
                             <a class="logo2" href="<?php echo get_home_url(); ?>"> 
-                                <img src="<?php echo MBN_ASSETS_URI ?>/img/logo.png" alt="">
+                                <img src="<?php echo MBN_ASSETS_URI ?>/img/logo.svg" alt="">
                             </a>
                         </div>
                         <div class="logo_mobile_wrap">
                             <a class="logo_mobile_1" href="<?php echo get_home_url(); ?>"> 
-                                <img src="<?php echo MBN_ASSETS_URI ?>/img/logo-mobile.png" alt="">
+                                <img src="<?php echo MBN_ASSETS_URI ?>/img/logo-mobile.svg" alt="">
                             </a>  
                             <a class="logo_mobile_2" href="<?php echo get_home_url(); ?>"> 
-                                <img src="<?php echo MBN_ASSETS_URI ?>/img/logo-mobile-2.png" alt="">
+                                <img src="<?php echo MBN_ASSETS_URI ?>/img/logo-mobile-2.svg" alt="">
                             </a>  
                         </div>     
                         <a class="navicon hide-for-large" data-toggle="header"><span class="nav_label_1">Menu</span><span class="nav_label_2">Back</span></a>  
