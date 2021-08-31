@@ -3277,10 +3277,13 @@ body.single-post {
     header {
         .sticky {
             background: #fff;
-            top:0 !important;
+            top:0 !important; 
         }
 
         .hsnav {
+            
+
+
             .navbar {
                 .logo {
                     display: none;
@@ -3289,8 +3292,22 @@ body.single-post {
                     display: block;
                 }
 
-                .navmenu > .menu > li.menu-item a {
-                    color: #161F1E;
+                .navmenu > .menu > li {
+                    &.menu-item a {
+                        color: #161F1E;
+                    }
+
+                    &.menu_report a:before  {
+                        .is-anchored & {
+                            content: url("../../resources/img/menu-report.png");
+                        }
+                    }
+
+                    &.menu_podcast  a:before  {
+                        .is-anchored & {
+                            content: url("../../resources/img/menu-podcast.png");
+                        }
+                    }
                 }
 
                 .navmenu .navutil .toll-free a,
