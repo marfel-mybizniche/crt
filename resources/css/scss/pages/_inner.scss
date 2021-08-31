@@ -3281,9 +3281,6 @@ body.single-post {
         }
 
         .hsnav {
-            
-
-
             .navbar {
                 .logo {
                     display: none;
@@ -3305,17 +3302,15 @@ body.single-post {
             }
         }
 
-        .is-anchored {
-            .hsnav {
-                .navbar {
-                    .navmenu > .menu > li {
-                        &.menu_report a:before  {
-                            content: url("../../resources/img/menu-report.png");
-                        }
-    
-                        &.menu_podcast  a:before  {
-                            content: url("../../resources/img/menu-podcast.png");
-                        }
+        .is-anchored  {
+            .navbar {
+                .navmenu > .menu > li {
+                    &.menu_report a:before  {
+                        content: url("../../resources/img/menu-report.png");
+                    }
+
+                    &.menu_podcast  a:before  {
+                        content: url("../../resources/img/menu-podcast.png");
                     }
                 }
             }
