@@ -3296,18 +3296,6 @@ body.single-post {
                     &.menu-item a {
                         color: #161F1E;
                     }
-
-                    &.menu_report a:before  {
-                        .is-anchored & {
-                            content: url("../../resources/img/menu-report.png");
-                        }
-                    }
-
-                    &.menu_podcast  a:before  {
-                        .is-anchored & {
-                            content: url("../../resources/img/menu-podcast.png");
-                        }
-                    }
                 }
 
                 .navmenu .navutil .toll-free a,
@@ -3316,7 +3304,24 @@ body.single-post {
                 }
             }
         }
+
+        .is-anchored {
+            .hsnav {
+                .navbar {
+                    .navmenu > .menu > li {
+                        &.menu_report a:before  {
+                            content: url("../../resources/img/menu-report.png");
+                        }
+    
+                        &.menu_podcast  a:before  {
+                            content: url("../../resources/img/menu-podcast.png");
+                        }
+                    }
+                }
+            }
+        }
     }
+    
 
     .hero_banner_wrap {
         display: none;
