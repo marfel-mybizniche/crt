@@ -19,8 +19,11 @@
 <section class="vendors_wrapper">
 	<div class="grid-container">
 		<div class="vendors_header">
-			<div class="back_to_vendors_list"><figure><img src="<?php echo esc_url(MBN_ASSETS_URI .'/img/icn-arrow-lr.svg'); ?>"></figure><span><?php echo esc_html('Back to Vendors List'); ?></span></div>
-			<h2 class="vendors_name"><?php the_title() ?></h2>
+			<div class="back_to_vendors_list">
+				<figure><img src="<?php echo esc_url(MBN_ASSETS_URI .'/img/icn-arrow-lr.svg'); ?>"></figure>
+				<a href="javascript:history.back();"><?php echo esc_html('Back to Vendors List'); ?></a>
+			</div>
+			<h1 class="vendors_name"><?php the_title() ?></h1>
 		</div>
 	</div>
 	<div class="grid-container">
