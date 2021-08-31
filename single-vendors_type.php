@@ -29,7 +29,15 @@
 				<div class="vendors_info_left">
 					<div class="vendors_contact_wrapper">
 						<?php if( !empty(get_the_post_thumbnail_url()) ): ?>
-							<div class="vendor_logo"><figure><img src="<?php echo get_the_post_thumbnail_url() ?>" width="300" /></figure></div>
+							<div class="vendor_logo">
+								<figure><a href=""><img src="<?php echo get_the_post_thumbnail_url() ?>" /></a></figure>
+							</div>
+							<script>
+								$(function(){
+									var getWebUrl = $('.vendor_contact .website_type').attr('href');
+									$('.vendor_logo a').attr('href', getWebUrl);									
+								});
+							</script>
 						<?php endif; ?>	
 						<div class="vendor_contact">
 							
@@ -70,7 +78,7 @@
 									$url 	= preg_replace("(^https?://)", "", $value );
 									$url = trim($url, '/');
 									$icon 	= '<figure><img src="'. MBN_ASSETS_URI .'/img/icn-globe-hollow-r.svg"/></figure>';
-									$text 	= '<a href="'.$value.'" target="_blank"><p>'.$url .'</p></a>';
+									$text 	= '<a class="website_type" href="'.$value.'" target="_blank"><p>'.$url .'</p></a>';
 								elseif( $contact_type == 'website_facebook' ):
 									$url 	= get_sub_field('vendor_facebook_url');
 									$facebook_name 	= '@'.get_sub_field('vendor_facebook_name');
