@@ -33,7 +33,7 @@
 					<div class="vendors_contact_wrapper">
 						<?php if( !empty(get_the_post_thumbnail_url()) ): ?>
 							<div class="vendor_logo">
-								<figure><a href=""><img src="<?php echo get_the_post_thumbnail_url() ?>" /></a></figure>
+								<figure><a href="" target="_blank"><img src="<?php echo get_the_post_thumbnail_url() ?>" /></a></figure>
 							</div>
 							<script>
 								$(function(){

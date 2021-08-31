@@ -746,7 +746,7 @@ function vendors_list_shortcode(){
                                         $returnhtml .= '<hr/>';
                                         $returnhtml .= '<div class="vendor_name">';
                                             $returnhtml .= '<h3>'. get_the_title() .'</h3>';
-                                            $returnhtml .= '<a href="'.get_the_permalink().'" target="_blank" >'.esc_html('View Info & Promos').'</a>';
+                                            $returnhtml .= '<a href="'.get_the_permalink().'">'.esc_html('View Info & Promos').'</a>';
                                         $returnhtml .= '</div>'; //vendor_name
                                     $returnhtml .= '</div>'; //vendor_inner
 
