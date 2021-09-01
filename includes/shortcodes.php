@@ -742,7 +742,7 @@ function vendors_list_shortcode(){
                                     */
                                     $img = get_the_post_thumbnail_url();
                                     $returnhtml .= '<div class="vendor_inner">';
-                                        $returnhtml .= '<div class="vendor_media"><div class="vendor_logo"><figure><img src="'. esc_url($img) .'"/></figure></div></div>';
+                                        $returnhtml .= '<div class="vendor_media"><div class="vendor_logo"><a href="'.get_the_permalink().'"><figure><img src="'. esc_url($img) .'"/></a></figure></div></div>';
                                         $returnhtml .= '<hr/>';
                                         $returnhtml .= '<div class="vendor_name">';
                                             $returnhtml .= '<h3>'. get_the_title() .'</h3>';
