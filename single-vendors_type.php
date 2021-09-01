@@ -21,7 +21,7 @@
 		<div class="vendors_header">
 			<div class="back_to_vendors_list">
 				<figure><img src="<?php echo esc_url(MBN_ASSETS_URI .'/img/icn-arrow-lr.svg'); ?>"></figure>
-				<a href="javascript:history.back();"><?php echo esc_html('Back to Vendors List'); ?></a>
+				<a href="<?php the_permalink(49); ?>"><?php echo esc_html('Back to Vendors List'); ?></a>
 			</div>
 			<h1 class="vendors_name"><?php the_title() ?></h1>
 		</div>
