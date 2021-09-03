@@ -1879,6 +1879,7 @@ img.wpsl-store-thumb.wp-post-image {
             width: calc(50% - 30px);
         }
 
+        &.one-fourth,
         &.one-third {
             width: calc(33.33% - 30px);
             &.first{
@@ -1886,9 +1887,9 @@ img.wpsl-store-thumb.wp-post-image {
             }
         }
 
-        &.one-fourth {
-            width: calc(25% - 30px);
-        }
+        // &.one-fourth {
+        //     width: calc(25% - 30px);
+        // }
 
         .listing-widget-thumb {
             position: relative;
