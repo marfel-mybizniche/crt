@@ -662,7 +662,7 @@ body.medium_height {
 			}
 
 			.banner_left {
-				width: 60%;
+				width: 65%;
 
 				@include media(max-width, 1023px) {
 					padding-right: 0;
@@ -681,6 +681,7 @@ body.medium_height {
 						padding-bottom: 0;
 						position: absolute;
 						bottom: -60px;
+						right: -50px;
 					}
 
 					&.bg {
