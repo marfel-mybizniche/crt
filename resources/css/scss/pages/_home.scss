@@ -1060,6 +1060,16 @@ body.home {
         .note {
             font-size:12px;
         }
+
+        @include media(max-width, 1023px){
+            
+            h6 {
+                font-size: 16px;
+            }
+            .note {
+                font-size: 14px;
+            }
+        }
     }
     
     form {
@@ -1224,7 +1234,7 @@ body.home {
     
     @media (max-width:1280px) {
         h6 {
-            font-size: 12px;
+            font-size: 14px;
         }
         .quick_item {
             padding: 30px 25px;
@@ -1437,7 +1447,7 @@ body.home {
     
     @media (max-width:639px) {
         h6 {
-            font-size: 12px;
+            font-size: 14px;
             font-weight: 400;
         }
     
