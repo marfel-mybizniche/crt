@@ -2608,10 +2608,11 @@ body {
 }
 
 p.note {
-    font-size: 12px;
+    font-size: 12px!important;
     color: #999;
+    
     @include media(max-width,1023px){
-        font-size: 14px;
+        font-size: 14px!important;
     }
 }
 
