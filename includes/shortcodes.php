@@ -55,7 +55,7 @@ function mbn_banner_checklist(){
                 $returnhtml .= '<div class="text_wrap media_flex">';
                 $returnhtml .= '<div class="media_left">';
                 $returnhtml .= '<figure class="icon_wrapper"><img src="'. MBN_ASSETS_URI .'/img/check-icon.png" alt=""></figure></div>';
-                $returnhtml .= '<div class="media_body">';
+                $returnhtml .= '<div class="media_body align-self-middle">';
                 $returnhtml .= '<h3>'. $checklist_text .'</h3></div></div>';
                
             // End loop.

@@ -1682,12 +1682,16 @@ figure {
 
                 .banner_wrap {
                     flex-direction: column !important;
+
+                    .banner_left {
+                        margin-bottom:70px;
+                    }
                 }
 
                 .banner_right {
                     display: block !important;
                     width: 100% !important;
-                    padding: 0 30px;
+                    padding: 0;
                 }
 
             }
@@ -1775,7 +1779,7 @@ figure {
 
                 &:before {
                     color: red;
-                    opacity: 1;
+                    opacity: 0;
                 }
             }
 

@@ -712,7 +712,7 @@ h1.page_title {
 
     display: flex;
     align-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
 
     .media_left {
         padding-right: 10px;
@@ -3242,7 +3242,7 @@ figure.video_full_width {
                 }
 
                 .media_body {
-                    padding-top: 4px;
+                    // padding-top: 4px;
                 }
             }
         }
@@ -4134,7 +4134,7 @@ body.single-post {
         }
         .copy {
             h6 {
-                font-size: 12px;
+                font-size: 14px;
             }
         }
 
@@ -4507,7 +4507,6 @@ body.single-post {
         h2 {
             font-size: 32px;
         }
-
     }
 
     @media (max-width:639px) {
@@ -4517,7 +4516,7 @@ body.single-post {
         }
 
         h6 {
-            font-size: 12px;
+            font-size: 14px;
         }
 
     }

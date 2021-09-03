@@ -243,9 +243,6 @@ body.home {
                 width: 50%;
                 padding-right: 20px;
 
-                h3 {
-                    padding-top: 5px;
-                }
             }
         }
     }
@@ -622,7 +619,6 @@ body.home {
     
     @media (max-width:639px) {
         h6 {
-            font-size: 12px;
             margin-bottom: 5px;
         }
         h2 {
@@ -825,7 +821,6 @@ body.home {
             font-size: 24px;
         }
         h6 {
-            font-size: 12px;
         }
         .bg_ribbon {
             font-size: 16px;
@@ -833,6 +828,9 @@ body.home {
         }
         figure.media_video figcaption {
             font-size: 24px;
+            small {
+                font-size:14px;
+            }
         }
     }
 }
