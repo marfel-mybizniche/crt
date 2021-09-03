@@ -120,10 +120,6 @@ h1.page_title {
     line-height: 17px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-
-    @include media (max-width, 768px) {
-        font-size: 12px;
-    }
 }
 
 .sec_column_item {
@@ -1614,6 +1610,18 @@ ul.star-rating li i {
                     }
                 }
 
+                @include media (max-width, 1023px) {
+                    h3 {
+                        font-size: 16px;
+                    }
+                    p {
+                        font-size: 14px;
+    
+                        &.testimonial_name {
+                            font-size: 16px;
+                        }
+                    }
+                }
                 @include media (max-width, 768px) {
                     top: 0;
                     width: 100%;
@@ -3217,13 +3225,15 @@ figure.video_full_width {
         padding-left: 10px;
 
         .text_wrap h3 {
-            font-size: 14px !important;
             font-weight: 400 !important;
             margin-bottom: 0;
         }
 
         
         @media (max-width:1023px) {
+            .text_wrap h3 {
+                font-size: 16px !important;
+            }
             .media_flex {
                 padding: 6px 0;
 
@@ -5350,7 +5360,7 @@ body.error404 {
 
 }
 
-.moving-truck-for-free-page {
+.moving-truck-for-free_page {
     .hero_banner_wrap {
         .hero-banner {
             
