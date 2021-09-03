@@ -662,7 +662,7 @@ body.medium_height {
 			}
 
 			.banner_left {
-				width: 65%;
+				width: 60%;
 
 				@include media(max-width, 1023px) {
 					padding-right: 0;
@@ -681,7 +681,6 @@ body.medium_height {
 						padding-bottom: 0;
 						position: absolute;
 						bottom: -60px;
-						right: -50px;
 					}
 
 					&.bg {
@@ -732,11 +731,11 @@ body.medium_height {
 					font-size: 20px;
 
 					@include media (max-width, 1023px) {
-						text-align: center;
+						text-align: left;
 					}
 
 					@include media (max-width, 639px) {
-						font-size: 16px;
+						font-size: 14px;
 						text-align: left;
 						font-weight: 400;
 						color: $color-dark;
@@ -1081,6 +1080,7 @@ body.medium_height {
 
 		@include media (max-width, 1023px) {
 			color: #777;
+			font-size: 12px;
 			margin-bottom: 5px;
 		}
 	}
