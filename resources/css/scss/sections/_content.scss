@@ -1463,14 +1463,14 @@ figure {
                 margin-left: 50px;
 
                 &:before {
-                    content: "\01F862";
+                    content: url('../img/slick-arrow-right.svg');
                 }
             }
 
             &.slick-prev {
 
                 &:before {
-                    content: "\01F860";
+                    content: url('../img/slick-arrow-left.svg');
                 }
             }
 
