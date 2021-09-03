@@ -5351,11 +5351,15 @@ body.error404 {
 }
 
 .moving-truck-for-free-page {
-    .banner_paragraph {
-        p {
-            @include media(min-width, 1024px){
-                span {
-                    display: block;
+
+    .hero-banner {
+        
+        .banner_paragraph {
+            p {
+                @include media(min-width, 1024px){
+                    span {
+                        display: block;
+                    }
                 }
             }
         }
