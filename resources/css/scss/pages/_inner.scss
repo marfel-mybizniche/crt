@@ -2607,6 +2607,13 @@ body {
     }
 }
 
+p.note {
+    font-size: 12px;
+    color: #999;
+    @include media(max-width,1023px){
+        font-size: 14px;
+    }
+}
 
 .circle_check_list {
     margin:0;
