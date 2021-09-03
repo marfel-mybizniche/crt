@@ -105,7 +105,7 @@ function mbn_enqueue_scripts(){
     //wp_enqueue_style('main', MBN_ASSETS_URI.'/css/main.css', [], $wp_version);
     
     // Blocks
-    wp_enqueue_style('blocks', MBN_ASSETS_URI.'/css/blocks.css', [], $wp_version);
+    //wp_enqueue_style('blocks', MBN_ASSETS_URI.'/css/blocks.css', [], $wp_version);
 
     // Fonts
     wp_enqueue_style('custom-fonts', 'https://use.typekit.net/arq8hcm.css', [], $wp_version);
