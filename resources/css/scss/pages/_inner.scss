@@ -3236,13 +3236,12 @@ figure.video_full_width {
         .text_wrap h3 {
             font-weight: 400 !important;
             margin-bottom: 0;
+            font-size: 16px !important;
+            line-height: 1.2;
         }
 
         
         @media (max-width:1023px) {
-            .text_wrap h3 {
-                font-size: 16px !important;
-            }
             .media_flex {
                 padding: 6px 0;
 
@@ -5314,7 +5313,7 @@ body.error404 {
     @media (max-width:639px) {
         .circle_check_list  {
             li {
-                font-size: 14px;
+                font-size: 16px;
             }
         }
     }
