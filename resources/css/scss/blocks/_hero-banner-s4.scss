@@ -717,7 +717,6 @@ body.medium_height {
 				@include media (max-width, 1023px) {
 					width: 100%;
 					line-height: 1.1;
-					text-align: center;
 				}
 
 				@include media (max-width, 639px) {
