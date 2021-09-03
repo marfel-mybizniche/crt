@@ -905,7 +905,7 @@ body.home {
 
     button.slick-prev{
         &:before {
-            content:"\01F860";
+            content: url('../img/slick-arrow-left.svg');
         }
     }
 
@@ -913,7 +913,7 @@ body.home {
         margin-left:32px;
 
         &:before {
-            content:"\01F862";
+            content:url('../img/slick-arrow-right.svg');
         }
     }
     
@@ -1412,14 +1412,14 @@ body.home {
         }
         button.slick-prev{
             &:before {
-                content:"\01F860";
+                content:url('../img/slick-arrow-left.svg');
             }
         }
         button.slick-next {
             margin-left:32px;
 
             &:before {
-                content:"\01F862";
+                content:url('../img/slick-arrow-right.svg');
             }
         }
     }
