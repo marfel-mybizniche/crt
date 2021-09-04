@@ -166,7 +166,7 @@ if(! strpos( $template, 'single-listings.php' )): // not in single post template
 	</div>
 		
 </section>
-<?php if( $banner_height == "medium_height" ) : ?>
+<?php if( $banner_height == "medium_height" && !is_front_page()) : ?>
 <section class="<?php echo $banner_height .'_' ?>mobile">
 	<!-- for medium height on mobile -->
 	<div class="grid-container"> 			
