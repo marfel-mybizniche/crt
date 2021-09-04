@@ -280,7 +280,8 @@ header {
 				position: relative;
 				width: 678px;
 				float: left;
-				margin-top: 18px;
+				//margin-top: 18px;
+				margin-top: 35px;
 
 				@include media(max-width, 1440px){
 					width: 40%;

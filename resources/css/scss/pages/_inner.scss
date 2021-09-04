@@ -2772,6 +2772,7 @@ figure.video_full_width {
         .logo2 {
             position: absolute;
             top: 0;
+            left: 0;
         }
 
         .navmenu {
@@ -5569,12 +5570,6 @@ body.error404 {
 
             &:hover {
                 background-color: #AD131F;
-            }
-        }
-
-        .form_step2 {
-            h4 {
-                display: none;
             }
         }
     }
