@@ -13,7 +13,7 @@
     "browser-sync": "^2.27.5",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
-    "gulp-changed": "^4.0.2",
+    "gulp-changed": "^4.0.3",
     "gulp-clean": "^0.4.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-concat": "^2.6.1",
@@ -21,13 +21,13 @@
     "gulp-connect-php": "^1.0.3",
     "gulp-imagemin": "^6.2.0",
     "gulp-line-ending-corrector": "^1.0.3",
-    "gulp-sass": "^4.1.0",
+    "gulp-sass": "^4.1.1",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2",
     "imagemin-jpeg-recompress": "^6.0.0",
     "imagemin-mozjpeg": "^8.0.0"
   },
   "dependencies": {
-    "foundation-sites": "^6.6.3"
+    "foundation-sites": "^6.7.1"
   }
 }

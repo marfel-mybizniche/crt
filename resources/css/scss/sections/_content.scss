@@ -1484,15 +1484,18 @@ figure {
 
                 &.slick-prev {
                     left: 45%;
+                    &:before {
+                        content: url('../img/slick-arrow-left-white.svg');
+                    }
                 }
 
                 &.slick-next {
                     right: -10%;
+                    &:before {
+                        content: url('../img/slick-arrow-right-white.svg');
+                    }
                 }
             }
-
-
-
             @include media (max-width, 480px) {
 
                 bottom: 0;
