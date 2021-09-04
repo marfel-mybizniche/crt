@@ -1326,6 +1326,19 @@ h1.page_title {
         }
 
     }
+
+    @include media (max-width, 1023px){
+        
+        .loc_body {
+            
+            h2.office_map_title {
+                font-size: 16px;
+            }
+            p {
+                font-size: 16px;
+            }
+        }
+    }
 }
 
 .branch_wrap {
@@ -3414,6 +3427,10 @@ body.single-post {
             letter-spacing: .6px;
             color: #777;
             margin:0 0 30px 20px;
+
+            @include media(max-width,1023px) {
+                font-size: 14px;
+            }
         }
 
         .grid_item {
@@ -3568,6 +3585,15 @@ body.single-post {
 
                 li {
                     margin:0 10px 10px;
+                }
+            }
+        }
+
+        @include media(max-width,1023px) {
+            ul {
+
+                li {
+                    font-size: 14px;
                 }
             }
         }

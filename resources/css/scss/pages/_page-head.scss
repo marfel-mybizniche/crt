@@ -1080,7 +1080,7 @@ body.medium_height {
 
 		@include media (max-width, 1023px) {
 			color: #777;
-			font-size: 12px;
+			font-size: 14px;
 			margin-bottom: 5px;
 		}
 	}
@@ -1122,5 +1122,16 @@ body.medium_height {
 			display: none;
 		}
 
+	}
+}
+
+//blog 
+
+.blog_banner {
+	.banner_paragraph {
+		@include media(max-width, 639px){
+			margin: 0 !important;
+			padding-left:  0 !important;
+		}
 	}
 }
