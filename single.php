@@ -9,7 +9,7 @@
                     <?php $category = get_the_category();
                         $allcategory = get_the_category(); 
                     foreach ($allcategory as $category) { ?>
-                    <a href="<?= esc_url(get_category_link( $category->term_id )) ?>"><?php echo $category->cat_name; ?></a>
+                    <a href="<?= esc_url(get_category_link( $category->term_id )) ?>"><?php echo $category->cat_name; ?> </a>
                     <?php  } ?>
                 </div>
                 <h1 class="post_title">

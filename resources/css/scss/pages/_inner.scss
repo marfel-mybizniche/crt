@@ -5875,6 +5875,16 @@ body.error404 {
         position: relative;
     }
 
+
+    .video_body {
+                
+        .video_thumb {
+            &:after {
+                top: 85%;
+                left: 75%;
+            }
+        }
+    }
     @media (max-width:1366px) {
         .video_container {
             width: 350px;
