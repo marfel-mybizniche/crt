@@ -2308,7 +2308,7 @@ body {
 
 							.banner_subtitle_text {
 								font-weight: 600;
-								font-size: 10px;
+								font-size: 12px;
 								line-height: 12px;
 								letter-spacing: 0.2em;
 								text-transform: uppercase;
@@ -2324,7 +2324,7 @@ body {
 							.banner_paragraph {
 								padding-left: 0;
 								* {
-									font-size: 14px;
+									font-size: 16px;
 									line-height: 22px;
 									text-align: left;
 									color: #fff;
@@ -5876,6 +5876,18 @@ body.error404 {
             .video_header .video_header_title {
                 font-size: 12px;
             }
+
+            .video_body {
+                
+                .video_thumb {
+                    figure {
+                        &:after {
+                            top: 70%;
+                            left: 70%;
+                        }
+                    }      
+                }
+            }
         }  
         
         .modal .modal-wrapper {
@@ -6093,8 +6105,8 @@ body.error404 {
         }
 
         p {
-            line-height: 1.2;
-            font-size: 16px;
+            line-height: 1.4;
+            font-size: 14px;
         } 
     }
 

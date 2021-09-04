@@ -1681,13 +1681,16 @@ figure {
 
                 .grid-container {
                     order: 1;
+                    margin: 0 !important;
                 }
 
                 .banner_wrap {
                     flex-direction: column !important;
 
                     .banner_left {
-                        margin-bottom:70px;
+                    }
+                    .banner_paragraph  {
+                        margin: 0 auto !important;
                     }
                 }
 
