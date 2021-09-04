@@ -395,7 +395,7 @@ $(document).ready(function(){
 
               $(window).resize(function(){
                 var $windowWidth = $(window).width();
-                console.log($windowWidth);
+                
                 if ($windowWidth <= 1023) {
 
                   //vendors nav 

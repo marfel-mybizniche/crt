@@ -8,7 +8,7 @@ function mbn_acf_google_map_api($api){
 	
 	return $api;
 }
-add_filter('acf/fields/google_map/api', 'mbn_acf_google_map_api');
+//add_filter('acf/fields/google_map/api', 'mbn_acf_google_map_api');
 
 /**
 * Create Gloabl Header Bg Setting and Upload Control
