@@ -5880,12 +5880,10 @@ body.error404 {
             .video_body {
                 
                 .video_thumb {
-                    figure {
-                        &:after {
-                            top: 70%;
-                            left: 70%;
-                        }
-                    }      
+                    &:after {
+                        top: 70%;
+                        left: 70%;
+                    }
                 }
             }
         }  
