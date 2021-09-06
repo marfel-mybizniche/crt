@@ -1843,7 +1843,11 @@ img.wpsl-store-thumb.wp-post-image {
     height: 150px;
     object-fit: cover;
 }
-
+.gm-style .gm-style-iw-c {
+    button {
+        right: 0!important;
+    }
+}
 
 .gm-style-iw {
     max-width: 320px !important;
