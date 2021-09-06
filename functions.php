@@ -423,7 +423,7 @@ function build_find_office_map(){
             
             infowindow.setContent(locations[0][3]);
             infowindow.open(map, marker);
-            
+
             google.maps.event.addListener(marker, 'click', (function(marker, i) {
                 return function() {
                     infowindow.setContent(locations[i][3]);
@@ -436,8 +436,7 @@ function build_find_office_map(){
         }
     
         //now fit the map to the newly inclusive bounds
-        map.fitBounds(bounds);
-      
+        map.fitBounds(bounds);      
     
         //(optional) restore the zoom level after the map is done scaling
         var listener = google.maps.event.addListener(map, "idle", function () {
