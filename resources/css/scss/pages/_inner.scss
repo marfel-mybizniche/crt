@@ -1346,7 +1346,7 @@ h1.page_title {
     cursor: pointer;
     transition: all 0.3s ease;
     justify-content: space-between;
-    padding-top: 30px !important;
+    padding: 30px !important;
     border-bottom: 3px solid #fff;
 
     a {
@@ -3282,7 +3282,7 @@ figure.video_full_width {
             margin-right: -30px;            
         }
     }
-    
+
     .popup_steps {
 
         .form_step2 {
@@ -4753,6 +4753,9 @@ body.error404 {
 .sec_contact_us {
     position: relative;
 
+    .info_boxes {
+        padding-top: 35px;
+    }
     @media (max-width:1023px) {
         
         .sec_form {
@@ -4774,6 +4777,7 @@ body.error404 {
         }
 
         .info_boxes {
+            padding-top: 0;
             .cell {
                 margin: 0 5px;
                 flex: 1;
