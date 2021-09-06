@@ -414,21 +414,23 @@ function build_find_office_map(){
         
         for (var i = 0; i < locations.length; i++) {
           
-          var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-            map: map
-          });
-    
-           bounds.extend(marker.position);
-    
-    
-          google.maps.event.addListener(marker, 'click', (function(marker, i) {
-            return function() {
-              infowindow.setContent(locations[i][3]);
-              infowindow.open(map, marker);
-              map.setCenter(this.getPosition());
-            }
-          })(marker, i));
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                map: map
+            });
+
+            bounds.extend(marker.position);
+            
+            infowindow.setContent(locations[0][3]);
+            infowindow.open(map, marker);
+            
+            google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                return function() {
+                    infowindow.setContent(locations[i][3]);
+                    infowindow.open(map, marker);
+                    map.setCenter(this.getPosition());
+                }
+            })(marker, i));
     
           markers_array.push(marker);
         }
