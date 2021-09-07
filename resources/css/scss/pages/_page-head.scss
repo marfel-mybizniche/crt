@@ -742,11 +742,6 @@ body.medium_height {
 					}
 				}
 
-				@include media (max-width, 639px) {
-					padding-left: 42px;
-					margin: 0 auto -60px;
-				}
-
 				@include media (max-width, 375px) {
 					padding-left: 25px;
 				}
@@ -1052,6 +1047,17 @@ body.medium_height {
 			&:after {
 				content: url('../../resources/img/polygon-small.png');
 				left: -6px;
+			}
+		}
+
+		
+
+		@include media (max-width, 639px) {
+
+			.banner_paragraph {
+
+				padding-left: 42px;
+				margin: 0 auto -60px;
 			}
 		}
 	}
