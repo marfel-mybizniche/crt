@@ -174,7 +174,7 @@ $(document).ready(function(){
             $(".loadMore_listings.btn_load_more .wp-block-button__link").click(function(e) {
               
               e.preventDefault();
-              
+
               totalHeight = 0
 
               $el = $(this);
@@ -203,7 +203,7 @@ $(document).ready(function(){
               $up.fadeOut();
               
               // prevent jump-down
-              return false;
+              //return false;
                   
           });
 
