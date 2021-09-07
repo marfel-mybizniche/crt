@@ -1880,7 +1880,8 @@ img.wpsl-store-thumb.wp-post-image {
 
 
 /* listing plugin shortcode */
-.wp-listings-shortcode {
+.wp-listings-shortcode,
+.site-content .listing {
     display: flex;
     flex-flow: wrap;
 
