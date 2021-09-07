@@ -1892,7 +1892,8 @@ img.wpsl-store-thumb.wp-post-image {
     -ms-flex-flow: wrap;
     flex-flow: wrap;
 
-    .archive-title {
+    .archive-title,
+    .sidebar {
         display: none;
     }
 
@@ -1943,6 +1944,32 @@ img.wpsl-store-thumb.wp-post-image {
         }
 
     }
+}
+
+
+.sec_listing_props {
+
+    .wp-block-group__inner-container {
+        max-height: 840px;
+        overflow: hidden;
+        position: relative;
+        
+        .btn_load_more{
+            &.loadMore_listings {
+                
+                display: block;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                text-align: center;
+                margin: 0;
+                padding: 30px 0;
+                background: #fff;
+            }
+        }
+    }
+
 }
 
 

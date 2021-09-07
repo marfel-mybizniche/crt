@@ -169,6 +169,40 @@ $(document).ready(function(){
             });
             // </ Calculate on-scrolls and dynamically adjust form placement. >
 
+            //btn-loadMore in view listings page
+
+            $(".loadMore_listings.btn_load_more .wp-block-button__link").click(function() {
+                
+              totalHeight = 0
+
+              $el = $(this);
+              $p  = $el.parent();
+              $up = $p.parent();
+              $ps = $up.find("div:not('.btn_load_more')");
+              
+              // measure how tall inside should be by adding together heights of all inside paragraphs (except read-more paragraph)
+              $ps.each(function() {
+                  totalHeight += $(this).outerHeight();
+              });
+                      
+              $up
+                  .css({
+                  // Set height to prevent instant jumpdown when max height is removed
+                  "height": $up.height(),
+                  "max-height": '100%'
+                  })
+                  .animate({
+                  "height": '100%'
+                  });
+              
+              // fade out read-more
+              $p.fadeOut();
+              
+              // prevent jump-down
+              return false;
+                  
+          });
+
           $(window).scroll(function() {
               var offset = 0, button_up;
               var sticky = false;
