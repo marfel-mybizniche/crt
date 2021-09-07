@@ -387,7 +387,7 @@ function build_find_office_map(){
                     var office_lat = <?php echo get_field('location_map')['lat']; ?>; 
                     var office_lng = <?php echo get_field('location_map')['lng']; ?>;
             
-                    loc_content = '<div id="mapInfo'+loc_ctr+'" class="map_grid grid-container">';
+                    loc_content = '<div id="mapInfo'+loc_ctr+'" class="map_grid">';
                     loc_content += '<div class="grid-x align-top">';
             
                     loc_content += '<div class="cell medium-12">';       
