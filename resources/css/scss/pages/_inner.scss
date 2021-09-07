@@ -1878,10 +1878,24 @@ img.wpsl-store-thumb.wp-post-image {
 }*/
 
 
+/** archive listing **/
+
+.term-active .site-content {
+    max-width: 1470px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-left: auto;
+    margin-right: auto;
+
+    .listing {
+        width: calc(25% - 30px);
+    }
+}
+
 
 /* listing plugin shortcode */
 .wp-listings-shortcode,
-.site-content .listing {
+.term-active .site-content .listing {
     display: flex;
     flex-flow: wrap;
 
