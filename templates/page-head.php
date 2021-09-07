@@ -22,7 +22,7 @@ if ( get_field('page_header_options') !== 'no_header' ):
 	if(! strpos( $template, 'single-listings.php' )): // not in single post template
 		
 		//if global header setting
-		if( get_field('page_header_options') == "global_header_opt" || is_post_type_archive() || is_single() || get_field('page_header_options') == '' ):
+		if( get_field('page_header_options') == "global_header_opt" || is_post_type_archive() || is_single()  ):
 	?>
 		
 			<section class="hero_banner_wrap hero_banner_default <?php echo $header_banner_overlay ? 'dark_overlay' : ''; ?>">
