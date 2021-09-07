@@ -1886,11 +1886,67 @@ img.wpsl-store-thumb.wp-post-image {
     padding-right: 30px;
     margin-left: auto;
     margin-right: auto;
+    
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: wrap;
+    flex-flow: wrap;
 
     .listing {
         //width: calc(25% - 30px);
 
+        .listing-wrap {
+
+            .listing-widget-details {
+                bottom: 70px !important;
+            }
+
+            .more-link {
+                display: none;
+            }
+            &.one-third {
+                width: calc(33.33% - 30px);
+            }
+        }
+
         
+        @media (max-width:1440px) {
+            .listing-wrap {
+
+
+                &.one-fourth {
+                    width: calc(33.33% - 30px);
+                }
+            }
+        }
+
+        @media (max-width:1366px) {
+            .listing-wrap {
+
+                &.one-third {
+                    width: calc(50% - 30px);
+                }
+
+                &.one-fourth {
+                    width: calc(50% - 30px);
+                }
+            }
+        }
+        @media (max-width:768px) {
+            .listing-wrap {
+                
+                margin-left: 0px !important;
+
+                &.one-third {
+                    width: 100%;
+                }
+
+                &.one-fourth {
+                    width: 100%;
+                }
+            }
+        }
+
     }
 }
 
