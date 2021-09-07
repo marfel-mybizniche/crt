@@ -178,17 +178,18 @@ $(document).ready(function(){
               $el = $(this);
               $p  = $el.parent();
               $up = $p.parent();
-              $ps = $up.find("div:not('.btn_load_more')");
+              $mother = $up.parent();
+              $ps = $mother.find(".wp-listings-shortcode");
               
               // measure how tall inside should be by adding together heights of all inside paragraphs (except read-more paragraph)
               $ps.each(function() {
                   totalHeight += $(this).outerHeight();
               });
                       
-              $up
+              $mother
                   .css({
                   // Set height to prevent instant jumpdown when max height is removed
-                  "height": $up.height(),
+                  "height": $mother.height(),
                   "max-height": '100%'
                   })
                   .animate({
@@ -197,6 +198,7 @@ $(document).ready(function(){
               
               // fade out read-more
               $p.fadeOut();
+              $up.fadeOut();
               
               // prevent jump-down
               return false;
