@@ -2063,6 +2063,22 @@ img.wpsl-store-thumb.wp-post-image {
             }
         }
     }
+    @media (max-width:768px) {
+        .listing-wrap {
+
+            &.one-third {
+                width: calc(100% - 30px);
+
+                &.first {
+                    margin-left: 0px !important;
+                }
+            }
+
+            &.one-fourth {
+                width: calc(100% - 30px);
+            }
+        }
+    }
 }
 
 //innner page

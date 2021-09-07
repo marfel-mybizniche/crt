@@ -380,7 +380,7 @@ function mbn_view_listings_all_filter_shortcode($atts){
     $exclude_cat = get_term_by('name', $exclude_cat, 'listings_cat' );
     $exclude_cat = $term->term_id;
 
-$returnhtml .= '<div class="grid-container">';
+    $returnhtml .= '<div class="grid-container">';
     $returnhtml .= '<div class="listings_nav_wrap">';
         $returnhtml .= '<div class="listings_nav">';
 
