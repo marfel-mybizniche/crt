@@ -171,8 +171,10 @@ $(document).ready(function(){
 
             //btn-loadMore in view listings page
 
-            $(".loadMore_listings.btn_load_more .wp-block-button__link").click(function() {
-                
+            $(".loadMore_listings.btn_load_more .wp-block-button__link").click(function(e) {
+              
+              e.preventDefault();
+              
               totalHeight = 0
 
               $el = $(this);

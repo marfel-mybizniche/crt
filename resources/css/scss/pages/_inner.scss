@@ -1950,10 +1950,11 @@ img.wpsl-store-thumb.wp-post-image {
 .sec_listing_props {
 
     .wp-block-group__inner-container {
+        min-height: 100%;
         max-height: 840px;
         overflow: hidden;
         position: relative;
-        
+
         .btn_load_more{
             &.loadMore_listings {
                 
