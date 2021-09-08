@@ -448,8 +448,6 @@ function mbn_view_listings_all_filter_shortcode($atts){
                         $property_half_bathrooms = get_field('property_half_bathrooms');
                         $property_square_feet = get_field('property_square_feet');
 
-
-
                         $returnhtml .= '<div id="'.esc_attr($cat_slug).'" class="cell medium-6 large-4 col-item listing_item">';            
                             $returnhtml .= '<a href="'.esc_url($url).'">';
                                 $returnhtml .= '<div class="listing-wrap">';
