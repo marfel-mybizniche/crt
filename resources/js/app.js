@@ -466,11 +466,10 @@ $(document).ready(function(){
                 }
             }); 
 
-
               if($(".temp_gallery")[0]){
                 $(".temp_gallery").find("img").each(function(i,img){
                   var data_src_orig = String($(img).attr("data-src")).replace("/az/","/az/1280x1024/true/");
-                  //var data_src_orig = String(data_src_orig).replace("photos","resize");
+                  var data_src_orig = String(data_src_orig).replace("photos","resize");
                   var src_thumb = String(data_src_orig).replace("/az/1280x1024/true/","/az/640x480/true/")
                   var gal_item = $("<div class='gallery_item'><figure class='gallery_img'><img data-lazy='"+data_src_orig+"'/></figure></div>");
                   $(".slider_for_wrap .slider_for").append(gal_item);
