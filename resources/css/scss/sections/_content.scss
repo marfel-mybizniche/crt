@@ -842,6 +842,12 @@ figure {
 
                     .gallery_item {
                         height: 550px;
+                        
+                        img {
+                            object-fit: cover;
+                            display: block;
+                            width: 100%;
+                        }
                     }
 
                     @media (max-width: 1600px) and (min-width: 1024px) {
@@ -876,12 +882,6 @@ figure {
 
                             .gallery_img {
                                 margin: 10px;
-
-                                img {
-                                    object-fit: cover;
-                                    display: block;
-                                    width: 100%;
-                                }
                             }
                         }
 
