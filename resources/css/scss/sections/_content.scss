@@ -876,6 +876,12 @@ figure {
 
                             .gallery_img {
                                 margin: 10px;
+
+                                img {
+                                    object-fit: cover;
+                                    display: block;
+                                    width: 100%;
+                                }
                             }
                         }
 
