@@ -18,7 +18,6 @@
                 <div class="post_meta">
                     <figure class="author">
                         <span><img src="<?php echo MBN_ASSETS_URI ?>/img/icn-carol-royse.png" alt="<?php the_author(); ?>"></span>
-                        <figcaption><?php the_author(); ?></figcaption>
                     </figure>
                 </div>
                 <div class="post_body">
