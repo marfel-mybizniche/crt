@@ -72,7 +72,7 @@ add_shortcode('banner_checklist', 'mbn_banner_checklist');
 add_shortcode('mbn_testimonials', 'mbn_testimonials_shortcode');
 function mbn_testimonials_shortcode($atts){
 
-    $type = $atts['type_not_in'];
+    $type = isset( $atts['type_not_in'] ) ? $atts['type_not_in'] : '';
 
     $query = array(
         'post_type'  => 'client_testimonials',

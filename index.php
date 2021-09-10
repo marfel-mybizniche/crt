@@ -68,6 +68,7 @@
             <?php echo '<div class="grid-x grid-margin-x blog_lists">';
                 
                 query_posts('offset=1');
+                query_posts('posts_per_page=-1');
 
                 while ( have_posts() ) : the_post(); 
                     $terms = get_the_terms( $post->ID, 'category' ); 
@@ -96,9 +97,16 @@
                         </article>
                     </div>
 
+                <?php endwhile; wp_reset_query(); ?>
+
+                <div class="post_loadmore text-center">
+                    <div id="post-pagination" style="display: none">
+                        <?php  //echo paginate_links(); ?>
+                    </div>
                     <a class="btn_loadmore" href="javascript:;" id="loadMorePosts">Load More <span>&#129122;</span></a>
-                <?php endwhile; wp_reset_query(); 
-            echo '</div>'; ?>
+                </div>
+
+            <?php echo '</div>'; ?>
 
             <!-- <?php // if (paginate_links()): ?>
                 <div class="post_loadmore text-center">
@@ -115,13 +123,13 @@
                         $(".blog_item").slice(0, 12).show();
                         $("#loadMorePosts").on('click', function (e) {
                             e.preventDefault();
-                            $(".blog_item:hidden").slice(0, 3).slideDown();
+                            $(".blog_item:hidden").slice(0, 6).slideDown();
                             if ($(".blog_item:hidden").length == 0) {
                                 $(".post_loadmore").fadeOut('slow');
                             }
-                            $('html,body').animate({
-                                scrollTop: $(this).offset().top
-                            }, 1500);
+                            // $('html,body').animate({
+                            //     scrollTop: $(this).offset().top - 300
+                            // }, 1500);
                          });
                         // $('#loadMorePosts').click(function(e){
                         //     e.preventDefault();
