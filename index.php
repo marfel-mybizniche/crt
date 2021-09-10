@@ -99,13 +99,13 @@
                 <?php endwhile; wp_reset_query(); 
             echo '</div>'; ?>
 
-            <?php if (paginate_links()): ?>
+            <!-- <?php // if (paginate_links()): ?>
                 <div class="post_loadmore text-center">
                     <div id="post-pagination" style="display: none">
-                        <?php  echo paginate_links(); ?>
+                        <?php  //echo paginate_links(); ?>
                     </div>
                     <a class="btn_loadmore" href="javascript:;" id="loadMorePosts">Load More <span>&#129122;</span></a>
-                </div>
+                </div> -->
                 <script>
                     jQuery(function($){
 
@@ -139,7 +139,7 @@
                         // });
                     })
                 </script>
-            <?php endif ?>
+            <?php // endif ?>
             
         </div>     
     </section>
