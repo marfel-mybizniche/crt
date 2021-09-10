@@ -112,21 +112,32 @@
 
                         var $nextLink = $('#post-pagination .next').attr('href');
 
-                        $('#loadMorePosts').click(function(e){
+                        $(".blog_item").slice(0, 12).show();
+                        $("#loadMorePosts").on('click', function (e) {
                             e.preventDefault();
-                            $(this).hide();
+                            $(".blog_item:hidden").slice(0, 3).slideDown();
+                            if ($(".blog_item:hidden").length == 0) {
+                                $(".post_loadmore").fadeOut('slow');
+                            }
+                            $('html,body').animate({
+                                scrollTop: $(this).offset().top
+                            }, 1500);
+                         });
+                        // $('#loadMorePosts').click(function(e){
+                        //     e.preventDefault();
+                        //     $(this).hide();
                             
-                            $.get( $nextLink, function( data ) {
-                                var getList = $(data).find('.blog_lists').html();
-                                $('.blog_lists').append(getList);
-                                $nextLink = $(data).find('#post-pagination .next').attr('href');
-                                if (!$nextLink) {
-                                    $('.post_loadmore').hide();
-                                }
-                            });
-                            $(this).delay(1000).show(0);
+                        //     $.get( $nextLink, function( data ) {
+                        //         var getList = $(data).find('.blog_lists').html();
+                        //         $('.blog_lists').append(getList);
+                        //         $nextLink = $(data).find('#post-pagination .next').attr('href');
+                        //         if (!$nextLink) {
+                        //             $('.post_loadmore').hide();
+                        //         }
+                        //     });
+                        //     $(this).delay(1000).show(0);
 
-                        });
+                        // });
                     })
                 </script>
             <?php endif ?>
