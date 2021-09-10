@@ -70,7 +70,9 @@ add_shortcode('banner_checklist', 'mbn_banner_checklist');
     
 
 add_shortcode('mbn_testimonials', 'mbn_testimonials_shortcode');
-function mbn_testimonials_shortcode(){
+function mbn_testimonials_shortcode($atts){
+
+    $type = $atts['type_not_in'];
 
     $query = array(
         'post_type'  => 'client_testimonials',
@@ -79,11 +81,10 @@ function mbn_testimonials_shortcode(){
     );
     
     $testimonials = new WP_Query( $query );
-
-       
     $returnhtml .= '<section class="sec-3cols testimonial_block_wrap">';
     $returnhtml .= '<div class="grid-container">';
     $returnhtml .= '<div class="grid-x grid-margin-x cols3-s3 testimonial_block">';
+
 
     if($testimonials->have_posts()):
 
@@ -103,32 +104,36 @@ function mbn_testimonials_shortcode(){
 
             $short_excerpt          = get_field('short_excerpt'); 
 
-            $returnhtml .= '<div class="testimonial_item">';
-            
-            if( $review_type == 'video_review' ) :
-                $returnhtml .= '<div class="testimonial_blockitem">';
-                $returnhtml .= ($testimonial_img) ? '<figure class="col-image"><img src="'. $testimonial_img .'" alt=""></figure>' : '<figure><img src="https://via.placeholder.com/1200x500"/></figure>';
-                $returnhtml .= '<div class="testimonial_body">';    
-                $returnhtml .= '<a href="#" data-video-id="'.esc_attr($video_id) .'" class="modal-toggle testimonial_vbtn" data-video-type="'.esc_attr($video_type).'">';
-                $returnhtml .= '<figure><img src="'. MBN_ASSETS_URI .'/img/icn-play-w.svg" alt=""></figure><span>PLAY VIDEO</span></a>';
-                $returnhtml .= '<div class="testimonial_info">'. $testimonial_rating;
-                $returnhtml .= ( $short_excerpt ) ? '<h3>'. $short_excerpt .'</h3>': '';
-                $returnhtml .= ( $testimonial_name ) ? '<p class="testimonial_name">'. $testimonial_name .'</p>': '';
-                $returnhtml .= ( $testimonial_role_position ) ? '<p>'. $testimonial_role_position .' | '. $testimonial_company .'</p>' : '';
-                $returnhtml .= '</div></div></div>';
-            else:
-                $returnhtml .= '<div class="testimonial_greview_item">';
-                $returnhtml .= '<figure class="col-image"><img src="'. MBN_ASSETS_URI .'/img/icn-quote-r.png" alt=""></figure>';
-                $returnhtml .= '<div class="testimonial_body">';    
-                $returnhtml .= '<h3>'. $testimonial_greview .'</h3>';
-                $returnhtml .= '</div><div class="testimonial_info">';
-                $returnhtml .= ( $testimonial_name ) ? '<div class="testimonial_name">'. $testimonial_name .'</div>' : '';
-                $returnhtml .= '<span class="border"></span>';
-                $returnhtml .= ( $testimonial_rating ) ?'<div class="testimonial_rating">'. $testimonial_rating .'<div class="greview"><figure><img src="'. MBN_ASSETS_URI .'/img/Google-Review.png" alt=""></figure></div></div>' : '';
-                $returnhtml .= '</div><div class="testimonial_link"><figure><img src="'. MBN_ASSETS_URI .'/img/icn-anchor.png" alt=""></figure></div>';
+
+            if ( $type != $review_type ) :
+       
+                $returnhtml .= '<div class="testimonial_item">';
+                
+                if( $review_type == 'video_review' ) :
+                    $returnhtml .= '<div class="testimonial_blockitem">';
+                    $returnhtml .= ($testimonial_img) ? '<figure class="col-image"><img src="'. $testimonial_img .'" alt=""></figure>' : '<figure><img src="https://via.placeholder.com/1200x500"/></figure>';
+                    $returnhtml .= '<div class="testimonial_body">';    
+                    $returnhtml .= '<a href="#" data-video-id="'.esc_attr($video_id) .'" class="modal-toggle testimonial_vbtn" data-video-type="'.esc_attr($video_type).'">';
+                    $returnhtml .= '<figure><img src="'. MBN_ASSETS_URI .'/img/icn-play-w.svg" alt=""></figure><span>PLAY VIDEO</span></a>';
+                    $returnhtml .= '<div class="testimonial_info">'. $testimonial_rating;
+                    $returnhtml .= ( $short_excerpt ) ? '<h3>'. $short_excerpt .'</h3>': '';
+                    $returnhtml .= ( $testimonial_name ) ? '<p class="testimonial_name">'. $testimonial_name .'</p>': '';
+                    $returnhtml .= ( $testimonial_role_position ) ? '<p>'. $testimonial_role_position .' | '. $testimonial_company .'</p>' : '';
+                    $returnhtml .= '</div></div></div>';
+                else:
+                    $returnhtml .= '<div class="testimonial_greview_item">';
+                    $returnhtml .= '<figure class="col-image"><img src="'. MBN_ASSETS_URI .'/img/icn-quote-r.png" alt=""></figure>';
+                    $returnhtml .= '<div class="testimonial_body">';    
+                    $returnhtml .= '<h3>'. $testimonial_greview .'</h3>';
+                    $returnhtml .= '</div><div class="testimonial_info">';
+                    $returnhtml .= ( $testimonial_name ) ? '<div class="testimonial_name">'. $testimonial_name .'</div>' : '';
+                    $returnhtml .= '<span class="border"></span>';
+                    $returnhtml .= ( $testimonial_rating ) ?'<div class="testimonial_rating">'. $testimonial_rating .'<div class="greview"><figure><img src="'. MBN_ASSETS_URI .'/img/Google-Review.png" alt=""></figure></div></div>' : '';
+                    $returnhtml .= '</div><div class="testimonial_link"><figure><img src="'. MBN_ASSETS_URI .'/img/icn-anchor.png" alt=""></figure></div>';
+                    $returnhtml .= '</div>';
+                endif;
                 $returnhtml .= '</div>';
             endif;
-            $returnhtml .= '</div>';
 
         endwhile;
         $returnhtml .= '</div></div></section>';

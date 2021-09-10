@@ -189,12 +189,13 @@
 	}
 	.slick-prev {
 		left:10px;
-		background: url(../img/icn-arrow-l.svg) no-repeat center;
+		content: url(../img/slick-arrow-left.svg) no-repeat center;
 	}
 	.slick-next {
 		right: 10px;
-		background: url(../img/icn-arrow-r.svg) no-repeat center;
+		content: url(../img/slick-arrow-right.svg) no-repeat center;
 	}
+	
 }
 
 
