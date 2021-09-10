@@ -5,7 +5,6 @@
             <?php if(is_home()) { ?>
             <div class="whats_new">
                 <h5>What’s New</h5>
-
                 <?php 
                     query_posts('posts_per_page=1');
                 
