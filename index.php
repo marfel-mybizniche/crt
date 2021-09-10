@@ -96,6 +96,7 @@
                         </article>
                     </div>
 
+                    <a class="btn_loadmore" href="javascript:;" id="loadMorePosts">Load More <span>&#129122;</span></a>
                 <?php endwhile; wp_reset_query(); 
             echo '</div>'; ?>
 
