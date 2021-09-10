@@ -5332,7 +5332,7 @@ body.error404 {
         button.slick-prev{
             &:before {
                 content:"";
-                background: url(../img/icon-arrow-left.svg) no-repeat left top;
+                background: url(../img/slick-arrow-left.svg) no-repeat left top;
                 display: inline-block;
                 width: 30px;
                 height: 24px;
@@ -5345,7 +5345,7 @@ body.error404 {
     
             &:before {
                 content:"";
-                background: url(../img/icon-arrow-right.svg) no-repeat left top;
+                background: url(../img/slick-arrow-right.svg) no-repeat left top;
                 display: inline-block;
                 width: 30px;
                 height: 24px;
