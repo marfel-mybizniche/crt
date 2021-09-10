@@ -2147,6 +2147,15 @@ img.wpsl-store-thumb.wp-post-image {
 
     @media (max-width:1366px) {
         .listing-wrap {
+            
+            margin-left: 0;
+            margin-right: 25px;
+
+
+            .listing-wrap {
+                margin-left: 0;
+                margin-right: 0;
+            }
 
             &.one-third {
                 width: calc(50% - 30px);
