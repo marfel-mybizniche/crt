@@ -88,10 +88,10 @@ function mbn_testimonials_shortcode(){
 
     if($testimonials->have_posts()):
 
+        echo 'count ' . $testimonials->post_count;
+
         while ( $testimonials->have_posts() ) : $testimonials->the_post();
 
-        echo 'count ' . $testimonials->post_count();
-        
             $testimonial_name           = get_field('testimonial_name'); 
             $testimonial_img            = get_field('testimonial_video_thumb');
             $testimonial_role_position  = get_field('testimonial_role_position'); 
