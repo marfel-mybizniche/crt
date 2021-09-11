@@ -70,7 +70,7 @@ add_shortcode('banner_checklist', 'mbn_banner_checklist');
     
 
 add_shortcode('mbn_testimonials', 'mbn_testimonials_shortcode');
-function mbn_testimonials_shortcode($atts){
+function mbn_testimonials_shortcode(){
 
 
     $query = array(
