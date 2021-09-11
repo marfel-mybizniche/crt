@@ -1587,7 +1587,7 @@ figure {
 
 .testimonial_greview_item {
 
-    padding: 12% 30px;
+    padding: 0 20px;
     
     .testimonial_greview_inner {
         border: 1px solid #E5E5E5;
@@ -1595,6 +1595,7 @@ figure {
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding: 12% 30px;
     }
 
     .testimonial_body {
