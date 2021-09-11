@@ -96,7 +96,7 @@ function mbn_testimonials_shortcode($atts){
             $testimonial_rating         = get_field('testimonial_rating'); 
             $testimonial_greview        = get_field('google_review_excerpt'); 
             $video_url                  = get_field('testimonial_video'); 
-            $review_type                = get_field('review_type'); 
+            $returnhtml .= $review_type                = get_field('review_type'); 
             $video_thumb                = get_video_thumb($video_url);
             $video_type                 = videoType($video_url);
             $video_id                   = get_video_id($video_url);
