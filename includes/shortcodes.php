@@ -104,7 +104,7 @@ function mbn_testimonials_shortcode($atts){
             $short_excerpt          = get_field('short_excerpt'); 
 
 
-            if ( $review_type != 'regular_review' ) :
+            //if ( $review_type != 'regular_review' ) :
        
                 $returnhtml .= '<div class="testimonial_item">';
                 $returnhtml .= $review_type;
@@ -132,7 +132,7 @@ function mbn_testimonials_shortcode($atts){
                     $returnhtml .= '</div>';
                 endif;
                 $returnhtml .= '</div>';
-            endif;
+            //endif;
 
         endwhile;
         $returnhtml .= '</div></div></section>';
