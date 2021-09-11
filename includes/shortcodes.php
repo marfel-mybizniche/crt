@@ -113,7 +113,7 @@ function mbn_testimonials_shortcode(){
             //if ( $review_type != 'regular_review' ) :
        
                 $returnhtml .= '<div class="testimonial_item">';
-                $returnhtml .= $review_type;
+                
                 if( $review_type == 'video_review' ) :
                     $returnhtml .= '<div class="testimonial_blockitem">';
                     $returnhtml .= ($testimonial_img) ? '<figure class="col-image"><img src="'. $testimonial_img .'" alt=""></figure>' : '<figure><img src="https://via.placeholder.com/1200x500"/></figure>';
