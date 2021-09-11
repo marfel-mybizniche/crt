@@ -74,9 +74,10 @@ function mbn_testimonials_shortcode(){
 
 
     $query = array(
-        'post_type'  => 'client_testimonials',
-        'orderby'    => '',
-        'order'      => 'asc'   
+        'post_type'     => 'client_testimonials',
+        'post_per_page' => '-1',
+        'orderby'       => '',
+        'order'         => 'asc'   
     );
     
     $testimonials = new WP_Query( $query );
