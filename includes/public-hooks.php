@@ -45,16 +45,16 @@ function add_acf_columns ( $columns ) {
       'review_type' => __ ( 'Review Type' ),
     ) );
   }
-  add_filter ( 'manage_listing_posts_columns', 'add_acf_columns' );
+  add_filter ( 'manage_client_testimonials_posts_columns', 'add_acf_columns' );
 
   /*
  * Add columns to exhibition post list
  */
- function listing_custom_column ( $column, $post_id ) {
+ function client_testimonials_custom_column ( $column, $post_id ) {
     switch ( $column ) {
       case 'review_type':
         echo get_post_meta ( $post_id, 'review_type', true );
         break;
     }
   }
-  add_action ( 'manage_listing_posts_custom_column', 'listing_custom_column', 10, 2 );
+  add_action ( 'manage_client_testimonials_custom_column', 'client_testimonials_custom_column', 10, 2 );
