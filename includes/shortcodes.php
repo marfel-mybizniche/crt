@@ -72,7 +72,6 @@ add_shortcode('banner_checklist', 'mbn_banner_checklist');
 add_shortcode('mbn_testimonials', 'mbn_testimonials_shortcode');
 function mbn_testimonials_shortcode($atts){
 
-    $type = isset( $atts['type_not_in'] ) ? $atts['type_not_in'] : '';
 
     $query = array(
         'post_type'  => 'client_testimonials',
@@ -105,7 +104,7 @@ function mbn_testimonials_shortcode($atts){
             $short_excerpt          = get_field('short_excerpt'); 
 
 
-            if ( $type != $review_type ) :
+            if ( $review_type != 'regular_review' ) :
        
                 $returnhtml .= '<div class="testimonial_item">';
                 
