@@ -1107,6 +1107,9 @@ figure {
             width: 100%;
 
         }
+        @include media (min-width, 1920px) {            
+            width: 65%;
+        }
     }
 
     .content_info {
