@@ -53,7 +53,7 @@ function add_acf_columns ( $columns ) {
  function client_testimonials_custom_column ( $column, $post_id ) {
     switch ( $column ) {
       case 'review_type':
-        echo get_post_meta ( $post_id, 'review_type', true );
+        echo get_field ( 'review_type', $post_id);
         break;
     }
   }
