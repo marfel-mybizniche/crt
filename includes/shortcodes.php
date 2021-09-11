@@ -81,7 +81,6 @@ function mbn_testimonials_shortcode(){
     );
     
     $testimonials = new WP_Query( $query );
-    echo 'count ' . wp_count_posts($testimonials);
     $returnhtml .= '<section class="sec-3cols testimonial_block_wrap">';
     $returnhtml .= '<div class="grid-container">';
     $returnhtml .= '<div class="grid-x grid-margin-x cols3-s3 testimonial_block">';
@@ -91,6 +90,8 @@ function mbn_testimonials_shortcode(){
 
         while ( $testimonials->have_posts() ) : $testimonials->the_post();
 
+        echo 'count ' . $testimonials->post_count();
+        
             $testimonial_name           = get_field('testimonial_name'); 
             $testimonial_img            = get_field('testimonial_video_thumb');
             $testimonial_role_position  = get_field('testimonial_role_position'); 
