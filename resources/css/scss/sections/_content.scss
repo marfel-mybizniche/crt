@@ -1587,12 +1587,15 @@ figure {
 
 .testimonial_greview_item {
 
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     padding: 12% 30px;
-    border: 1px solid #E5E5E5;
+    
+    .testimonial_greview_inner {
+        border: 1px solid #E5E5E5;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
     .testimonial_body {
         h3 {
