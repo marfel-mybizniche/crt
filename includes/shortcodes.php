@@ -96,7 +96,7 @@ function mbn_testimonials_shortcode($atts){
             $testimonial_rating         = get_field('testimonial_rating'); 
             $testimonial_greview        = get_field('google_review_excerpt'); 
             $video_url                  = get_field('testimonial_video'); 
-            $returnhtml .= $review_type                = get_field('review_type'); 
+            $review_type                = get_field('review_type'); 
             $video_thumb                = get_video_thumb($video_url);
             $video_type                 = videoType($video_url);
             $video_id                   = get_video_id($video_url);
@@ -107,7 +107,7 @@ function mbn_testimonials_shortcode($atts){
             if ( $review_type != 'regular_review' ) :
        
                 $returnhtml .= '<div class="testimonial_item">';
-                
+                $returnhtml .= $review_type;
                 if( $review_type == 'video_review' ) :
                     $returnhtml .= '<div class="testimonial_blockitem">';
                     $returnhtml .= ($testimonial_img) ? '<figure class="col-image"><img src="'. $testimonial_img .'" alt=""></figure>' : '<figure><img src="https://via.placeholder.com/1200x500"/></figure>';
