@@ -81,6 +81,7 @@ function mbn_testimonials_shortcode(){
     );
     
     $testimonials = new WP_Query( $query );
+    echo 'count ' . $testimonials.count();
     $returnhtml .= '<section class="sec-3cols testimonial_block_wrap">';
     $returnhtml .= '<div class="grid-container">';
     $returnhtml .= '<div class="grid-x grid-margin-x cols3-s3 testimonial_block">';
