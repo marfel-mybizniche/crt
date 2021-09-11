@@ -75,10 +75,13 @@ function mbn_testimonials_shortcode(){
 
     $query = array(
         'post_type'     => 'client_testimonials',
-        'post_per_page' => '-1',
         'orderby'       => '',
-        'order'         => 'asc'   
+        'order'         => 'asc',
+        'meta_key'		=> 'review_type',
+        'meta_value'	=> array( 'video_review', 'google_review'),
+        'posts_per_page' => -1
     );
+
     
     $testimonials = new WP_Query( $query );
     $returnhtml .= '<section class="sec-3cols testimonial_block_wrap">';
