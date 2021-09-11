@@ -91,7 +91,7 @@ function mbn_testimonials_shortcode(){
 
     if($testimonials->have_posts()):
 
-        echo 'count ' . $testimonials->post_count;
+        //echo 'count ' . $testimonials->post_count;
 
         while ( $testimonials->have_posts() ) : $testimonials->the_post();
 
@@ -127,6 +127,7 @@ function mbn_testimonials_shortcode(){
                     $returnhtml .= '</div></div></div>';
                 else:
                     $returnhtml .= '<div class="testimonial_greview_item">';
+                    $returnhtml .= '<div class="testimonial_greview_inner">';
                     $returnhtml .= '<figure class="col-image"><img src="'. MBN_ASSETS_URI .'/img/icn-quote-r.png" alt=""></figure>';
                     $returnhtml .= '<div class="testimonial_body">';    
                     $returnhtml .= '<h3>'. $testimonial_greview .'</h3>';
@@ -135,7 +136,7 @@ function mbn_testimonials_shortcode(){
                     $returnhtml .= '<span class="border"></span>';
                     $returnhtml .= ( $testimonial_rating ) ?'<div class="testimonial_rating">'. $testimonial_rating .'<div class="greview"><figure><img src="'. MBN_ASSETS_URI .'/img/Google-Review.png" alt=""></figure></div></div>' : '';
                     $returnhtml .= '</div><div class="testimonial_link"><figure><img src="'. MBN_ASSETS_URI .'/img/icn-anchor.png" alt=""></figure></div>';
-                    $returnhtml .= '</div>';
+                    $returnhtml .= '</div></div>';
                 endif;
                 $returnhtml .= '</div>';
             //endif;
