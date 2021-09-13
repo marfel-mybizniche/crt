@@ -125,7 +125,7 @@
                             e.preventDefault();
                             $(".blog_item:hidden").slice(0, 6).slideDown();
                             if ($(".blog_item:hidden").length == 0) {
-                                $(".post_loadmore").fadeOut('slow');
+                                $(".post_loadmore").hide();
                             }
                             // $('html,body').animate({
                             //     scrollTop: $(this).offset().top - 300
