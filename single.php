@@ -15,11 +15,11 @@
                 <h1 class="post_title">
                     <?php the_title(); ?>
                 </h1>
-                <div class="post_meta">
+                <!-- <div class="post_meta">
                     <figure class="author">
                         <span><img src="<?php echo MBN_ASSETS_URI ?>/img/icn-carol-royse.png" alt="<?php the_author(); ?>"></span>
                     </figure>
-                </div>
+                </div> -->
                 <div class="post_body">
                     <?php the_content(); ?>
                 </div>
