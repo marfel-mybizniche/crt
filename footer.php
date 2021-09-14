@@ -18,8 +18,8 @@
                 <div class="foot_contact">
                     <div class="foot_contact_text"><a class="">Download Our App</a></div>
                     <div class="foot_contact_img">
-                        <figure><img src="<?php echo MBN_ASSETS_URI ?>/img/download-app-store.png" alt=""></figure>
-                        <figure><img src="<?php echo MBN_ASSETS_URI ?>/img/download-android-store.png" alt=""></figure>
+                        <figure><a href="https://apps.apple.com/tt/app/carol-royse-team/id1497073904" target="_blank"><img src="<?php echo MBN_ASSETS_URI ?>/img/download-app-store.png" alt=""></a></figure>
+                        <figure><a href="https://play.google.com/store/apps/details?id=com.carolroyseteam.main" target="_blank"><img src="<?php echo MBN_ASSETS_URI ?>/img/download-android-store.png" alt=""></a></figure>
                     </div>
                 </div>
             </div>
