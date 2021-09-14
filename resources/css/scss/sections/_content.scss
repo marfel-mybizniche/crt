@@ -1811,16 +1811,16 @@ figure {
                 opacity: 1;
 
                 &.slick-prev {
-                    left: -25px;
+                    left: -30px;
                 }
 
                 &.slick-next {
-                    right: -25px;
+                    right: -30px;
                 }
 
                 &:before {
-                    color: red;
-                    opacity: 0;
+                    color: $color-primary;
+                    opacity: 1;
                 }
             }
 

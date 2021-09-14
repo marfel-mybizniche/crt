@@ -38,7 +38,7 @@
         padding-right: 30px;
 
         position: relative;
-        padding:60px 0 50px;
+        padding:60px 0 35px;
         align-items: flex-end;
 
         &:before {
@@ -58,7 +58,7 @@
         .foot_logo {
             a {
                 display: inline-block;
-                margin:0 0 40px;
+                margin:0 0 15px;
             }
             h3 {
                 line-height: 1.6;
@@ -91,6 +91,7 @@
             flex-wrap: wrap;
             justify-content: center;
             align-content: flex-end;
+            margin-bottom: 15px;
             
         }
 
@@ -271,7 +272,7 @@
             position: absolute;
             left: -35px;
             right: -35px;
-            bottom: 0;
+            top: 0;
             border-bottom: 1px solid lighten($color-black, 19.6%);
         }
 
@@ -367,6 +368,10 @@
 
         .foottop {
             border-bottom: 0 !important;
+
+            &:before {
+                display: none;
+            }
         }
 
 
@@ -427,6 +432,8 @@
 
         .foot_logo {
             display: block;
+            text-align: center;
+
             a {
                 margin-bottom: 10px;
             }
