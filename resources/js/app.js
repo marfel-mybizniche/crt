@@ -43,7 +43,13 @@
                     $("html,body").animate({ scrollTop: $(data_target).offset().top - offset }, 500);
                 }
                 return false;
-            })
+            });
+
+            
+            $('.schema-faq-question').click(function(){
+              $(this).parent().toggleClass('active');
+              $(this).parent().siblings().removeClass('active');
+            });
 
         },
 

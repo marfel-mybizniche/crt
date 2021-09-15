@@ -6441,5 +6441,55 @@ body.error404 {
     }
 }
 
+.sec_faqs {
+    padding:60px 0;
+    
+    .schema-faq {
+
+        .schema-faq-section {
+            background: #FFFFFF;
+            box-shadow: 0px 3px 16px rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+            padding:15px 40px;
+            margin-bottom: 20px;
+        }
+        .schema-faq-question {
+            font:18px/1 "kepler-std", serif;
+            padding:15px 0 10px;
+            display:block;
+            color:#161F1E;
+            position:relative;
+            margin-right: -15px;
+            padding-right: 18px;
+
+            &:after {
+                content:"\23F7";
+                position:absolute;
+                right: 0px;
+                top: 15px;
+                color:#EC6661
+            }
+        }
+        .schema-faq-answer {
+            height:0;
+            display:block;
+            overflow:hidden;
+            font-size:16px;
+            color:#777;
+            margin-bottom: 5px;
+        }
+
+        .active .schema-faq-answer {
+            height:100%;
+        }
+    }
+    @media (max-width:639px) {
+        .schema-faq {
+            .schema-faq-section {
+                padding: 15px 30px;
+            }
+        }
+    }
+}
 
 
