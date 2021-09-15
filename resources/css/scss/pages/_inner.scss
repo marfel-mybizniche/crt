@@ -6442,6 +6442,9 @@ body.error404 {
     }
 }
 
+body.show-popup {
+    overflow: hidden;
+}
 .sec_popup {
     position: fixed;
     z-index: 9999;
@@ -6457,15 +6460,18 @@ body.error404 {
         display: block;
     }
 
-    > * {
+    > .wp-block-group__inner-container {
         width: 640px;
         max-width: 100%;
         margin-left: auto;
         margin-right: auto;
+        padding: 30px;
+        background: #161F1E;
     }
 
     h4 {
         line-height: 1.2;
+        font-weight: bold;
         color: #fff;
     }
 
@@ -6494,5 +6500,9 @@ body.error404 {
                 flex: 1;
             }
         }
+    }
+
+    .gform_button.button {
+        background-color: transparent;
     }
 }
