@@ -53,7 +53,7 @@
 
             $('.sec_popup').append('<span class="xclose">×</span>');
             $('[href=#showpopup], .xclose').click(function(){
-              $('body').addClass('show-popup');
+              $('body').toggleClass('show-popup');
             });
 
         },
