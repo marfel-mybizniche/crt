@@ -45,10 +45,15 @@
                 return false;
             });
 
-            
+
             $('.schema-faq-question').click(function(){
               $(this).parent().toggleClass('active');
               $(this).parent().siblings().removeClass('active');
+            });
+
+            $('.sec_popup').append('<span class="xclose">×</span>');
+            $('[href=#showpopup], .xclose').click(function(){
+              $('body').addClass('show-popup');
             });
 
         },
