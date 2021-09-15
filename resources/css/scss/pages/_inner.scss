@@ -6452,9 +6452,10 @@ body.show-popup {
     top: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0,0,0,0.9);
+    background: rgba(55, 62, 61, 0.98);
     padding: 60px 20px;
     display: none;
+    overflow: auto;
 
     .show-popup & {
         display: block;
@@ -6473,6 +6474,7 @@ body.show-popup {
         line-height: 1.2;
         font-weight: bold;
         color: #fff;
+        font-size: 22px;
     }
 
     .xclose {
@@ -6504,5 +6506,14 @@ body.show-popup {
 
     .gform_button.button {
         background-color: transparent;
+        border: 2px solid #DB323F;
+
+        &:hover {
+            background: #DB323F;
+        }
+    }
+
+    p.note {
+        margin: 10px 10px 0;
     }
 }
