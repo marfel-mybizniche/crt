@@ -6443,7 +6443,7 @@ body.error404 {
 
 .sec_faqs {
     padding:60px 0;
-    
+
     .schema-faq {
 
         .schema-faq-section {
@@ -6461,6 +6461,7 @@ body.error404 {
             position:relative;
             margin-right: -15px;
             padding-right: 18px;
+            cursor: pointer;
 
             &:after {
                 content:"\23F7";
