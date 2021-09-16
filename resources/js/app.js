@@ -436,6 +436,32 @@ $(document).ready(function(){
                         }
                       ]
                   });
+
+                  $('.blog_cats .menu').slick({
+                    dots: false,
+                    arrow: true,
+                    infinite: true,
+                    speed: 300,
+                    slidesToShow: 5,
+                    slidesToScroll: 1,
+                    variableWidth: true,
+                    responsive: [
+                      {
+                        breakpoint: 768,
+                        settings: {
+                          slidesToShow: 3,
+                          slidesToScroll: 1
+                        }
+                      },
+                        {
+                          breakpoint: 480,
+                          settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1
+                          }
+                        }
+                      ]
+                  });
                 }
             }); 
 
