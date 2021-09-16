@@ -440,7 +440,7 @@ $(document).ready(function(){
                   $('.blog_cats .menu').slick({
                     dots: false,
                     arrow: true,
-                    infinite: true,
+                    infinite: false,
                     speed: 300,
                     slidesToShow: 5,
                     slidesToScroll: 1,
@@ -449,15 +449,13 @@ $(document).ready(function(){
                       {
                         breakpoint: 768,
                         settings: {
-                          slidesToShow: 3,
-                          slidesToScroll: 1
+                          slidesToShow: 3
                         }
                       },
                         {
                           breakpoint: 480,
                           settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 1
+                            slidesToShow: 2
                           }
                         }
                       ]

@@ -3753,6 +3753,30 @@ body.single-post {
             }
         }
 
+        @include media(max-width,1023px) {
+            ul {
+                padding:0 30px;
+
+                li {
+                    font-size: 14px;
+                }
+
+                &.slick-slider {
+                    padding: 10px 30px 0;
+                }
+                
+                .slick-arrow {
+                    color: $color-primary;
+                }
+                .slick-prev {
+                    left: 0;
+                }
+                .slick-next {
+                    right: 0;
+                }
+            }
+        }
+
         @media (max-width:639px) {
             ul {
                 margin-left: -10px;
@@ -3760,15 +3784,6 @@ body.single-post {
 
                 li {
                     margin:0 10px 10px;
-                }
-            }
-        }
-
-        @include media(max-width,1023px) {
-            ul {
-
-                li {
-                    font-size: 14px;
                 }
             }
         }
