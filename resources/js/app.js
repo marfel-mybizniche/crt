@@ -45,18 +45,6 @@
                 return false;
             });
 
-
-            $('.schema-faq-question').click(function(){
-              $(this).parent().toggleClass('active');
-              $(this).parent().siblings().removeClass('active');
-            });
-
-            $('.sec_popup').append('<span class="xclose">×</span>');
-            $('[href=#showpopup], .xclose').click(function(e){
-              $('body').toggleClass('show-popup');
-              return false;
-            });
-
         },
 
         customDropdown: function () {
@@ -569,6 +557,18 @@ $(document).ready(function(){
 
 
 
+
+
+        $('.schema-faq-question').click(function(){
+          $(this).parent().toggleClass('active');
+          $(this).parent().siblings().removeClass('active');
+        });
+
+        $('.sec_popup').append('<span class="xclose">×</span>');
+        $('[href=#showpopup], .xclose').click(function(e){
+          $('body').toggleClass('show-popup');
+          return false;
+        });
 
     /*
         Vendors Type Singe - Scrolling Form (vts_)

@@ -3767,7 +3767,7 @@ body.single-post {
                 
                 .slick-arrow{
                     opacity: 1;
-                    
+
                     &:before {
                         color: $color-primary;
                     }
@@ -6535,4 +6535,20 @@ body.show-popup {
     p.note {
         margin: 10px 10px 0;
     }
+
+    
+    .gform_submission_error {
+        font-size:16px; 
+        color:red;
+    }
+    .validation_message {
+        color:red;
+    }
+    .gfield {
+        margin-bottom:15px;
+
+        input, textarea, select {
+            margin-bottom:0;}
+    }
+
 }
