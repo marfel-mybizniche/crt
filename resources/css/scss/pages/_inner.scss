@@ -3765,8 +3765,12 @@ body.single-post {
                     padding: 10px 30px 0;
                 }
                 
-                .slick-arrow {
-                    color: $color-primary;
+                .slick-arrow{
+                    opacity: 1;
+                    
+                    &:before {
+                        color: $color-primary;
+                    }
                 }
                 .slick-prev {
                     left: 0;
