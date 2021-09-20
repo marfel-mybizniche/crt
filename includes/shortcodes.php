@@ -18,16 +18,17 @@ function ct_toll_free_buttons() {
         while( have_rows('call_to_action_btns') ) : the_row();
 
             // Load sub field value.
-            $sub_text = explode(" ", get_sub_field('sub_text'));							
+            //$sub_text = explode(" ", get_sub_field('sub_text'));
+            $sub_text = get_sub_field('sub_text');							
             $main_text = get_sub_field('main_text');
                     
             $returnhtml .= '<div class="cell small-6 medium-6 large-6 col-item">';
             $returnhtml .= '<a class="info_box" href="tel:'.$main_text.'">';
             $returnhtml .= '<figure class="icon_wrapper"></figure>';
             $returnhtml .= '<div class="address">'. $sub_text . '</div>';
-            for( $i=0; $i <= count($sub_text); $i++ ){
+            //for( $i=0; $i <= count($sub_text); $i++ ){
             //$returnhtml .= '<div class="address">'. $sub_text[$i] . '</div>';
-            }
+            //}
             $returnhtml .= '<div class="phone">'.$main_text.'</div>';
             $returnhtml .= '</a>';
             $returnhtml .= '</div>';
