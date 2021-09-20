@@ -67,8 +67,8 @@
 
             <?php echo '<div class="grid-x grid-margin-x blog_lists">';
                 
-                //query_posts('offset=1');
-                query_posts(array('post_type' => 'post', 'offset' => 1, 'posts_per_page' => -1, 'category' => $obj_id));
+                query_posts('offset=1');
+                //query_posts(array('post_type' => 'post', 'offset' => 1, 'posts_per_page' => -1, 'category' => $obj_id));
 
                 while ( have_posts() ) : the_post(); 
                     $terms = get_the_terms( $post->ID, 'category' ); 
