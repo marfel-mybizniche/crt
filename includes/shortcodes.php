@@ -638,12 +638,12 @@ function featured_post_slider($attr) {
 
     if ( $postslist->have_posts() ) :
         $html = "";
-        
+
         $html   .= '<div class="wp-block-columns grid-x grid-margin-x home_news_list blog_news_slider">';
     
         while ( $postslist->have_posts() ) : $postslist->the_post();   
-            $terms = get_the_terms( $post->ID, 'category' );     
-
+            $terms = get_the_terms( $postslist->ID, 'category' );     
+            
             $html    .= '<div class="wp-block-column cell large-4 news_item">';
             $html    .= '<figure class="wp-block-image size-full"><a href="'. get_permalink() .'">';
             if ( has_post_thumbnail() ) {
