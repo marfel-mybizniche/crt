@@ -24,8 +24,9 @@ function ct_toll_free_buttons() {
             $returnhtml .= '<div class="cell small-6 medium-6 large-6 col-item">';
             $returnhtml .= '<a class="info_box" href="tel:'.$main_text.'">';
             $returnhtml .= '<figure class="icon_wrapper"></figure>';
-            for( $i=1; $i <= count($sub_text); $i++ ){
-            $returnhtml .= '<div class="address">'. $sub_text[$i] . '</div>';
+            $returnhtml .= '<div class="address">'. $sub_text . '</div>';
+            for( $i=0; $i <= count($sub_text); $i++ ){
+            //$returnhtml .= '<div class="address">'. $sub_text[$i] . '</div>';
             }
             $returnhtml .= '<div class="phone">'.$main_text.'</div>';
             $returnhtml .= '</a>';
