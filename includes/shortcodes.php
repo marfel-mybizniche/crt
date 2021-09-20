@@ -123,7 +123,7 @@ function mbn_testimonials_shortcode(){
                     $returnhtml .= '<div class="testimonial_info">'. $testimonial_rating;
                     $returnhtml .= ( $short_excerpt ) ? '<h3>'. $short_excerpt .'</h3>': '';
                     $returnhtml .= ( $testimonial_name ) ? '<p class="testimonial_name">'. $testimonial_name .'</p>': '';
-                    $returnhtml .= '<p>';
+                    $returnhtml .= '<p class="">';
                     $returnhtml .= ( $testimonial_role_position ) ? $testimonial_role_position : '';
                     $returnhtml .= ( $testimonial_company ) ?  $testimonial_company : '';
                     $returnhtml .= '</p>';
