@@ -487,7 +487,7 @@ add_filter('excerpt_more', 'new_excerpt_more');
 
 function my_acf_init() {
 	
-	acf_update_setting('google_api_key', 'AIzaSyDac2mOtJr_IktjUhiLZYRL_xHzxRbodRE');
+	acf_update_setting('google_api_key', 'AIzaSyDGw796lT6PGFF97mZxv5LnemjwcDaJMJQ');
 }
 
 add_action('acf/init', 'my_acf_init');
