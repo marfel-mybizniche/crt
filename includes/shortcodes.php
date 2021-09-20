@@ -8,7 +8,8 @@ add_shortcode('home_url', 'mbn_shortcode_home_url');
 
 /* toll free buttons */
 function ct_toll_free_buttons() {
-          
+    $returnhtml = "";
+
     $returnhtml .= '<div class="grid-x grid-margin-x cols2-s2 info_boxes">';
     // Check rows exists.
     if( have_rows('call_to_action_btns') ):
@@ -40,7 +41,7 @@ add_shortcode('ct_contact_button', 'ct_toll_free_buttons');
 
 
 function mbn_banner_checklist(){
-
+    $returnhtml = "";
 
     $returnhtml .= '<div class="banner_checklist">';
         
@@ -187,9 +188,9 @@ function mbn_regular_testimonials_shortcode(){
     );
     
     $testimonials = new WP_Query( $query );
-
     
-		$returnhtml = "";
+	$returnhtml = "";
+
     $returnhtml .= '<div class="wp-block-group happy_clients_section slick_on">';
     $returnhtml .= '<div class="wp-block-group__inner-container">';
 
@@ -233,6 +234,7 @@ function mbn_regular_testimonials_shortcode(){
 }
 
 function build_contact_us_map(){
+    $returnhtml = "";
 
     wp_reset_query();
 
@@ -285,6 +287,7 @@ function build_contact_us_map(){
 add_shortcode('office_locator','build_contact_us_map');
 
 function mbn_video_list_shortcode() {
+    $returnhtml = "";
 
     wp_reset_query();
 
@@ -388,6 +391,7 @@ add_shortcode('mbn_video_list', 'mbn_video_list_shortcode');
 
 // ALL LISTINGS
 function mbn_view_listings_all_filter_shortcode($atts){
+    $returnhtml = "";
 
     wp_reset_query();
 
@@ -518,7 +522,7 @@ add_shortcode('mbn_view_listings_filter', 'mbn_view_listings_all_filter_shortcod
 // listings single by atts = category
 
 function mbn_view_listings_shortcode($atts){
-
+    $returnhtml = "";
     if( ! empty( $atts['category'] ) ):
         $cat = $atts['category'] ;
         $term = get_term_by('name', $cat, 'listings_cat' );
@@ -702,7 +706,8 @@ add_shortcode( 'featured-post-slider', 'featured_post_slider' );
 
 // vendors
 function vendors_list_shortcode(){
-    
+    $returnhtml = "";
+
     $terms = get_terms( 'vendors_cat', array('hide_empty' => false, 'orderby' => 'name', 'order' => 'asc' ));
     $returnhtml .= '<section class="vendors_container">';
         $returnhtml .= '<div class="grid-container">';  
