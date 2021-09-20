@@ -98,7 +98,7 @@ function mbn_testimonials_shortcode(){
             $testimonial_name           = get_field('testimonial_name'); 
             $testimonial_img            = get_field('testimonial_video_thumb');
             $testimonial_role_position  = get_field('testimonial_role_position'); 
-            $testimonial_company        = ' | ' . get_field('testimonial_company'); 
+            $testimonial_company        = get_field('testimonial_company'); 
             $testimonial_rating         = get_field('testimonial_rating'); 
             $testimonial_greview        = get_field('google_review_excerpt'); 
             $video_url                  = get_field('testimonial_video'); 
@@ -125,7 +125,7 @@ function mbn_testimonials_shortcode(){
                     $returnhtml .= ( $testimonial_name ) ? '<p class="testimonial_name">'. $testimonial_name .'</p>': '';
                     $returnhtml .= '<p class="">';
                     $returnhtml .= ( $testimonial_role_position ) ? $testimonial_role_position : '';
-                    $returnhtml .= ( $testimonial_company ) ?  $testimonial_company : '';
+                    $returnhtml .= ( $testimonial_company ) ?  ' | ' . $testimonial_company : '';
                     $returnhtml .= '</p>';
                     $returnhtml .= '</div></div></div>';
                 else:
