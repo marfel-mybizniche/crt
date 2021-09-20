@@ -479,6 +479,6 @@ function fancybox_for_gutenberg_gallery($content) {
 }
 
 function new_excerpt_more( $more ) {
-	return '';
+	return '.';
 }
 add_filter('excerpt_more', 'new_excerpt_more');
