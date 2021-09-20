@@ -477,3 +477,8 @@ function fancybox_for_gutenberg_gallery($content) {
 	$content = preg_replace($pattern, $replacement, $content);
 	return $content;
 }
+
+function new_excerpt_more( $more ) {
+	return '';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
