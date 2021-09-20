@@ -637,6 +637,8 @@ function featured_post_slider($attr) {
     $postslist = new WP_Query( $args );
 
     if ( $postslist->have_posts() ) :
+        $html = "";
+        
         $html   .= '<div class="wp-block-columns grid-x grid-margin-x home_news_list blog_news_slider">';
     
         while ( $postslist->have_posts() ) : $postslist->the_post();   
