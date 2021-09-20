@@ -18,6 +18,8 @@ if ( get_field('page_header_options') !== 'no_header' ):
 	else {
 		$height = '88vh';
 	}
+	
+	$template = "";
 
 	if(!strpos( $template, 'single-listings.php' )): // not in single post template
 		
