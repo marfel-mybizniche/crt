@@ -19,7 +19,7 @@ if ( get_field('page_header_options') !== 'no_header' ):
 		$height = '88vh';
 	}
 
-	if(! strpos( $template, 'single-listings.php' )): // not in single post template
+	if(!strpos( $template, 'single-listings.php' )): // not in single post template
 		
 		//if global header setting
 		if( get_field('page_header_options') == "global_header_opt" || is_post_type_archive() || is_single()  ):

@@ -352,6 +352,7 @@ function build_find_office_map(){
     );
     
     $office_loop = new WP_Query( $office_args );
+    $returnhtml = "";
    
     $returnhtml .= '<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>';
     $returnhtml .= '<script src="https://maps.googleapis.com/maps/api/js?key='. MBN_MAP_API_KEY .'&callback=initMap&libraries=&v=weekly" defer></script>';
