@@ -276,7 +276,7 @@ function getVimeoVideoThumbnailByVideoId( $id = '', $thumbType = 'medium' ) {
     if ( $id == '' ) {
         return FALSE;
     }
-
+    $apiData= "";
     $apiData = unserialize( file_get_contents( $url ) );
 
     if ( is_array( $apiData ) && count( $apiData ) > 0 ) {
