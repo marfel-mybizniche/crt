@@ -6553,7 +6553,27 @@ body.show-popup {
         margin-bottom:15px;
 
         input, textarea, select {
-            margin-bottom:0;}
+            margin-bottom:0;
+        }
+    }
+
+    .ginput_complex {
+        display: flex;
+        flex-flow: wrap;
+        margin-left: -15px;
+        margin-right: -15px;
+        margin-bottom: -15px;
+
+        > span {
+            flex-basis: 50%;
+            margin-left: 15px;
+            margin-right: 15px;
+            margin-bottom: 15px;
+        }
+
+        .ginput_full {
+            flex-basis: 100%;
+        }
     }
 
 }

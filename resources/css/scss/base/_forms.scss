@@ -360,24 +360,6 @@ textarea.medium {
     }
 }
 
-.gfield {
-    
-    .ginput_complex {
-        display: flex;
-        flex-flow: wrap;
-        margin-left: -15px;
-        margin-right: -15px;
-        margin-bottom: -15px;
-
-        > span {
-            flex-basis: 50%;
-            margin-left: 15px;
-            margin-right: 15px;
-            margin-bottom: 15px;
-        }
-    }
-
-}
 
 
 ul.gform_fields {
