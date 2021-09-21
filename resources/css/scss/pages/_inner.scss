@@ -6560,13 +6560,13 @@ body.show-popup {
     .ginput_complex {
         display: flex;
         flex-flow: wrap;
-        margin-left: -15px;
-        margin-right: -15px;
+        margin-left: -10px;
+        margin-right: -10px;
         margin-bottom: -15px;
 
         > span {
-            margin-left: 15px;
-            margin-right: 15px;
+            margin-left: 10px;
+            margin-right: 10px;
             margin-bottom: 15px;
             flex:1;
         }
