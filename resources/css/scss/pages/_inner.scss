@@ -6476,8 +6476,13 @@ body.show-popup {
     display: none;
     overflow: auto;
 
-    .show-popup & {
-        display: block;
+    .show-popup & { 
+        //display: block;
+    }
+    &.active {
+        .show-popup & {
+            display: block;
+        }
     }
 
     > .wp-block-group__inner-container {
