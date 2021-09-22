@@ -3460,19 +3460,20 @@ figure.video_full_width {
     .ginput_complex {
         display: flex;
         flex-flow: wrap;
-        margin-left: -10px;
-        margin-right: -10px;
+        margin-left: -6px;
+        margin-right: -6px;
         margin-bottom: -15px;
 
         > span {
-            margin-left: 10px;
-            margin-right: 10px;
+            margin-left: 6px;
+            margin-right: 6px;
             margin-bottom: 15px;
             flex:1;
         }
 
         .ginput_full {
             flex-basis: 100%;
+            margin-bottom: 0;
         }
     }
 }
