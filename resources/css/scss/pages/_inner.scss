@@ -6581,6 +6581,7 @@ body.show-popup {
 
 .getrep_form {
     font-family: $body-font-family;
+    margin-bottom: 30px;
     
     .ginput_complex {
         display: flex;
@@ -6640,9 +6641,14 @@ body.show-popup {
 
 
     .gform_button {
+        border: 2px solid #DB323F;
 
         &.button {
             background-color: transparent;
+
+            &:hover {
+                background: #DB323F;
+            }
         }
     }
 
