@@ -982,7 +982,7 @@ h1.page_title {
 }
 
 // 2500 page
-.\32 500-closing-costs_page {
+.x2500-closing-costs_page {
 
     .sec_form {
         @media (min-width:600px) and (max-width:781px) {
@@ -3454,6 +3454,25 @@ figure.video_full_width {
                     }
                 }
             }
+        }
+    }
+
+    .ginput_complex {
+        display: flex;
+        flex-flow: wrap;
+        margin-left: -10px;
+        margin-right: -10px;
+        margin-bottom: -15px;
+
+        > span {
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-bottom: 15px;
+            flex:1;
+        }
+
+        .ginput_full {
+            flex-basis: 100%;
         }
     }
 }
@@ -6577,3 +6596,5 @@ body.show-popup {
     }
 
 }
+
+
