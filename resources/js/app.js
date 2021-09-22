@@ -571,19 +571,19 @@ $(document).ready(function(){
         // });
         
     
-        $('.sec_popup').append('<span class="xclose">×</span>');
-        $('.sec_faqs [href]').click(function () {
-          $('html, body').stop().animate();
-          var getHash = $(this).prop("hash");
-          $(getHash).addClass('active');
-          $('body').addClass('show-popup');
-          return false;
-        });
+        // $('.sec_popup').append('<span class="xclose">×</span>');
+        // $('.sec_faqs [href]').click(function () {
+        //   $('html, body').stop().animate();
+        //   var getHash = $(this).prop("hash");
+        //   $(getHash).addClass('active');
+        //   $('body').addClass('show-popup');
+        //   return false;
+        // });
 
-        $('.xclose').click(function () {
-          $('.sec_popup').removeClass('active');
-          $('body').removeClass('show-popup');
-        });
+        // $('.xclose').click(function () {
+        //   $('.sec_popup').removeClass('active');
+        //   $('body').removeClass('show-popup');
+        // });
 
     /*
         Vendors Type Singe - Scrolling Form (vts_)
