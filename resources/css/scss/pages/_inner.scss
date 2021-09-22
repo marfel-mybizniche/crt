@@ -6599,7 +6599,6 @@ body.show-popup {
 
         .ginput_full {
             flex-basis: 100%;
-            margin-bottom: 0;
         }
     }
 
@@ -6639,6 +6638,13 @@ body.show-popup {
         }
     }
 
+    .gfield {
+        margin-bottom: 15px;
+
+        input, textarea, select {
+            margin-bottom: 0;
+        }
+    }
 
     .gform_button {
         border: 2px solid #DB323F;
@@ -6650,6 +6656,15 @@ body.show-popup {
                 background: #DB323F;
             }
         }
+    }
+
+    .gform_submission_error {
+        font-size: 16px;
+        color: #DB323F;
+        margin-bottom: 0;
+    }
+    .validation_message {
+        color: #DB323F;
     }
 
 
