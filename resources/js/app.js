@@ -305,6 +305,20 @@ $(document).ready(function(){
                 }
               ]
           });
+
+          var sliderAdaptiveHeight = function(){
+            var heights = []; 
+            $('.testimonial_block .slick-active').each(function(){
+              heights.push($(this).height());
+            });
+            $('.testimonial_block .slick-list').height(Math.max.apply(null, heights));
+          }
+          
+          sliderAdaptiveHeight();
+          
+          $('.testimonial_block').on('afterChange', function(event, slick, currentSlide, nextSlide){
+            sliderAdaptiveHeight();
+          });
                 
           $('.is-type-video iframe').each(function(){      
             var $this = $(this); // get each video
