@@ -273,7 +273,7 @@ $(document).ready(function(){
             speed: 300,
             slidesToShow: 3,
             slidesToScroll: 3,
-            adaptiveHeight: true,
+            //adaptiveHeight: true,
             responsive: [
                 {
                   breakpoint: 1200,
@@ -314,7 +314,7 @@ $(document).ready(function(){
             $('.testimonial_block .slick-list').height(Math.max.apply(null, heights));
           }
           
-          //sliderAdaptiveHeight();
+          sliderAdaptiveHeight();
           
           $('.testimonial_block').on('afterChange', function(event, slick, currentSlide, nextSlide){
             sliderAdaptiveHeight();
