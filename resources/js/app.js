@@ -314,7 +314,7 @@ $(document).ready(function(){
             $('.testimonial_block .slick-list').height(Math.max.apply(null, heights));
           }
           
-          sliderAdaptiveHeight();
+          //sliderAdaptiveHeight();
           
           $('.testimonial_block').on('afterChange', function(event, slick, currentSlide, nextSlide){
             sliderAdaptiveHeight();
