@@ -5202,7 +5202,12 @@ body.error404 {
         }
     }
 
-
+    @media (max-width:1366px) {
+        .call_carol {
+            font-size: 45px;
+        }
+    }
+    
     @media (max-width:1366px) {
         .view_call {
             display: block;

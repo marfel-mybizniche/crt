@@ -220,6 +220,15 @@ body.home {
         }
     }
 
+    @media (max-width:1470px) {
+        .hero_banner .banner_wrap {
+            
+            .banner_style_1 {
+                padding-left: 30px;
+            }
+        } 
+    }
+
     @media (max-width:1366px) {
         .hero_banner {
             h1 {
