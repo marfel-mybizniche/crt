@@ -1540,15 +1540,17 @@ ul.star-rating li i {
     .slick-dots {
         position: relative !important;
     }
-
+    .slick-slide {
+        .testimonial_blockitem {
+            .col-image img {
+                height: auto !important;
+            }
+        }
+    }
     .testimonial_blockitem {
         padding: 0 20px;
         width: 100%;
         margin-bottom: -50px;
-
-        .col-image img {
-            height: auto !important;
-        }
 
         .testimonial_body {
             display: flex;
