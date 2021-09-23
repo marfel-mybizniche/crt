@@ -1546,6 +1546,10 @@ ul.star-rating li i {
         width: 100%;
         margin-bottom: -50px;
 
+        .col-image img {
+            height: auto !important;
+        }
+
         .testimonial_body {
             display: flex;
             flex-direction: row;
