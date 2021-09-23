@@ -78,7 +78,7 @@
                         <figure class="wp-block-image"><a href="<?php the_permalink(); ?>">
                             <?php
                             if ( has_post_thumbnail() ) { 
-                               echo '<img src="'.get_the_post_thumbnail().'" alt="'. get_the_title() .'"  width="450" height="250" />'; 
+                               echo '<img src="'.get_the_post_thumbnail_url().'" alt="'. get_the_title() .'"  width="450" height="250" />'; 
                             } else {
                                 echo '<img loading="lazy" src="'.home_url().'/wp-content/uploads/2021/07/img-6-steps.jpg" width="450" height="250">';
                             } ?>
