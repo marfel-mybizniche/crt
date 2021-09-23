@@ -120,7 +120,7 @@ function mbn_testimonials_shortcode(){
                 
                 if( $review_type == 'video_review' ) :
                     $returnhtml .= '<div class="testimonial_blockitem">';
-                    $returnhtml .= ($testimonial_img) ? '<figure class="col-image"><img src="'. $testimonial_img .'" alt="" style="height:242px"></figure>' : '<figure><img src="https://via.placeholder.com/1200x500"/></figure>';
+                    $returnhtml .= ($testimonial_img) ? '<figure class="col-image" style="height:242px"><img src="'. $testimonial_img .'" alt=""></figure>' : '<figure><img src="https://via.placeholder.com/1200x500"/></figure>';
                     $returnhtml .= '<div class="testimonial_body">';    
                     $returnhtml .= '<span data-video-id="'.esc_attr($video_id) .'" class="modal-toggle testimonial_vbtn" data-video-type="'.esc_attr($video_type).'">';
                     $returnhtml .= '<figure><img src="'. MBN_ASSETS_URI .'/img/icn-play-w.svg" alt=""></figure><span>PLAY VIDEO</span></span>';
