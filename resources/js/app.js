@@ -45,6 +45,8 @@
                 return false;
             });
 
+            $('.testimonial_block_wrap .col-image').attr('style', '');
+
         },
 
         customDropdown: function () {
