@@ -12,6 +12,35 @@
 
     <?php wp_head() ?>
 
+    <?php if(is_home()) { ?>
+        <script type="application/ld+json">
+            {
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://carolroyseteam.com/blog/"
+            },
+            "headline": "Blog | Carol Royse Team",
+            "description": "Read our blog. Get real estate news, updates, tips, and trends. Carol Royse Team is your valley wide real estate team.",
+            "image": "https://carolroyseteam.mbndigital-staging.com/wp-content/themes/mybizniche/resources/img/logo-2.svg",  
+            "author": {
+                "@type": "Organization",
+                "name": "Carol Royse"
+            },  
+            "publisher": {
+                "@type": "Organization",
+                "name": "",
+                "logo": {
+                "@type": "ImageObject",
+                "url": ""
+                }
+            },
+            "datePublished": ""
+            }
+        </script>
+    <?php } ?>
+
 </head>
 <body <?php body_class() ?>>
 
