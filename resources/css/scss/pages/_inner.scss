@@ -3608,14 +3608,12 @@ body.single-post {
             text-transform: uppercase;
             letter-spacing: .6px;
             color: #777;
-            margin:0 0 30px 20px;
+            margin:0 0 30px 20px; 
+            font-weight: 500;
 
-            @include media(max-width,1023px) {
-                font-size: 14px;
-            }
         }
 
-        .grid_item {
+        .grid_item { 
             border:1px solid #e5e5e5;
             
 
@@ -3630,13 +3628,13 @@ body.single-post {
 
             h6 {
                 font-size: 14px;
-                font-weight: 300;
-                color: #999;
+                font-weight: 500;
+                color: #777;
                 letter-spacing: 2.8px;
                 text-transform: uppercase;
 
                 a {
-                    color: #999;
+                    color: #777;
                 }
             }
 
