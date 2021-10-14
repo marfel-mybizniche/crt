@@ -122,13 +122,13 @@
 							
 					?>
 
-					<?php /*
+					
 					<div class="vendor_video_wrap">
 						<figure class="is-type-video">
 							<iframe title="<?php echo esc_attr(get_the_title()); ?>" src="<?php echo esc_url($video_url) ?>"  width="700" height="395" ></iframe>
 						</figure>
 					</div>
-					*/ ?>
+				
 
 					<?php endwhile;
 					endif;?>		
@@ -165,11 +165,11 @@
 					<?php endif; ?> 
 				</div><!-- vendors_info_left -->
 
-				<?php /*
+				
 				<div class="image_badge_bottom desktop_only">
 					<figure><img src="<?php echo esc_url( MBN_ASSETS_URI .'/img/carol-royse-badge.png'); ?>" alt=""/><figure>
 				</div>
-				*/ ?>
+				
 				
 			</div>
 			<div class="cell medium-6 large-6 small-12">

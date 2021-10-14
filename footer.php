@@ -7,11 +7,11 @@
             <div class="foottop">
                 <div class="foot_logo">
                         <a class="logo" href="<?php echo get_home_url(); ?>">
-                            <img src="<?php echo MBN_ASSETS_URI ?>/img/logo-2.svg" alt="">
+                            <img src="<?php echo MBN_ASSETS_URI ?>/img/logo-2.png" alt="">
                         </a>
                         
                         <a class="logo_mobile" href="<?php echo get_home_url(); ?>">
-                            <img src="<?php echo MBN_ASSETS_URI ?>/img/logo-mobile-2.svg" alt="">
+                            <img src="<?php echo MBN_ASSETS_URI ?>/img/logo-mobile.png" alt="">
                         </a>
                         
                     </div>
