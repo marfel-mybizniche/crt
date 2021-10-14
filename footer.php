@@ -15,6 +15,7 @@
                         </a>
                         
                     </div>
+                    <?php /*
                 <div class="foot_contact">
                     <div class="foot_contact_text"><a class="">Download Our App</a></div>
                     <div class="foot_contact_img">
@@ -22,6 +23,7 @@
                         <figure><a href="https://play.google.com/store/apps/details?id=com.carolroyseteam.main" target="_blank"><img src="<?php echo MBN_ASSETS_URI ?>/img/download-android-store.png" alt=""></a></figure>
                     </div>
                 </div>
+                */ ?>
             </div>
             <div class="footer_wrap">
                 <div class="grid-x ct_margin_both_0 cols4-s2 footer_desktop">
