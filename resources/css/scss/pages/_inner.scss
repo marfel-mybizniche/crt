@@ -2749,7 +2749,7 @@ body {
 }
 
 p.note {
-    font-size: 14px!important;
+    font-size: 16px!important;
     color: #999;
     
     @include media(max-width,1023px){
@@ -4316,8 +4316,8 @@ body.single-post {
             span {
                 display: block;
                 color: #fff;
-                font-size: 11px;
-                max-width: 75px;
+                font-size: 16px;
+                max-width: 100px;
                 text-transform: uppercase;
             }
 
@@ -6004,7 +6004,7 @@ body.error404 {
                 .xsmall {
                     line-height: 1.2;
                     small {
-                        font-size: 11px !important;
+                        font-size: 14px !important;
                         color: #858689 !important;
                         line-height: 1.2 !important;
                     }
