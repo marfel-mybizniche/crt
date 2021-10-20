@@ -109,7 +109,7 @@ figure {
             .media_body {
                 h3 {
 
-                    font-size: 14px !important;
+                    font-size: 16px !important;
                     font-weight: 600 !important;
                     @include media(max-width,639px){
                         padding-top:5px;
@@ -226,7 +226,7 @@ figure {
         padding: 10px 10px 20px;
 
         .video_header_title {
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 600;
 
             &:not(span) {
@@ -247,7 +247,7 @@ figure {
                 color: $color-white;
 
                 span {
-                    font-size: 14px;
+                    font-size: 16px;
                     padding-left: 10px;
                     color: $color-primary;
                 }
@@ -438,7 +438,7 @@ figure {
                 height: 3px;
                 -webkit-transform: rotate(-45deg);
                 transform: rotate(-45deg);
-                border-bottom: 0;
+                border-bottom: 0; 
                 width: 24px;
                 border-top: 2px solid #DB323F;
             }
@@ -651,7 +651,7 @@ figure {
                         padding: 15px 20px;
 
                         .listing-address {
-                            font-size: 14px;
+                            font-size: 16px;
                             display: flex;
                             align-items: center;
 
@@ -1158,7 +1158,7 @@ figure {
             }
 
             .coming_soon_red {
-                font-size: 14px;
+                font-size: 16px;
             }
 
             .address {
@@ -1600,7 +1600,7 @@ figure {
 
     .testimonial_body {
         h3 {
-            font-size: 14px;
+            font-size: 16px;
             font-style: italic;
             line-height: 1.5;
             color: $color-grey;
@@ -1921,7 +1921,7 @@ figure {
 
                     a {
                         font-weight: 800;
-                        font-size: 14px;
+                        font-size: 16px;
                         text-transform: uppercase;
                         color: $color-dark;
                         position: absolute;

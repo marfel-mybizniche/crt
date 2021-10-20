@@ -43,7 +43,7 @@ body.home {
         }
 
         .gform_submission_error {
-            font: 14px "proxima-nova", sans-serif;
+            font: 16px "proxima-nova", sans-serif;
             color: red;
             display:none;
         }
@@ -80,7 +80,7 @@ body.home {
 
         .gfield .validation_message {
             margin-top: 10px;
-            font: 14px "proxima-nova", sans-serif;
+            font: 16px "proxima-nova", sans-serif;
             color: red;
         }
 
@@ -505,7 +505,7 @@ body.home {
     position: relative;
 
     h6 {
-        font-size: 14px;
+        font-size: 16px;
         font-weight: 600;
         color: #888888;
         text-transform: uppercase;
@@ -575,7 +575,7 @@ body.home {
         margin-bottom: 30px;
     }
     h6 {
-        font-size: 14px;
+        font-size: 16px;
         color: #888888;
         text-transform: uppercase;
         letter-spacing: 0.2em;
@@ -675,7 +675,7 @@ body.home {
         }
     }
     h6 {
-        font-size: 14px;
+        font-size: 16px;
         font-weight:600;
         color: #888888;
         text-transform: uppercase;
@@ -764,7 +764,7 @@ body.home {
             font-family: "kepler-std", serif;
 
             small {
-                font-size:10px;
+                font-size:16px;
                 font-weight:bold;
                 color:#DB323F;
                 text-transform: uppercase;
@@ -866,7 +866,7 @@ body.home {
         }
     }
     h6 {
-        font-size: 14px;
+        font-size: 16px;
         font-weight:600;
         color: #888888;
         text-transform: uppercase;
@@ -1050,10 +1050,10 @@ body.home {
         padding-right: 70px;
 
         h2 {
-            margin-bottom:30px
+            margin-bottom:30px 
         }
         h6 {
-            font-size: 14px;
+            font-size: 16px;
             font-weight:600;
             color: #DB323F;
             text-transform: uppercase;
@@ -1063,7 +1063,7 @@ body.home {
             font-weight: 400;
         }
         .note {
-            font-size:12px;
+            font-size:16px;
         }
 
         @include media(max-width, 1023px){
@@ -1142,7 +1142,7 @@ body.home {
         }
     }
     h6 {
-        font-size: 14px;
+        font-size: 16px;
         font-weight:600;
         color: #777777;
         text-transform: uppercase;
@@ -1194,7 +1194,7 @@ body.home {
     padding: 80px 0 0;  
 
     h6 {
-        font-size: 14px;
+        font-size: 16px;
         font-weight:600;
         color: #777777;
         text-transform: uppercase;
@@ -1291,7 +1291,7 @@ body.home {
     }
 
     h6 {
-        font-size: 14px;
+        font-size: 16px;
         font-weight:400;
         color: #777777;
         text-transform: uppercase;
@@ -1355,7 +1355,7 @@ body.home {
 
     
     h6 {
-        font-size: 14px;
+        font-size: 16px;
         font-weight:600;
         color: #DB323F;
         text-transform: uppercase;

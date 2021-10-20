@@ -115,7 +115,7 @@ h1.page_title {
 
 .section_subtitle {
     font-family: $body-font-family;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
     line-height: 17px;
     letter-spacing: 0.2em;
@@ -211,7 +211,7 @@ h1.page_title {
                 .subtitle {
                     font-size: 12px;
                     font-weight: 600;
-                    line-height: 14px;
+                    line-height: 16px;
                     letter-spacing: 0.3em;
                     text-align: left;
                     text-transform: uppercase;
@@ -453,7 +453,7 @@ h1.page_title {
                 .subtitle {
                     font-size: 12px;
                     font-weight: 600;
-                    line-height: 14px;
+                    line-height: 16px;
                     letter-spacing: 0.3em;
                     text-align: left;
                     text-transform: uppercase;
@@ -1314,7 +1314,7 @@ h1.page_title {
         }
 
         h2.office_map_title {
-            font-size: 14px;
+            font-size: 16px;
         }
 
         p {
@@ -1576,7 +1576,7 @@ ul.star-rating li i {
                     color: $color-white;
                     font-weight: 800;
                     text-transform: uppercase;
-                    font-size: 14px;
+                    font-size: 16px;
                 }
 
                 @include media (max-width, 768px) {
@@ -1610,7 +1610,7 @@ ul.star-rating li i {
                 padding: 15px 20px;
 
                 h3 {
-                    font-size: 14px;
+                    font-size: 16px;
                     font-style: italic;
                     font-weight: 600;
                     line-height: 1.2;
@@ -1620,11 +1620,11 @@ ul.star-rating li i {
                 p {
                     line-height: 1.2;
                     color: $color-grey;
-                    font-size: 11px;
+                    font-size: 14px;
                     margin-bottom: 5px;
 
                     &.testimonial_name {
-                        font-size: 13px;
+                        font-size: 16px;
                         font-weight: 700;
                         color: $color-dark
                     }
@@ -1869,7 +1869,7 @@ img.wpsl-store-thumb.wp-post-image {
     padding: 10px 20px;
 
     h3 {
-        font-size: 14px;
+        font-size: 16px;
     }
 }
 
@@ -2037,12 +2037,12 @@ img.wpsl-store-thumb.wp-post-image {
         }
 
         .listing-title {
-            font-size: 14px;
+            font-size: 16px;
             display: none;
         }
 
         p.listing-address {
-            font-size: 14px;
+            font-size: 16px;
             //background-image: linear-gradient(to right, #161f1e, rgba(22, 31, 30, 0.77), rgba(22, 31, 30, 0));
             color: #fff;
             margin: 0;
@@ -2353,7 +2353,7 @@ img.wpsl-store-thumb.wp-post-image {
                     z-index: 9;
                     color: $color-white;
                     font-family: "proxima-nova";
-                    font-size: 14px;
+                    font-size: 16px;
                     font-weight: 300;
                     padding-left: 30px;
 
@@ -2387,7 +2387,7 @@ img.wpsl-store-thumb.wp-post-image {
                 display: block;
                 text-transform: uppercase;
                 font-family: "proxima-nova";
-                font-size: 14px;
+                font-size: 16px;
                 font-weight: bold;
                 color: $color-light-gray;
                 padding: 0 20px;
@@ -2659,7 +2659,7 @@ body {
             line-height: 1;
             margin-top: -3px;
         }
-    }
+    } 
     
     &.light {
         a, .wp-block-button__link {
@@ -2749,11 +2749,11 @@ body {
 }
 
 p.note {
-    font-size: 12px!important;
+    font-size: 14px!important;
     color: #999;
     
     @include media(max-width,1023px){
-        font-size: 14px!important;
+        font-size: 12px!important;
     }
 }
 
@@ -3604,7 +3604,7 @@ body.single-post {
         margin:0 0 40px;
 
         h5 {
-            font-size: 14px;
+            font-size: 16px;
             text-transform: uppercase;
             letter-spacing: .6px;
             color: #777;
@@ -3627,7 +3627,7 @@ body.single-post {
             }
 
             h6 {
-                font-size: 14px;
+                font-size: 16px;
                 font-weight: 500;
                 color: #777;
                 letter-spacing: 2.8px;
@@ -3670,7 +3670,7 @@ body.single-post {
                 span {
                     color: #c33641;
                     margin-left: 10px;
-                    font-size: 14px;
+                    font-size: 16px;
                 }
             }
         }
@@ -3734,7 +3734,7 @@ body.single-post {
 
             li {
                 list-style: none;
-                font-size: 14px;
+                font-size: 16px;
                 font-weight: 600;
                 text-transform: uppercase;
                 margin:0 20px 10px;
@@ -3814,7 +3814,7 @@ body.single-post {
         }
 
         h6 {
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 600;
             color: #999;
             letter-spacing: 2.8px;
@@ -3897,7 +3897,7 @@ body.single-post {
             span {
                 color: #c33641;
                 margin-left: 10px;
-                font-size: 14px;
+                font-size: 16px;
             }
         }
     }
@@ -3907,7 +3907,7 @@ body.single-post {
         margin-bottom: 30px;
     }
     .post_cats {
-        font-size: 14px;
+        font-size: 16px;
         text-transform: uppercase;
         color: #999999;
         letter-spacing: 2.8px;
@@ -3943,7 +3943,7 @@ body.single-post {
             figcaption, .figcaption {
                 display: block;
                 margin: 0 0 0 20px;
-                font-size: 14px;
+                font-size: 16px;
                 text-transform: uppercase;
                 font-weight: 500;
                 letter-spacing: .5px;
@@ -4259,7 +4259,7 @@ body.single-post {
         }
     
         h6 {
-            font-size: 14px;
+            font-size: 16px;
             font-weight:600;
             color: #777777;
             text-transform: uppercase;
@@ -4416,7 +4416,7 @@ body.single-post {
         }
     
         h6 {
-            font-size: 14px;
+            font-size: 16px;
             font-weight:600;
             color: #777777;
             text-transform: uppercase;
@@ -4436,7 +4436,7 @@ body.single-post {
             color: #DB323F;
         }
         h5 {
-            font-size: 14px;
+            font-size: 16px;
             font-weight:600;
             color: #DB323F;
             text-transform: uppercase;
@@ -4577,7 +4577,7 @@ body.single-post {
     }
 
     h6 {
-        font-size: 14px;
+        font-size: 16px;
         font-weight:400;
         color: #DB323F !important;
         text-transform: uppercase;
@@ -4731,7 +4731,7 @@ body.single-post {
         }
 
         .note {
-            font-size: 12px;
+            font-size: 14px;
             padding:15px;
             opacity: 0.8;
         }
@@ -5764,7 +5764,7 @@ body.error404 {
     position: relative;
 
     h6 {
-        font-size: 14px;
+        font-size: 16px;
         font-weight: 600;
         color: #888888;
         text-transform: uppercase;
@@ -6361,7 +6361,7 @@ body.error404 {
 
         p {
             line-height: 1.4;
-            font-size: 14px;
+            font-size: 16px;
         } 
     }
 
