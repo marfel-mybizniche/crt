@@ -79,7 +79,7 @@ function cptui_register_my_cpts_listings() {
 	register_post_type( "listings", $args );
 }
 
-add_action( 'init', 'cptui_register_my_cpts_listings' );
+//add_action( 'init', 'cptui_register_my_cpts_listings' );
 
 
 function cptui_register_my_taxes_listings_cat() {
@@ -114,7 +114,7 @@ function cptui_register_my_taxes_listings_cat() {
 	];
 	register_taxonomy( "listings_cat", [ "listings" ], $args );
 }
-add_action( 'init', 'cptui_register_my_taxes_listings_cat' );
+//add_action( 'init', 'cptui_register_my_taxes_listings_cat' );
 
 function cptui_register_my_cpts() {
 
@@ -311,7 +311,7 @@ function cptui_register_my_cpts_google_reviews() {
 	register_post_type( "google_reviews", $args );
 }
 
-add_action( 'init', 'cptui_register_my_cpts_google_reviews' );
+//add_action( 'init', 'cptui_register_my_cpts_google_reviews' );
 
 
 function cptui_register_my_cpts_offices() {
