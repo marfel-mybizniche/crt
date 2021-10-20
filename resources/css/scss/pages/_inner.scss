@@ -4677,6 +4677,10 @@ body.single-post {
 
         .gfield_radio {
             margin-bottom: 15px;
+            label {
+                font-size: 16px;
+            }
+            
             input {
                 position: absolute;
                 display: none;
