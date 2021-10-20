@@ -149,10 +149,14 @@ header {
 
 				.logo {
 					display: block;
+					position: relative;
+					position: relative;
+					z-index: 2;
 				}
 				
 				.logo2 {
 					display: none;
+					z-index: 1;
 				}
 
 				.navmenu {
